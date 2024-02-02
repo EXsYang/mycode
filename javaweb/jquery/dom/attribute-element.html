@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性操作</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        /*属性操作
+            ● 属性操作介绍/参考文档讲解即可
+            1.attr(): 获取属性和设置属性
+            2.attr()传递一个参数时, 即为某元素的获取指定属性
+            3.attr()传递两个参数时, 即为某元素设置指定属性的值
+            4.jQuery 中有很多方法都是一个函数实现获取和设置. 如: attr(), html(), text(), val(),
+            height(), width(), css() 等, 后面我们还会举例说明.
+            5.removeAttr(): 删除指定元素的指定属性
+
+            一，获取属性的区别
+            ● attr() 操作标签上的属性
+            ● prop() 操作Boolean类型的属性和有特性(class id name)的属性
+            attr可以操作HTML标签中的属性，不管是固有属性，还是添加的自定义属性。都可以通过attr来设置。
+            prop同样可以操作HTML中的固有属性，但对于自定义属性便无能为力了
+
+            */
+
+        $(function (){
+            // alert("获取input name属性= " + $("#text1").attr("name"));
+            // 设置input name属性为t2
+             $("#text1").attr("name","t2");
+            // $("#text1").attr("name") 返回name属性
+            alert("设置后的input name属性= " + $("#text1").attr("name"));
+        })
+
+    </script>
+</head>
+<body>
+<input id="text1" type="text" name="t1" value="defaultValue">
+<p>pppp</p>
+</body>
+</html>

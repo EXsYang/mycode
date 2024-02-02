@@ -1,0 +1,27 @@
+package com.atguigu.exer1;
+
+public class ComparableCircle extends Circle implements CompareObject{
+
+	
+	
+	
+	
+	
+	
+	
+	public ComparableCircle() {
+		super();
+	}
+
+	public ComparableCircle(double redius) {
+		super(redius);
+	}
+
+	public int compareTo(Object o) {
+		
+	};
+	
+	
+	
+	
+}

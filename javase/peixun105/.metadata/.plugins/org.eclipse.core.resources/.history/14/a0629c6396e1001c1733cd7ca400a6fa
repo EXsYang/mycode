@@ -1,0 +1,46 @@
+package com.atguigu.exer2;
+
+public class WindowTest3 {
+
+	// 创建三个窗口卖票，票数100张 使用 同步方法 的方式解决 extends的方式创建的多线程的线程安全问题
+
+	public static void main(String[] args) {
+
+		Window3 w1 = new Window3();
+		Window3 w2 = new Window3();
+		Window3 w3 = new Window3();
+
+		w1.setName("窗口一");
+		w1.start();
+
+		w2.setName("窗口二");
+		w2.start();
+
+		w3.setName("窗口三");
+		w3.start();
+
+	}
+
+}
+
+class Window3 extends Thread {
+
+	private static int ticket = 100;
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 100; i++) {
+			show();
+		}
+	}
+
+	private  synchronized void show() {
+
+		if (ticket > 0) {
+
+			System.out.println(Thread.currentThread().getName() + ":" + ticket);
+			ticket--;
+		}
+
+	}
+}

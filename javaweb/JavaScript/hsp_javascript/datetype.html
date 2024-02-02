@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型-特殊值</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*typeof是一个运算符，有2种使用方式：
+    typeof(表达式)和typeof 变量名，第一种是对表达式做运算，第二种是对变量做运算。
+
+    typeof的返回值:
+    typeof运算符的返回类型为字符串，值包括如下几种：
+    1. 'undefined'              --未定义的变量或值
+    2. 'boolean'                 --布尔类型的变量或值
+    3. 'string'                     --字符串类型的变量或值
+    4. 'number'                  --数字类型的变量或值
+    5. 'object'                    --对象类型的变量或值，或者null(这个是js历史遗留问题，将null作为object类型处理)
+    6. 'function'                 --函数类型的变量或值
+    7. "symbol"                 --Symbol (ECMAScript 2015 新增)*/
+
+
+    //老韩说明
+    //1. typeof()是 JavaScript 语言提供的一个函数。
+    //2. 返回变量的数据类型
+    //3. 3个特殊值 undefined 没有赋值就使用 null, NaN 当不能识别类型
+    var email; //特殊值undefined
+    console.log("email= " + email);//undefined
+    var address = null;
+    console.log("address= " + address);//null
+    console.log(10 * "abc");//NaN= Not a Number
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>springboot-usersys</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--导入springboot 父工程-规定写法-->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--引入相关的依赖-->
+    <dependencies>
+        <!--导入web项目场景启动器: 会自动导入和web开发相关的所有依赖[库/jar]
+         后面老师还会说spring-boot-starter-web 到底引入哪些相关依赖
+         web项目场景启动器,这里是真正的引入了依赖
+         starter-web 版本不需要指定 在父工程已经指定好了
+         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--因为starter-web 中引入的有tomcat-starter依赖的jar
+            所以要想切换为Undertow 就需要排除默认引入的tomcat
+            -->
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>org.springframework.boot</groupId>-->
+            <!--        <artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+        <!--我们自己指定mysql/驱动版本- 修改版本仲裁
+      默认是在 导入springboot父工程 <parent> spring-boot-starter-parent
+      时按ctrl+B 进入到依赖的父项目spring-boot-starter-parent-2.5.3.pom文件
+      再次按ctrl+B进入到依赖的父项目 spring-boot-dependencies-2.5.3.pom 在这里
+      的<properties> 中指定的
+      ->
+
+      1. 方式1:显示的导入mysql依赖, 并明确的指定<version>
+      2. 方式2.在自己的pom.xml文件中, 在<properties> 中指定mysql的key
+      形如:
+          <properties>
+          <mysql.version>5.1.49</mysql.version>
+          </properties>
+      3. 为什么可以达到修改版本仲裁: 根据依赖就近优先原则. 即离本项目最近的生效
+      -->
+        <!--<dependency>-->
+        <!--    <groupId>mysql</groupId>-->
+        <!--    <artifactId>mysql-connector-java</artifactId>-->
+        <!--    &lt;!&ndash;第一种方式 直接在这里写&ndash;&gt;-->
+        <!--    &lt;!&ndash;<version>5.1.49</version>&ndash;&gt;-->
+        <!--</dependency>-->
+
+        <!--
+        导入 配置处理器
+        解决 @ConfigurationProperties(prefix = "furn01") 提示信息, 在 pom.xml 增加依赖, 即可
+        -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--    <optional>true</optional>-->
+        <!--</dependency>-->
+
+        <!--引入lombok,使用版本仲裁 即不需要指定版本，只需要引入相关组件即可
+        版本号在父项目spring-boot-dependencies-2.5.3.pom中已经指定了 1.18.20
+        <lombok.version>1.18.20</lombok.version>
+        -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--
+      导入 配置处理器
+      解决 @ConfigurationProperties(prefix = "monster") 提示信息, 在 pom.xml 增加依赖, 即可
+      导入了该依赖后就可以在配置application.yaml文件时，对要配置的JavaBean对象进行信息提示
+      就可以显示出哪些属性还没有配置过
+      -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <!--
+            这里配置的optional为true
+            说明：表示防止将此依赖传递到其他模块 即只是在当前模块生效
+            -->
+            <!--<optional>true</optional>-->
+        </dependency>
+
+        <!--引入处理xml格式的依赖,即加上@ResponseBody注解后,同时Accept:application/xml
+        ,支持返回xml格式返回数据-->
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.dataformat</groupId>-->
+        <!--    <artifactId>jackson-dataformat-xml</artifactId>-->
+        <!--</dependency>-->
+
+        <!--引入thymeleaf-start:会进行默认配置
+        比如即使不在application.yml中配置/启用视图解析器功能
+        ,只要引入了该依赖后，也会自动开启，可以使用视图解析器功能
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+
+        <!--排除默认的tomcat后，再引入undertow-->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-undertow</artifactId>-->
+        <!--</dependency>-->
+
+        <!--进行数据库开发，引入data-jdbc starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+
+        <!--引入mysql驱动
+         1.这里没有使用默认的版本仲裁  <mysql.version>8.0.26</mysql.version>
+         2.这里指定版本5.1.49
+        -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+
+        <!--如果要开发springboot测试类，我们需要引入test starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--引入Druid依赖
+        引入这个依赖后,可以使用自定义的方式配置Druid监控功能
+        如DruidDataSourceConfig.java中的配置
+        -->
+        <!--<dependency>-->
+        <!--    <groupId>com.alibaba</groupId>-->
+        <!--    <artifactId>druid</artifactId>-->
+        <!--    <version>1.1.17</version>-->
+        <!--</dependency>-->
+
+        <!--引入 druid starter 可以使用德鲁伊数据源 还能简化德鲁伊监控的配置-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.17</version>
+        </dependency>
+        <!--以上两个依赖的区别 <artifactId>druid</artifactId  <artifactId>druid-spring-boot-starter</artifactId>
+        两个依赖项中，第一个是阿里巴巴的 Druid 数据库连接池的核心库，第二个是 Druid 的 Spring Boot 启动器。
+
+        1. **Druid Core Library (`druid`)**:
+           - 这是 Druid 数据库连接池的核心库。
+           - 引入这个依赖后，您需要手动配置 Druid 数据源以及相关的监控设置。
+           - 您可能需要编写额外的代码或配置文件来初始化 Druid 数据源，配置监控统计、SQL 监控等功能。
+
+        2. **Druid Spring Boot Starter (`druid-spring-boot-starter`)**:
+           - 这是为了简化在 Spring Boot 应用程序中使用 Druid 而创建的 Starter 包。
+           - 它包括了 `druid` 的核心库，同时提供了自动配置，使得您可以通过简单的 Spring Boot 风格的配置属性来设置 Druid 数据源和监控。
+           - 通常，这个 Starter 包会提供一些默认配置，这些配置可以通过 `application.properties` 或 `application.yml` 文件来覆盖和定制。
+           - 使用 Starter 可以极大简化 Druid 的集成和配置工作，特别是当使用 Spring Boot 构建应用程序时。
+
+        总结来说，如果您正在使用 Spring Boot，并希望快速且容易地集成 Druid 数据源以及其监控功能，建议使用 `druid-spring-boot-starter`。如果您需要更细粒度的控制，或者不使用 Spring Boot，那么可能会考虑直接使用 `druid` 依赖。
+        -->
+
+
+    </dependencies>
+</project>

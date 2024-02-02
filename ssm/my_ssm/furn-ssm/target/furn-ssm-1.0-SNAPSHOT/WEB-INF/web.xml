@@ -1,0 +1,146 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <!-- 1、配置启动 Spring 容器:
+    主要配置和业务逻辑有关的，比如数据源，事务控制等-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <!--
+    1、ContextLoaderListener 监听器
+       作用是 启动 Web 容器时，自动装配 ApplicationContext 的配置信息
+    2、它实现了 ServletContextListener 接口，
+       在 web.xml 配置该监听器，启动容器时，会默认执行它实现的方法
+    -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+    <!--
+    1. 配置前端控制器/中央控制器/分发控制器
+    2. 作用:用户的请求都会经过它的处理
+    3. 因为没有指定 springmvc 的配置文件[即在下面没有配置没有配置
+       <init-param> <param-name>  属性 contextConfigLocation]
+       ，默认按照 <servlet-name>-servlet.xml 来读取
+
+
+   -->
+    <servlet>
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--配置属性 contextConfigLocation,指定DispatcherServlet 去操作的spring配置文件
+         关于SpringMVC 的 DispatcherServlet 的 配 置 文 件 ， 如 果 不 在 web.xml 指 定
+        springDispatcherServlet-servlet.xml, 默认在 /WEB-INF/springDispatcherServlet-servlet.xml 找这
+        个配置文件【简单看下 DispatcherServlet 的源码】。(推荐使用, 我们做下修改 ， 并完成测试)
+
+    在 DispatcherServlet 的父类 FrameworkServlet 中有说明 下面指的the name "test" 就是上面配置
+    的  <servlet-name>springDispatcherServlet</servlet-name>
+
+    public abstract class FrameworkServlet extends HttpServletBean implements ApplicationContextAware {
+	/**
+	 * Suffix for WebApplicationContext namespaces. If a servlet of this class is
+	 * given the name "test" in a context, the namespace used by the servlet will
+	 * resolve to "test-servlet".
+	 */
+	public static final String DEFAULT_NAMESPACE_SUFFIX = "-servlet";
+
+
+        1.如果 我们没有配置属性 contextConfigLocation
+        2.默认按照这样的位置去定位spring配置文件 和web.xml 文件在同一个目录下去找
+         即 /WEB-INF/springDispatcherServlet-servlet.xml
+        3.如果该文件的文件名没有改 就会报错：
+         javax.servlet.ServletException: Servlet.init() for servlet springDispatcherServlet threw exception
+        -->
+        <!--<init-param>-->
+        <!--    <param-name>contextConfigLocation</param-name>-->
+        <!--    <param-value>classpath:springDispatcherServlet-servlet.xml</param-value>-->
+        <!--</init-param>-->
+        <!--在web项目启动时，就自动加载DispatcherServlet-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <!--说明：
+        1.这里我们配置的url-pattern是 / ,表示用户的请求都经过 DispatcherServlet
+        2.这样配置也支持rest 风格的url请求
+        说明：传统的 url 是通过参数来说明 crud 的类型，rest 是通过 get/post/put/delete 来说
+              明 crud 的类型
+        -->
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--配置spring提供的过滤器，解决中文乱码问题-->
+    <!--
+        3、字符编码过滤器，一定要放在所有过滤器的最前面源码解读
+        只设置一个encoding 也会生效是因为 CharacterEncodingFilter.doFilterInternal()方法的,
+         条件=> request.getCharacterEncoding() 通常是null ,即 request 请求通常不带CharacterEncoding
+        @Override
+        protected void doFilterInternal(
+                HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+                throws ServletException, IOException {
+
+            String encoding = getEncoding();
+            if (encoding != null) {
+                if (isForceRequestEncoding() || request.getCharacterEncoding() == null) {
+                    request.setCharacterEncoding(encoding);
+                }
+                if (isForceResponseEncoding()) {
+                    response.setCharacterEncoding(encoding);
+                }
+            }
+            filterChain.doFilter(request, response);
+        }
+
+        (1) 如 果 forceRequestEncoding 设置为 true, 执行
+        request.setCharacterEncoding(encoding)
+        (2) 如 果 forceResponseEncoding 设置为 true, 执行
+        response.setCharacterEncoding(encoding);
+    -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <!--encoding 是 CharacterEncodingFilter类中的属性 -->
+            <param-name>encoding</param-name>
+            <!--下面配置 字母大小写都可以-->
+            <param-value>utf-8</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>forceRequestEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceResponseEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--配置HiddenHttpMethodFilter
+   1. 使用 Rest 风格的 URI，可以把页面发过来的 post请求转为指定的 delete 或者 put 请求
+   2. 配置url-pattern 是 /* 表示请求都经过 hiddenHttpMethodFilter
+   3. 注意 选择的是org.springframework.web.filter.HiddenHttpMethodFilter
+   说明：传统的 url 是通过参数来说明 crud 的类型，rest 是通过 get/post/put/delete 来说
+              明 crud 的类型
+   -->
+    <filter>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

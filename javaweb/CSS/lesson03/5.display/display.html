@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display</title>
+    <style>
+        div{
+            /*display: block; 块元素  display陈列;展出;展示;
+            display: inline; 行内元素
+            display: inline-block; 是块元素，但可以在一行
+            display: none;  消失，不生成块，就像删除（不存在）了一样，不为被隐藏的对象保留其物理空间，即该对象在页面上彻底消失，通俗来说就是看不见也摸不到。
+           */
+
+
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            /*display: inline;*/
+            /*display: inline-block;*/
+            display: block;
+            /*display: none;*/
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            /*display: inline;*/
+            /*display: inline-block;*/
+            /*none和block同时写，放在下面的生效*/
+            display: none;
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+
+<div>div块元素</div>
+<span>span行内元素</span>
+<span>span行内元素</span>
+
+</body>
+</html>

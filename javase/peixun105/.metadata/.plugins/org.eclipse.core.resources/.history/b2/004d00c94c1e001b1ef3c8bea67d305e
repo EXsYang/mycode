@@ -1,0 +1,13 @@
+package com.dr.dr;
+
+class A {
+
+	{System.out.println("A代码");}
+	A(){
+		System.out.println("A构造");
+	}
+	static {
+		System.out.println("A静态代码块");
+	}
+	
+}

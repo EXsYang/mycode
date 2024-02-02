@@ -1,0 +1,47 @@
+package com.atguigu.exer3;
+
+public class Clerk {
+
+	private int product = 0;
+
+	public void control1() {
+
+		synchronized (this) {
+
+				if (product < 20) {
+
+					product++;
+					System.out.println("当前产品数量：" + product);
+ 
+				} else {
+
+					product--;
+					System.out.println("当前产品数量：" + product);
+				}
+			}
+	}
+	public void control2() {
+		synchronized (this) {
+
+			if (product < 20) {
+
+				product++;
+				System.out.println("当前产品数量：" + product);
+
+			} else {
+
+				product--;
+				System.out.println("当前产品数量：" + product);
+			}
+		}
+	}
+
+	public int getProduct() {
+		return product;
+	}
+
+	public void setProduct(int product) {
+		this.product = product;
+	}
+
+}

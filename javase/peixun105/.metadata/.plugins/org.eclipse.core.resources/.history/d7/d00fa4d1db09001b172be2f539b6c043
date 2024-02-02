@@ -1,0 +1,18 @@
+package com.dl.xh;
+
+import java.util.Scanner;
+
+public class chengji {
+	public static void main(String[] args) {
+		int a;
+		Scanner in=new Scanner(System.in);
+		System.out.println("ÊäÈë³É¼¨£º");
+		int =in.nextInt();
+		if(score>60){
+			System.out.println("A");
+		}
+			else{
+				System.out.println("B");
+			}
+		}
+}

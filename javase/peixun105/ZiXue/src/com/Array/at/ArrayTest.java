@@ -1,0 +1,91 @@
+package com.Array.at;
+
+import java.util.Arrays;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		
+		int[] arry1,arry2;
+		arry1 = new int[]{2,3,5,7,11,13,17,19};
+		System.out.println("arry1:");
+		for(int i=0;i<arry1.length;i++) {
+			System.out.print(arry1[i]+" ");
+		}
+		System.out.println();
+		//数组的赋值
+		
+		arry2 = arry1;//地址值指向同一个数组
+		System.out.println("arry2:");
+		for(int i=0;i<arry2.length;i++) {
+			if(i % 2==0) {
+				arry2[i]=i;
+			}
+			System.out.print(arry2[i]+" ");
+		}
+		System.out.println("arry1:");
+		for(int i=0;i<arry1.length;i++) {
+			System.out.print(arry1[i]+" ");
+		}
+		System.out.println();
+		//数组的复制
+		
+		arry2 = new int[arry1.length];
+		System.out.println("arry2:");
+		for(int i=0;i<arry1.length;i++) {
+			arry2[i]=arry1[i];
+			System.out.print(arry2[i]+" !");
+		}
+		System.out.println("arry2:");
+		//数组的反转   （同一个数组，交换2个数的值，需要定义临时变量
+		for(int i=0;i<arry2.length;i++) {
+			
+			//arry2[i]=arry2[arry1.length-i-1];
+			//19 *17 *13 *11 *11 *13 *17 *19 *
+			
+			
+			//正确的写法1
+			//int temp = arry2[i];
+			//arry2[i]=arry2[arry1.length-i-1];
+			//arry2[arry1.length-i-1]=temp;
+			System.out.print(arry2[i]+" *");
+		}
+		System.out.println("arry2:");
+		//正确的写法2
+		for(int i=0,j=arry2.length-1;i<j;i++,j--) {
+			int temp1 = arry2[i];
+			arry2[i] = arry2[j];
+			arry2[j] = temp1;
+			
+			
+		}
+		for(int i=0;i<arry2.length;i++) {
+		
+			System.out.print(arry2[i]+" ");
+			
+		}
+		System.out.println("arry2:");
+		//数组的反转,第一次写错的情况
+		arry2 = new int[arry1.length];
+		for(int i=0;i<arry1.length;i++) {
+			//arry2[i]=arry2[arry1.length-i-1];
+			//19 *17 *13 *11 *11 *13 *17 *19 *
+			arry2[i]=arry1[arry1.length-i-1];
+			System.out.print(arry2[i]+" *");
+		}
+		System.out.println();
+		for(int i=0;i<arry2.length;i++) {
+			
+			System.out.print(arry2[i]+" ");
+			
+		}
+		System.out.println(arry1 == arry2);
+		Arrays.fill(arry1, 22);
+		System.out.println(Arrays.toString(arry1));
+		int[] a = new int[0];
+		System.out.println(a.length);
+		System.out.println(a[0]);
+		
+	}
+	
+}

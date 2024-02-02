@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤选择器示例-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 70px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+        div.visible {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //****每个class为one的div父元素下的第2个子元素
+            $("#b1").click(
+                function () {
+                   // :nth-child(index/even/odd/equation)  equation: 方程式
+                    // nth-child(2) 下标从1开始，这里的2，就是第二个
+                    // 一定要加空格!! 类似于ul li  // 需要有层级关系
+                   $("div .one:nth-child(2)").css("background","skyblue");
+                   // $("div .one:nth-child(2)").css("background","skyblue");
+                }
+            )
+
+            //*****每个class为one的div父元素下的第一个子元素
+            //老师再说 $("div .one")
+            $("#b2").click(
+                function () {
+                    // 一定要加空格 类似于ul li
+                    // div .one:first-child
+                    // 说明：div 找的是第一层为div元素的
+                    // .one:first-child  第二层为class=one  :first-child指向第二层的第一个孩子节点
+                    // $("div .one:first-child").css("background","skyblue");
+                    // $("span #s:first-child").css("background","pink");
+                    // 需要有层级关系 所有的span都是同辈 用:first-child不生效
+                    $("span div:first-child").css("background","pink");
+
+                    // $("div .one:nth-child(1)").css("background","skyblue");
+                }
+            )
+
+
+            //*****每个class为one的div父元素下的最后一个子元素
+            $("#b3").click(
+                function () {
+                    $("div .one:last-child").css("background","red");
+                }
+            )
+
+
+            //**如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素
+            $("#b4").click(
+                function () {
+                    $("div .one:only-child").css("background","green");
+                    //$("div.one:only-child").css("background","green");
+                }
+            )
+
+            //**测试加不加空格的问题
+            $("#b5").click(
+                function () {
+                    // 看的是子代div class="one" 的   这个 没有把 span标签子标签为div的选中
+                    // 即看的是 第一层为div标签 第二层为class="one"并且是div标签的第一个元素
+                    //$("div .one:nth-child(2)").css("background","green");
+                    $("div .one:nth-child(1)").css("background","green");
+
+                    // 看的是子代div class="one" 的   这个把span里的div 也选中了
+
+
+
+                    // 是一个div class=one 位置在父节点的第2个位置
+                    //$("div.one:nth-child(2)").css("background","green");
+                }
+            )
+
+        });
+    </script>
+</head>
+
+<body>
+
+<input type="button" value="每个class为one的div父元素下的第2个子元素" id="b1"/><br/><br/>
+<input type="button" value="每个class为one的div父元素下的第一个子元素" id="b2"/><br/><br/>
+<input type="button" value="每个class为one的div父元素下的最后一个子元素" id="b3"/><br/><br/>
+<input type="button" value="如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素" id="b4"/><br/><br/>
+<input type="button" value="测试加不加空格的问题" id="b5"/><br/><br/>
+
+
+<div class="one">
+    <div id="one" class="one1">
+        XXXXXXXXX id=one
+    </div>
+    <div id="two" class="one">
+        XXXXXXXXX id=two
+    </div>
+    <div id="three" class="one">
+        XXXXXXXXX id=three
+    </div>
+    <div id="four" class="one">
+        XXXXXXXXX id=four
+    </div>
+</div>
+
+<div class="one">
+    <div   class="one">
+        XXXXXXXXX  one
+    </div>
+    <div   class="one">
+        XXXXXXXXX  two
+    </div>
+    <div   class="one">
+        XXXXXXXXX  three
+    </div>
+    <div   class="one">
+        XXXXXXXXX  four
+    </div>
+</div>
+
+<div class="one">
+    <div id="five" class="one">
+        XXXXXXXXX id=five
+    </div>
+</div>
+
+
+
+<!--<span class="one">-->
+<!--&lt;!&ndash;    <div id="s" class="one">&ndash;&gt;-->
+<!--&lt;!&ndash;        sss id=s&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</span>-->
+<!--<span class="one">-->
+<!--&lt;!&ndash;    <div id="s" class="one">&ndash;&gt;-->
+<!--&lt;!&ndash;        sss id=s&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</span>-->
+<span class="one">
+    <!--<span id="s" class="one">-->
+    <!--    sss id=s-->
+    <!--</span>-->
+    span class="one"
+    <div id="s" class="one">
+        sss id=s
+    </div>
+
+    <span id="d" class="one">
+        sssddd id=d
+    </span>
+
+    <div id="t" class="one">
+        sss id=t
+    </div>
+
+    <div  class="one">
+        k
+    </div>
+</span>
+
+<!--<div class="one">-->
+<!--    <div class="one">-->
+<!--        1-->
+<!--    </div>-->
+<!--    <div class="one">-->
+<!--         2-->
+<!--    </div>-->
+<!--    <div class="one">-->
+<!--        3-->
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>

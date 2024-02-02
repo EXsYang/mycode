@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\yangd\Desktop\Project03"/>
+			<item value="D:\尚硅谷Java\1尚硅谷全套Java教程基础必备\尚硅谷宋红康Java核心基础_好评如潮（30天入门）\课件笔记源码资料\新建文件夹\2_项目\Project2（客户信息管理软件）\2.2-参考实现\最终版\Project02"/>
+			<item value="C:\Users\yangd\Desktop\ssm_zxdydp"/>
+			<item value="C:\Users\yangd\Desktop\333\JspServlet2054"/>
+			<item value="C:\Users\yangd\Desktop\JspServlet2054"/>
+			<item value="C:\Users\yangd\Desktop\培训资料\接收文件\1020"/>
+			<item value="C:\Users\yangd\Desktop\培训资料\接收文件\1014"/>
+			<item value="C:\Users\yangd\Desktop\培训资料\接收文件\1013"/>
+			<item value="C:\Users\yangd\Desktop\培训资料\接收文件\1012\1012"/>
+			<item value="C:\Users\yangd\Desktop\培训资料\接收文件\9.29\1010"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="Aggregate for window 1601260275964" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="TaskPropertiesDialogSettings">
+		<item value="849" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="351" key="DIALOG_HEIGHT"/>
+		<item value="545" key="DIALOG_X_ORIGIN"/>
+		<item value="290" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jst.j2ee.internal"/>
+			<item value="org.springframework.ide.eclipse.beans.ui.wizards.category"/>
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hspedu.mapper.UserMapper">
+
+    <!--
+         注意: 当类的属性名 和表的字段名 不一致时 #{value}  value指的是对象的属性名
+         不要想当然的 写成sql上面字段名
+         1. 配置/实现 public void addUser(User user);
+         2. 添加方法
+    -->
+    <insert id="addUser" parameterType="User">
+        INSERT INTO `user` (`user_email`,`user_name`)
+         VALUES (#{useremail},#{username});
+    </insert>
+
+
+
+
+
+    <!--使用传统方式-->
+    <!--<select id="findAllUser" resultType="User">-->
+    <!--    select * from `user`;-->
+    <!--</select>-->
+
+
+    <!--
+    property ：映射到列结果的字段或属性。如果用来匹配的 JavaBean 存在给定名字的属性，那么它将会被使用。否则 MyBatis 将会寻找给定名称的字段。 无论是哪一种情形，你都可以使用通常的点式分隔形式进行复杂属性导航。 比如，你可以这样映射一些简单的东西：“username”，或者映射到一些复杂的东西上：“address.street.number”。
+
+    1.配置 public List<User> findAllUser();
+    2.查询所有的 User
+    3.按照传统的方式会出现什么问题？ 注意这里对象的属性名和表的字段名不一致！！
+      如果对象的属性名和表的字段名相同(如使用resultMap做了映射,即使对象的属性名和表的字段名不一致
+      也可以匹配上了)就会设置值;如果不同 就会是对象属性的默认值
+    // 因为这里 对象的属性名和表的字段名不一致！！
+    // 同时 在UserMapper.xml 文件中 配置的sql语句 为 select * from `user`;
+    // 查询回来的结果 是按照表字段名返回的 所以匹配不到 对应的setter/getter方法
+    // 导致查询回来的对应不一致的 属性值为null
+    4. 我们可以使用 resultMap 解决
+    5. resultMap : 表示我们要定义一个 resultMap
+    6. id="findAllUserMap" => id 就是程序员指定的 resultMap id, 后面可以通过这个id 来使用它
+    7. type="User" == type="com.hspedu.entity.User" 就是你需要返回的对象的类型
+    8. result column="user_email" property="useremail"
+       column="user_email":表字段名  property="useremail":对象属性名 (你要返回的类型中的属性)
+    9. <select id="findAllUser" resultMap="findAllUserMap"> 中的resultMap="findAllUserMap"
+       表示使用我们定义的 resultMap , 通过id关联/引用映射关系
+
+    老韩说明：如果是 MyBatis-Plus 处理就比较简单, 可以使用 注解@TableField 来解决
+    实体字段名和表字段名不一致的问题，还可以使用@TableName 来解决 实体类名和表名
+    不一致的问题
+    -->
+
+    <resultMap id="findAllUserMap" type="User">
+        <result column="user_email" property="useremail"/>
+        <result column="user_name" property="username"/>
+    </resultMap>
+    <!--使用resultMap-->
+    <select id="findAllUser" resultMap="findAllUserMap">
+        select * from `user`;
+    </select>
+
+    <!--使用字段别名-->
+    <!--1、解决表字段和对象属性名不一致, 也支持使用字段别名
+    实现 findAllUser【使用别名 屏蔽属性名和字段名不一致 1.可以用，但是复用性不 ok
+    因为如果别的地方还要使用 类似的sql语句 还是需要解决不一致问题 而不能直接引用一个映射关系
+   -->
+    <!-- <select id="findAllUser" resultType="User">-->
+    <!--SELECT `user_id`,`user_name` AS `username`, `user_email` AS `useremail` FROM `user`-->
+    <!--</select>-->
+
+</mapper>

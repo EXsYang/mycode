@@ -1,0 +1,48 @@
+package com.atguigu.com;
+
+public class AAA {
+
+//	public static void main(String[] args) {
+//		System.out.println("world");
+//	}
+//	public static void main(String[] args) {
+//	B b = new B();
+//	b.b();
+//	}
+}
+class C{
+	int x = 0;
+	
+	void a() {
+		System.out.println("class C:a方法");
+	}
+}
+
+interface D{
+	int x = 0;
+	default void a() {
+		System.out.println("interface:D方法");
+	}
+}
+interface F{
+	int x = 0;
+	default void a() {
+		System.out.println("interface:D方法");
+	}
+}
+class E  implements D,F{//The inherited method C.a() cannot hide the public abstract method in D
+								//继承的方法C.a()不能隐藏D中的公共抽象方法 
+	public void t() {
+		a();
+		System.out.println(x);//The field x is ambiguous 字段x是模糊的
+	}
+}
+
+
+
+
+
+
+
+
+

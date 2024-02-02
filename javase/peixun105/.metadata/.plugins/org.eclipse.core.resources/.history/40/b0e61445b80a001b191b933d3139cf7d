@@ -1,0 +1,96 @@
+package com.dl.xh;
+
+import java.util.Scanner;
+
+public class f {
+	public static void main(String[] args) {
+		System.out.println("需要录入几个学生的成绩？");
+		Scanner in=new Scanner(System.in);
+//		1、几个学生
+		int a=in.nextInt();
+//		2、创建用于存储所有学生成绩的二维数组
+		int b[][]=new int[a][3];
+//		3、录入所有人的每门成绩      二维数组名[n]--->第几个元素：第几行：第几个一维数组   b[2]==>二维数组中的第三行，第三个一维数组
+		System.out.println("##########################录入学生的成绩#############################");
+		for(int i=0;i<b.length;i++){//获取每个学生的一维数组(b[i])b[i].length==>3
+			System.out.println("请录入第【"+(i+1)+"】个学生共计有几个门成绩");
+			//当前学生需要录入几门成绩
+//			int c=in.nextInt();
+//			int d[]=new int[c];   
+//			b[0]：第一个人
+//			b[1]：第二个人
+//			b[2]：第三个人		
+			
+			for(int j=0;j<b[i].length;j++){//每循环一次是当前学生的一门成绩，所以循环3次
+				System.out.println("请录入第【"+(i+1)+"】个学生的   第【"+(j+1)+"】门成绩");
+				int score=in.nextInt();
+				b[i][j]=score;
+			}
+//			b[i]=d;
+		}
+		System.out.println("成绩录入完毕............");
+		System.out.println("##########################录入学生的成绩#############################");
+		System.out.println("##########################计算每个学生的最高成绩#############################");
+		for(int i=0;i<b.length;i++){
+			int []x=b[i];  ///x是每个人对应的一维数组
+			int max=x[0];//假设第一个元素就是最高成绩
+			for(int j=1;j<x.length;j++){//遍历其他元素
+				if(max<x[j]){//交换位置
+					int temp=x[j];
+					x[j]=max;
+					max=temp;
+				}
+			}
+			System.out.println("第【"+(i+1)+"】名学生的最高成绩是："+max);
+		}
+		System.out.println("##########################计算每个学生的最高成绩#############################");
+		
+		b[0][0]=10;
+		b[0][1]=20;
+		b[0][2]=30;
+		b[1][0]=70;
+		b[1][1]=50;
+		b[1][2]=60;
+		b[2][0]=40;
+		b[2][1]=80;
+		b[2][2]=90;
+		System.out.println("##########################每门课程的最高成绩#############################");
+		for(int i=0;i<b.length;i++){
+//			获取预设的每门课程的最高成绩
+			int max=b[0][i];
+			for(int j=0;j<b[i].length;j++){
+				for(int m=1;m<3;m++){
+					if(max<b[j][i]){
+						int n=b[j][i];
+						max=n;
+						b[j][i]=max;
+					}
+				}
+//				System.out.print(b[j][i]+"\t");//tab键一个制表符
+//				System.out.print(b[j][i]+"\t");//tab键一个制表符
+			}
+			System.out.println("第【"+(i+1)+"】门课程的最高成绩是："+max);
+//			System.out.print(b[3][0]+"\t");//tab键一个制表符
+//			System.out.print(b[i][0]+"\t");//tab键一个制表符
+//			System.out.println();
+//			
+//			System.out.print(b[0][1]+"\t");//tab键一个制表符
+//			System.out.print(b[1][1]+"\t");//tab键一个制表符
+//			System.out.print(b[2][1]+"\t");//tab键一个制表符
+//			System.out.print(b[3][1]+"\t");//tab键一个制表符
+//			System.out.print(b[i][1]+"\t");//tab键一个制表符
+			
+//			System.out.println();
+//			System.out.print(b[0][2]+"\t");//tab键一个制表符
+//			System.out.print(b[1][2]+"\t");//tab键一个制表符
+//			System.out.print(b[2][2]+"\t");//tab键一个制表符
+//			System.out.print(b[3][2]+"\t");//tab键一个制表符
+//			System.out.print(b[i][2]+"\t");//tab键一个制表符
+			
+			
+			
+			
+		}
+		System.out.println("##########################每门课程的最高成绩#############################");
+	}
+}

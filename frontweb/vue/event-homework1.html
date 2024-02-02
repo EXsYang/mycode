@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>enent-hw1</title>
+</head>
+<body>
+
+
+<!--<div id="app">
+    <h1>{{message}}</h1>
+    <button v-on:click="add">点击增加+1</button>
+    &lt;!&ndash;老师解读
+    1. 这里count += 2 的count数据是data数据池的count
+    2. 案例不难，重点是掌握和理解机制
+    &ndash;&gt;
+    <button v-on:click="count += 2">点击增加+2</button>
+    <p>你的按钮被点击了{{count}}次</p>
+</div>
+<script src="vue.js"></script>
+&lt;!&ndash;创建一个vue实例,并挂载到id=app的div&ndash;&gt;
+<script>
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div, el 就是element的简写
+        data: { //data{} 表示数据池(model中的数据), 有很多数据 ,以k-v形式设置(根据业务需要来设置)
+            message: "Vue事件处理的作业",
+            count: 0//点击的次数
+        },
+        methods: {
+            add() {
+                //修改data数据池的count
+                //因为data和methods在同一个vue实例中,因此可以通过this.数据方式访问
+                this.count += 1;
+            }
+        }
+    })
+</script>-->
+
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <button v-on:click="addOne()">点击增加1</button><br/><br/>
+    <!--<button @click="addTwo">点击增加2</button><br/><br/>-->
+    <button v-on:click="sum += 2">点击增加2</button><br/><br/>
+    <button @click="sum += 2">点击增加2</button><br/><br/>
+    你的按钮被点了{{sum}}次<br/><br/>
+    <p>你的按钮被点了{{sum}}次</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            message:"演示Vue事件绑定操作",
+            sum:0
+        },
+        methods:{
+            addOne(){
+               //return  vm._data.sum += 1;
+               // vm._data.sum += 1;
+                this.sum += 1;
+            },
+            //addTwo(){
+            //   return  vm._data.sum += 2;
+            //}
+        }
+    })
+</script>
+</body>
+</html>

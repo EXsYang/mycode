@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.io.ObjectOutputStream</OriginalElement>
+  <nodes>
+    <node x="237.3611111111111" y="170.0">java.io.OutputStream</node>
+    <node x="0.0" y="85.0">java.io.DataOutput</node>
+    <node x="176.75" y="85.0">java.io.Closeable</node>
+    <node x="31.25" y="182.5">java.io.ObjectOutput</node>
+    <node x="188.75" y="280.0">java.io.ObjectOutputStream</node>
+    <node x="107.0" y="0.0">java.lang.AutoCloseable</node>
+    <node x="421.3611111111111" y="182.5">java.io.ObjectStreamConstants</node>
+    <node x="331.75" y="85.0">java.io.Flushable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.io.ObjectOutputStream" target="java.io.ObjectOutput">
+      <point x="-88.66666666666669" y="-41.5" />
+      <point x="233.08333333333331" y="255.0" />
+      <point x="113.25" y="255.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectOutput" target="java.io.DataOutput">
+      <point x="-41.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectOutputStream" target="java.io.OutputStream">
+      <point x="0.0" y="-41.5" />
+      <point x="321.75" y="255.0" />
+      <point x="319.3611111111111" y="255.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="java.io.ObjectOutput" target="java.lang.AutoCloseable">
+      <point x="41.0" y="-17.5" />
+      <point x="154.5" y="60.0" />
+      <point x="150.25" y="60.0" />
+      <point x="-43.25" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectOutputStream" target="java.io.ObjectStreamConstants">
+      <point x="88.66666666666669" y="-41.5" />
+      <point x="410.4166666666667" y="255.0" />
+      <point x="546.3611111111111" y="255.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.OutputStream" target="java.io.Closeable">
+      <point x="-41.0" y="-30.0" />
+      <point x="278.3611111111111" y="145.0" />
+      <point x="244.25" y="145.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
+      <point x="0.0" y="-17.5" />
+      <point x="244.25" y="60.0" />
+      <point x="236.75" y="60.0" />
+      <point x="43.25" y="17.5" />
+    </edge>
+    <edge source="java.io.OutputStream" target="java.io.Flushable">
+      <point x="41.0" y="-30.0" />
+      <point x="360.3611111111111" y="145.0" />
+      <point x="399.25" y="145.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="336.0" y="201.0" />
+  <SelectedNodes>
+    <node>java.io.ObjectOutputStream</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

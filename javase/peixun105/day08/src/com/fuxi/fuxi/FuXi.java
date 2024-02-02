@@ -1,0 +1,79 @@
+package com.fuxi.fuxi;
+
+import java.util.Scanner;
+
+public class FuXi {
+
+	public static void main(String[] args) {
+		
+		//author,version
+		//JDK = JRE + 开发工具集
+		//JRE = JVM + Java SE标准类库
+		//数据类型：
+		/*基本数据类型：byte 1 short 2 int 4 long 8
+					char 一字符 2字节
+					float 4 double 8
+					boolean 
+		引用数据类型：类（class) String
+				接口(interface)
+				数组([])
+		自动类型提升：byte、short、char int long float double
+		*/
+		
+		// 转义字符："\n"、"\t"  *** /:斜杠	\:反斜杠
+		/*int i=2;
+		int j;		
+		j = i^3;	"^"	在这里是位运算的符号  与逻辑运算区别：逻辑运算操作数和运算结果都是boolean型
+		System.out.println(j);*/
+		
+/*		(条件表达式) ？ 表达式1 ：表达式2
+		条件表达式的结果为boolean型
+		条件表达式true 执行表达式1
+		条件表达式false 执行表达式2
+		表达式1和表达式2要求一致
+		int a = 1;
+		int b = 3;
+		int max = (a < b) ? a : b;
+		System.out.println(max);
+		*/
+		/*
+		int a =2;
+		switch(a) {   switch()中的表达式 只能是 byte short char int  枚举类型  String类型
+		case  2: //  注意     ":"写在常数后
+		a++;
+		break;
+		case  3:
+		a--;
+		break;
+		default:   //default的位置是灵活的
+			a++;
+		}*/
+		
+		int a = 4;
+		//Scanner scanner = new Scanner(System.in);
+		System.out.println(Math.sqrt(a)); //开方后是一个double类型的
+		
+		label:for(int i = 0;i < 4;i++) {
+			for(int j = 0;j < 4;j++) {
+			
+				//break;
+				//break label;跳出当前循环
+			if(j==2) {
+				continue;
+			}
+			System.out.print("*");
+			//    continue label;//跳出当次循环
+			}
+			System.out.println("  ");
+		}
+		
+		
+		
+	
+		
+		
+		
+		
+		
+	}
+}

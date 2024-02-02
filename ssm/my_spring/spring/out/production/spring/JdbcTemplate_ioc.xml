@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--引入外部的jdbc.properties文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--配置数据源对象DataSource-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <!--给数据源对象配置属性值-->
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+    </bean>
+
+    <!--<bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource2">-->
+    <!--    &lt;!&ndash;给数据源对象配置属性值&ndash;&gt;-->
+    <!--    <property name="user" value="${jdbc.user}"/>-->
+    <!--    <property name="password" value="${jdbc.pwd}"/>-->
+    <!--    <property name="driverClass" value="${jdbc.driver}"/>-->
+    <!--    <property name="jdbcUrl" value="${jdbc.url}"/>-->
+    <!--</bean>-->
+
+    <!--配置JdbcTemplate对象-->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <!--给JdbcTemplate对象配置dataSource属性
+        name="dataSource" 是JdbcTemplate对象的一个属性
+        ref="dataSource" 指的是上面配置好的 id="dataSource" 的一个bean
+        -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置NamedParameterJdbcTemplate对象-->
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="namedParameterJdbcTemplate">
+        <!--通过构造器，设置数据源-->
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!--配置要扫描的包-->
+    <context:component-scan base-package="com.hspedu.spring.jdbctemplate.dao"/>
+
+    <!--这里不需要 开启基于注解的AOP功能 只是扫描到容器中即可-->
+
+
+
+
+
+</beans>

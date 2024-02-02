@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>springbootweb</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--导入springboot父工程-规定写法
+       这里只是指定了将来需要导入的依赖的版本 并没有引入依赖
+       开发中需要某种依赖 依然需要使用 dependencies/dependency 显示的引入依赖
+       如果不引入依然没有相应的依赖 如下面的mysql的依赖
+       并不是把父工程都引入了就什么都有了，并不是那么回事！！
+       -->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--这里我们可以指定mysql版本号
+    在<properties>中指定了version后也需要写下面这个导入mysql依赖
+    的<dependency> 否则不会导入mysql的依赖
+    <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    -->
+    <!--第二种方式 在这里单独指定版本号-->
+    <!--<properties>-->
+    <!--    <mysql.version>5.1.49</mysql.version>-->
+    <!--</properties>-->
+
+
+    <!--导入web项目场景启动器: 会自动导入和web开发相关的所有依赖[库/jar]
+    后面老师还会说spring-boot-starter-web 到底引入哪些相关依赖
+    web项目场景启动器,这里是真正的引入了依赖
+    starter-web 版本不需要指定 在父工程已经指定好了
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--我们自己指定mysql/驱动版本- 修改版本仲裁
+      默认是在 导入springboot父工程 <parent> spring-boot-starter-parent
+      时按ctrl+B 进入到依赖的父项目spring-boot-starter-parent-2.5.3.pom文件
+      再次按ctrl+B进入到依赖的父项目 spring-boot-dependencies-2.5.3.pom 在这里
+      的<properties> 中指定的
+      ->
+
+      1. 方式1:显示的导入mysql依赖, 并明确的指定<version>
+      2. 方式2.在自己的pom.xml文件中, 在<properties> 中指定mysql的key
+      形如:
+          <properties>
+          <mysql.version>5.1.49</mysql.version>
+          </properties>
+      3. 为什么可以达到修改版本仲裁: 根据依赖就近优先原则. 即离本项目最近的生效
+      -->
+        <!--<dependency>-->
+        <!--    <groupId>mysql</groupId>-->
+        <!--    <artifactId>mysql-connector-java</artifactId>-->
+        <!--    &lt;!&ndash;第一种方式 直接在这里写&ndash;&gt;-->
+        <!--    &lt;!&ndash;<version>5.1.49</version>&ndash;&gt;-->
+        <!--</dependency>-->
+
+        <!--
+        导入 配置处理器
+        解决 @ConfigurationProperties(prefix = "furn01") 提示信息, 在 pom.xml 增加依赖, 即可
+        -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--    <optional>true</optional>-->
+        <!--</dependency>-->
+
+        <!--引入lombok,使用版本仲裁 即不需要指定版本，只需要引入相关组件即可
+        版本号在父项目spring-boot-dependencies-2.5.3.pom中已经指定了 1.18.20
+        <lombok.version>1.18.20</lombok.version>
+        -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--
+      导入 配置处理器
+      解决 @ConfigurationProperties(prefix = "monster") 提示信息, 在 pom.xml 增加依赖, 即可
+      导入了该依赖后就可以在配置application.yaml文件时，对要配置的JavaBean对象进行信息提示
+      就可以显示出哪些属性还没有配置过
+      -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--    &lt;!&ndash;-->
+        <!--    这里配置的optional为true-->
+        <!--    说明：表示防止将此依赖传递到其他模块 即只是在当前模块生效-->
+        <!--    &ndash;&gt;-->
+        <!--    <optional>true</optional>-->
+        <!--</dependency>-->
+
+        <!--引入处理xml格式的依赖,即加上@ResponseBody注解后,同时Accept:application/xml
+        ,支持返回xml格式返回数据-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

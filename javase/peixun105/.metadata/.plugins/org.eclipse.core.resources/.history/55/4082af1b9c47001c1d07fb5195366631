@@ -1,0 +1,38 @@
+package com.atguigu.exer1;
+
+public class StaticTest {
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+		StaticTest st = new StaticTest();
+		
+		Man  m = new Man();
+		m.setWidth(20);
+		System.out.println(m.getWidth());
+		Person p = new Person();
+		System.out.println(p.getWidth());//由此可见子类也继承了父类的static修饰的属性
+	
+		m.print();
+		st.order(m);//重写父类的static方法，结果还是没有变化
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	public void order(Person person) {
+		person.print();
+		
+		
+		
+	}
+	
+	
+}

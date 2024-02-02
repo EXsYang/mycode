@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>yd_springboottest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--导入springboot父工程-规定写法
+           这里只是指定了将来需要导入的依赖的版本 并没有引入依赖
+           开发中需要某种依赖 依然需要使用 dependencies/dependency 显示的引入依赖
+           如果不引入依然没有相应的依赖 如下面的mysql的依赖
+           并不是把父工程都引入了就什么都有了，并不是那么回事！！
+           -->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--导入web项目场景启动器: 会自动导入和web开发相关的所有依赖[库/jar]
+       后面老师还会说spring-boot-starter-web 到底引入哪些相关依赖
+       web项目场景启动器,这里是真正的引入了依赖
+       -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--因为我们自己要创建Tomcat对象，并启动，
+            因此我们先排除，内嵌的 spring-boot-starter-tomcat-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--我们指定tomcat版本，引入tomcat依赖/库
+
+       1. 使用指定的tomcat 8.5.75, 请小伙伴也引入这个版本
+       2. 如果我们引入自己指定的tomcat,一定要记住把前面spring-boot-starter-tomcat排除
+       3. 如果你不排除，会出现 GenericServlet Not Found错误提示
+          embed:把…嵌入
+       -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>8.5.75</version>
+        </dependency>
+
+        <!--版本需要和当前tomcat版本保持一致-->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>8.5.75</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

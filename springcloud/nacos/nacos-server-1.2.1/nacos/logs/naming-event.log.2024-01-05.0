@@ -1,0 +1,158 @@
+2024-01-05 15:43:46,937 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 15:43:47,099 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 15:43:47,099 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 15:43:47,099 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 15:51:30,801 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704441070916
+
+2024-01-05 15:51:42,721 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_false,
+
+2024-01-05 15:51:42,721 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_false,
+
+2024-01-05 15:51:42,785 INFO service: DEFAULT_GROUP@@e-commerce-nacos-config-client {POS} {IP-ENABLED} valid: 192.168.0.42:5000@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 15:57:56,417 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704441459600
+
+2024-01-05 15:58:12,837 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 15:58:12,837 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 15:58:12,837 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 15:58:12,837 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 15:58:12,938 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 15:58:12,938 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 16:04:12,996 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:04:12,996 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:04:12,996 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:04:12,996 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:04:13,105 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:04:13,105 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:04:47,656 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704441868067
+
+2024-01-05 16:05:03,483 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:05:03,483 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 16:05:03,483 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:05:03,483 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 16:05:03,483 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 16:05:03,483 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 
+
+2024-01-05 16:19:52,787 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:5000:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:19:52,792 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:19:52,792 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:28:03,211 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:29:53,706 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704443378460
+
+2024-01-05 16:29:55,179 INFO service: DEFAULT_GROUP@@e-commerce-nacos-config-client {POS} {IP-ENABLED} valid: 192.168.0.42:5000@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 16:29:55,181 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:45:10,196 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704444292287
+
+2024-01-05 16:45:17,678 INFO service: DEFAULT_GROUP@@e-commerce-nacos-config-client {POS} {IP-ENABLED} valid: 192.168.0.42:5000@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 16:45:17,679 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 16:47:30,398 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:5000@DEFAULT@DEFAULT_GROUP@@e-commerce-nacos-config-client, region: unknown, msg: client timeout after 15000, last beat: 1704444432945
+
+2024-01-05 16:47:33,252 INFO service: DEFAULT_GROUP@@e-commerce-nacos-config-client {POS} {IP-ENABLED} valid: 192.168.0.42:5000@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 16:47:33,253 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@e-commerce-nacos-config-client, ips: 192.168.0.42:5000_true,
+
+2024-01-05 20:36:21,119 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 20:36:21,151 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 20:36:21,152 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 21:48:33,250 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704462494251
+
+2024-01-05 21:48:53,687 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:10004:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 21:48:53,687 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+
+2024-01-05 21:48:57,639 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 21:48:57,639 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 21:48:57,767 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 21:58:54,140 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704463117069
+
+2024-01-05 21:58:59,452 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 21:58:59,652 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:08:36,555 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704467297518
+
+2024-01-05 23:08:51,402 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:08:51,435 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:11:26,825 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704467467165
+
+2024-01-05 23:11:28,745 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_false,
+
+2024-01-05 23:11:28,768 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:17:32,458 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704467837445
+
+2024-01-05 23:17:47,827 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:17:48,006 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:17:48,914 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.42:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:17:48,914 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+
+2024-01-05 23:17:52,860 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.42:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:17:52,905 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:18:43,518 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704467908010
+
+2024-01-05 23:18:50,642 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:18:50,665 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:21:28,828 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704468071202
+
+2024-01-05 23:21:32,064 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:21:32,219 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_true,
+
+2024-01-05 23:21:48,849 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704468092041
+
+2024-01-05 23:21:52,286 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_false,
+
+2024-01-05 23:21:52,353 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:23:29,019 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704468189134
+
+2024-01-05 23:23:31,605 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.42:10004_false,
+
+2024-01-05 23:23:31,936 INFO service: DEFAULT_GROUP@@member-service-nacos-provider {POS} {IP-ENABLED} valid: 192.168.0.42:10004@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:24:49,156 INFO {POS} {IP-DISABLED} valid: 192.168.0.42:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704468272083
+

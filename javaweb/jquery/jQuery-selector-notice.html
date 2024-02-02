@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器使用特点</title>
+    <style>
+        #sp{
+            background-color: #64BDF9;
+            border-collapse: collapse;
+            height: 100px;
+            padding: 50px;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = function () {
+            // dom元素绑定事件，传入的this是其本身！！！
+            // jquery对象绑定点击事件，隐式传入dom 对象！！！！ --测试见jQuery-selector-notice.html文件
+
+
+            var $td = $("td");
+
+            $td.click(function () {
+                // jquery对象绑定点击事件，隐式传入this 是 dom 对象！！！！
+                $(this).css("background", "red");
+            });
+
+            // var sp = document.getElementById("sp");
+            var name = document.getElementById("name");
+            name.onblur = function (){
+                // alert("sp typeof = " + typeof sp);
+                // alert("name = " +  name);  //[object HTMLInputElement]  直接打印dom对象，输出具体的dom元素 类型是object
+                // alert("name typeof= " + typeof name);  //object
+                alert("name this= " + this);  //name this= [object HTMLInputElement] dom元素绑定事件，传入的this是其本身！！！
+
+            }
+
+            //=======================================================
+
+
+            //如果是dom对象, 获取value
+            var username = document.getElementById("username");
+            // alert(username.value);//这里会发生? => 有错误
+
+            //如果我们希望dom对象可以处理null
+            if(username) {
+                alert("username value=" + username.value)
+            } else {
+                alert("没有获取到对应id的dom对象")
+            }
+
+            //1 关于使用jquery选择器获取不存在的元素
+            //如果是jquery对象, 获取的value
+            //如果没有获取到，调用val() , 并不会报错, 对程序的健壮性.
+            var $username = $("#username");
+            alert("$username~="+$username)//[object Object]
+            alert("$username[0]="+$username[0])//undefined
+            //undefined 在调用.value会报错！
+            alert("$username[0].value="+$username[0].value)//Uncaught TypeError: $username[0] is undefined
+            alert($username.val())// 这里不会报错， 提示undefined
+
+            //2 使用undefined 点 .value 会报错Uncaught TypeError: findElement is undefined
+
+            //Unresolved variable or type $button 未解析的变量或类型$button
+            //Uncaught ReferenceError: $button is not defined
+            //3 未定义的变量直接使用会报错 Uncaught ReferenceError: $button is not defined 下面的代码不会走了
+            //var cartItemId2 = $button.parent().find("input[class='cartItemId']")[0];
+
+
+        }
+    </script>
+</head>
+<body>
+用户名 <input type="text" id="username~" name="username" value="韩顺平教育"/>
+<center>
+    <br><br>
+    添加用户:<br><br>
+    姓名: <input type="text" name="name" id="name"/>&nbsp;&nbsp;
+    email: <input type="text" name="email" id="email"/>&nbsp;&nbsp;
+    电话: <input type="text" name="tel" id="tel"/><br><br>
+    <button id="addUser">提交</button>
+    <br><br>
+    <hr>
+    <br><br>
+    <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+        <tbody>
+        <tr>
+            <th>姓名</th>
+            <th>email</th>
+            <th>电话</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a id="Tom" href="deleteEmp?id=Tom">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+
+<span id="sp" width="200px" > spspspspspsp</span>
+</body>
+</html>

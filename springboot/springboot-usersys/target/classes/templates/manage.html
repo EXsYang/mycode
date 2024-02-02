@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--要想使用thymeleaf 首先要引入命名空间 一定要引入，否则不会提示 相关的标签
+如:th:text="" 引入后就会提示相关的th标签
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>管理后台</title>
+</head>
+<body bgcolor="#CED3FE">
+<img src="images/1.GIF"/>
+<!--<a href='#' th:href="@{/}">
+如果渲染成功，就用斜杠替换井号，如果没有渲染成功，那就还是井号#
+-->
+<a href='#'>返回管理界面</a>　　<a href='#' th:href="@{/}">安全退出</a>
+　欢迎您: [[${session.loginAdmin.name}]]  <!--行内写法，这里没有在标签体内，要取值需要用两对中括号包起来-->
+<hr/>
+<div style="text-align: center">
+    <h1>管理雇员~</h1>
+    <table border="1px" cellspacing="0" bordercolor="green" style="width:800px;margin: auto">
+        <tr bgcolor="pink">
+            <td>id</td>
+            <td>name</td>
+            <td>pwd</td>
+            <td>email</td>
+            <td>age</td>
+        </tr>
+
+        <!--注意写法th:each="user:${users} 循环的是tr标签
+        users 不能乱写，是从request域中取出来的，需要和放入时用的名称保持一致
+        ,否则取不出来, user 的名称是程序员决定的，可以随意，但users这个位置不可以乱写
+        th:text="${user.id} 会替换标签内的文本内容a
+
+        下面如果报错，就重新写一下，idea会重新进行检测，如果request域中，匹配上了，就不会再报错了
+         model.addAttribute("users", users); 在后端需要将users放入到request域中，
+         如果检测不到，就会报错
+        -->
+        <tr bgcolor="#ffc0cb" th:each="user:${users}">
+            <td th:text="${user.id}">a</td>
+            <td th:text="${user.name}">b</td>
+            <td th:text="${user.password}">c</td>
+            <td th:text="${user.email}">d</td>
+            <td th:text="${user.age}">e</td>
+        </tr>
+
+    </table>
+    <br/>
+</div>
+<hr/>
+<img src="images/logo.png"/>
+
+</body>
+</html>

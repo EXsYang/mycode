@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化编程3</title>
+</head>
+<body>
+<div id="app">
+    <h1>组件化编程-局部组件</h1>
+    <mytemp></mytemp><br/><br/>
+    <mytemp2></mytemp2><br/><br/>
+    <mytemp3></mytemp3><br/><br/>
+    <mytemp></mytemp><br/><br/>
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+    const count_template = {
+        //data:function (){
+        //    return count = 0; //[Vue warn]: data functions should return an object:
+        //},
+        data() {
+            return {
+                count: 0
+            }//[Vue warn]: data functions should return an object:
+        }
+        ,
+        methods: {
+            add() {
+                this.count++; //++ 会改变变量本身的值
+                //(前)-- :先自减1，后运算
+                //(后)-- :先运算，后自减1
+            }
+        },
+        template: `<button v-on:click="add">点击次数：{{count}} 次 【局部组件化编程】</button>`
+    }
+
+    let vm = new Vue({
+        el: "#app",
+        components: {
+            // 就是对象的属性的命名规则
+            'mytemp': count_template,
+             mytemp2: count_template,
+            "mytemp3": count_template
+        }
+
+    })
+</script>
+</body>
+</html>

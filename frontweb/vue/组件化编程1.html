@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化编程1</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="add">点击次数：{{count}} 次 【非组件化编程】</button>
+    <br/><br/>
+    <button v-on:click="add2">点击次数：{{count2}} 次 【非组件化编程】</button>
+    <br/><br/>
+    <button v-on:click="add3">点击次数：{{count3}} 次 【非组件化编程】</button>
+    <br/><br/>
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+            count2: 0,
+            count3: 0
+        },
+        methods: {
+            add() {
+                this.count++;
+            },
+            add2() {
+                this.count2++;
+            },
+            add3() {
+                this.count3++;
+            }
+        }
+    })
+</script>
+</body>
+</html>

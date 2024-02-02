@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乌龟游戏</title>
+    <script type="text/javascript">
+
+
+        function move(btn) {
+            var wugui = document.getElementById("wugui");
+            var cock = document.getElementById("cock");
+
+            // alert("wugui.style.top= " + wugui.style.top)
+            let wugui_top = wugui.style.top;
+            let wugui_left = wugui.style.left;
+
+            // parseInt() 顶级函数(全局函数 是内置的 直接拿来用！！) [参考w3c文档 找functions 对象]
+            // 解析一个字符串转,并返回一个整数
+            wugui_top = parseInt(wugui_top.substring(0,wugui_top.indexOf("p")));
+            wugui_left = parseInt(wugui_left.substring(0,wugui_left.indexOf("p")));
+            // alert("wugui_top = " + wugui_top + typeof wugui_top);
+
+            // 判断是点击了哪一个按钮
+                if (btn.value === "向上走") {
+                    wugui_top -= 10;
+                    wugui.style.top = wugui_top + "px";
+                } else if (btn.value === "向左走") {
+                    wugui_left -= 10;
+                    wugui.style.left = wugui_left + "px";
+                } else if (btn.value === "向右走") {
+                    wugui_left += 10;
+                    wugui.style.left = wugui_left + "px";
+                } else if (btn.value === "向下走") {
+                    wugui_top += 10;
+                    wugui.style.top = wugui_top + "px";
+                }
+
+                if ((wugui_top > 100 && wugui_left > 100)){
+                    alert("乌龟好厉害！");
+                }
+
+        }
+    </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td></td>
+        <!--
+            老韩解读
+            1. this表示的是你点击的这个button，而且已经是一个dom对象
+            2. 可以使用属性和方法
+        -->
+        <td><input type="button" value="向上走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="向左走" onclick="move(this)"/></td>
+        <td></td>
+        <td><input type="button" value="向右走" onclick="move(this)"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="向下走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+</table>
+<!--把乌龟放在一个div
+    老韩解读
+    1. style 的 position: absolute 表示绝对定位
+    2. left:100px 表示图片距离窗口的原点的横坐标
+    3. top:120px; 表示图片距离窗口的原点的纵坐标
+    4. 针对图片而言，定位的点，是图片的左上角
+-->
+<div id="wugui" style="position: absolute ;left:100px;top:120px;">
+    <img src="1.bmp" border="1" alt=""/>
+</div>
+<!--公鸡图片div-->
+<div id="cock" style="left:200px;position:absolute;top:200px;">
+    <img src="2.bmp" border="1" alt=""/>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fun-lx</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*typeof是一个运算符，有2种使用方式：
+    typeof(表达式)和typeof 变量名，第一种是对表达式做运算，第二种是对变量做运算。
+
+    typeof的返回值:
+    typeof运算符的返回类型为字符串，值包括如下几种：
+    1. 'undefined'              --未定义的变量或值
+    2. 'boolean'                 --布尔类型的变量或值
+    3. 'string'                     --字符串类型的变量或值
+    4. 'number'                  --数字类型的变量或值
+    5. 'object'                    --对象类型的变量或值，或者null(这个是js历史遗留问题，将null作为object类型处理)
+    6. 'function'                 --函数类型的变量或值
+    7. "symbol"                 --Symbol (ECMAScript 2015 新增)*/
+
+    // 编写一个函数，用于计算所有参数相加的和，并返回，如果实参不是number，就过滤掉
+    // 使用typeof(变量) 来判断参数的类型
+
+    function f1(){
+        // alert("hello javascript" );
+        // alert(w);
+        var sum = 0;
+        // var x ;
+        // console.log("x= " + x);//x= undefined
+        // console.log("i= " + i);//Uncaught ReferenceError: i is not defined 不定义直接使用
+
+        for (let i = 0; i < arguments.length; i++) { //这里i必须赋值！！！ 不赋值i=undefined
+
+            if (typeof arguments[i] === "number"){
+                sum += arguments[i];
+            }
+        }
+        // alert(typeof NaN);// number
+        console.log("sum全部参数相加结果为= " + sum)
+        return sum;
+    }
+    f1(3,5,"abc",true);
+    // f1(3,5,"abc",true,NaN);
+    var s = f1(3,2,"abc",true);
+    console.log(s) //5
+    // console.log(s());//Uncaught TypeError: s is not a function
+
+    function f2(){
+        var res = 0;
+        for (let i = 0; i < arguments.length; i++) { //这里i必须赋值！！！不赋值i=undefined
+            if (typeof arguments[i] === "number"){
+
+                res += arguments[i];
+            }
+        }
+        // alert(typeof NaN);// number
+        console.log("res全部参数相加结果为= " + res)
+        return res;
+    }
+
+    alert("f2(3,3,2,2)= " + f2(3,3,2,2));//alert(f2()); 想正常输出，f2()需要有返回值！！
+
+
+    // var w = function(){
+    //     alert("w");
+    // }
+
+    // w();
+</script>
+
+</body>
+</html>

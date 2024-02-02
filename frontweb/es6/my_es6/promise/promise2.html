@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise代码重排</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        // 将 重复的代码提取出来 封装成一个方法
+
+        function get(url,data){
+
+          return new Promise((resolve,reject) => {
+                $.ajax({
+                    url:url,
+                    data:data,
+                    success(resultData){
+                        //console.log(resultData);
+                        resolve(resultData);
+                    },
+                    error(err){
+                        //console.log(err);
+                        reject(err);
+                    }
+                })
+            })
+        }
+
+
+        get("data/monster.json").then((resultData) => {
+        //下面这种写法也可以
+        //get("http://localhost:57823/es6/my_es6/promise/data/monster.json").then((resultData) => {
+           console.log("第1次请求数据=",resultData);
+           return get(`data/monster_detail_${resultData.id}.json`);
+        }).then((resultData)=>{
+            console.log("第2次请求数据=",resultData);
+            return get(`data/monster_gf_${resultData.gfid}.json`); //这里是一个promise对象，
+            // 所以最后的catch 可以捕获到 这里出现的异常！！
+        }).then((resultData)=>{
+            console.log("第3次请求数据=",resultData);
+            // 这里没有返回promise对象 但是后面的代码不会出错，只是这里出现的异常不会被catch捕获到
+        }).catch((err)=>{
+            console.log("promise 请求出现异常",err);
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+package com.test;
+public class test02 {
+	public static void main(String[] args) {
+		Student s3 = new Student();//0X0001
+//		show(s.getAge());
+		show01(s3);
+		System.out.println(s3.getName());
+		System.out.println(s3.getAge());
+	}
+	
+	public static void show(double i) {
+		Student s = new Student();
+		s.setName("沙悟净");
+		s.setAge(4000);
+		show02(s,s.getName(),s.getAge());
+	}
+	
+	public static void show01(Student s){//0X0001
+		// s=s3====>同一个地址，，，，0X0001
+		Student s1 = new Student();//s1=0X1111
+		
+		s.setName("唐僧");///0X0001
+		s.setAge(30);///0X0001
+		// s=s3====>同一个地址，，，，
+		s = s1;//s=0X1111
+		s.setAge(100);
+		s.setName("白骨精");
+//		Student s1 = new Student();/// s1==>0X0011
+//		s = s1;//0X0011
+		
+		
+		
+		System.out.println("s和s3已经不是一个地址了");
+		
+		
+		
+		
+	}
+	public static void show02(Student s,String name,int age){
+		s.setName("孙悟空");
+		name="猪八戒";
+		s.setName(name);
+		s.setAge(6000);
+		age = 8000;
+		s.setAge(age);
+	}
+	
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用遍历节点方法-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 60px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+    </style>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /* 常用遍历节点方法
+             1、取得匹配元素的所有子元素组成的集合: children(). 该方法只考虑子元素而不考虑任何
+                后代元素. 子元素下面的元素就不考虑了
+             2、取得匹配元素后面的同辈元素的集合:next()/nextAll();
+             3、取得匹配元素前面的同辈元素的集合:prev()/prevAll();
+             4、取得匹配元素前后所有的同辈元素: siblings()
+             5、获取指定的第几个元素: nextAll().eq(index)
+             //$("div[class='one'] :eq(0)")  :eq(index) 下标从零开始 eq也有选择器
+                .eq() 方法会用集合中的一个元素构造一个新的 jQuery 对象。下标从0开始
+                如果给定表示 DOM 元素集合的 jQuery 对象，.eq() 方法会用集合中的一个元素构造一个新的 jQuery 对象。下标从0开始
+                .filter()
+                如果给定表示 DOM 元素集合的 jQuery 对象，.filter() 方法会用匹配元素的子集构造一个新的 jQuery 对象。
+                所使用的选择器会测试每个元素；所有匹配该选择器的元素都会包含在结果中。
+                .children()
+                如果给定表示 DOM 元素集合的 jQuery 对象，
+                .children() 方法允许我们检索 DOM 树中的这些元素，并用匹配元素构造新的 jQuery 对象。
+                .find() 和 .children() 方法类似，不过后者只沿着 DOM 树向下遍历单一层级。
+
+                .find()
+                如果给定一个表示 DOM 元素集合的 jQuery 对象，
+                .find() 方法允许我们在 DOM 树中搜索这些元素的后代，并用匹配元素来构造一个新的 jQuery 对象。
+                .find() 与 .children() 方法类似，不同的是后者仅沿着 DOM 树向下遍历单一层级。
+                属性选择器中也可以使用反引号\"
+                 $button.parent().find("input[class=\"cart-plus-minus-box\"]").val(newVal);
+
+                1、选择器nth-child(N)：下标从1开始；eq(N)：下标从0开始
+                2、nth-child(N)：选择多个元素；eq(N)：选择一个元素
+                // nth-child(2) 下标从1开始，这里的2，就是第二个
+
+                get() 是 jQuery对象转换为dom对象时使用的
+                 var username = $username.get(0);
+                alert("username value~~~=" + username.value)
+             6、对获取到的同辈元素进行过滤 nextAll().filter("标签")*/
+
+
+            //**查找所有子元素（class 为 one 的div的子元素)
+            $("#b1").click(function () {
+                $("div[class='one']").children().css("background", "red");
+            })
+
+            //***获取后面的同辈div元素（class 为 one 的div的)
+            $("#b2").click(function () {
+                $("div[class='one']").next().css("background", "green");
+
+            })
+
+            //**获取前面的同辈div元素（class 为 one 的div的)
+            $("#b3").click(function () {
+                // $("div[class='one']").prev().css("background","blue");
+                // $("div[class='one']").prevAll().css("background","blue");
+            })
+            //**获取所有的同辈div元素（class 为 one 的div的)
+            $("#b4").click(function () {
+                //如果给定表示 DOM 元素集合的 jQuery 对象，.eq() 方法会用集合中的一个元素构造一个新的 jQuery 对象。下标从0开始
+                $("div[class='one']").siblings().filter("div").eq(0).css("background", "skyblue");
+                //$("div[class='one'] :eq(0)")  :eq(index) 下标从零开始 eq也有选择器
+            })
+
+            /*
+                        //**查找所有子元素（class 为 one 的div的子元素)
+                        $("#b1").click(function () {
+
+                            //我们可以使用这样的方式$("div[class='one']") 来选择
+                            //class 为 one 的div
+                            $("div[class='one']").children().each(function () {
+                            // 隐式的传入this 就是单个的input对象
+                                alert("子div的内容是~~~ " + $(this).text());
+                            })
+
+                           // $("div.one").children().each(function (){
+                            //     alert("子div的内容是= " + $(this).text());
+                            // })
+                            //指定获取到第几个子元素, eq(1) 表示得到第2个子元素
+                            //alert($("div.one").children().eq(1).text());
+
+                        })
+
+                        //!***获取后面的同辈div元素（class 为 one 的div的)
+                        $("#b2").click(function () {
+                            //老师解读
+                            //1. $("div.one") 选择到 class = one 的 div
+                            //2. nextAll() 获取到后面所有的同辈元素
+                            //3. filter("div"), 获取到后面所有的同辈元素, 进行过滤，只得到div
+                            //4. each 遍历
+                            $("div.one").nextAll().filter("div").each(function () {
+                                alert("后面同辈div的内容是= " + $(this).text());
+                            })
+
+                            //如果我们希望得到后面同辈元素的第几个，可以eq
+                            //获取到后面同辈div元素的第2个
+                            alert("后面同辈div元素的第2个的内容=" +
+                                $("div.one").nextAll().filter("div").eq(1).text());//aaaa..
+
+                            //如果我们希望得到的是紧邻的面同辈元素
+                            alert("紧邻的面同辈元素=" +
+                                $("div.one").next().text());//ttt...
+                        })
+
+                        //!**获取前面的同辈div元素（class 为 one 的div的)
+                        $("#b3").click(function () {
+                            //遍历
+                            // $("div.one").prevAll().filter("div").each(function (){
+                            //     alert("div的内容= " + $(this).text());
+                            // })
+
+                            //得到前面的同辈元素第4个
+                            //$("div.one").prevAll().eq(3);
+                            //得到前面的紧邻同辈元素
+                            alert($("div.one").prev().text())//ccccc
+                        })
+                        //!**获取所有的同辈div元素（class 为 one 的div的)
+                        $("#b4").click(function () {
+                            $("div.one").siblings().filter("div").each(function () {
+                                alert("同辈div text= " + $(this).text())
+                            })
+                        })*/
+
+            $("#b5").click(function (){
+                var find = $("#div-spanDiv").find("span");
+                alert(find)
+                var find = $("#div-spanDiv").children("span");
+            })
+
+
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="查找所有子元素 (class 为 one 的div的)" id="b1"/><br/><br/>
+<input type="button" value="获取后面的同辈元素 (class 为 one 的div的)" id="b2"/><br/><br/>
+<input type="button" value="获取前面的同辈元素 (class 为 one 的div的)" id="b3"/><br/><br/>
+<input type="button" value="获取所有的同辈元素 (class 为 one 的div的)" id="b4"/>
+<input type="button" value="验证find()方法返回的是什么元素" id="b5"/>
+<hr/>
+<div>
+    divdivdiv ccccccc
+</div>
+
+<p class="one">
+    ppppp ccccccc
+</p>
+
+<div class="one">
+    div class="one" 1层
+    <div id="one">
+        XXXXXXXXX one 2层
+        <div id="one_01">
+            XXXXXXXXX one_01 3层
+        </div>
+    </div>
+
+    <div id="two">
+        XXXXXXXXX two
+    </div>
+
+    <div id="three">
+        XXXXXXXXX three
+    </div>
+
+    <div id="four">
+        XXXXXXXXX four
+    </div>
+</div>
+<div>
+    tttttttttt
+</div>
+<div>
+    aaaaaaa
+</div>
+<div>bbbbbb</div>
+<p>hello, pp</p>
+
+<div id="div-spanDiv">
+    <span>div-span</span>
+</div>
+</body>
+</html>

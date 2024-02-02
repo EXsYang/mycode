@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.mapper.IdenCardMapper">
+
+    <!--
+    1. 配置/实现 public IdenCard getIdenCardById(Integer id);
+    2. 根据 id 获取到身份证
+    3. 注意:这里在只有一个参数的情况下 #{id}即使写成 #{idx}也可以获取到数据
+       注意如果没有指定 POJO属性和字段的对应关系 按照默认的规则进行封装
+       即 javabean属性名和表的字段名要保持一致，否则匹配不上，封装的Javabean对象该属性值为null
+    -->
+    <!--原始方式 只是获取到单个IdenCard对象，没有级联Person-->
+    <select id="getIdenCardById" parameterType="Integer" resultType="IdenCard">
+       SELECT * FROM `idencard` WHERE `id` = #{id};
+    </select>
+
+    <!--级联Person
+        private Integer id;
+        private String card_sn;
+        private Person person;
+    1. 根据id获取到身份证序列号，并查询级联的person
+    2. public IdenCard getIdenCardById2(Integer id);
+    3. 自定义一个resultMap,完成属性值映射
+    -->
+    <resultMap id="resultIdenCardMap" type="IdenCard">
+        <id property="id" column="id"/>
+        <result property="card_sn" column="card_sn"/>
+        <!--
+        1. 需要根据  SELECT * FROM `idencard` WHERE `id` = #{id};,返回的id字段，
+           作为入参 传递给 getPersonByCardId() 通过这个方法 可以返回该 idencard对应的person
+
+        -->
+        <association property="person" column="id"
+                     select="com.hspedu.mapper.PersonMapper.getPersonByCardId"/>
+    </resultMap>
+    <select id="getIdenCardById2" parameterType="Integer" resultMap="resultIdenCardMap">
+       SELECT * FROM `idencard` WHERE `id` = #{id};
+    </select>
+
+</mapper>

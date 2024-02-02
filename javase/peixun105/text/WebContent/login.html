@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="from1" action="LoginServlet1">
+用户名：<input type="text" name="name"><span id="n1"></span><br>
+密&nbsp;&nbsp;码:<input type="password"><span id="n2"></span><br>
+<input type="button" value="登录">
+</form>
+</body>
+</html>
+<<script>
+   $(function(){
+	   var testname = /\w{6,12}/;
+	   var testpass = /[a-zA-Z]\w{5,11}/;
+	   $("input:button").on("click",function(){
+		   var name = $("input[name=name]").val();
+		   if(!testname.test(mane)){
+			   alert("用户名必须是6-12位");
+			   return;
+		   }
+		   if(!testpass.test(password)){
+			   alert("密码必须是以字母开头6-12位");
+			   return;
+		   }
+		   document.form1.submit();
+	   })
+	    $("input[name=name]").keyup(function(){
+		   var name = $(this).val();
+		   if(!testname.test(mane)){
+			   $("#n1").html("<font color='red'>用户名必须是6-12位</font>");
+		   }else{
+			   $("#n1").html("");
+		   }
+			  
+		   })
+		   $("input[name=password]").keyup(function(){
+		   var password = $(this).val();
+		   if(!testname.test(password)){
+			   $("#n2").html("<font color='red'>密码必须是以字母开头6-12位</font>");
+		   }else{
+			   $("#n2").html("");
+		   }
+			  
+		   })
+		   $(document).keyup(function(e){
+			   if(e.keyCode == 13){
+				   $("input:button").click();
+			   }
+		   })
+		  
+		  
+	   })
+   })
+</script>

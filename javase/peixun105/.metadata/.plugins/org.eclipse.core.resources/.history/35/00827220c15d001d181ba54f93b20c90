@@ -1,0 +1,12 @@
+package com.atguigu.java;
+
+public class Person1{
+public static void main(String[] args) {
+	Integer i ;
+	
+	if (i == 2) {
+		System.out.println("可以吗");
+	}
+	
+}
+}

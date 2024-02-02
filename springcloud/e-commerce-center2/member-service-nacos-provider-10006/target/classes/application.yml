@@ -1,0 +1,37 @@
+server:
+  port: 10006
+
+
+spring:
+  application:
+    # 这个名字将来会注册到注册中心
+    #name: member-service-provider-10000 #配置应用的名称，这里可以根据需求自定义，这就设置为和子项目的名字保持一致
+    name: member-service-nacos-provider #配置统一的提供者应用别名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #因为在pom.xml文件中我们已经引入了druid-starter,就不要用默认的了，
+                                                 #，所以我们这里就指定数据源的类型为DruidDataSource
+                                                  #导入了druid-starter但是如果没有进行配置，使用的数据源的类型为？
+                                                  #答:是默认的HikariDataSource数据源
+    url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+    driver-class-name: com.mysql.jdbc.Driver
+
+ #配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos Server的地址
+#配置暴露所有的监控点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #指定mapper.xml文件的位置
+  type-aliases-package: com.hspedu.springcloud.entity #指定实体类所在的包，这样通过类名就可以引用，而不需要全类名
+
+

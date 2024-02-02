@@ -1,0 +1,17 @@
+package com.atguigu.exer2;
+
+public class EcDef extends Exception{
+	
+	  static final long serialVersionUID = -338751699399229948L;
+	    
+	    public EcmDef() {
+	        super();
+	    }
+	    public EcmDef(String msg) {
+	        super(msg);
+	    }
+
+	
+	
+
+}

@@ -1,0 +1,10 @@
+package com.cx.cx;
+
+public class TestMax {
+	public static void main(String[] args) {
+
+		Max s1 = new Max();
+		s1.Max(10, 12, 15);
+		s1.Max(10.5, 12, 15.5);
+	}
+}

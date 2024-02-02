@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用promise完成多次ajax请求</title>
+
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        let p = new Promise(((resolve, reject) => {
+        //let p = new Promise(((abc, reject) => {   //这里的函数名无所谓 但是约定俗成 (resolve, reject)
+            $.ajax({
+                url:"data/monster.json",
+                success(resultData){
+                    console.log("promise 第1次请求=",resultData);
+                    resolve(resultData);
+                    //abc(resultData);
+                },
+                error(err){
+                    //console.log("promise 第1次请求出现异常=",err);
+                    reject(err);
+                }
+            })
+        }))
+
+
+        // 根据第一次ajax的结果，发出下一次ajax
+        // 之所以可以调用promise对象的then函数 是因为在上面ajax请求的success 函数中调用了 resolve(resultData);
+        // 如果没有写resolve(resultData); p.then() 不会生效
+
+        p.then((resultData) => {
+
+          return new Promise((resolve, reject) => { //这里返回给了p.then() 相当于
+              // p.then() 是一个Promise对象所以可以调用相关的方法  如果不返回，函数相当于没有返回值，调用不了Promise
+              // 对象特有的方法 then()或catch() 方法
+                $.ajax({
+                    url: `data/monster_detail_${resultData.id}.json`,
+                    success(resultData){
+                        console.log("promise 第2次请求=",resultData);
+                        resolve(resultData);
+                    },
+                    error(err){
+                        console.log("promise 第2次请求出现异常=",err);
+                        reject(err);
+                    }
+                })
+            })
+
+        }).then((resultData) => {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: `data/monster_gf_${resultData.gfid}.json`,
+                    success(resultData){
+                        console.log("promise 第3次请求=",resultData);
+                        //resolve(resultData);
+                    },
+                    error(err){
+                        console.log("promise 第3次请求出现异常=",err);
+                        reject(err);
+                    }
+                })
+            })
+        }).catch((err) => {
+            console.log("ajax请求出现异常=",err);
+        })
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

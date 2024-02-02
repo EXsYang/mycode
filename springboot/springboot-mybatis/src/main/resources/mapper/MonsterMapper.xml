@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--配置 getMonsterById-->
+<mapper namespace="com.hspedu.springboot.mybatis.mapper.MonsterMapper">
+    <select id="getMonsterById" resultType="com.hspedu.springboot.mybatis.bean.Monster">
+        <!--<select id="getMonsterById" resultType="Monster">-->
+        SELECT * FROM `monster` WHERE `id`=#{id}
+    </select>
+</mapper>

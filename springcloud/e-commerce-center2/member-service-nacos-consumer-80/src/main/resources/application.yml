@@ -1,0 +1,53 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: member-service-nacos-consumer-80
+  #配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #nacos server的地址
+   #配置sentinel
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # 指定sentinel控制台地址 (dash board)
+        # 简单的讲: transport.port 指定被监控的微服务应用于sentinel 控制台交互的端口.
+        # 默认端口是 8719, 假如被占用了, 就会自动的从8719开始依次+1扫描，直到找到一个没有被占用的端口
+        port: 8719 #指定端口，默认8719
+      #配置sentinel+nacos规则持久化相关配置
+      datasource:
+        ds1: #配置一个数据源
+
+          #DataSource 扩展常见的实现方式有:
+          #
+          #拉模式：客户端主动向某个规则管理中心定期轮询拉取规则，这个规则中心可以是 RDBMS、文件，甚至是 VCS 等。这样做的方式是简单，缺点是无法及时获取变更；
+          #推模式：规则中心统一推送，客户端通过注册监听器的方式时刻监听变化，比如使用 Nacos、Zookeeper 等配置中心。这种方式有更好的实时性和一致性保证。
+          #Sentinel 目前支持以下数据源扩展：
+          #
+          #Pull-based: 动态文件数据源、Consul, Eureka
+          #Push-based: ZooKeeper, Redis, Nacos, Apollo, etcd
+
+          #sentinel流控规则配置是从nacos server配置中心获取 这里使用的是推模式，这种方式有更好的实时性和一致性保证
+          nacos: #这里有可能是其他类型的比如 ZooKeeper, Redis, Nacos, Apollo(阿波罗), etcd 等
+            server-addr: localhost:8848 #指定nacos server配置中心地址
+            #dataId: member-service-nacos-consumer-80 #nacos server配置中心Data Id
+            dataId: hsp-id #nacos server配置中心Data Id 在 nacos server 配置 sentinel 流控规则的 Data ID 也可以自己指定，比如写成 hsp-id,只要在 sentinel client/微服务 的 applicaion.yml 的 datasource.ds1.nacos.dataId 的值保持一致即可
+            groupId: DEFAULT_GROUP #指定组[nacos server配置中心]
+            data-type: json #指定在nacos server配置中心配置的sentinel流控规则配置的数据类型
+            # rule-type 对应的规则 在枚举类 RuleType.java 中有对应, ctrl+n 查找RuleType => flow、degrade、param-flow、param-flow
+            # 其他规则的种类 配置文档：https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html
+            rule-type: flow #规则类型：流控规则 在文档中有对应关系 还有降级规则,热点规则,系统规则等...
+
+#设置暴露所有的监控点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#openfeign和sentinel整合，必须配置
+feign:
+  sentinel:
+    enabled: true
+

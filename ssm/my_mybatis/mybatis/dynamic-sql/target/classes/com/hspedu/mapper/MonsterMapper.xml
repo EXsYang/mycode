@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+
+
+    <!-- if 标签
+    1. 配置/实现 public List<Monster> findMonsterByAge(@Param("age") Integer age);
+    2. 需求：请查询 age 大于 10 的所有妖怪，如果程序员输入的 age 不大于 0, 则输出所有的妖怪!
+    3. 如果用原来的方式来配置 会出现什么问题？如果使用原来的#{age}
+       在test表达式是取不出来入参值  (Integer age) 中的 age 的。
+       这里针对的是 形参类型为Java类型Integer而不是POJO对象。
+    4. 解决方案1(更加明确推荐) 是使用@Param 形参注解 这种方式要求 test="age >= 0" 中的参数age
+       要和(@Param("age") Integer age)->@Param("age") 中的 age 保持一致 否则报错！！
+       解决方案2(不推荐) 或者 不加@Param 形参注解直接写 test="age >= 0"
+       要求test中使用的参数age可以是任意参数比如可以是test="cc >= 0" 不用和形参参数age 保持一致
+
+
+    -->
+    <select id="findMonsterByAge" parameterType="Integer" resultType="Monster">
+        SELECT * FROM `monster` WHERE 1 = 1
+        <!--<if test="cc >= 0">-->
+        <if test="age >= 0">
+            AND `age` > #{age}
+        </if>
+    </select>
+
+    <!--where 标签
+    1. 配置/实现 public List<Monster> findMonsterByIdAndName(Monster monster);
+    2. 根据 id 和名字来查询结果
+    需求：查询 id 大于 6 的，并且名字是 "老鼠精" 的所有妖怪, 注意，如果名字为空，
+    或者输入的 id 小于 0, 则不拼接 sql 语句(老师梳理：如果名字为空 , 就不带名字条件,
+    如果输入的 id 小于 0, 就不带 id 的条件)
+    3. where + if : WHERE `id` > #{id} AND `name` = #{name}
+    4. 如果mapper接口中定义的方法入参是对象，test表达式中，
+       直接使用对象的属性名即可 也不需要使用#{}包起来！但也不能乱写 如果乱写
+       ，比如写成 test="idx != null" 会报错 ReflectionException: There is no getter for property named 'idx' in 'class com.hspedu.entity.Monster'
+    5. where标签，会在组织动态sql时，自动的加上 WHERE 所以不需要自己在sql语句中手动写WHERE了
+    6. 使用where标签时 mybatis底层会自动去掉多余的 AND
+    -->
+    <select id="findMonsterByIdAndName" parameterType="Monster" resultType="Monster">
+        SELECT * FROM `monster`
+        <where>
+            <if test="id != null and id >= 0">
+                AND `id` = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                AND `name` = #{name}
+            </if>
+        </where>
+
+    </select>
+
+
+    <!-- 测试 choose 标签的使用 注意该标签是多选一 即前面的条件匹配上了，后面不再匹配
+    1. 配置/实现public List<Monster> findMonsterByIdAndName_choose(Map<String, Object> map);
+    2. 需求：
+       1) 如果给的 name 不为空，就按名字查询妖怪，
+       2) 如果指定的 id>0，就按 id 来查询，
+       3) 如果前面的两个条件都不满足，就默认查询 salary>100 的妖怪，
+       要求使用 mybatis 提供的 choose/when/otherwise 标签实现, 传入参数要求使用 Map
+    3.注意 when标签 不会自动的加上 'WHERE' , 因此需要程序员自己在when语句中自己加上 WHERE
+        入参是map类型 map=> key-value  test表达式按照map中key的值来获取对应的值
+        sql语句中，使用#{key} 获取对应的map中的值
+    -->
+    <select id="findMonsterByIdAndName_choose" parameterType="map" resultType="Monster">
+        SELECT * FROM `monster`
+        <choose>
+            <!-- 这里 test="name" 这 name 就是你 传入的 map 参数对应的 key -->
+            <when test="name != null and name != ''">
+                WHERE `name` = '老鼠精'
+            </when>
+            <when test="id != null and id > 0">
+                WHERE `id` = #{id}
+            </when>
+            <otherwise>
+                WHERE salary > 100
+            </otherwise>
+        </choose>
+    </select>
+
+
+    <!-- 测试 foreach 的标签使用
+    1. 配置/实现 public List<Monster> findMonsterById_forEach(Map<String, Object> map);
+    2. 需求：查询 monster_id 为 6,7,8 的妖怪
+
+    -->
+
+    <select id="findMonsterById_forEach" parameterType="map" resultType="Monster">
+        SELECT * FROM `monster`
+        <!--<where> 标签在if标签外面也没事，如果if中的条件不满足，也不会加上where
+         即不会是 SELECT * FROM `monster` WHERE
+         -->
+        <!-- 解读:
+        1. 需要使用where标签
+        2. 再写入相应的处理代码，比如ids是否为空.. 需要使用if标签
+        3. 如果ids不为空，则使用foreach标签进行遍历
+        4. collection="ids" 对应你的入参map的key - ids
+        5. item="id" 在遍历collection="ids" ids集合时，每次取出的值，对应的变量id
+        6. open="(" 对应的就是sql (6,7,8) 的第一个小括号 (
+        7. separator="," 遍历出来的多个值的 分隔符号     separator: /ˈsepəreɪtər/ 分离器
+        8. close=")" 对应的就是sql (6,7,8) 最后的小括号 (
+        9.  #{id} 对应的是 item="id"
+        -->
+       <if test="ids != null and ids != ''">
+           <where>
+               <!--`id` IN  这里在IN后面最好打一个空格 -->
+                `id` IN
+                <foreach collection="ids" item="id" open="(" separator="," close=")">
+                    <!-- #{id} 这里填入的id 是和上面 item设置的值关联的 不能乱写  -->
+                    #{id}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+
+    <!-- 了解 trim 标签
+    1. 配置/实现  public List<Monster> findMonsterByName_Trim(Map<String, Object> map);
+    2. trim 可以替换一些关键字.要求：按名字和年龄查询妖怪，如果 sql 语句有 and|or|hsp 就替换成where
+    3. 如果要实现这个功能，要使用where标签 [加入where 同时会去掉多余的and]
+    4. trim prefix="WHERE" prefixOverrides="and|or|hsp"  类似对where功能进行了扩展
+       若子句的开头为 "and|or|hsp" where元素也会将它们去除 同时会插入where
+
+    -->
+    <select id="findMonsterByName_Trim" parameterType="map" resultType="Monster">
+        SELECT * FROM `monster`
+        <!--<where>-->
+        <trim prefix="WHERE" prefixOverrides="and|or|hsp">
+            <if test="name != null and name != ''">
+                hsp `name` = #{name}
+            </if>
+            <if test="age != null and age != ''">
+                AND `age` = #{age}
+            </if>
+        </trim>
+        <!--</where>-->
+
+    </select>
+
+    <!-- updateMonster_set set 标签 重点
+    1. 配置/实现  public void updateMonster_set(Map<String, Object> map);
+    2. 需求: 请对指定 id 的妖怪进行 修改，如果没有设置新的属性，则保持原来的值
+    3. 入参要根据sql语句来配合 map [age-10,email-'hsp@sohu.com'...]
+    4. set 标签会处理多余的逗号 ',' 不用担心最后一个逗号。
+       但是处于非最后一个位置的逗号不可以少 否则用到对应的sql语句 就会缺少逗号  报错
+    5. set 标签本身会在sql语句中插入一个set 所以在sql语句中不用显示的写SET
+    -->
+    <update id="updateMonster_set" parameterType="map">
+        UPDATE `monster`
+        <set>
+            <if test="age != null and age != ''">
+                `age` = #{age} ,
+            </if>
+            <if test="birthday != null and birthday != ''">
+                `birthday` = #{birthday} ,
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email} ,
+            </if>
+            <if test="gender != null and gender != ''">
+                `gender` = #{gender} ,
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name} ,
+            </if>
+            <if test="salary != null and salary != ''">
+                `salary` = #{salary} ,
+            </if>
+        </set>
+        <!--这里还是需要带WHERE 的 set没有能力处理-->
+        WHERE `id` = #{id};
+    </update>
+
+</mapper>

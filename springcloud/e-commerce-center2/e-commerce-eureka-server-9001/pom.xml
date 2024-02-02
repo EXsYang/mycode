@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>e-commerce-center2</artifactId>
+        <groupId>com.hspedu.springcloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>e-commerce-eureka-server-9001</artifactId>
+
+    <!--引入相关的依赖 可以参考 provider-10000 来进行调整-->
+    <dependencies>
+
+        <!--引入eureka-server 场景启动器starter:使用版本仲裁-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+
+        <!--引入web starter 使用版本仲裁(从父项目继承了版本,即从下面这个位置)
+        <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.2.RELEASE</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--starter-actuator 是springboot程序的监控系统，可以实现系统的健康检测
+        可以通过 http://localhost:9001/actuator 看到相关的连接和信息
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--引入lombok, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--引入test starter, 用于DAO层和Service层做springboot环境下的测试, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--引入e_commerce_center-common-api
+        -->
+        <dependency>
+            <groupId>com.hspedu.springcloud</groupId>
+            <artifactId>e_commerce_center-common-api</artifactId>
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <version>${project.version}</version>
+        </dependency>
+
+
+    </dependencies>
+</project>

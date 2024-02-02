@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>用户登录界面</h1>
+<!--<form action="/cs/checkServlet" method="post">-->  <!-- cookie homework -->
+<form action="/cs/loginCheck" method="post">    <!-- session homework post请求时在浏览器地址栏回车，出现偶尔后台无响应-->
+<!--<form action="/cs/loginCheck" method="get">    &lt;!&ndash; session homework &ndash;&gt;-->
+    用户名：<input type="text" name="username"><br/>
+    密码：<input type="password" name="pwd"><br/>
+    <input type="submit" value="登录">
+</form>
+</body>
+</html>

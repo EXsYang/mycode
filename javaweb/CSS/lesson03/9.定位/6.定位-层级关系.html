@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+        }
+
+        .one{
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            z-index: 1;
+
+            background-color: pink;
+        }
+        .two{
+            position: absolute;
+            left: 50px;
+            top: 100px;
+
+            background-color: skyblue;
+        }
+    /*
+        默认情况下，定位的盒子 后来者居上(即在定义div标签时，写在下面的)
+        z-index；整数;取值越大，显示顺序越靠上，z-index 默认值是0
+        注意：z-index必须配合定位position 使用才生效
+      */
+    </style>
+</head>
+<body>
+<div class="one">one</div>
+<div class="two">two</div>
+</body>
+</html>

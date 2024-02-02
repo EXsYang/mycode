@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.io.ObjectInputStream</OriginalElement>
+  <nodes>
+    <node x="213.0" y="85.0">java.io.Closeable</node>
+    <node x="158.5" y="280.0">java.io.ObjectInputStream</node>
+    <node x="0.0" y="85.0">java.io.DataInput</node>
+    <node x="29.5" y="182.5">java.io.ObjectInput</node>
+    <node x="123.75000000000001" y="0.0">java.lang.AutoCloseable</node>
+    <node x="377.5" y="182.5">java.io.ObjectStreamConstants</node>
+    <node x="203.5" y="170.0">java.io.InputStream</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.io.ObjectInputStream" target="java.io.ObjectInput">
+      <point x="-81.33333333333331" y="-41.5" />
+      <point x="199.16666666666669" y="255.0" />
+      <point x="106.5" y="255.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectInputStream" target="java.io.ObjectStreamConstants">
+      <point x="81.33333333333331" y="-41.5" />
+      <point x="361.8333333333333" y="255.0" />
+      <point x="502.5" y="255.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectInputStream" target="java.io.InputStream">
+      <point x="0.0" y="-41.5" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="java.io.ObjectInput" target="java.io.DataInput">
+      <point x="-38.5" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.InputStream" target="java.io.Closeable">
+      <point x="0.0" y="-30.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
+      <point x="0.0" y="-17.5" />
+      <point x="280.5" y="60.0" />
+      <point x="253.5" y="60.0" />
+      <point x="43.25" y="17.5" />
+    </edge>
+    <edge source="java.io.ObjectInput" target="java.lang.AutoCloseable">
+      <point x="38.5" y="-17.5" />
+      <point x="145.5" y="60.0" />
+      <point x="167.0" y="60.0" />
+      <point x="-43.25" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="314.0" y="166.0" />
+  <SelectedNodes>
+    <node>java.io.ObjectInputStream</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

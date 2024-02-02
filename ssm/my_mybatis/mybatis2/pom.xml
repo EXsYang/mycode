@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>mybatis2</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mybatis_monk</module>
+    </modules>
+
+    <!--引入相关依赖-->
+    <dependencies>
+        <!--mysql依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+        <!--mybatis依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.7</version>
+        </dependency>
+        <!--junit依赖-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <!--如果这里有一个scope-test 表示该jar的作用范围在test目录 后面有专门的章节讲解maven-->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <!--注意是在父工程的 pom.xml 加入 build 配置-->
+
+    <!--在 build 中配置 resources，来防止我们资源导出失败的问题
+    老韩解读：
+    1. 不同的 idea/maven 可能提示的错误不一样
+    2. 不变应万变，少什么文件，就增加相应配置即可
+    3. 含义是将 src/main/java目录和子目录 和 src/main/resources目录和子目录
+    的资源文件 xml 和 properties在build项目时，导出到对应的target目录下
+    -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <!--两个** 表示多级目录
+                    一个* 表示任意多个字符
+                    springmvc中有相似的规则【@RequestMapping 支持 Ant 风格资源地址】
+                    -->
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+
+
+
+
+</project>

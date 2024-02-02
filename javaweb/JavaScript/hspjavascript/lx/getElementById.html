@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById 的使用</title>
+    <script type="text/javascript">
+        /*
+               只有getElementById() 不放在window.onload取不到值！！！！！！！！！
+               document.getElementById('参数')：根据id获取元素，由于id是唯一的，获取到的是一个元素。
+               document.getElementsByName('参数')：根据name获取元素，由于name不是唯一的（比如不同的input的name可以相同），获取到的是元素数组。
+               document.getElementsByTagName('参数')：根据tagName获取元素，由于tagName不是唯一的，获取到的是元素数组。
+               例：页面有如下3个元素
+                   <input type="text" id="user1" name="count" value="001"/>
+                   <input type="text" id="user2" name="count" value="001"/>
+                   <input type="text" id="user3" name="count" value="001"/>
+               document.getElementById('user2')  获取到的是第2个元素
+               document.getElementsByName('count')  获取到的是全部3个元素
+               document.getElementsByName('count')[0]  获取到的是第1个元素
+               document.getElementsByTagName('input')  获取到的是全部3个元素
+               document.getElementsByTagName('input')[1]  获取到的是第2个元素*/
+        function getValue() { //定义函数
+            var myHeader = document.getElementById("myHeader");
+            // alert(myHeader) //HTMLHeadingElement
+            alert("静态绑定：内容是= " + myHeader.innerText); //韩顺平教育
+            // alert(myHeader.innerHTML); //<div>韩顺平教育</div>
+        }
+
+        window.onload = function () {
+            var myHeader2 = document.getElementById("myHeader2");
+            myHeader2.onclick = function () {
+                // alert(myHeader2) //HTMLHeadingElement
+                alert("动态绑定：内容是= " + myHeader2.innerText); //韩顺平教育
+                // alert(myHeader2.innerHTML); //<div>韩顺平教育</div>
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+<h1 id="myHeader" onclick="getValue()">
+    <div>静态绑定韩顺平教育</div>
+</h1>
+<h1 id="myHeader2">
+    <div>动态绑定韩顺平教育</div>
+</h1>
+<p>Click</p>
+</body>
+</html>

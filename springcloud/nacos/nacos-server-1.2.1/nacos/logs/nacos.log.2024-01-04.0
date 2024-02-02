@@ -1,0 +1,142 @@
+2024-01-04 21:11:47,774 INFO Starting Nacos v1.2.1 on F2 with PID 15952 (D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\target\nacos-server.jar started by yangda in D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\bin)
+
+2024-01-04 21:11:47,777 INFO The following profiles are active: standalone
+
+2024-01-04 21:11:50,173 INFO Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$f80e4677] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-04 21:11:50,262 INFO Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-04 21:11:50,265 INFO Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5b799640' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-04 21:11:50,269 INFO Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$1ce2e929] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-04 21:11:50,274 INFO Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-04 21:11:51,917 INFO Tomcat initialized with port(s): 8848 (http)
+
+2024-01-04 21:11:51,955 INFO Starting service [Tomcat]
+
+2024-01-04 21:11:51,956 INFO Starting Servlet Engine: Apache Tomcat/9.0.13
+
+2024-01-04 21:11:51,970 INFO The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\jdk\jdk1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;D:\setupruanjian\app\oracle\product\11.2.0\server\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\jdk\jdk1.8\bin;C:\jdk\jdk1.8\jre\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Github\Git\cmd;C:\Program Files\dotnet\;D:\hspmysql\mysql-5.7.25-winx64\bin;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\Cloudflare\Cloudflare WARP\;D:\Java_developer_tools\program\nodejs14.17\;C:\Users\yangd\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\yangd\AppData\Local\Programs\Python\Python36\;D:\python\Scripts\;D:\python\;C:\Users\yangd\AppData\Local\Microsoft\WindowsApps;D:\pycharm\PyCharm Community Edition 2019.1.1\bin;;;D:\Github\Microsoft VS Code\bin;C:\Users\yangd\AppData\Roaming\npm;.]
+
+2024-01-04 21:11:53,026 INFO Initializing Spring embedded WebApplicationContext
+
+2024-01-04 21:11:53,026 INFO Root WebApplicationContext: initialization completed in 5193 ms
+
+2024-01-04 21:12:15,463 INFO Reflections took 75 ms to scan 1 urls, producing 6 keys and 24 values 
+
+2024-01-04 21:12:15,534 INFO Reflections took 6 ms to scan 1 urls, producing 2 keys and 12 values 
+
+2024-01-04 21:12:15,546 INFO Reflections took 7 ms to scan 1 urls, producing 3 keys and 15 values 
+
+2024-01-04 21:12:17,756 INFO Use Mysql as the driver
+
+2024-01-04 21:12:18,414 INFO Initializing ExecutorService 'applicationTaskExecutor'
+
+2024-01-04 21:12:18,609 INFO Adding welcome page: class path resource [static/index.html]
+
+2024-01-04 21:12:19,255 INFO Creating filter chain: Ant [pattern='/**'], []
+
+2024-01-04 21:12:19,321 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5217f3d0, org.springframework.security.web.context.SecurityContextPersistenceFilter@5af28b27, org.springframework.security.web.header.HeaderWriterFilter@5118388b, org.springframework.security.web.csrf.CsrfFilter@7859e786, org.springframework.security.web.authentication.logout.LogoutFilter@54361a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4985cbcb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@332a7fce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37ebc9d8, org.springframework.security.web.session.SessionManagementFilter@7876d598, org.springframework.security.web.access.ExceptionTranslationFilter@314b8f2d]
+
+2024-01-04 21:12:19,491 INFO Exposing 2 endpoint(s) beneath base path '/actuator'
+
+2024-01-04 21:12:19,527 INFO Initializing ExecutorService 'taskScheduler'
+
+2024-01-04 21:12:19,704 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2024-01-04 21:12:19,715 INFO Started Nacos in 34.133 seconds (JVM running for 34.936)
+
+2024-01-04 21:12:19,715 INFO Nacos logs files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\logs\
+
+2024-01-04 21:12:19,716 INFO Nacos conf files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\conf\
+
+2024-01-04 21:12:19,717 INFO Nacos data files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\data\
+
+2024-01-04 21:12:19,717 INFO Nacos started successfully in stand alone mode.
+
+2024-01-04 21:12:19,917 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2024-01-04 21:12:19,917 INFO Initializing Servlet 'dispatcherServlet'
+
+2024-01-04 21:12:19,927 INFO Completed initialization in 10 ms
+
+2024-01-04 21:22:17,489 INFO [capacityManagement] start correct usage
+
+2024-01-04 21:22:17,600 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 21:22:17,755 WARN clearConfigHistory start
+
+2024-01-04 21:32:17,605 INFO [capacityManagement] start correct usage
+
+2024-01-04 21:32:17,606 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 21:32:17,807 WARN clearConfigHistory start
+
+2024-01-04 21:42:17,615 INFO [capacityManagement] start correct usage
+
+2024-01-04 21:42:17,616 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 21:42:17,823 WARN clearConfigHistory start
+
+2024-01-04 21:52:17,628 INFO [capacityManagement] start correct usage
+
+2024-01-04 21:52:17,639 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 21:52:17,832 WARN clearConfigHistory start
+
+2024-01-04 22:02:17,654 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:02:17,685 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:02:17,856 WARN clearConfigHistory start
+
+2024-01-04 22:12:17,686 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:12:17,710 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:12:17,858 WARN clearConfigHistory start
+
+2024-01-04 22:22:17,718 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:22:17,718 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:22:17,930 WARN clearConfigHistory start
+
+2024-01-04 22:32:17,733 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:32:17,743 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:32:17,953 WARN clearConfigHistory start
+
+2024-01-04 22:42:17,754 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:42:17,770 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:42:17,958 WARN clearConfigHistory start
+
+2024-01-04 22:52:17,790 INFO [capacityManagement] start correct usage
+
+2024-01-04 22:52:17,791 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 22:52:17,974 WARN clearConfigHistory start
+
+2024-01-04 23:02:17,799 INFO [capacityManagement] start correct usage
+
+2024-01-04 23:02:18,231 WARN clearConfigHistory start
+
+2024-01-04 23:02:18,256 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 23:12:18,271 INFO [capacityManagement] start correct usage
+
+2024-01-04 23:12:18,271 WARN clearConfigHistory start
+
+2024-01-04 23:12:18,291 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 23:22:18,293 INFO [capacityManagement] start correct usage
+
+2024-01-04 23:22:18,294 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-04 23:22:18,309 WARN clearConfigHistory start
+

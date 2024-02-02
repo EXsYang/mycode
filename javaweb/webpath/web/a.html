@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a.html</title>
+    <!--指的是一个路径-->
+    <!--<base href="/webpath/">-->
+
+    <!--指的是一个资源 没带斜杠 完蛋！-->
+    <!--<base href="/webpath"> -->
+</head>
+<body>
+<h1>这是a.html~~~~~</h1>
+<!-- 相对路径
+    1. href="d1/d2/b.html" 等价于 http://localhost:8080/项目名/d1/d2/b.html
+-->
+<a href="d1/d2/b.html">跳转到/d1/d2/b.html</a>
+<br/><br/>
+<!--
+老韩解析
+1. 在实际开发中，往往不是直接访问一个资源的而是在服务端进行转发或者重定向来访问资源
+2. 演示转发定位 b.html
+3. href="servlet03" http://localhost:8080/webpath/servlet03
+-->
+<!--在没写base标签时 遵守上述规则 参考浏览器地址栏的地址 即拿掉资源名后的路径和href中写的路径进行拼接
+点击下面的a标签后地址栏地址为:http://localhost:8080/webpath/servlet03
+-->
+<a href="servlet03">转发到/d1/d2/b.html</a><br>
+
+<!--在没写base标签时 即默认的使用相对路径作为参考 参考地址栏的地址时
+注意a标签只写#号时,跳转到当前页面 直接在当前地址栏路径屁股后面加一个#作为新的地址
+而不会拿掉资源名后再加#
+在没写base标签时 不遵守拿掉资源名后再将href中的内容进行拼接  而是直接加载当前页面地址的后面!
+点击下面的a标签后地址栏地址为:http://localhost:8080/webpath/a.html#
+
+写了base标签时 直接参考base中的地址
+点击下面的a标签后地址栏地址为:http://localhost:8080/webpath/#
+-->
+<a href="#">只写一个#</a>   <br>
+
+<!--
+http://localhost:8080/
+在没有base标签的情况下 只写一个/
+在有base标签的情况下 只写一个/
+都会被解析成 http://localhost:8080/
+-->
+<a href="/">在没有base标签的情况下 只写一个/</a> <br>
+
+
+
+<!--Request URL: http://localhost:8080/
+    Host: localhost:8080
+    没有参考base路径进行获取 下面写的单个斜杠/ 被服务器解析成http://localhost:8080/
+    -->
+<!--<a href="/">在有base标签的情况下 只写一个/</a><br>-->
+
+<!--正确使用base标签时 href 路径下没有多出一个斜杠
+    http://localhost:8080/webpath/login.html
+    -->
+<a href="login.html">login.html</a>
+
+<!--多出一个斜杠后 就不按照base路径进行查找了
+ /被解析成  http://localhost:8080/
+ http://localhost:8080/login.html
+
+ -->
+<a href="/login.html">login.html</a>
+
+
+
+</body>
+</html>

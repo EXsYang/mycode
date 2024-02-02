@@ -1,0 +1,20 @@
+package com.atguigu.exer3;
+
+public class Productor extends Thread{
+	
+
+	
+	Clerk clerk;
+	
+	 public void run() {
+		//生产产品		production() 
+			
+		 clerk.
+		 
+	 }
+	
+	
+	
+	
+	
+}

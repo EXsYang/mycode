@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理-作业1</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <button v-on:click="add">点击增加+1</button>
+    <!--老师解读
+    1. 这里count += 2 的count数据是data数据池的count
+    2. 案例不难，重点是掌握和理解机制
+    -->
+
+
+    <button v-on:click="add2">点击增加+2</button>
+    <!--add2()函数只有一句话 this.count += 2;
+    Vue 支持直接写在 v-on:click="" 里 因为在这写 脱离了下面的vm Vue对象实例 所以 把this拿掉
+    this 只可以在对象里面使用；问题是在这里写count += 2 它能不能找到数据池里的 count
+    可以！！ 因为上来就把vm Vue对象挂载到了 id="app"的div 所以在此处去找count时 它发现count并不是一个方法
+    它就会自动的去数据池里面找，找到count ,因此 这里的count 还是数据池里的数据count
+    -->
+    <button v-on:click="this.count += 2">点击增加+2</button>
+    <button v-on:click="count += 2">点击增加+2</button>
+
+    <p>你的按钮被点击了{{count}}次</p>
+</div>
+<script src="vue.js"></script>
+<!--创建一个vue实例,并挂载到id=app的div-->
+<script>
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div, el 就是element的简写
+        data: { //data{} 表示数据池(model中的数据), 有很多数据 ,以k-v形式设置(根据业务需要来设置)
+            message: "Vue事件处理的作业",
+            count: 0//点击的次数
+        },
+        methods: {
+            add() {
+                //修改data数据池的count
+                //因为data和methods在同一个vue实例中,因此可以通过this.数据方式访问
+                this.count += 1;
+            },
+            add2() {
+                //修改data数据池的count
+                //因为data和methods在同一个vue实例中,因此可以通过this.数据方式访问
+                this.count += 2;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package com.cx.cx;
+
+public class TestMax {
+	public static void main(String[] args) {
+
+		int x = 23;
+		int m;
+		int n;   
+		m = x/100;           
+		n = x%10; 
+		System.out.println(m);
+		System.out.println(n);
+		}
+	
+}

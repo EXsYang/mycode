@@ -1,0 +1,303 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<!DOCTYPE html>--%>
+<%--修改为jsp文件头--%>
+<%--在文件首行添加jstl 的taglib 标签并重新发布项目，否则不识别jstl--%>
+<%--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>韩顺平教育-家居网购</title>
+    <base href="/jiaju_mall/">
+    <!-- 移动端适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            // 后台管理表单自动提交 但是不可以跳转 仍然停留在furn_manage 界面
+            // 1 可以使用Ajax请求 解决
+            // 2 可以使用jsp 动态获取 解决
+            // 3 得到的家居信息放入到request域中 请求转发到furn_manage.html
+
+            //$("#form2")[0].submit(); // 前端自动提交，后端提交后进行请求转发或者重定向 循环起来了！？
+            //让自动提交只执行一次    设置计数变量  不行 每次转发或者重定向 都会再次加载此页面 count 重新计数！
+            //var count = 0;
+            //if (count == 0){
+            //count++;
+
+
+            //测试el表达式 是否可以在js 中使用  不可以使用！<%--前端页面没有识别出el表达式 语句就像没写过--%>
+            <%--console.log(${requestScope.countRequest});--%>
+            <%--alert("requestScope.countRequest~",${requestScope.countRequest});--%>
+
+
+            //根据 后端设置的 计数参数来决定是否再次发送请求
+            <%--// ${countRequest} el表达式中的值 在没有请求服务器时还没有进行设置 此时为null 不会进入if 取反可以进去
+            http://localhost:8080/jiaju_mall/pages/manager/furn_manage1.jsp
+                 --%>
+            console.log("$(#count).val()= ",$("#count").val()); // $(#count).val()=  2
+            //if(!$("#count").val()){
+            //    $("#form2")[0].submit(); //自动表单提交
+            //}
+
+            //if (!0){
+            //    $("#form2")[0].submit();
+            //}
+
+
+            //}
+
+            // el表达式 替代《%=
+            <%--           ${requestScope.list}--%>
+
+
+
+
+        })
+
+
+
+    </script>
+
+</head>
+
+<body>
+<!-- Header Area start  -->
+<div class="header section">
+    <!-- Header Top  End -->
+    <!-- Header Bottom  Start -->
+    <div class="header-bottom d-none d-lg-block">
+        <div class="container position-relative">
+            <div class="row align-self-center">
+                <!-- Header Logo Start -->
+                <div class="col-auto align-self-center">
+                    <div class="header-logo">
+                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                    </div>
+                </div>
+                <!-- Header Logo End -->
+
+                <!-- Header Action Start -->
+                <div class="col align-self-center">
+                    <div class="header-actions">
+                        <div class="header_account_list">
+                            <a href="javascript:void(0)" class="header-action-btn search-btn"><i
+                                    class="icon-magnifier"></i></a>
+                            <div class="dropdown_search">
+                                <form class="action-form" action="#">
+                                    <input class="form-control" placeholder="Enter your search key" type="text">
+                                    <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Single Wedge Start -->
+                        <div class="header-bottom-set dropdown">
+                            <a href="#">后台管理</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Action End -->
+            </div>
+        </div>
+    </div>
+    <!-- Header Bottom  End -->
+    <!-- Header Bottom  Start 手机端的header -->
+    <div class="header-bottom d-lg-none sticky-nav bg-white">
+        <div class="container position-relative">
+            <div class="row align-self-center">
+                <!-- Header Logo Start -->
+                <div class="col-auto align-self-center">
+                    <div class="header-logo">
+                        <a href="index.html"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                    </div>
+                </div>
+                <!-- Header Logo End -->
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu Start -->
+    <div style="width: 100%;height: 50px;background-color: black"></div>
+    <!-- Main Menu End -->
+</div>
+<!-- Cart Area Start -->
+<div class="cart-main-area pt-100px pb-100px">
+    <div class="container">
+        <h3 class="cart-page-title">家居后台管理</h3>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <form action="furnServlet" id="form2">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>图片</th>
+                                <th>家居名</th>
+                                <th>商家</th>
+                                <th>价格</th>
+                                <th>销量</th>
+                                <th>库存</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <%--测试在jsp 的 html代码 中是否可以识别到el表达式
+                                jsp页面中 这种注释--%> <%-- --%>   <%--
+                                、el表达式、jstl 都不会在前端查看页面源代码时显示出来
+                                 但是el表达式在jsp 的 html代码中生效！即下面这行代码生效 在js代码中声明el表达式就像没写过一样
+                                 js中的双斜杠注释会在前端查看页面源代码时显示出来
+                                --%>
+
+                                后端的值不可以在js中使用el表达式获取，可以用html当跳板 先传给html的一个input元素
+                                再在js中获取input元素的value！
+                                <input type="hidden" id="count" name="count" value="${requestScope.count}"/>
+
+                                el表达式:数据库存储的家居信息数量= ${requestScope.count} <br/>
+                                    <%--不存在的requestScope的属性fur 这里不会报错 会就往下执行--%>
+                                    fur.product_name=    ${fur.product_name}<br/>
+                                    <%--存在的requestScope的属性furn1 获取通过furn1.错误的属性名product_name
+                                     这里进行反射会报错InvocationTargetException
+                                     只能写furn1.name
+                                     因为furn1时Furn对象 Furn只有getName()方法 没有getProduct_name()方法
+                                     反射时找不到getProduct_name()方法导致报错
+                                     --%>
+                                    <%--furn.product_name=    ${furn1.product_name}<br/>--%>
+
+                                <%--前端页面没有识别出jstl 语句--%>
+                                <%--如果 服务器端设置的计数count 大于0 说明放入了数据库的信息 此时进行展示！--%>
+                                    <c:forEach items="${requestScope.list}" var="furn">
+                                        家居整体信息!：${furn}<br/>
+                                        <%--家居信息!：${furn.product_name}-${furn.merchant_name}-${furn.price}<br/>--%>
+                                    </c:forEach>
+                                <%--ctrl + shift + /--%>
+                                <%--  ctrl + /            --%>
+
+                                <td class="product-thumbnail">
+                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/1.jpg"
+                                                     alt=""/></a>
+                                </td>
+                                <td class="product-name"><a href="#">Product Name</a></td>
+                                <td class="product-name"><a href="#">蚂蚁家居</a></td>
+                                <td class="product-price-cart"><span class="amount">60.00</span></td>
+                                <td class="product-quantity">
+                                    100
+                                </td>
+                                <td class="product-quantity">
+                                    80
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#"><i class="icon-pencil"></i></a>
+                                    <a href="#"><i class="icon-close"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/2.jpg"
+                                                     alt=""/></a>
+                                </td>
+                                <td class="product-name"><a href="#">Product NameProduct Name</a></td>
+                                <td class="product-name"><a href="#">蚂蚁家居</a></td>
+                                <td class="product-price-cart"><span class="amount">60.00</span></td>
+                                <td class="product-quantity">
+                                    100
+                                </td>
+                                <td class="product-quantity">
+                                    80
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#"><i class="icon-pencil"></i></a>
+                                    <a href="#"><i class="icon-close"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Area End -->
+
+<!-- Footer Area Start -->
+<div class="footer-area">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Start single blog -->
+                    <!-- End single blog -->
+                    <!-- Start single blog -->
+                    <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up"
+                         data-aos-delay="400">
+                        <div class="single-wedge">
+                            <h4 class="footer-herading">信息</h4>
+                            <div class="footer-links">
+                                <div class="footer-row">
+                                    <ul class="align-items-center">
+                                        <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
+                                        <li class="li"><a class="single-link" href="#">交货信息</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
+                                        <li class="li"><a class="single-link" href="#">条款和条件</a></li>
+                                        <li class="li"><a class="single-link" href="#">制造</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End single blog -->
+                    <!-- Start single blog -->
+                    <div class="col-md-6 col-lg-2 col-sm-6 mb-lm-30px" data-aos="fade-up" data-aos-delay="600">
+                        <div class="single-wedge">
+                            <h4 class="footer-herading">我的账号</h4>
+                            <div class="footer-links">
+                                <div class="footer-row">
+                                    <ul class="align-items-center">
+                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
+                                        </li>
+                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
+                                        <li class="li"><a class="single-link" href="login.html">登录</a></li>
+                                        <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
+                                        <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End single blog -->
+                    <!-- Start single blog -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
+
+                    </div>
+                    <!-- End single blog -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row flex-sm-row-reverse">
+                    <div class="col-md-6 text-right">
+                        <div class="payment-link">
+                            <img src="#" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Area End -->
+<script src="assets/js/vendor/vendor.min.js"></script>
+<script src="assets/js/plugins/plugins.min.js"></script>
+<!-- Main Js -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

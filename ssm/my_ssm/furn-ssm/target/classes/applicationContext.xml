@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--这是spring 配置文件-->
+    <!-- spring 的配置文件 : 主要配置和业务逻辑有关的，比如数据源，事务控制等 -->
+
+    <!--
+        1. 扫描 com.hspedu.furn 包[包括子包]
+        2. 含义是当spring容器创建/初始化时，就会扫描com.hspedu.spring.component包
+           下的所有的 有注解 @Controller / @Service / @Respository / @Component类
+           将其实例化，生成对象，放入到ioc容器
+        3. context:exclude-filter 配置说明 不扫描控制器Controller
+    -->
+    <context:component-scan base-package="com.hspedu.furn">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+
+    <!--下面是配置数据源    之前在 学习 spring - JDBCTemplate 配置过数据源 和  -->
+    <!--引入外部的jdbc.properties文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--配置数据源对象DataSource Druid数据源-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="pooledDataSource">
+        <!--给数据源对象配置属性值
+        该属性的位置在 DruidDataSource 的父类 DruidAbstractDataSource 中声明了
+        protected volatile String username;
+        protected volatile String password;
+        -->
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+    </bean>
+
+
+
+
+    <!--配置mybatis 和 spring 的整合
+        1. 在项目中引入 mybatis 整合到spring的适配库/包
+        2. SqlSessionFactoryBean类 就是用来做mybatis 和 spring整合的，专门的类
+        3. 在spring配置文件中 整合mybatis 和 spring
+        4. SqlSessionFactoryBean类 是要去操作数据库的 肯定需要指定数据源
+        5. 这里爆红，是因为你还没有相应的文件，当有文件时，就不会报红
+        6. 这里的 SqlSessionFactoryBean 注入到ioc 容器后输出的
+        运行类型就是 DefaultSqlSessionFactory 即和mybatis中用到的
+        sqlSessionFactory的运行类型一致
+    -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+        <!--指定mybatis全局配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--指定数据源-->
+        <property name="dataSource" ref="pooledDataSource"/>
+        <!--指定mybatis的mapper文件[Mapper.xml]的位置
+         原来是在mybatis-config.xml 中指定
+        但是现在 把这个整合的任务交给spring了
+        所以要给 sqlSessionFactory 指定 mapper 的位置
+
+        1. 我们在开发中，通常将mapper.xml文件放在类路径 resources/mapper
+        2. 所以这里老韩指定的value 是 classpath:mapper/*.xml
+           类似于 之前在mybatis-config.xml指定的 <mappers>
+        -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+
+
+
+
+    <!-- 配置扫描器，将 mybatis 在dao层 接口的实现加入到 ioc 容器中
+    1. 我们的mapper接口放在com.hspedu.furn.dao
+    2. mybatis就是处于DAO层，操作DB
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--
+        1. 扫描所有的 dao 接口的实现，加入到 ioc 容器中
+        2. 这里 dao 接口，就是 mapper 接口
+        -->
+        <property name="basePackage" value="com.hspedu.furn.dao"/>
+    </bean>
+
+
+
+    <!--配置事务管理器对象  数据源事务管理器     之前在spring 事务 tx_ioc.xml 配置过
+    1.DataSourceTransactionManager 这个对象是进行事务管理
+    2.一定要配置数据源属性，这样指定该事务管理器 是对哪个数据源进行事务控制
+    -->
+    <!--<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="dataSourceTransactionManager">-->
+    <!--<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManagerx">-->
+    <!--上面两种 id 是随意配置的 会报错 因为会导致 <tx:advice id="txAdvice"> 初始化失败 -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <!--指定dataSource 要指定的数据源dataSource和jdbcTemplate
+        的数据源dataSource必须是同一个！！
+        (这里需要和mybatis的sqlSessionFactory/sqlSession 使用的数据源是同一个)
+        数据源事务管理器最终能够控制事务
+        能够提交能够回滚 还是针对数据源中取出来的连接 -->
+        <property name="dataSource" ref="pooledDataSource"/>
+    </bean>
+    <!--配置/开启基于注解的声明式事务管理功能
+        并指定你启用的是哪一个数据源事务管理器/对象  一定要引入结尾为 tx 包下的driven
+        xmlns:tx="http://www.springframework.org/schema/tx"
+
+        这是以前的配置方法，配置基于注解的声明式事务管理，现在使用XML配置+切入表达式来配置
+        -->
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+    <!-- 老韩解读 配置/开启基于 XML配置+切入表达式来配置 声明式事务管理功能
+         以前是在spring 中 使用注解 @Transactional 来开启声明式事务管理功能的
+    1. 开启基于注解的事务，并指定切入点
+    2. execution(* com.hspedu.furns.service..*(..)):
+    表示对 com.hspedu.furns.service 包所有类的所有方法控制事务
+    3. tx:advice : 配置事务增强, 也就是指定事务如何切入
+    4. 不需要背，能看懂，能修改，能维护即可
+    -->
+    <aop:config>
+        <!-- 切入点表达式 -->
+        <aop:pointcut id="txPoint" expression="execution(* com.hspedu.furn.service..*(..))"/>
+        <!-- 配置事务增强: 使用 txAdvice 指定规则对 txPoint 进行切入
+        说明:下面这行代码 就是 将配置的事务规则分配给的切入点表达式 切入点表达式的所有方法
+             在执行的时候 它的事务规则就由 下面写的(即下面这行代码分配的txAdvice 事务规则进行约束)
+
+
+        -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+    </aop:config>
+    <!-- 配置事务增强[指定事务规则]，也就是指定事务如何切入
+        注意：
+        默认会找id=transactionManager 的事务管理对象
+        因此上面配置的事务管理对象的id不可以随意指定否则会报错
+        org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'txAdvice': Cannot resolve reference to bean 'transactionManager' while setting bean property 'transactionManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'transactionManager' available
+    -->
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <!-- *代表所有方法都是事务方法-->
+            <tx:method name="*"/>
+            <!-- 以 get 开始的所有方法 ，我们认为是只读，进行调优
+            因为事务本身是同步的 所以性能上低，进行了调优
+            -->
+            <tx:method name="get*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+
+
+
+
+</beans>

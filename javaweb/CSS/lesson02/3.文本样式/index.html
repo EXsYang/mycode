@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本样式</title>
+<!--颜色：
+单词
+RGB 0~F 16进制
+RGBA  A:0~1 表示透明度
+
+text-align: center; 排版，水平居中 left/right
+
+text-indent: 2em;   首行缩进2个字，2px 两个像素
+height: 300px;      这里指的是背景色 块的高度
+line-height: 300px; 字体/段落的行高，和 块的高度一致，就可以上下居中
+vertical-align;     垂直对齐，垂直居中使用 middle
+-->
+    <style>
+        /*h1 {*/
+        /*    color: red;*/
+        /*}*/
+        /*h1 {*/
+        /*    color: rgb(0,255,255);*/
+        /*}*/
+        h1 {
+            color: rgba(0,255,255,0.5);
+            text-align: right;
+        }
+        .p1{
+            text-indent: 2em;
+        }
+
+        .p3{
+            background: #21499a;
+            height: 300px;
+            line-height: 300px;
+        }
+
+        /*下划线*/
+        .a1{
+            text-decoration: underline;
+        }
+        /*中划线*/
+        .a2{
+            text-decoration: line-through;
+        }
+        /*上划线*/
+        .a3{
+            text-decoration: overline;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<h1>故事介绍</h1>
+
+<p class="a1">123313123</p>
+<p class="a2">123313123</p>
+<p class="a3">123313123</p>
+
+
+<p class="p1">《魁拔》是2008年北京青青树动漫科技有限公司以系列动画电影的第一部《魁拔之十万火急》为基础，重新剪辑而成的TV动画。由王川执导，田博、马华等编剧，刘婧荦、竹内顺子等配音。
+</p>
+<p>TV版完整保留了电影的世界观、人物设定、故事内容和情节主线，但重制了片头曲。《魁拔妖侠传》是魁拔系列电影的前传，主要讲述的是有关卡拉肖克潘家族的故事，与电影关系并不大。大家所说的魁拔通常指魁拔系列动画电影。
+</p>
+<p class="p3">I love three things:the sun ,the moon and you.
+
+    The sun is for the day ,the moon is for the night
+
+    and you forever.I love three things:the sun ,the moon and you.
+
+    The sun is for the day ,the moon is for the night
+
+    and you forever.I love three things:the sun ,the moon and you.
+
+    The sun is for the day ,the moon is for the night
+
+    and you forever.I love three things:the sun ,the moon and you.
+
+    The sun is for the day ,the moon is for the night
+
+    and you forever.</p>
+
+</body>
+
+</html>

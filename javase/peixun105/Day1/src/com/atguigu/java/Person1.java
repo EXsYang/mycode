@@ -1,0 +1,11 @@
+package com.atguigu.java;
+
+public class Person1{
+public static void main(String[] args) {
+	Integer i = new Integer(333);
+	
+	if (i == 333) {
+		System.out.println("可");
+	}
+}
+}

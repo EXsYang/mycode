@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hspedu.mapper.PersonMapper">
+
+    <!-- 使用第 1 种映射方式,完成 1 对 1 映射关系 [ getPersonById - personResultMap ]
+    1. 配置/实现 public Person getPersonById(Integer id);
+    2. 通过 Person 的 id 获取到 Person,包括这个 Person 关联的 IdenCard 对象[级联查询]
+      注意:这里在只有一个参数的情况下 #{id}即使写成 #{idx}也可以获取到数据
+    3. 直接使用原始方式 resultType="Person" 没有报错，但是返回的 Person的IdenCard card属性为null
+       ，即这种方式 没有实现级联查询
+    4. 解决方式：自定义resultMap 搞定，映射返回的结果
+    5. 因为 getPersonById 最终返回的是 Person对象[只是有级联的对象属性]，type仍然配置"Person"
+       , type="Person" 指的是配置的该实现方法 最终返回的是Person对象
+    6.
+
+    -->
+
+    <!--使用原始方式 返回的数据封装成Person对象是 IdenCard card 属性为null  -->
+    <!--<select id="getPersonById" parameterType="Integer" resultType="Person">-->
+    <!--    SELECT * FROM `person` WHERE `id` = #{id};-->
+    <!--</select>-->
+
+    <!--使用第 1 种映射方式,完成 1 对 1 映射关系-->
+    <resultMap id="personResultMap" type="Person">
+
+        <!--<result property="id" column="id"/>-->
+        <!-- 使用id 标签  – 一个 ID 结果；标记出作为 ID 的结果可以帮助提高整体性能
+            1.property="id" 表示Person 属性 id ,通常是主键
+            2.column="id" 表示对应的表的字段
+        -->
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--association – 一个复杂类型的关联；许多结果将包装成这种类型
+        1. 下面的 javaType 指定的是 property="card" 的具体类型
+           javaType: 一个 Java 类的完全限定名，或一个类型别名（关于内置的类型别名，可以参考上面的表格）。 如果你映射到一个 JavaBean，MyBatis 通常可以推断类型。然而，如果你映射到的是 HashMap，那么你应该明确地指定 javaType 来保证行为与期望的相一致。
+        2.  property="card" 表示 Person对象的 card 属性
+        3.  column="id" 是从下面的sql 语句查询后返回来的字段
+            SELECT * FROM `person`,`idencard`
+            WHERE `person`.`id` = #{id} AND `person`.`id` = `idencard`.`id`;
+
+           -->
+        <!--<association property="card" javaType="com.hspedu.entity.IdenCard">-->
+        <association property="card" javaType="IdenCard">
+            <!--<result property="id" column="id"/>-->
+            <!--注意：这里就是按照 数据库中查询回来的字段名进行填写
+            查询回来的字段名是card_id 而不是sql多表查询时使用的person.card_id!!-->
+            <!--<result property="id" column="card_id"/>-->
+            <result property="id" column="id"/>
+            <result property="card_sn" column="card_sn"/>
+        </association>
+    </resultMap>
+    <!--注意 最好不要在 下面的select 语句中写注释  杠杠 和 /**/ 的注释会导致报错 但是下面那种注释没事
+    会被当成sql的一部分 导致查询失败 报错-->
+    <select id="getPersonById" parameterType="Integer" resultMap="personResultMap">
+        SELECT * FROM `person`,`idencard`
+        WHERE `person`.`id` = #{id} AND `person`.`card_id` = `idencard`.`id`;
+        <!-- SELECT `person`.`id`,`person`.`NAME`,`person`.`card_id`,`idencard`.`card_sn` FROM `person`,`idencard`-->
+        <!-- WHERE `person`.`id` = #{id} AND `person`.`card_id` = `idencard`.`id`;-->
+    </select>
+
+
+
+    <!-- 使用第 2 种映射方式,完成 1 对 1 映射关系 [ getPersonById2 - personResultMap2 ]
+    1. 配置/实现 public Person getPersonById(Integer id);
+    2. 通过 Person 的 id 获取到 Person,包括这个 Person 关联的 IdenCard 对象
+    3. 这里的方式和前面不同
+    1) 先通过 SELECT * FROM `person` WHERE `person`.`id` = #{id}; 返回Person信息
+    2) 再通过 返回的card_id 值，再次执行操作，得到IdenCard 数据
+   -->
+
+    <resultMap id="personResultMap2" type="Person">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--<result property="card" column="card_id"/>-->
+        <!--
+        1. mybatis第二种获得级联数据的核心思想: 将这个多表联查，分解成单表操作，这样简洁，而且易于维护，推荐使用！
+        2. 而且可以复用你已经写好的方法，组合使用
+        3. property="card": 表示Person对象的 card 属性
+        4. column="card_id" 这个是
+           SELECT * FROM `person` WHERE `person`.`id` = #{id};  返回的字段信息/数据
+        5. 返回的 字段 card_id 信息/数据 作为 getIdenCardById 方法的入参来执行
+        -->
+        <association property="card" column="card_id"
+                     select="com.hspedu.mapper.IdenCardMapper.getIdenCardById"/>
+    </resultMap>
+    <select id="getPersonById2" parameterType="Integer" resultMap="personResultMap2">
+        SELECT * FROM `person` WHERE `person`.`id` = #{id};
+    </select>
+
+
+    <!--//普通的方法 只是从数据库中查询一个Person记录
+    public Person getPersonById3(Integer id);
+    -->
+    <select id="getPersonById3" parameterType="Integer" resultType="Person">
+        SELECT * FROM `person` WHERE `person`.`id` = #{id};
+    </select>
+
+    <!-- //普通的方法 通过card_id从数据库中查询一个Person对象/数据
+        public Person getPersonByCardId(Integer cardId);
+        resultType="Person" 这里使用resultType 即可 ,
+        因为所有的信息都得到了 没有必要再去进行处理
+    -->
+    <select id="getPersonByCardId" parameterType="Integer" resultType="Person">
+        SELECT * FROM `person` WHERE `card_id` = #{cardId};
+    </select>
+
+
+</mapper>

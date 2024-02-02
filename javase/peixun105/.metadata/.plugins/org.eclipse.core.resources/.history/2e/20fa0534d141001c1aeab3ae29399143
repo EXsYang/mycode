@@ -1,0 +1,12 @@
+package com.atguigu.exer1;
+
+public class ComparableCircle extends Circle implements CompareObject{
+
+	public int compareTo(Object o) {
+		
+	};
+	
+	
+	
+	
+}

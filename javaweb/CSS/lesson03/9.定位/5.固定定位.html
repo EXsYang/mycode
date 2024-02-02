@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定定位</title>
+    <style>
+        body {
+            height: 4000px;
+        }
+
+        /*绝对定位，此时相对于浏览器*/
+        div:nth-of-type(1) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        /*fixed,固定定位
+            1.脱标-不占位置
+            2.改变位置参考浏览器
+            3.具备行内块特点
+        */
+        div:nth-of-type(2) {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            /*如果将宽度注销，盒子和内容宽度一致，行内块特点，
+            如果没有内容，即使是有背景色的盒子 也看不到了*/
+            /*width: 50px;*/
+
+            width: 50px;
+            height: 50px;
+            background-color: green;
+
+        }
+    </style>
+</head>
+<body>
+<div>div1</div>
+<div>div2</div>
+</body>
+</html>

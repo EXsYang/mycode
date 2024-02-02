@@ -1,0 +1,38 @@
+
+server:
+  port: 9090
+
+# 最好重新写一遍，copy过来有时会出问题
+spring:
+  datasource:
+    #    driver-class-name: com.mysql.jdbc.Driver
+    # 使用哪一种都行,下面这个是新的驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # springboot_mybatis 指的是数据库的名称 CREATE DATABASE `springboot_mybatis`;
+    url: jdbc:mysql://localhost:3306/springboot_mybatis?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+
+
+mybatis:
+  # 指定要扫描的 XxxMapper.xml 文件的位置
+  mapper-locations: classpath:mapper/*.xml
+#  # 通过config-location  可以指定mybatis-config.xml，可以以传统的方式配置 mybatis
+  #使用原生的xml文件的方式配置mybatis
+#  config-location: classpath:mybatis-config.xml
+  #也可以直接在application.yml对mybatis进行配置,
+  #即当配置的内容少时可以在当前文件application.yml中对mybatis进行配置
+  #,而不用在classpath:mybatis-config.xml中配置
+  #举例说明1：比如配置原来的typeAliases
+  #举例说明2 配置输出底层的原生sql
+  #还有很多其它的配置，我们使用到再说
+  type-aliases-package: com.hspedu.springboot.mybatis.bean
+
+  configuration:
+    #配置日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  #老师说明: 配置mybatis的两种方式的选择: 如果配置比较简单，就直接在application.yml配置即可
+  #如果配置内容比较多，可以考虑单独的做一个mybatis-config.xml
+
+

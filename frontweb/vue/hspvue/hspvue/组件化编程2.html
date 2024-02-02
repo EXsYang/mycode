@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化编程-全局组件</title>
+</head>
+<body>
+<div id="app">
+    <h1>组件化编程-全局组件</h1>
+    <!--使用全局组件-->
+    <counter></counter>
+    <br/>
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+</div>
+
+<div id="app2">
+    <h1>组件化编程-全局组件-app2</h1>
+    <!--使用全局组件-->
+    <counter></counter>
+    <counter></counter>
+</div>
+<script src="vue.js"></script>
+<script>
+    //1、定义一个全局组件, 名称为 counter , 名称是自己指定的 不一定要叫counter
+    //2. {} 表示就是我们的组件相关的内容
+    //3. template 指定该组件的界面, 因为会引用到数据池的数据，所以需要是模板字符串
+    //4. 这里老师说明: 要把组件视为一个Vue实例，也有自己的数据池和methods
+    //5. 这里老师说明: 对于组件，我们的数据池的数据，是使用函数/方法返回[目的是为了保证每个组件的数据是独立],
+    //   不能使用原来的方式
+    //6. 这时我们达到目前，界面通过template实现共享,业务处理也复用
+    //7. 全局组件是属于所有vue实例，因此，可以在所有的vue实例使用
+    Vue.component("counter", {
+        template: `<button v-on:click="click()">点击次数= {{count}} 次【全局组件化】</button>`,
+
+        //[Vue warn]: The "data" option should be a function that returns a per-instance value in component definitions.
+        //data: {count1: 10}
+        //,
+
+        data() {//这里需要注意，和原来的方式不一样!!!! 这里使用的return 的方式返回的count 数据
+            // 在 html 文件中 每引用一次 这个组件 就会return 一次 count=10 , 每个组件生成时的data
+            // 初始值都是通过return的方式确定的 因此每引用一次 <counter></counter>
+            // 就是一个新的组件对象【视为一个Vue实例】 拥有独立的数据，不和其他组件混淆
+
+            // data 是一个函数，而不再是一个对象 这样每次引用组件都是独立的对象/数据
+            // 每次引入这个组件 就会初始化一个count=10 不会受到 其他地方 也引入该组件的影响 数据data 不共享
+            // 别的地方引入的tata 中的count 即使 被改变了 ，新引入的组件<counter> count初始值还是 10
+            return {
+                count: 10
+            }
+        },
+        methods: {
+            click() {
+                this.count++;
+            }
+        }
+    })
+    //创建Vue实例，必须有
+    let vm = new Vue({
+        el: "#app"//Vue实例的挂载点
+    })
+
+    let vm2 =  new Vue({
+        el: "#app2"//Vue实例的挂载点
+    })
+
+
+</script>
+</body>
+</html>

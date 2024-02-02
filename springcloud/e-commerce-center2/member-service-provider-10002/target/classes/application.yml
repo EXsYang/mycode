@@ -1,0 +1,44 @@
+server:
+  port: 10002
+
+
+spring:
+  application:
+    # 这个名字将来会注册到注册中心
+    #name: member-service-provider-10002 #配置应用的名称，这里可以根据需求自定义，这就设置为和子项目的名字保持一致
+    name: member-service-provider #配置统一的提供者应用别名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #因为在pom.xml文件中我们已经引入了druid-starter,就不要用默认的了，
+                                                 #，所以我们这里就指定数据源的类型为DruidDataSource
+                                                  #导入了druid-starter但是如果没有进行配置，使用的数据源的类型为？
+                                                  #答:是默认的HikariDataSource数据源
+    url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+#配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #指定mapper.xml文件的位置
+  type-aliases-package: com.hspedu.springcloud.entity #指定实体类所在的包，这样通过类名就可以引用，而不需要全类名
+
+
+#配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-Server
+    #表示从Eureka-Server抓取注册信息
+    #如果是单节点，可以不配置，如果是一个集群,则必须配置true,才能配合Ribbon进行使用负载均衡
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个Eureka-Server Zone:区域
+      #将本微服务注册到多个eureka-server，使用逗号间隔即可
+      #defaultZone: http://localhost:9001/eureka
+      defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002.com:9002/eureka
+#  instance:
+#    #Eureka客户端向服务端发送心跳的时间间隔1s(默认是30s)
+#    lease-renewal-interval-in-seconds: 1
+#    #Eureka服务端收到最后一次心跳后等待的时间上限
+#    #时间单位(秒),默认是90s,超时将剔除服务
+#    lease-expiration-duration-in-seconds: 2

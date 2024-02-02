@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue生命周期和钩子函数</title>
+</head>
+<body>
+<!--测试 为什么在created 阶段发送ajax 在后面的阶段发送不行吗 44-05：58 老师说 在模板编译之前去后端拿数据-->
+<!--下一步就进行内存模板的编译了，在下面的阶段到后端获取数据有可能出现数据没有变化 因为内存模板已经编译完成了 进行测试-->
+<!--测试在 beforeMount时获取数据 并更新data的数据 查看用户页面模板的数据是否变化-->
+
+<!--这里可以视为用户看到的页面-对应前面讲解的页面dom-->
+<div id="app">
+    <span id="num">{{num}}</span>
+    <button @click="num++">赞！</button>
+    <h2>{{name}}，有{{num}}次点赞</h2>
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {//数据池
+            name: "kristina",
+            num: 0
+        },
+        methods: {
+            show() {
+                return this.name;
+            },
+            add() {
+                this.num++;
+            }
+        }
+        ,
+        beforeCreate() {//生命周期函数-创建vue实例前
+            console.log("=============beforeCreate==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[no]", this.name, " ", this.num);
+            //console.log("自定义方法是否加载/使用?[no]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom是否被渲染?[no]", document.getElementById("num").innerText);
+        },
+        created() {//生命周期函数-创建vue实例
+            console.log("=============created==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[yes]", this.name, " ", this.num);
+            console.log("自定义方法是否加载/使用?[yes]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom是否被渲染?[no]", document.getElementById("num").innerText);
+            //可以发出Ajax
+            //接收返回的数据
+            //再次去更新data数据池的数据
+            //编译内存模板结构
+            //.....
+            //结论 在created 和beforeMount 方法中修改了数据池中的数据 后面的方法会获取到数据池中最新的数据
+            //渲染到用户界面dom时 按照修改后的数据进行渲染
+            //if(this.num < 10 ) {
+            //    this.num = 8;
+            //    console.log("num<10 进来了")
+            // //这里修改了值 会影响到最终页面显示的值
+            //}
+
+        },
+        beforeMount() {//生命周期函数-挂载前
+            console.log("=============beforeMount==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[yes]", this.name, " ", this.num);
+            console.log("自定义方法是否加载/使用?[yes]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom是否被渲染?[no]", document.getElementById("num").innerText);
+            //结论 在
+            //if(this.num < 10 ) {
+            //    this.num = 8;
+            //console.log("num<10 进来了")
+            // //这里修改了值 也会影响到最终页面显示的值
+            //}
+
+
+        },
+        mounted() {//生命周期函数-挂载后
+            console.log("=============mounted==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[yes]", this.name, " ", this.num);
+            console.log("自定义方法是否加载/使用?[yes]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom是否被渲染?[yes]", document.getElementById("num").innerText);
+
+        },
+        beforeUpdate() {//生命周期函数-数据池数据更新前
+            // 注意：该方法会在数据改变时自动触发 不会默认触发 界面中需要按一下点赞
+            console.log("=============beforeUpdate==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[yes]", this.name, " ", this.num);
+            console.log("自定义方法是否加载/使用?[yes]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom数据是否被更新?[no]", document.getElementById("num").innerText);
+            //验证数据==>修正 //这里修改了值 也会影响到最终页面显示的值
+            // if(this.num < 10 ) {
+            //     this.num = 8;
+            // }
+        },
+        updated() {//生命周期函数-数据池数据更新后
+            console.log("=============updated==========");
+            console.log("数据模型/数据池的数据是否加载/使用?[yes]", this.name, " ", this.num);
+            console.log("自定义方法是否加载/使用?[yes]", this.show());
+            console.log("用户页面dom是否加载/使用?[yes]", document.getElementById("num"));
+            console.log("用户页面dom数据是否被更新?[yes]", document.getElementById("num").innerText);
+
+        }
+
+    })
+</script>
+</body>
+</html>

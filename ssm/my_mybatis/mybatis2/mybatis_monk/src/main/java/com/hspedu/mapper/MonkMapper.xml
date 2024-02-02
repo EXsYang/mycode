@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意下面这个识别不到mapper insert语法 需要使用http: 而不是https:-->
+<!--"https://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+
+
+<!--该配置文件 中配置/实现MonkMapper接口中的方法 -->
+<mapper namespace="com.hspedu.mapper.MonkMapper">
+    <!--insert里写sql语句-->
+    <!--com.hspedu.entity.Monk 配置别名后可以简写-->
+    <!--<insert id="addMonk" parameterType="com.hspedu.entity.Monk" useGeneratedKeys="true" keyProperty="id">-->
+    <insert id="addMonk" parameterType="Monk" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO `monk` (`nickname`,`skill`,`grade`,`salary`,`birthday`,`entry`)
+    VALUES (#{nickname},#{skill},#{grade},#{salary},#{birthday},#{entry});
+</insert>
+
+
+    <!--<delete id="delMonk" parameterType="java.lang.Integer">-->
+    <!--java的类型java.lang.Integer 可以直接简写成Integer 不需要配置别名Alias-->
+        <delete id="delMonk" parameterType="Integer">
+        DELETE FROM `monk` WHERE `id` = #{id};
+    </delete>
+
+    <update id="updateMonk" parameterType="com.hspedu.entity.Monk">
+        UPDATE `monk` SET `nickname` = #{nickname},`skill` = #{skill},`grade` = #{grade},
+        `salary` = #{salary},`birthday` = #{birthday},`entry` = #{entry} WHERE id = #{id};
+    </update>
+
+    <!--有返回值的需要指定返回类型resultType 否则会报错-->
+    <select id="getMonkById" parameterType="Integer" resultType="com.hspedu.entity.Monk">
+        SELECT * FROM `monk` WHERE `id` = #{id};
+    </select>
+
+    <select id="findAllMonk" resultType="com.hspedu.entity.Monk">
+        SELECT * FROM `monk`;
+    </select>
+</mapper>

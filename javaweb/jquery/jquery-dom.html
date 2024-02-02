@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery对象转成dom对象</title>
+    <!--    一定要引入jquery-->
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function (){
+            //得到jquery对象
+            var $username = $("#username");
+            alert("$username value= " + $username.val())
+
+            //准备把jquery对象->dom
+            //老韩说明
+            //(1)jquery是一个数组对象，封装了dom对象
+            //(2)可以通过[index] 来获取，也可以通过get(index)
+            //(3)一般来说 index 是 0
+            //方式1
+             var username = $username[0];
+             alert(username)// 输出username 是 object HtmlInputElement
+            alert("username value=" + username.value);
+
+             // 获取不存在的元素并打印
+             var $inputaaa = $("input[name='aaa']");
+             alert($inputaaa) //[object Object]
+
+            // 下面这个语法正确
+            //jquery对象
+            var $username2 = $username.parent().find("input[name='username']");
+            //dom对象
+            //Unresolved variable or type $button 未解析的变量或类型$button
+            //Uncaught ReferenceError: $button is not defined
+            //var cartItemId2 = $button.parent().find("input[class='cartItemId']")[0];
+
+            //关于使用jquery选择器获取不存在的元素
+            //如果是jquery对象, 获取的value
+            //如果没有获取到，调用val() , 并不会报错, 对程序的健壮性.
+            //var $username = $("#username");
+            //alert($username.val())// 这里不会报错， 提示undefined
+
+            //Uncaught TypeError: $username.parent().find(...)[0] is undefined
+            //var cartItemId2 = $username.parent().find("input[class='cartItemId']")[0];
+
+            //这里获取不存在的值
+          /*var find = $username.parent().find("input[class='cartItemId']");
+            alert("find="+find)//[object Object]
+            var findElement = find[0];
+            alert("findElement="+findElement) //undefined
+            // 使用undefined 点 .value 会报错Uncaught TypeError: findElement is undefined
+            alert("findElement.value="+findElement.value)
+            //dom value
+            // 下面这行代码报错
+            var cartItemId2value = $username.parent().find("input[class='cartItemId']")[0].value;*/
+
+            //这里获取存在的值
+            var $find = $username.parent().find("input[id='username']");
+            alert("find~="+$find)// [object Object]
+
+            var findElement = $find[0];
+            alert("findElement="+findElement) //[object HTMLInputElement]
+            alert("findElement.value="+findElement.value) //韩顺平教育
+            //dom value
+            //var cartItemId2value = $username.parent().find("input[class='cartItemId']")[0].value;
+            // 下面这行代码 如果.find("input[id='username']")存在 可以直接在后面加[0] 而不用整体接受为一个值 再加[0]
+            var cartItemId2value = $username.parent().find("input[id='username']")[0].value;
+
+            alert("jquery对象 $find= " + $find) //[object Object]
+            alert("dom对象 findElement= " + findElement) //[object HTMLInputElement]
+            alert("dom value findElement.value= " + findElement.value) // 韩顺平教育
+            alert("jquery对象后面直接加[0] $find[0]= " + $find[0]) //  [object HTMLInputElement]
+            alert("jquery对象.get(0) $find.get(0)= " + $find.get(0)) // [object HTMLInputElement]
+
+            //方式2 => 老师提醒，在练习学习过程, 输出的提示信息尽量不同
+            //var username = $username.get(0);
+            //alert("username value~~~=" + username.value)
+        }
+
+
+  /*  $(function (){
+        var $username = $("#username");
+        alert($username);
+        alert("$username value= " + $username.val());
+
+        // var username = $username[0];
+        // alert(username);//[object HTMLInputElement]
+        // alert("username value= " + username.value)
+
+        var username = $username.get(0);
+        alert(username);//[object HTMLInputElement]
+        alert("username value= " + username.value)
+
+    })*/
+        $(function (){
+            $("#btn002").click(function () {
+                var $td02 = $("#td02");
+                //td 标签要定义在table标签内 否则使用如下方式进行获取dom 结果是undefined
+                alert($td02[0]);//[object HTMLTableCellElement]
+                alert($("#td02").get(0));//[object HTMLTableCellElement]
+                alert($("#td02").get(1));//undefined jquery 对象 是数组对象 只有0的位置上有值 length=1
+                alert($("#td02").length);// length=1
+                // jquery 对象是数组对象 只有0的位置上有值 该位置上存的就是 jquery对象对应的dom对象
+            })
+        })
+
+    </script>
+</head>
+<body>
+用户名 <input type="text" name="username" value="韩顺平教育" id="username"><br>
+
+<button id="btn002">点我测试td 转dom 啊</button>
+<a href="www.baidu.com" id="bd">点我跳转到百度</a>
+<table>
+    <tr>
+        <td id="td02">td02</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+package com.atguigu.exer2;
+
+import java.util.Scanner;
+
+public class EcmDef extends Exception {
+	int a;
+	int b;
+public static void main(String[] args) {
+	
+}
+	public int ecm() {
+
+		Scanner sca = new Scanner(System.in);
+		a = sca.nextInt();
+		b = sca.nextInt();
+		try{
+			int c = a/b;
+		}catch(NumberFormatException e){
+			e.printStackTrace();
+		}
+	catch(ArithmeticException e){
+		e.printStackTrace();
+	}catch(ArrayIndexOutOfBoundsException e){
+		e.printStackTrace();
+	}catch(EcDefException e){
+		e.printStackTrace();
+	}
+	throw new NumberFormatException();
+}
+
+}

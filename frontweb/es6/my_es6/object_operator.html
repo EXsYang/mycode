@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象运算符的扩展</title>
+    <script type="text/javascript">
+
+        let cat = {name:"大花猫",age:2};
+        let cat2 = cat;
+        console.log(cat)
+        cat2.name = "小花猫";
+        //console.log(cat)
+        //console.log(cat2)
+
+
+
+        // 拷贝对象(深拷贝)
+        // 深拷贝是指拷贝的对象是独立的，不影响原来的值，就称之为深拷贝
+        let cat3 = {...cat}
+        cat3.name = "中华猫";
+        console.log(cat2);// 小花猫
+        console.log(cat3);// 中华猫
+        console.log(cat3,{name});// {name} => 这里是一个对象 Object { name: "" } 相当于对象的简写
+        // name的值从上面获取 这里不是对象解构 对象解构 需要把一个对象赋值给左边{}
+
+
+        // 合并对象[深拷贝]
+        let car = {name:"丰田",color:"red"}; // 这里的name属性和cat中的name属性重名了，
+        // 在深拷贝合并时，会只保留 深拷贝时写在逗号后面的对象的属性
+        //let car = {name1:"丰田",color:"red"};
+
+        //let car_cat = {...car,...cat};
+        let car_cat = {...cat,...car};
+        console.log(car);
+        console.log(car_cat);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>hello, 韩顺平教育</h1>
+基本注解：
+<hr/>
+<!--href="/monster/100/king" 中开头第一个斜杠 / 会被浏览器解析为 http://localhost:8080/-->
+<!--http://localhost:8080/monster/100/king-->
+<a href="/monster/king">@PathVariable-路径变量少提供了一个必要参数 monster/100/king</a><br/><br/>
+<a href="/monster/100/king">@PathVariable-路径变量 monster/100/king</a><br/><br/>
+<a href="/requestHeader">@RequestHeader-获取 Http 请求头 </a><br/><br/>
+<a href="/hi?name=韩顺平&fruit=apple&fruit=pear">@RequestParam- 获取请求参数</a><br/><br/>
+
+
+<!--
+@RequestParam- 获取请求参数-form <br/>
+
+    form表单默认是get请求 http://localhost:8080/hi?name=yanda&fruit=apple2
+    后端按照 表单中填写的 name="name" name="fruit" 的value 匹配
+    get/post都是按照name属性中填写的值进行匹配 如：
+    @RequestParam(value = "name",required = false)
+-->
+<!--<form action="/hi2" method="post">-->
+<!--    <input type="text" name="name">-->
+<!--    <input type="text" name="fruit">-->
+<!--    <input type="submit" value="提交表单">-->
+<!--</form></a><br/><br/>-->
+
+<a href="/cookie">@CookieValue-获取 cookie 值</a><br/><br/>
+<a href="/login">@RequestAttribute-获取 request 域属性-</a>
+<hr/>
+<h1>测试@RequestBody 获取数据: 获取 POST 请求体</h1>
+<form action="/save" method="post">
+    姓名: <input name="name"/> <br>
+    年龄: <input name="age"/> <br/>
+    <input type="submit" value="提交"/>
+</form>
+
+</body>
+</html>

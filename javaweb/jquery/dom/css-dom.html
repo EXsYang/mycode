@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css-dom操作</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+
+            /*  CSS-DOM 操作说明
+                1、获取和设置元素的样式属性: css()
+                2、获取和设置元素透明度: opacity 属性
+                3、获取和设置元素高度, 宽度: height(), width(). 在设置值时, 若只传递数字, 则默认单位
+                是 px. 如需要使用其他单位则需传递一个字符串, 例如 $("p:first").height("2em");
+                韩顺平 Java 工程师
+                4、获取元素在当前视窗中的相对位移: offset(). 其返回对象包含了两个属性: top, left. 该方
+                法只对可见元素有效*/
+            $("#b1").click(function (){
+                var width = $("img").width();
+                alert("width=" + width);
+                //offset
+                var offset = $("img").offset();
+                alert("img的 top = " + offset.top);
+                alert("img的 left = " + offset.left);
+            })
+        })
+    </script>
+</head>
+<body>
+<br/><br/><br/>
+hello,world~<img src="../image/1.png" width="200">
+<button id="b1" type="button">获取图片信息</button>
+</body>
+</html>

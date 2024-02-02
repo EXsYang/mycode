@@ -1,0 +1,101 @@
+#静态资源访问
+#1. 只要静态资源放在类路径下： /static 、 /public 、 /resources 、 /META-INF/resources
+#可以被直接访问- 对应文件 WebProperties.java
+#2. 常见静态资源：JS、CSS 、图片（.jpg .png .gif .bmp .svg）、字体文件(Fonts)等
+#3. 访问方式 ：默认: 项目根路径/ + 静态资源名 比如 http://localhost:8080/hi.jpg . - 设置
+#WebMvcProperties.java
+
+
+# 解决路径冲突问题
+# 1. 静态资源访问原理：静态映射是 /**
+# , 也就是对所有请求拦截，请求进来，先看 Controller
+# 能不能处理，不能处理的请求交给静态资源处理器，如果静态资源找不到则响应 404 页面
+
+# http://localhost:8080/1.jpg 被Controller处理器拦截到了
+# 因为HiController 配置了 @RequestMapping("/1.jpg") 所以不会走到静态资源
+
+# 2. 改变静态资源访问前缀，比如我们希望 http://localhost:8080/hspres/* 去请求静态资源,
+#应用场景：静态资源访问前缀和控制器请求路径冲突
+
+
+# 解决路径冲突如下
+# /**
+#	 * Path pattern used for static resources.
+#	 */
+#	private String staticPathPattern = "/**";
+
+# http://localhost:8080/hspres/1.jpg   匹配到/hspres/ 后再匹配静态资源
+# 将最后面的 ** 默认已经指定到了 "classpath:/META-INF/resources/",
+# "classpath:/resources/", "classpath:/static/", "classpath:/public/"
+spring:
+  mvc:
+#    static-path-pattern: /** # 拦截所有请求看看是不是静态资源  先看 Controller
+    # 能不能处理，不能处理的请求交给静态资源处理器，如果静态资源找不到则响应 404 页面
+#    static-path-pattern: /hspres/** #修改静态资源访问的路径/前缀  即要想访问静态资源需要先匹配上该路径
+
+    # 小技巧：顶格写个filter/hiddenmethod 就可以找到 这个 spring.mvc.hiddenmethod.filter.enabled
+    # 直接在最后一行顶格写个filter/hiddenmethod 回车后会自动插入到合适的位置 所以不用非得在mvc:下面写！
+    hiddenmethod:
+      filter:
+        enabled: true # 启用 HiddenHttpMethodFilter, 支持页面form表单的rest功能
+                      # ，将post请求转换为 put/delete/patch,注意只能对post请求进行转换，get请求不行
+
+    view:  #配置视图解析器
+      suffix: .html
+#      前缀路径就是根据前面配置的 static-path-pattern 来的，因为需要访问的是静态资源 需要匹配静态路径
+#      prefix: /**  #不可以带星号 会报错！！
+#     根据约定优于配置原则 用默认的就好不用特意的修改 即使用 prefix: /
+      #下面这个配置后 服务器端请求的完整路径是 /工程路径/hello.html
+      prefix: /       #这里需要注意 prefix需要和当前的static-path-pattern保持一致(注意这里要去掉**)
+#      prefix: /hspres/**  #不可以带星号 会报错！！
+#      prefix: /hspres/ #中的第一个 斜杠 /  相当于指的是web项目的目录 (不是src下的web)
+                       #同时 记得最后也有一个斜杠 表示的是一个目录 而不是一个文件
+                       #服务器端请求的完整路径是 /工程路径/hspres/hello.html
+
+    contentnegotiation:
+      favor-parameter: true # 开启基于请求参数的内容协商功能
+#      parameter-name: hspformat # 指定一个内容协商的参数名，该参数是通过url带给后端的 注意地址栏url提交参数时需要加问号 ?
+
+
+  # 3. 改变默认的静态资源路径，比如希望在类路径下增加 hspimg 目录 作为静态资源路径 ,
+  #并完成测试.
+
+#private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { "classpath:/META-INF/resources/",
+#				"classpath:/resources/", "classpath:/static/", "classpath:/public/" };
+
+# 使用细节 顶格写static 可以提示的更加全面 找到后直接回车
+
+  web:
+    resources:
+#修改/指定 静态资源的访问路径/位置
+#如果你配置 static-locations, 原来的访问路径就被覆盖，如果需要保留，你再指定一下即可 加不加引号都行
+
+#      static-locations: [classpath:/hspimg/]
+
+#      如下这样配置后 就已经将static-locations 配置的路径映射到了  /hspres/** 下
+#      访问时直接访问被映射后的静态路径+资源名称即可
+#      如 http://localhost:8080/hspres/5.jpg
+#      而不是 http://localhost:8080/hspimg/pen.jpg  hspimg/ 已经映射为 /hspres/**
+
+      static-locations: ["classpath:/hspimg/", "classpath:/META-INF/resources/",
+                         "classpath:/resources/", "classpath:/static/", "classpath:/public/"]
+      #String[] staticLocations
+
+
+#      浏览器输入 http://localhost:8080/hspres/pen.jpg [老师提示: 没错就是这样访问
+#      pen.jpg, 不是 /hspimg/pen.jpg 形式, 另外因为 pen.jpg 还是拷贝来的, 一定要保证工作目
+#      录 target 有 pen.jpg ,如果没有, 请 rebulid 下项目, 再重启项目 ]
+
+
+
+#在application.properties修改server默认监听端口形式如下
+#server.port=10001
+##修改应用上下文
+##server.servlet.context-path=/abc
+
+#在application.yml中修改server默认监听端口形式如下
+server:
+  port: 8080
+  #在application.yml中修改应用上下文形式如下
+#  servlet:
+#    context-path: /ac

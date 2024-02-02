@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数的使用</title>
+    <script type="text/javascript">
+        // 传统定义函数
+        // var f1 = function (n1){
+        //     return n1 + 100;
+        // }
+
+        function f1(n) {
+            return n + 300;
+        }
+
+        console.log("传统= " + f1(2))
+        // ES6 , 箭头函数使用
+        let f2 = (n) => {
+            return n * 2;
+            //console.log(n);
+        }
+
+
+        console.log("f2() 结果= ", f2(100));//200
+        //上面的es6 函数写法，还可以简化     一个参数且有返回值 自动返回 不用写return
+        let f3 = n => n * 3;
+
+        console.log("f3() 结果=", f3(100));//300
+
+        //函数也可以传给一个变量=> 看看java基础匿名内部类
+
+        let hi = function (f4) {
+            console.log("hi 内部" + f4(3));
+        }
+
+        //hi(n => n + 3);
+        hi(n => {
+            //console.log(n * 3);
+            return n + 5;
+        });
+        //hi(n => {
+        //    return n + 1;
+        //});
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

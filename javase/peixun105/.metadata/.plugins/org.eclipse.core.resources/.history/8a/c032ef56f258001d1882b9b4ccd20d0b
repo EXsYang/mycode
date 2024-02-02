@@ -1,0 +1,61 @@
+package com.atguigu.review;
+
+public class Order {
+
+}
+
+class Order1 {
+
+	// 单例模式，饿汉式
+
+	private Order1() {// 私有化构造器
+
+	}
+
+	private static Order1 instance = new Order1();
+
+	public static Order1 getInstance() {
+		return instance;
+	}
+
+}
+class Order2 {
+	
+	private Order2() {
+		
+	}
+	
+	private static Order2 instance2 = null;
+	
+	public Order2 getInstance2() {
+		if(instance2 == null) {
+			synchronized(Order2.class) {
+				if(instance2 == null) {
+					instance2 = new Order2();
+				}
+			}
+		}
+		return instance2;
+	}
+	
+	class FinalTest{
+		int a;
+		int a2 = 2;
+		
+		{
+			a = 3;
+		}
+		public FinalTest(int a) {
+			this.a = a;
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

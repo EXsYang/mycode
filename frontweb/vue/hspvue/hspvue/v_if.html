@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染 v-if</title>
+</head>
+<body>
+<div id="app">
+    <!--这里小伙伴还可以看到checkbox的 checked属性的值-->
+    <input type="checkbox" v-model="sel">是否同意条款[v-if实现]
+    <!--
+     v-if="sel" v-if 会去 id="app" 的div 挂载的Vue实例vm的data{} 数据池 里 找 是否有一个属性 是 "sel"
+    再根据该属性的值 进行判断 如果该属性 在data数据池中不存在 返回的就是undefined 整体 v-if 就返回的是false
+    注意 在js中 0,null,undefined,空串"" 作为条件时 都判断为false
+
+    关于v-if 和 v-show 的区别:
+    老师解读 v-if/v-else 会根据 返回的值,来决定是否动态创建/销毁对应的子组件 <h1>
+    v-if 是真正的创建和销毁子组件 <h1> ,而不是仅仅改变css的样式，因此 v-if 的开销比较大
+    v-show 机制相对简单，不管初始条件是什么，元素总是会被渲染，并且只是对CSS进行切换
+    使用建议: 如果要频繁地切换，建议使用v-show;如果运行时条件很少改变，使用v-if较好
+    v-show 中的条件的结果如果是false 不显示该元素 是因为 将css设置为不显示 <h1 style="display=none;"/>你不同意条款</h1>
+    display:显示;展示;显露，表现
+
+
+    -->
+    <h1 v-if="sel">你同意条款</h1>
+    <h1 v-else>你不同意条款</h1>
+</div>
+<script src="vue.js"></script>
+<script>
+    //为了调试方便, 使用vm接收Vue实例
+    let vm = new Vue({
+        el: '#app',
+        data: {//data数据池
+            sel: false
+        }
+    })
+</script>
+</body>
+</html>

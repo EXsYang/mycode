@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hw01</title>
+
+    <script type="text/javascript">
+        let f8 = function (arr, fun){
+            console.log("结果=", fun(arr));
+        }
+
+
+        let fun = (arr) => {
+            let sum = 0;
+          for(let i=0;i<arr.length;i++){
+              sum += arr[i];
+          }
+          return sum;
+        }
+
+         f8([1,2,3,4],(arr) => {
+            let sum = 0;
+            for(let i=0;i<arr.length;i++){
+                sum += arr[i];
+            }
+            return sum;
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

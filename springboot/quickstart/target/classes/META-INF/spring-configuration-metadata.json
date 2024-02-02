@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "furn01",
+      "type": "com.hspedu.springboot.bean.Furn",
+      "sourceType": "com.hspedu.springboot.bean.Furn"
+    }
+  ],
+  "properties": [
+    {
+      "name": "furn01.id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hspedu.springboot.bean.Furn"
+    },
+    {
+      "name": "furn01.name",
+      "type": "java.lang.String",
+      "sourceType": "com.hspedu.springboot.bean.Furn"
+    },
+    {
+      "name": "furn01.price",
+      "type": "java.lang.Double",
+      "sourceType": "com.hspedu.springboot.bean.Furn"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化编程2</title>
+</head>
+<body>
+<div id="app">
+    <h1>组件化编程-全局组件</h1>
+    <counter></counter>
+    <br/><br/>
+    <counter></counter>
+    <br/><br/>
+    <counter></counter>
+    <br/><br/>
+    <counter></counter>
+    <br/><br/>
+</div>
+<div id="app2">
+    <h1>组件化编程-全局组件-app2</h1>
+    <counter2></counter2>
+    <br/><br/>
+    <counter2></counter2>
+    <br/><br/>
+    <counter2></counter2>
+    <br/><br/>
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+
+
+    //全局组件化编程
+    Vue.component("counter", {
+        //如果使用以前的方式返回 会直接报错！
+        //[Vue warn]: The "data" option should be a function that returns a per-instance value in component definitions.
+        //data: {
+        //    count: 0
+        //},
+
+        //data:function (){
+        //    return count = 0; //[Vue warn]: data functions should return an object:
+        //},
+
+        data() {
+            return {
+                count: 0
+            }//
+        }
+        ,
+        methods: {
+            add() {
+                this.count++; //++ 会改变变量本身的值
+                //(前)-- :先自减1，后运算
+                //(后)-- :先运算，后自减1
+            }
+        },
+        template: `<button v-on:click="add">点击次数：{{count}} 次 【全局组件化编程】</button>`
+    })
+
+    let vm = new Vue({
+        el: "#app"//Vue实例的挂载点
+
+    })
+
+
+    // 全局组件化
+    Vue.component("counter2", {
+        data() {
+            return {
+                count2: 0
+            };
+        },
+        template: `<button v-on:click="addOne">点击次数：{{count2}} 次 【全局组件化编程】</button>`,
+        methods: {
+            addOne() {
+                this.count2++;
+            }
+        }
+    })
+
+    //创建Vue实例，必须有
+    let vm2 = new Vue({
+        el: "#app2"//Vue实例的挂载点
+
+    })
+</script>
+</body>
+</html>

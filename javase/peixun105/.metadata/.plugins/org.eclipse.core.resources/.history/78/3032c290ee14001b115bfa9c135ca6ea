@@ -1,0 +1,14 @@
+package com.VVa;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Xin3 {
+public static void main(String[] args) {
+	List<Integer> list = new ArrayList<>();
+	Collections.addAll(list, 1010,2020,3030);
+	Collections.addAll(list, 1011,2022,3033);
+	System.out.println(list);
+}
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作DOM元素</title>
+    <script src="libs/jquery-3.7.0.js"></script>
+</head>
+<body>
+<p>Java</p>
+<p>Python</p>
+
+<ul id="test-ul">
+    <li class="css">css</li>
+    <li name="js">JavaScript</li>
+</ul>
+
+<script>
+    // document.getElementById('test-ul');
+    $('#test-ul li[name=js]').text();
+    $('p').css("color","red");
+    $('p').text();
+    $('p').text();
+</script>
+
+
+</body>
+</html>

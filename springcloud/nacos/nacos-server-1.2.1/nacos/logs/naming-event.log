@@ -1,0 +1,96 @@
+2024-01-11 00:03:04,609 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:03:04,610 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:03:04,610 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:03:04,610 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:07:23,161 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:07:23,161 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:07:23,161 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:07:23,161 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:08:36,056 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:08:36,056 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:08:36,115 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:08:36,115 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:09:17,259 INFO {POS} {IP-DISABLED} valid: 192.168.0.40:10008@DEFAULT@DEFAULT_GROUP@@seata-order-micro-service, region: unknown, msg: client timeout after 15000, last beat: 1704902941175
+
+2024-01-11 00:09:33,053 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-11 00:09:33,053 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:09:33,054 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-11 00:09:33,054 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:09:33,054 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:09:33,054 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:11:22,580 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:11:22,580 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:11:22,580 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:11:22,582 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 00:24:20,441 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:24:20,441 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:24:20,441 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 00:24:20,441 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 
+
+2024-01-11 00:24:30,899 INFO {POS} {IP-DISABLED} valid: 192.168.0.40:10012@DEFAULT@DEFAULT_GROUP@@seata-account-micro-service, region: unknown, msg: client timeout after 15000, last beat: 1704903852236
+
+2024-01-11 00:24:31,120 INFO {POS} {IP-DISABLED} valid: 192.168.0.40:10010@DEFAULT@DEFAULT_GROUP@@seata-storage-micro-service, region: unknown, msg: client timeout after 15000, last beat: 1704903855953
+
+2024-01-11 00:24:45,977 INFO DEFAULT_GROUP@@seata-account-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10012:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-11 00:24:45,977 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-account-micro-service, ips: 
+
+2024-01-11 00:24:46,327 INFO DEFAULT_GROUP@@seata-storage-micro-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.40:10010:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-11 00:24:46,327 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-storage-micro-service, ips: 
+
+2024-01-11 19:26:16,541 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [198.18.0.1:8091:unknown:default_1.0_true_false_default]
+
+2024-01-11 19:26:16,546 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 198.18.0.1:8091_true,
+
+2024-01-11 19:26:49,714 INFO DEFAULT_GROUP@@seata-storage-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10010:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 19:26:49,714 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-storage-micro-service, ips: 192.168.0.40:10010_true,
+
+2024-01-11 19:26:49,714 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-storage-micro-service, ips: 192.168.0.40:10010_true,
+
+2024-01-11 19:26:52,571 INFO DEFAULT_GROUP@@seata-account-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10012:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 19:26:52,571 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-account-micro-service, ips: 192.168.0.40:10012_true,
+
+2024-01-11 19:26:52,571 INFO DEFAULT_GROUP@@seata-account-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10012:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 19:26:52,571 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-account-micro-service, ips: 192.168.0.40:10012_true,
+
+2024-01-11 19:26:52,572 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-account-micro-service, ips: 192.168.0.40:10012_true,
+
+2024-01-11 19:26:52,573 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-account-micro-service, ips: 192.168.0.40:10012_true,
+
+2024-01-11 19:27:35,855 INFO DEFAULT_GROUP@@seata-order-micro-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.40:10008:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-11 19:27:35,855 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 19:27:35,856 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata-order-micro-service, ips: 192.168.0.40:10008_true,
+
+2024-01-11 19:30:21,109 INFO {POS} {IP-DISABLED} valid: 192.168.0.40:10008@DEFAULT@DEFAULT_GROUP@@seata-order-micro-service, region: unknown, msg: client timeout after 15000, last beat: 1704972601198
+

@@ -1,0 +1,71 @@
+# yaml 基本语法
+#1. 形式为 key: value；注意: 后面有空格
+#2. 区分大小写
+#3. 使用缩进表示层级关系
+#4. 缩进不允许使用 tab，只允许空格 [有些地方也识别 tab , 推荐使用空格]
+#5. 缩进的空格数不重要，只要相同层级的元素左对齐即可
+#6. 字符串无需加引号
+#7. yml 中, 注释使用 #
+# 要想在该文件中提示 monster.id.. 需要在pom.xml导入依赖 spring-boot-configuration-processor
+# 如果还没有提示 就需要安装插件plugins => YAML & YAML/Ansible support
+monster:
+  # id:空格100 空格不能少，否则会报错，springboot项目跑都跑不起来
+  # id前面的空格数量无所谓 但同一级需要左对齐
+  id: 100
+  # string类型/字符串不需要加引号
+  #字符串无需加引号, 这个在前面已经演示了, 如果你用" " 或者 ' ' 包起来, 也可以 , 简单举例
+#  name: 牛魔王1
+#  name: '牛魔王2'
+  name: "牛魔王3"
+  age: 499
+  isMarried: true
+  birth: 1999/3/23
+  # 对象
+#  car: {name: 宝马, price: 200000} #行内格式
+#  car: { name: 宝马, price: 200000 } # 这种也可以
+
+  car: # 换行格式
+    name: 宝马2
+    price: 200000
+
+  # 数组      总结：数组 list set都是用中括号 [] 和 -
+#  skill: [吐口水, 芭蕉扇, 金箍棒, 吃老鼠] #行内格式
+  skill: # 换行格式
+    - 吐口水  # - 吐口水 中间的空格不能少 否则识别为一个元素=》0	"-吐口水 - 芭蕉扇 - 吃香蕉 - 紧箍咒"
+    - 芭蕉扇
+    - 吃香蕉
+    - 紧箍咒
+
+  # list集合 List<String> 格式和数组相同 都是用中括号 [] 和 -
+#  hobby: [喝酒, 吃肉] #行内格式
+  hobby: # 换行格式
+    - 喝酒！
+    - 吃肉@
+
+  # map-属于对象
+#  wife: {no1: 玉面狐狸, no2: 铁扇公主} #行内格式
+  wife: # 换行格式
+    no1: 玉面狐狸2
+    no2: 铁扇公主2
+
+  #set集合-类似于数组 格式和数组相同 都是用中括号 [] 和 -
+#  salaries: [1000, 2000] #行内格式
+#  salaries: {k1: 1000.2, k2: 2000.3} # 经过测试 set 使用对象形式不好使
+  salaries: #行内格式
+    - 1000.23
+    - 2000.22
+
+  # private Map<String, List<Car>> cars; 这种格式
+#  cars: {group1: [{name: 特斯拉, price: 80000}, {name: 华为, price: 200000}], group2: [{name: 特斯拉2, price: 20000}, {name: 华为2, price: 300000}]} # 行内形式
+
+  # 因为cars k-v v是List<Car> 所以我们使用换行格式更加清晰
+  cars:
+    group1:
+      - { name: 奔驰, price: 300000 }
+      - name: 保时捷
+        price: 400000  # 注意这一行最前面不需要 -  因为这是一个对象
+    group2:
+      - { name: 奔驰2, price: 500000 }
+      - name: 保时捷2
+        price: 500000
+

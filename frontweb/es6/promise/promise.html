@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用promise完成多次ajax请求</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        //先请求到monster.json
+        //老韩解读
+        //1. 创建Promise对象
+        //2. 构造函数传入一个箭头函数
+        //3. (resolve, reject) 参数列表resolve: 如果请求成功, 调用resolve函数
+        //4. 如果请求失败, 调用reject函数
+        //5. 箭头函数体, 仍然是通过jquery发出ajax
+        let p = new Promise((resolve, reject) => {
+        //let p = new Promise(((abc, reject) => {   //这里的函数名无所谓 但是约定俗成 (resolve, reject)
+            //发出ajax
+            $.ajax({
+                url: "data/monster.json",
+                success(resultData) {//成功的回调函数
+                    console.log("promise发出的第1次ajax monster基本信息=", resultData);
+                    resolve(resultData);
+                    //abc(resultData);
+                },
+                error(err) {
+                    //console.log("promise 1发出的异步请求异常=", err);
+                    reject(err);
+                }
+            })
+        })
+
+        // 根据第一次ajax的结果，发出下一次ajax
+        // 之所以可以调用promise对象的then函数 是因为在上面ajax请求的success 函数中调用了 resolve(resultData);
+        // 如果没有写resolve(resultData); p.then() 不会生效
+
+        //这里我们可以继续编写请求成功后的业务
+        p.then((resultData) => {
+
+
+            //这里我们可以继续发出请求
+            //console.log("p.then 得到 resultData", resultData);
+            return new Promise((resolve, reject) => { //这里返回给了p.then() 相当于
+                // p.then() 是一个Promise对象所以可以调用相关的方法  如果不返回，函数相当于没有返回值，调用不了Promise
+                // 对象特有的方法 then()或catch() 方法
+                $.ajax({
+                    url: `data/monster_detail_${resultData.id}.json`,
+                    success(resultData) { //第2次ajax请求成功,回调函数
+                        console.log("第2次ajax请求 monster的详细信息=", resultData);
+                        //继续进行下一次的请求
+                        resolve(resultData);
+                    },
+                    error(err) { //第2次ajax请求失败,回调函数
+                        //console.log("promise2 发出的异步请求异常=", err);
+                        reject(err);
+                    }
+                })
+            })
+        }).then((resultData) => {
+
+            console.log("p.then().then(), resultData", resultData)
+            //即可以在这里发出第3次ajax请求=》 获取该妖怪的女友
+            // new Promise((resolve, reject) => { // 这里一定要保证返回一个promise对象，
+                 // 否则这里这一个进入不到catch 上面的出错 可以进入到catch 因为上面返回了promise对象
+             return  new Promise((resolve, reject) => {
+                $.ajax({
+                    url: `data/monster_gf_${resultData.gfid}.json`,
+
+                    success(resultData) { //第3次ajax请求成功,回调函数
+                        console.log("第3次ajax请求 monster女友的详细信息=", resultData);
+                        //继续进行下一次的请求
+                        //resolve(resultData);
+                    },
+                    error(err) { //第2次ajax请求失败,回调函数
+                        //console.log("promise2 发出的异步请求异常=", err);
+                        reject(err); //想要捕获到第三次ajax出现的异常需要往下传递该异常信息！！！
+                    }
+                })
+            })
+
+        }).catch((err) => { //这里可以对多次ajax请求的异常进行处理
+            console.log("promise异步请求异常=", err);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+server:
+  port: 10012
+spring:
+  application:
+    #Service id not legal hostname
+    #name: seata_account_micro_service
+    #报错 Service id not legal hostname 的原因是服务名称application.name不能带有下划线，可以使用中划线,
+    #springcloud 无法识别下划线，把下划线改成中划线就好
+    name: seata-account-micro-service
+  cloud:
+    alibaba:
+      seata:
+        #指定事务组名，需要和seata-server中的对应 seata/config/file.conf
+        tx-service-group: hspedu_order_tx_group
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #指定nacos server地址
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/storage_micro_service
+    url: jdbc:mysql://localhost:3306/account_micro_service?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+#配置seata日志输出
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 JQuery 实现动态添加用户效果</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // dom元素绑定事件，传入的this是其本身！！！
+            // jquery对象绑定点击事件，隐式传入dom 对象！！！！ --测试见jQuery-selector-notice.html文件
+            //老韩解读：如果我们返回的false ,则表示放弃提交，页面就会停留在原页面
+            // return false; 可以让 a标签不进行跳转，停留在原页面
+
+            var $parent = $("span").parent(); // parent() 返回一个 jquery对象！！
+            // alert(typeof parent);//object
+            // $parent.css("background","green"); ////$parent 是jquery对象 这里css方法生效！
+
+            var p1 = document.getElementById("p1");
+
+            // p1.css("background","red"); //p1 是dom对象 这里css方法没生效！
+            $(p1).css("background", "red"); //$(p1) 是jquery对象 这里css方法生效！ css方法是jquery对象特有的方法！
+
+            // var $td = $("td");
+
+            // $td.click(function () {
+            //     // jquery对象绑定点击事件，隐式传入dom 对象！
+            //     $(this).css("background", "red");
+            // });
+
+            $("#addUser").click(
+                function () {
+                    // alert("xxx")
+                    // $("#name").val()
+                    // $("#email").val()
+                    // $("#tel").val()
+
+
+                    var $tr = $("<tr/>");
+
+                    var $td_n = $("<td/>");
+                    var $td_e = $("<td/>");
+                    var $td_t = $("<td/>");
+                    var $td_d = $(" <td/>");
+                    var $a = $("<a/>");
+                    //    <td><a id="Tom" href="deleteEmp?id=Tom">Delete</a></td>
+
+                    // alert( typeof $("#name").val()); // string
+                    if ($("#name").val()) {
+                        $td_n.text($("#name").val());
+
+                        $a.attr("id", $("#name").val());
+                        // alert(typeof $a.attr("id"));
+                        // $a.attr("href", "deleteEmp?id=" + $("#name").val());
+                        // $a.attr("href", "#"); //"#" 当前页面 也可以！
+                        $a.text("Delete");
+                        // alert(typeof $a.attr("id"));
+                        // alert($a[0].innerHTML);
+
+                        $td_d.append($a);
+                        // var $p = $("<p>点击我~</p>");
+                        // $td_d.append($p);
+
+                        //a元素创造出来后绑定事件 用于删除
+                        $a.click(function () {
+
+                            // 进行删除操作
+                            //  根据点击的a元素，找到父级tr 删除tr
+                            // // parent() 返回一个 jquery对象！！
+                            // alert("$td_d this typeof= " + typeof this);
+                            // confirm :确认
+                            //弹出一个确认的对话框
+                            var b = window.confirm("确定要删除用户 " + $(this).attr("id") + " 吗？");
+                            // alert("确定要删除用户 " + $(this).attr("id") + " 吗？");
+                           console.log("确认对话框返回的值 b= " ,b);
+                            //确认对话框返回的值 b=  false
+                            //确认对话框返回的值 b=  true
+                            if (!b) {
+                                return false;
+                            }
+                            // console.log("this.attr(id)= " + $(this).attr("id"));  //传进来的是a标签的dom对象
+
+                            //继续处理删除
+                            //1. 通过$a 找到父tr
+                            var $tr = $a.parent().parent();
+                            // alert("父级元素tr= " + tr);
+                            $tr.remove()
+                            //老韩解读：如果我们返回的false ,则表示放弃提交，页面就会停留在原页面
+                            return false;// 可以让 a标签不进行跳转，停留在原页面
+
+                        })
+
+
+                        // alert($td_d[0].innerHTML);
+                    }
+                    if ($("#email").val()) {
+                        $td_e.text($("#email").val());
+                    }
+                    if ($("#tel").val()) {
+                        $td_t.text($("#tel").val());
+                    }
+                    $tr.append($td_n);
+                    $tr.append($td_e);
+                    $tr.append($td_t);
+                    $tr.append($td_d);
+                    $tr.appendTo($("tbody"));
+
+
+                    // alert("添加用户后 a元素的长度= " + $("a").length);
+
+
+
+
+                }
+            )
+
+            //我们将初始化的用户，也绑定删除的事件
+            $("a").click(
+                function () {
+                    // alert("!!")
+                    // alert($(this).attr("id"));
+                    //弹出一个确认的对话框
+                    var c = window.confirm("删除用户 " + $(this).attr("id") + " 吗!");
+                    // alert("确定要删除用户 " + $(this).attr("id") + " 吗？");
+                    if (!c) {
+                        return false;
+                    }
+                    // console.log("this.attr(id)= " + $(this).attr("id"));  //传进来的是a标签的dom对象
+
+                    //继续处理删除
+                    //1. 通过$a 找到父tr
+                    var $tr = $(this).parent().parent();
+                    // alert("父级元素tr= " + tr);
+                    $tr.remove();
+                    //老韩解读：如果我们返回的false ,则表示放弃提交，页面就会停留在原页面
+                    return false;// 可以让 a标签不进行跳转，停留在原页面
+
+                }
+            )
+
+            // 自己写的 删除页面加载完成时就有的用户
+            // 新加入的a 没有绑定上click事件！
+            // alert("绑定上点击事件的 $(\"a\") 的长度= " + $("a").length); // 2
+            // $("tr > td > a").click(
+            //     function () {
+            //         // alert("!!")
+            //         // alert($(this).attr("id"));
+            //         alert("确定要删除用户 " + $(this).attr("id") + " 吗？");
+            //         //  删除该用户
+            //         return false; //停留在原页面！！
+            //         var id = $(this).attr("id");
+            //
+            //         var $id_a = $("#" + id);
+            //         $("tr:has('$id_a')").remove();
+            //
+            //     }
+            // )
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+<center>
+    <br><br>
+    添加用户:<br><br>
+    姓名: <input type="text" name="name" id="name"/>&nbsp;&nbsp;
+    email: <input type="text" name="email" id="email"/>&nbsp;&nbsp;
+    电话: <input type="text" name="tel" id="tel"/><br><br>
+    <button id="addUser">提交</button>
+    <br><br>
+    <hr>
+    <br><br>
+    <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+        <tbody>
+        <tr>
+            <th>姓名</th>
+            <th>email</th>
+            <th>电话</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a id="Tom" href="deleteEmp?id=Tom">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+
+
+<span>span</span>
+<p id="p1">pppppppppppppppppppp</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击事件</title>
+    <script type="text/javascript">
+        function butt() {
+            alert("静态注册 点击事件")
+        }
+
+        window.onload = function () {
+            var button = document.getElementById("but");
+            // alert("button= " + button);
+            button.onclick = function () {
+                alert("动态注册 点击事件2")
+            }
+        }
+    </script>
+</head>
+<body>
+<button onclick="butt()">点击事件</button>
+<button id="but">点击事件2</button>
+
+</body>
+</html>

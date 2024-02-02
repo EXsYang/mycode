@@ -1,0 +1,5 @@
+package com.atguigu.com;
+
+public class B extends AAA{
+
+}

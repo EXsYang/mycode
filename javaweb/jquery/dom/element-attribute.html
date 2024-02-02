@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作节点的属性</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //给button绑定一个click事件
+            $("button").click(function () {
+                $("img").attr("src","../image/1.png");
+                $("img").attr("height","200px");
+
+            })
+
+            //attr只能判断checked是否存在；无法判断选择框是否为选中状态或未选中状态
+            //prop可以准确的判断出多选框的选择状态
+
+
+            //console.log($(".1").attr("checked"))// unexpected token   不要使用数字开头的类名！在某些浏览器中可能出问题。
+            console.log($(".a").attr("checked"));
+            console.log($(".b").attr("checked"));
+            console.log($(".c").attr("checked"));
+            console.log($(".d").attr("checked"));
+            console.log($(".e").attr("checked"));
+            console.log($(".f").attr("checked"));
+            console.log("===========================");
+            console.log($(".a").prop("checked"));
+            console.log($(".b").prop("checked"));
+            console.log($(".c").prop("checked"));
+            console.log($(".d").prop("checked"));
+            console.log($(".e").prop("checked"));
+            console.log($(".f").prop("checked"));
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+<img src="../image/2.png" height="100"/>
+<br/>
+<button>设置图像的 height 属性</button>
+<br/>
+<!--<input class="1" type="checkbox"><br/>--><!--不要使用数字开头的类名！在某些浏览器中可能出问题。-->
+<input class="a" type="checkbox"><br/>
+<input class="b" type="checkbox" checked><br/>
+<input class="c" type="checkbox" checked="checked"><br/>
+<input class="d" type="checkbox" checked="false"><br/>
+<input class="e" type="checkbox" checked=""><br/>
+<input class="f" type="checkbox" checked="true"><br/>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if-hw</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--输入成绩1-100：<input type="text" v-model="score" v-on:blur="scoreLev"> <br/><br/>-->
+    输入成绩1-100：<input type="text" v-model="score" v-on:blur="setScore"> <br/><br/>
+    <p>你当前的成绩是 {{score}}</p> <br/><br/>
+    <!--<p v-if="a">优秀</p>-->
+    <!--<p v-else-if="b">良好</p>-->
+    <!--<p v-else-if="c">及格</p>-->
+    <!--<p v-else-if="d">不及格</p>-->
+
+
+    <!--老师思路
+       1. 当用户输出成绩后, 我们判断成绩的范围，并进行修正
+       2. 事件处理: onblur[失去焦点]
+       -->
+    <!--注意 范围小的在上面 先判断 顺序不能错-->
+    <!--v-if 后面也可以直接写一个表达式 score是数据池中的数据score-->
+
+    <!--1) 90分以上, 显示优秀-->
+    <!--2) 70分以上, 显示良好-->
+    <!--3) 60分以上, 显示及格-->
+    <!--4) 低于60分, 显示不及格-->
+    <!--如果用户输入的成绩大于100, 就修正成100, 如果用户输入的成绩小于0, 就修正成0-->
+    <p v-if="score > 90">优秀</p>
+    <p v-else-if="score > 70">良好</p>
+    <p v-else-if="score > 60">及格</p>
+    <p v-else="score < 60">不及格</p>
+
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            score: 90
+            //a:false,
+            //b:false,
+            //c:false,
+            //d:false
+        },
+        methods: {
+
+            setScore() {
+                //判断分数，并修正
+                if (this.score > 100) {
+                    this.score = 100;
+                }
+                if (this.score < 0) {
+                    this.score = 0;
+                }
+            }
+
+
+            //scoreLev(){
+            //    // 用于判断输入的成绩的等级
+            //
+            //    if (this.score > 100){
+            //        this.score = 100;
+            //    }
+            //    if (this.score < 0){
+            //        this.score = 0;
+            //    }
+            //
+            //
+            //    if (this.score > 90){
+            //        this.a = true;
+            //
+            //        this.b = false;
+            //        this.c = false;
+            //        this.d = false;
+            //    }else if ( 70 < this.score && this.score <= 90){
+            //        this.b = true;
+            //
+            //        this.a = false;
+            //        this.c = false;
+            //        this.d = false;
+            //    }else if ( 60 < this.score && this.score <= 70){
+            //        this.c = true;
+            //
+            //        this.b = false;
+            //        this.a = false;
+            //        this.d = false;
+            //    }else{
+            //        this.d = true;
+            //
+            //        this.b = false;
+            //        this.c = false;
+            //        this.a = false;
+            //    }
+            //
+            //}
+        }
+
+
+    })
+
+</script>
+
+
+</body>
+</html>

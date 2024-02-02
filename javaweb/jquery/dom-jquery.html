@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象转为jquery对象</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function (){
+            // dom元素绑定事件，传入的this是其本身！！！
+            // jquery对象绑定点击事件，隐式传入dom 对象！！！！ --测试见jQuery-selector-notice.html文件
+
+            //演示通过dom对象来获取输入框的value
+            //username就是dom对象
+            var username = document.getElementById("username");
+            alert("username= " + username); // username= [object HTMLInputElement]
+            alert("username value= " + username.value);
+
+            //通过jquery对象来获取输入框的value
+            //把username dom 对象转成 jquery对象
+            var $username = $(username);
+            //使用jquery的方法来获取value
+            alert("$username= " + $username) //$username= [object Object]
+            alert("$username value= " + $username.val())
+        }
+
+        // 写在这里不好使
+        // var $username = $(username);
+        // alert("$username value= " + $username.val())
+
+    </script>
+</head>
+<body>
+用户名 <input type="text" name="username" value="韩顺平教育" id="username">
+</body>
+</html>

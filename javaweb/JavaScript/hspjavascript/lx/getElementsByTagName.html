@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementsByTagName</title>
+
+    <script type="text/javascript">
+        /*
+           只有getElementById() 不放在window.onload取不到值！！！！！！！！！
+           document.getElementById('参数')：根据id获取元素，由于id是唯一的，获取到的是一个元素。
+           document.getElementsByName('参数')：根据name获取元素，由于name不是唯一的（比如不同的input的name可以相同），获取到的是元素数组。
+           document.getElementsByTagName('参数')：根据tagName获取元素，由于tagName不是唯一的，获取到的是元素数组。
+           例：页面有如下3个元素
+               <input type="text" id="user1" name="count" value="001"/>
+               <input type="text" id="user2" name="count" value="001"/>
+               <input type="text" id="user3" name="count" value="001"/>
+           document.getElementById('user2')  获取到的是第2个元素
+           document.getElementsByName('count')  获取到的是全部3个元素
+           document.getElementsByName('count')[0]  获取到的是第1个元素
+           document.getElementsByTagName('input')  获取到的是全部3个元素
+           document.getElementsByTagName('input')[1]  获取到的是第2个元素*/
+
+
+        var imgs = document.getElementsByTagName("img");
+
+        var count = 0;
+        var inputs = document.getElementsByTagName("input");
+
+        // alert(imgs); //HTMLCollection
+        function changeImgsAndVal() {
+            count++;
+            // 切换图片
+            if (count % 2 == 0) {
+                for (let i = 0; i < imgs.length; i++) {
+                    imgs[i].src = "../imgs/" + (i + 1) + ".png";
+                }
+
+            } else {
+                for (let i = 0; i < imgs.length; i++) {
+                    imgs[i].src = "../imgs/" + (i + 4) + ".png";
+                }
+            }
+
+            // 切换input value
+            if (count % 2 == 0) {
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].value = "查看多少小猫,并切换成小狗";
+                }
+
+            } else {
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].value = "查看多少小狗,并切换成小猫";
+                }
+            }
+
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+<img src="../imgs/1.png" height="100" width="100">
+<img src="../imgs/2.png" height="100" width="100">
+<img src="../imgs/3.png" height="100" width="100">
+<br/>
+<input type="button" onclick="changeImgsAndVal()"
+       value="查看多少小猫,并切换成小狗" id="butVal"/>
+</body>
+
+
+</html>

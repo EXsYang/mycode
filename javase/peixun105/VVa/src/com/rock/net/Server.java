@@ -1,0 +1,17 @@
+package com.rock.net;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+	public static void main(String[] args) throws IOException {
+		ServerSocket server = new ServerSocket(1010);
+		Socket socket = server.accept();// 当前线程处于阻塞状态，等待客户端的链接
+		BufferedReader reader=new BufferedReader(new
+		InputStreamReader(socket.getInputStream())); String str=reader.readLine();
+			 System.out.println("客户端说:"+str); reader.close(); server.close(); 
+	}
+}

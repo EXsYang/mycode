@@ -1,0 +1,14 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_mybatisplus?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+
+
+mybatis-plus:
+  configuration: #进行mybatis-plus配置,配置项和mybatis几乎是一样的
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

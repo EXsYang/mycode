@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--要想使用thymeleaf 首先要引入命名空间 一定要引入，否则不会提示 相关的标签
+如:th:text="" 引入后就会提示相关的th标签
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body bgcolor="#CED3FE">
+<img src="images/1.GIF"/>
+<hr/>
+<div style="text-align: center">
+    <h1>用户登陆</h1>
+    <!--action="#" 默认会提交给当前这个斜杠 /
+    , 因为后端的@GetMapping(value = {"/","/login"})可以匹配到
+    , 所以默认不改 也是可以提交到的
+
+    -->
+    <!--<form action="#" method="post">-->
+
+    <!--如果thymeleaf渲染成功了，就会用/login替换#
+        如果没有渲染成功，还是原来的#
+
+        注意原来的action="#"不可以直接拿掉，而只用th:action="@{/login}"
+        根据Thymeleaf的特点
+        "Thymeleaf 模版页面无需服务器渲染，也可以被浏览器运行，页面简洁"
+        比如直接使用浏览器打开 adminLogin.html 文件，就没有经过服务器渲染
+        这时就会保留原来的值 action="#"
+    -->
+    <form action="#" th:action="@{/login}" method="post">
+    <!--<form action="/login" method="post">-->
+        <label style="color: #ff0000" th:text="${msg}"></label><br/>
+        <!--如果这里写了 th:text="" 就会报错
+            org.thymeleaf.templateengine : [thymeleaf][http-nio-8080-exec-1] exception processing template "adminlogin": could not parse as expression: "" (template: "adminlogin" - line 17, col 32)
+            org.thimeleaf.templateengine:[thymelaf][http-nio-8080-exec-1]异常处理模板“adminlogin”：无法解析为表达式：“”（模板：“adminlogin”-第17行，第32列
+         -->
+        <!--用户名:<input type="text" th:text="" style="width:150px" name="name"/><br/><br/>-->
+        用户名:<input type="text" style="width:150px" name="name"/><br/><br/>
+        密　码:<input type="password" style="width:150px" name="password"/><br/><br/>
+        <input type="submit" value="登录"/>
+        <input type="reset" value="重新填写"/>
+    </form>
+</div>
+<hr/>
+<!--这里的图片，也会发出http请求，会默认请求图片资源，没有登录时会被拦截，如果登录过，就会被放行-->
+<img src="images/logo.png"/>
+<!--<img src="/images/logo.png"/>-->
+
+<!--下面这个会发出http请求，请求当前页面-->
+<!--<img src="#"/>-->
+<!--下面这个src为空，不会发出http请求-->
+<!--<img src=""/>-->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>springboot-mybatis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--导入springboot 父工程-规定写法-->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--引入相关的依赖-->
+    <dependencies>
+        <!--导入web项目场景启动器: 会自动导入和web开发相关的所有依赖[库/jar]
+             后面老师还会说spring-boot-starter-web 到底引入哪些相关依赖
+             web项目场景启动器,这里是真正的引入了依赖
+             starter-web 版本不需要指定 在父工程已经指定好了
+             -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--因为starter-web 中引入的有tomcat-starter依赖的jar
+            所以要想切换为Undertow 就需要排除默认引入的tomcat
+            -->
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>org.springframework.boot</groupId>-->
+            <!--        <artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+        <!--引入mybatis starter, 整合到springboot程序, 使用该启动器只需要简单的配置即可
+        ，如果是第一次引入，看不到提示，爆红，需要手写
+        注意：这个starter中就包含druid的数据源 DruidDataSource
+        导入了druid-starter但是如果没有进行配置，使用的数据源的类型为？
+        答:是默认的HikariDataSource数据源，即如果要使用Druid数据源不仅需要引入依赖，还需要进行配置
+        -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+        <!--引入mysql驱动，使用版本仲裁 8.0.26-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--引入配置处理器，否则yml文件中不提示-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <!--引入lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--引入test starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--引入druid依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.17</version>
+        </dependency>
+    </dependencies>
+
+
+
+</project>

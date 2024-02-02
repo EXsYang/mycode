@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.mapper.UserMapper">
+
+
+
+     <!--
+      1. 配置/实现  public User getUserById(Integer id);
+      2. 通过 id 获取 User 对象
+      3. 思路 (1) 先通过user-id 查询得到user信息 (2) 再根据user-id查询对应的pet信息
+         并映射到User-List<Pet> pets
+        private Integer id;
+        private String name;
+        // 一个主人对应多个宠物
+        private List<Pet> pets;
+      -->
+    <resultMap id="resultUserMap" type="User">
+        <id property="id" column="id"/>
+        <!--column="name" ""里面的值,数据库查询出来的是 NAME 这里不区分大小写-->
+        <result property="name" column="name"/>
+        <!--这里需要根据 查询的主人id 再去查询宠物表 按照主人id 进行查找 看该主人id有几只宠物,
+        将查询返回的n条宠物数据/信息封装到这个pets集合-->
+        <!--
+        解读: 因为 pets 属性是集合，因此这里需要使用 collection 标签来处理
+
+        1. ofType="Pet" 需要指定返回来的集合中的存放的数据类型 "ofTyp" 属性。这个属性非常重要，它用来将 JavaBean（或字段）属性的类型和集合存储的类型区分开来。
+        2. collection 表示 pets 是一个集合
+        3. property="pets" 表示返回的user对象的属性 pets
+        4. column="id"  SELECT * FROM `mybatis_user` WHERE `id` = #{id}; 返回的id字段对应的值
+
+        -->
+
+        <collection property="pets" column="id" ofType="Pet"
+                    select="com.hspedu.mapper.PetMapper.getPetByUserId"/>
+
+    </resultMap>
+    <select id="getUserById" parameterType="Integer" resultMap="resultUserMap">
+        SELECT * FROM `mybatis_user` WHERE `id` = #{id};
+    </select>
+
+</mapper>
+

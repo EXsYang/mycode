@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello,jquery</title>
+<!-- 或者直接不下载jQuery，通过cdn线上引入   -->
+    <script src="libs/jquery-3.7.0.js">
+
+    </script>
+</head>
+<body>
+
+<a href="" id="test-jquery">点我</a>
+<script>
+ /*JQuery公式：$(selector).action()
+ * $(选择器).事件()   选择器就是css选择器
+ * */
+
+    $('#test-jquery').click(function (){
+        alert('hello,jquery');
+    })
+</script>
+</body>
+</html>

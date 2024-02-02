@@ -1,0 +1,43 @@
+package com.atguigu.com;
+
+import java.util.Comparator;
+
+public class Stringtest {
+
+	public static void main(String[] args) {
+		int[] i1 = {3,2,6,-1,0};//一个数组
+		
+		
+		
+		
+		
+		
+	}
+	
+	public static void maopao2(int[] arr,Comparator<T> c) {
+		int temp;
+		for(int i = 0;i<arr.length-1;i++)	{
+			for(int j = 0;j<arr.length-i-1;j++) {
+				if(c.compare(arr[j], arr[j+1])>0) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+				
+				
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

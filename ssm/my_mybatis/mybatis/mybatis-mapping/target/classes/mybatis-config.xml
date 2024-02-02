@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        <!--"https://mybatis.org/dtd/mybatis-3-config.dtd">-->
+
+<!-- mybatis配置文件的文件名没有要求，但是约定俗称=> mybatis-config.xml -->
+
+<!--注意点：mybatis官方文档https://mybatis.org/mybatis-3/zh/getting-started.html中
+ 使用的是
+https://mybatis.org/dtd/mybatis-3-config.dtd和https://mybatis.org/dtd/mybatis-3-mapper.dtd
+但是在自己写的项目中 不好使
+
+需要按照老韩使用的http协议的才好使
+http://mybatis.org/dtd/mybatis-3-config.dtd和http://mybatis.org/dtd/mybatis-3-mapper.dtd
+其中mybatis-config.xml 中使用https://mybatis.org/dtd/mybatis-3-config.dtd 也可以
+但是Mapper.xml中使用https://mybatis.org/dtd/mybatis-3-mapper.dtd 不好使！！
+mapper标签中检测不到insert语法
+
+-->
+
+<configuration>
+
+    <!--引入外部文件jdbc.properties-->
+    <properties resource="jdbc.properties"/>
+
+    <!--配置MyBatis自带的日志输出-查看原生的sql
+    注意 settings 只可以放在最上面这个位置 放在其他位置会报错
+    MyBatis就是这样设计的 看作一个规定！ 但是我这里放在其他位置没有报错啊
+    -->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置类型别名 配置别名后不是之可以使用别名了，仍然可以使用全类名
+    配置别名后 mapper.xml 文件中配置的
+    select、insert...等sql语句 属性中的全类名可以简写
+    parameterType="Monster" 、resultType="Monster" 可以简写
+    -->
+    <typeAliases>
+        <!--给某一个类单独配置一个别名 这样在mapper.xml 文件的 实现配置方法属性中 可以直接使用-->
+        <!--<typeAlias type="com.hspedu.entity.Monster" alias="Monster"/>-->
+
+        <!--
+            如果一个包下有很多的类，我们可以直接引入包，这样
+            该包下面的所有类名，可以直接使用
+        -->
+        <package name="com.hspedu.entity"/>
+        <package name="com.hspedu.homework.entity"/>
+    </typeAliases>
+
+
+
+    <!--environments:环境 development:开发区-->
+    <environments default="development">
+        <environment id="development">
+            <!--配置事务管理器-->
+            <transactionManager type="JDBC"/>
+            <!--配置数据源
+            解读: 引用外部文件 设置jdbc相关的值形式类似
+             如 <property name="driver" value="${jdbc.driver}"/>
+             注意 要想这样配置，需要在本文件mybatis-config.xml 引入外部文件 jdbc.properties 否则不能用，会报错
+
+             注意：在父项目pom.xml文件中 配置 在build项目时，
+             将resources目录下的 *.xml和*.properties文件
+             拷贝到执行目录 target/classes/ 下
+
+            1. 我们使用外部的properties文件来设置相关的值
+            2. 这个属性文件，需要统一的放在 resources目录/类加载路径
+            3. 关于属性文件，老韩在讲解java基础-集合时讲的
+
+
+            -->
+            <dataSource type="POOLED">
+                <!--配置驱动-->
+                <!--<property name="driver" value="com.mysql.jdbc.Driver"/>-->
+                <!--引用外部properties文件的方式进行配置-->
+                <property name="driver" value="${jdbc.driver}"/>
+
+                <!--配置连接mysql-url
+                解读：
+                1. jdbc:mysql  协议
+                2. 127.0.0.1:3306  指定连接mysql的ip+port
+                3. mybatis 表示连接的DB
+                4. useSSL=true 表示使用安全连接
+                5. &amp; 表示 &符号 主要是用来做转义 直接写会报错  防止解析错误
+                6. useUnicode=true : 使用Unicode 作用是防止编码错误
+                7. characterEncoding=UTF-8 指定使用utf-8,防止中文乱码
+                8. 不要背，直接拿来使用即可
+                -->
+                <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+                <!--引用外部properties文件的方式进行配置-->
+                <property name="url" value="${jdbc.url}"/>
+
+                <!--<property name="username" value="root"/>-->
+                <!--引用外部properties文件的方式进行配置-->
+                <property name="username" value="${jdbc.user}"/>
+
+                <!--<property name="password" value="hsp"/>-->
+                <!--引用外部properties文件的方式进行配置-->
+                <property name="password" value="${jdbc.pwd}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--说明
+    1. 这里我们配置需要关联的Mapper.xml
+    2. 这里可以通过 [菜单]-[Copy]-[Path From Source Root]
+    点击生成下面需要的格式:全路径点换成斜杠加上文件后缀
+    -->
+    <mappers>
+        <!--注意 resource 和 class 两种引入方式的区别-->
+        <!--1. resource 注册 Mapper 文件: XXXMapper.xml 文件-->
+        <!--<mapper resource="com/hspedu/mapper/MonsterMapper.xml"/>-->
+
+        <!--解读：
+            1. 如果是通过注解的方式，可以不再使用 MonsterMapper.xml
+            2. 但是需要在mybatis-config.xml注册/引入含注解的类/接口
+            3. 如果没有引入，不能使用
+        -->
+        <!--2. class:接口注解实现-->
+        <!--<mapper class="com.hspedu.mapper.MonsterAnnotation"/>-->
+
+        <!--3. url:外部路径,使用很少，不推荐, <mapper url="file:///D:\yy\kk\yy\MOnsterMapper.xml" />-->
+
+        <!--4. package 方式注册 ：<package name="com.hspedu.mapper"/> 并测试-->
+        <!-- 老韩解读
+        1. 当一个包下有很多的 Mapper.xml 文件和基于注解实现的接口时，
+        为了方便，我们可以以包方式进行注册
+        2. 将下面的所有 xml 文件和注解接口 都进行注册
+        3. 扫描包的方式进行注册 和 单独注册只可以选择一种 否则报错
+
+        4. 注意如果是按照包的形式 配置的mapper, 对应的包下配置的mapper.xml / 注解类
+        要正确配置好了，比如，mapper.xml 文件 写了 mybatis具体的mapper.xml文件需要的文件头和<mapper>标签
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.hspedu.mapper.PersonMapper">
+        </mapper>
+         否则会报错！！
+        -->
+        <package name="com.hspedu.mapper"/>
+        <package name="com.hspedu.homework.mapper"/>
+
+    </mappers>
+</configuration>

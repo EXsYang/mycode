@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hw04</title>
+    <script type="text/javascript">
+       var cal = {
+           oper: "+",
+           arr: [1,2,3,4]
+       }
+
+       let f1 = (oper,arr) => {
+
+           console.log("f1 2内",arr);
+
+           var result = 0;
+           if (oper == "/"){
+               result = arr[0]; // 防止初始化的0 对数组的结果有影响
+
+               for (let i=1;i <arr.length;i++){ //注意这里的条件，i <arr.length 不可以有=号
+
+                   result /= arr[i];
+
+               }
+           }else if (oper == "*"){
+               result = arr[0];
+
+               for (let i=1;i <arr.length;i++){
+                   result *= arr[i];
+               }
+           }else if (oper == "+"){
+               for (let i=0;i <arr.length;i++){
+                   result += arr[i];
+                   console.log("f1 for +内result",result);
+               }
+           }else if (oper == "-"){
+               for (let i=0;i <arr.length;i++){
+                   result -= arr[i];
+               }
+           }else {
+               console.log("输入的oper不正确");
+           }
+           return result;
+       }
+
+       //let {oper,arr} = cal;
+       //
+       //let [a,b,c,d] = arr;
+
+       let {oper,arr} = cal;
+       console.log(oper);
+       console.log(arr);
+
+       console.log(f1(oper,arr));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

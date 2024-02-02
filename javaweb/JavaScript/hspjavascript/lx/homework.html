@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            // form2的dom对象获取，需要在页面加载完成后进行获取，否则页面还未加载form2表单，获取不到form2表单的dom对象
+            var form2 = document.getElementById("form2");
+            // alert("form2= " + form2);
+
+
+            form2.onsubmit = function () {
+
+                // form2.blur = function (){
+                // 字段的内容value 获取 要写在表单提交事件onsubmit中 ，如果直接写在onload事件中
+                var username = form2.username.value;
+                // alert("username= " + username);
+                var pwd = form2.pwd.value;
+                // alert("pwd= " + pwd);
+                var pwd2 = form2.pwd2.value;
+                // alert("pwd2= " + pwd2);
+                var email = form2.email.value;
+                // alert("email= " + email);
+                // 用户名长度(4-6)
+                if (!(username.length >= 4 && username.length <= 6)) {
+                    alert("用户名长度不正确");
+                    return false;
+                }
+                // alert("pwd.length= " + pwd.length);
+                if (pwd.length != 6) {
+                    alert("pwd密码长度不正确");
+                    return false;
+                }
+                // 只需要验证pwd和pwd2是否相同即可，不用再验证一次pwd2.length 多余
+                // alert("pwd2.length= " + pwd2.length);
+                // if (pwd2.length != 6){
+                //         alert("pwd2密码长度不正确");
+                //         return false;
+                //     }
+                // alert("pwd2= " + pwd2);
+                if (pwd2 != pwd) {
+                    alert("与前一次输入的密码不相同");
+                    return false;
+                }
+                // alert("email= " + email);
+                //6 电子邮件..=> 需要使用正则表达式技术[在java基础中，老韩讲过 877讲]
+                //主要给大家说如何使用正则表达式
+                //String regStr = "^[\\w-]+@([a-zA-Z]+\\.)+[a-zA-Z]+$";
+                //老韩解读
+                //1. 在java中，转义符是\\, 在js中使用正则表达式 \
+                //2. emailPattern.test("xxx"), 验证"xxx"是不是满足emailPattern规则
+                //   如果满足返回true, 否则返回false
+                var emailPattern = /^[\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+$/;
+                if (!emailPattern.test(email)) {
+                    alert("电邮格式不满足");
+                    return false;
+                }
+                return true;
+                // }
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<h1>注册用户</h1> <!-- 动态注册表单提交事件 -->
+<form action="ok.html" id="form2">
+    用户名: <input type="text" name="username"/>长度(4-6)<br/>
+    密　码: <input type="password" name="pwd"/>长度(6)<br/>
+    确　认: <input type="password" name="pwd2">长度(6)<br/>
+    电　邮: <input type="text" name="email">满足基本格式<br/>
+    <input type="submit" value="注册用户"/></form>
+</body>
+</html>

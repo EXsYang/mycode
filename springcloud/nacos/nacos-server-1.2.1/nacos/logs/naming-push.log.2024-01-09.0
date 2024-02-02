@@ -1,0 +1,83 @@
+2024-01-09 13:33:14,296 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 13:33:18,685 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 13:34:22,777 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 13:55:14,776 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 13:55:28,478 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 14:05:02,021 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 14:05:02,037 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 14:05:03,289 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 14:05:03,292 INFO serviceName: DEFAULT_GROUP@@member-service-nacos-provider changed, schedule push for: 198.18.0.1:53633, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,53633,3548179953400
+
+2024-01-09 14:05:03,292 INFO send udp packet: 198.18.0.1,53633,3548179953400
+
+2024-01-09 14:05:03,304 INFO received ack: {"type": "push-ack", "lastRefTime":"3548179953400", "data":""} from: 198.18.0.1:53633, cost: 12 ms, unacked: 0, total push: 1
+
+2024-01-09 14:08:06,375 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 20:46:23,165 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-09 21:19:06,985 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 21:19:09,319 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 21:19:14,325 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 21:19:28,832 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 21:19:28,864 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-01-09 21:19:33,733 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-01-09 23:16:04,349 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:26:14,192 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:26:30,310 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:26:35,030 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:36:03,220 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-09 23:36:03,220 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:36:20,212 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-09 23:36:20,212 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:36:24,616 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-09 23:36:25,841 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:53896, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,53896,37829683464500
+
+2024-01-09 23:36:25,841 INFO send udp packet: 198.18.0.1,53896,37829683464500
+
+2024-01-09 23:36:26,031 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:36:39,987 INFO retry to push data, key: 198.18.0.1,53896,37829683464500
+
+2024-01-09 23:36:41,194 INFO send udp packet: 198.18.0.1,53896,37829683464500
+
+2024-01-09 23:36:42,446 WARN ack takes too long from /198.18.0.1:53896 ack json: {"type": "push-ack", "lastRefTime":"37829683464500", "data":""}
+
+2024-01-09 23:36:42,446 INFO received ack: {"type": "push-ack", "lastRefTime":"37829683464500", "data":""} from: 198.18.0.1:53896, cost: 1252 ms, unacked: 0, total push: 2
+
+2024-01-09 23:36:42,947 WARN ack takes too long from /198.18.0.1:53896 ack json: {"type": "push-ack", "lastRefTime":"37829683464500", "data":""}
+
+2024-01-09 23:36:45,746 ERROR [NACOS-PUSH] error while receiving ack data
+
+java.lang.IllegalStateException: unable to find ackEntry for key: 198.18.0.1,53896,37829683464500, ack json: {"type": "push-ack", "lastRefTime":"37829683464500", "data":""}
+	at com.alibaba.nacos.naming.push.PushService$Receiver.run(PushService.java:664)
+	at java.lang.Thread.run(Thread.java:748)
+2024-01-09 23:43:03,965 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-09 23:43:12,633 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+
+2024-01-09 23:43:27,965 INFO DEFAULT_GROUP@@seata_storage_micro_service is changed, add it to push queue.
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <script src="libs/jquery-3.7.0.js"></script>
+
+    <style>
+        #divMove{
+            width: 500px;
+            height: 400px;
+            background-color: pink;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<!--要求：获取鼠标当前坐标-->
+mouse: <span id="mouseMove"></span>
+<div id="divMove">
+    在这里移动鼠标试试
+</div>
+
+<script>
+    // 当网页元素加载完毕后，响应事件
+    // $(document).ready(function (){
+    //
+    // })
+    //简写后
+    $(function (){
+        $('#divMove').mousemove(function (e){
+            $('#mouseMove').text('x:'+e.pageX + 'y:'+e.pageY)
+        })
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
