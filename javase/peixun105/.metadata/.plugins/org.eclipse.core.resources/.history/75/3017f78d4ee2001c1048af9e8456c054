@@ -1,0 +1,28 @@
+package com.atguigu.exer3;
+
+public class Productor extends Thread {
+
+	Clerk clerk;
+	 public Productor(Clerk clerk) {
+		 this.clerk = clerk;
+	 }
+
+	int pr = 0;// 生产者生产产品
+	public void run() {
+		// 生产产品 production()
+		for (;;) {
+
+			
+			
+			if(clerk.getProduct()<30) {
+				pr++;
+				
+				clerk.setProduct(pr);
+				System.out.println("生产第" + pr + "个产品" + "\t当前店员手里产品数量为：" + clerk.getProduct());
+				
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--Settings-Build,...-Compiler-Java Compiler- Target bytecode version 默认是1.5-->
+    <!--这里指定maven编译器 和 jdk的版本  /source/target/java的版本为1.8 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!--
+    1. 将mybatis作为父项目管理多个子模块/子项目
+    2. 父项目的完整坐标 groupId[组织名]+artifactId[项目名]
+    3. 后面该父项目会管理多个子模块/子项目，将来父项目中的引入的依赖可以直接给予子项目用，
+       ，这样开发简单，提高复用性，也便于管理
+    4.  <packaging>pom</packaging> 表示父项目以多个子模块/子项目管理工程
+    5.
+    -->
+    <groupId>com.hspedu</groupId>
+    <artifactId>mybatis</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <!--modules指定管理的哪些子模块-->
+    <modules>
+        <module>mybatis_quickstart</module>
+        <module>xml-mapper</module>
+        <module>dynamic-sql</module>
+        <module>dynamic-sql-homework-hero</module>
+        <module>mybatis-mapping</module>
+        <module>mybatis_cache</module>
+    </modules>
+
+    <!--引入相关依赖-->
+    <dependencies>
+        <!--mysql依赖/驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+        <!--mybatis依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.7</version>
+        </dependency>
+        <!--junit依赖-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <!--如果这里有一个scope-test 表示该jar的作用范围在test目录 后面有专门的章节讲解maven-->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <!--注意是在父工程的 pom.xml 加入 build 配置-->
+
+    <!--在 build 中配置 resources，来防止我们资源导出失败的问题
+    因为如果不加下面的配置 maven的源码路径main/java 下的.xml
+    不会默认复制到工作路径对应的文件夹下 会导致读取Mapper.xml文件失败
+     java.io.IOException: Could not find resource com/hspedu/mapper/MonsterMapper.xml
+     具体报错位置是 MyBatisUtils.java:30
+     sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+     build() 中传入的一个关于mybatis-config.xml 的流对象 里面配置了
+     mapper resource="com/hspedu/mapper/MonsterMapper.xml"
+     根据配置的mapper resource 加载对应位置的文件时 默认配置的情况下 没有找到该文件
+     抛出io异常 因此需要加入下面的一段build代码 修改默认maven的默认配置
+
+    老韩解读：
+    1. 不同的 idea/maven 可能提示的错误不一样
+    2. 不变应万变，少什么文件，就增加相应配置即可
+    3. 含义是将 src/main/java目录和子目录 和 src/main/resources目录和子目录
+    的资源文件 xml 和 properties在build项目时，导出到对应的target目录下
+    -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <!--两个** 表示多级目录
+                    一个* 表示任意多个字符
+                    springmvc中有相似的规则【@RequestMapping 支持 Ant 风格资源地址】
+                    即不管哪一个目录，下 只要有 以配置的.xml/.properties 文件 都拷贝到 执行目录 target/classes/ 下
+                    -->
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

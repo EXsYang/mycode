@@ -1,0 +1,15 @@
+package com.atguigu.exer3;
+
+public class ClerkTest {
+public static void main(String[] args) {
+	
+	Productor p = new Productor();
+	p.setName("生产者线程");
+	p.start();
+	
+	
+	
+	
+	
+}
+}

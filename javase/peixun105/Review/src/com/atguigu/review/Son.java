@@ -1,0 +1,48 @@
+package com.atguigu.review;
+
+public class Son extends Father {
+	int name;
+	String name2;
+	
+	public Son() {
+		super.name = "yangda";//构造器中初始化
+		}
+	public void superTest() {//方法中初始化
+		super.name = "张";
+		System.out.println(super.name);
+	}
+	public static void main(String[] args) {//main方法在不是public修饰的类中不能运行
+		Son s = new Son();
+		System.out.println(s);//Father [name=yangda]
+		s.superTest();//张
+		System.out.println("sss");
+		
+		//基本数据类型 ,包装类->String
+		int a = 2;
+		Integer b = a;
+		
+		String c = new String();
+		String s1 = c.valueOf(b);
+		/**
+		 * The static method valueOf(Object) from the type String should be accessed in a static way
+		 * 来自String类型的   静态方法   valueOf(Object)应该以静态方式访问 
+		 * 
+		 * 	public static String valueOf(Object obj) {
+        	return (obj == null) ? "null" : obj.toString();
+    		}
+		 */
+		String s2 = String.valueOf(b);//这样写！！
+		System.out.println("s1:" + s1);
+		System.out.println("s2:" + s2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

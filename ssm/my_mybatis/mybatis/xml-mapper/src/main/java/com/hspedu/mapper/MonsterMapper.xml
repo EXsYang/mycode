@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+1. 这是一个mapper xml文件
+2. 该文件可以去实现对应的接口的方法
+3. namespace 指定该xml文件和哪个接口对应！！！
+注意: 下面的namespace指定的是Mapper 而不是PoJo。
+ mybatis-config.xml 文件的 mappers-mapper resource="" 属性中指定的也是Mapper
+ 但是目录之间是使用斜杠间隔的同时还有后缀名
+-->
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+    <!--
+    1. 配置/实现 public List<Monster> findMonsterByNameORId(Monster monster);
+    2. 通过 id或者名字查询
+    3. `id`=#{id}
+        `id`表示表的字段名
+        #{id} 中的 id 表示你传入的monster对象的属性名
+    -->
+    <select id="findMonsterByNameORId" parameterType="Monster" resultType="Monster">
+        SELECT * FROM `monster` WHERE `id`= #{id} AND `name` = #{name};
+    </select>
+
+    <!--
+       1. 配置/实现 public List<Monster> findMonsterByName(String name);   2. 通过 id或者名字查询
+       2. 查询名字中含义'牛魔王'的妖怪
+       3. 模糊查询 取值需要用 ${value}  下面的sql语句 不可以使用 #{} 获取值 需要改成${}
+         SELECT * FROM `monster` WHERE `name` LIKE '%#{name}%'; 不行！ 底层解析不了
+         推荐使用单引号 有个颜色可以识别 推荐
+         SELECT * FROM `monster` WHERE `name` LIKE '%${name}%'; 可以使用单引号 底层可以解析
+         SELECT * FROM `monster` WHERE `name` LIKE "%${name}%"; 可以使用双引号 底层可以解析
+    -->
+    <select id="findMonsterByName" parameterType="String" resultType="Monster">
+        SELECT * FROM `monster` WHERE `name` LIKE '%${name}%' ;
+    </select>
+
+    <!--1. 配置/实现 public List<Monster> findMonsterByIdAndSalary_ParameterHashMap(Map<String, Object> map);
+        2. 查询 id > 10 并且 salary 大于 40, 要求传入的参数是 HashMap
+        3. 如果是以map形式传入参数，当你这样写条件 `id` > #{id} 表示你传入的map 中有一个k-v 中的 key 是id
+    -->
+    <select id="findMonsterByIdAndSalary_ParameterHashMap" parameterType="map" resultType="Monster">
+            SELECT * FROM `monster` WHERE `id`> #{id} AND `salary` > #{salary};
+    </select>
+
+    <!--
+    1. 配置/实现 public List<Map<String, Object>>
+    findMonsterByIdAndSalary_ParameterHashMap_ReturnHashMap(Map<String, Object> map);
+    2. 查询 id > 10 并且 salary 大于 40, 要求传入的参数和返回的类型都是HashMap
+    -->
+    <select id="findMonsterByIdAndSalary_ParameterHashMap_ReturnHashMap" parameterType="map" resultType="map">
+         SELECT * FROM `monster` WHERE `id`> #{id} AND `salary` > #{salary};
+    </select>
+
+</mapper>

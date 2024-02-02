@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="from1" action="LoginServlet1">
+用户名：<input type="text" name="name"><span id="n1"></span><br>
+密&nbsp;&nbsp;码:<input type="password"><span id="n2"></span><br>
+<input type="button" value="登录">
+
+</form>
+
+</body>
+</html>
+

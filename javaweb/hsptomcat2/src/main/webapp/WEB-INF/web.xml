@@ -1,0 +1,82 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>TestServlet2</servlet-name>
+    <servlet-class>com.hspedu.servlet.TestServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet2</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CalServlet</servlet-name>
+    <servlet-class>com.hspedu.servlet.CalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalServlet</servlet-name>
+    <url-pattern>/calServlet</url-pattern>
+  </servlet-mapping>
+
+  <!--配置自己设计的Servlet
+  会报红的原因是这里不是原生的servlet
+      老韩提示： 因为这是我们自己的servlet , 所以不识别, 没有关系
+      直接忽略爆红，将右上角Highlight:All Problems 改为语法 Syntax
+  -->
+  <servlet>
+    <servlet-name>HspCalServlet</servlet-name>
+    <servlet-class>com.hspedu.tomcat.servlet.HspCalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HspCalServlet</servlet-name>
+    <url-pattern>/hspCalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Hsp6CalServlet</servlet-name>
+    <servlet-class>com.hspedu.tomcat.servlet.Hsp6CalServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Hsp6CalServlet</servlet-name>
+    <url-pattern>/hsp6CalServlet</url-pattern>
+  </servlet-mapping>
+
+  <!--注意：在启动HspTomcatV3 的main 方法时，要把不属于自己创建的Servlet注销掉！！！，
+    即web.xml 文件中不可以有继承于 HttpServlet 的Servlet配置
+   否则会报错 NoClassDefFoundError: javax/servlet/http/HttpServlet
+   虽然编译时不报错，但是在运行时 找不到合适的类
+            .ClassNotFoundException: javax.servlet.http.HttpServlet
+   原因是 进行反射时找不到指定的类
+   这里的classpath 类加载路径就是target 路径，
+   该路径下找不到类javax.servlet.http.HttpServlet
+   所以反射失败！！！
+
+   我们经常被java.lang.ClassNotFoundException和java.lang.NoClassDefFoundError这两个错误迷惑不清，
+   尽管他们都与Java classpath有关，但是他们完全不同。NoClassDefFoundError
+   发生在JVM在动态运行时，根据你提供的类名，在classpath中找到对应的类进行加载
+   ，但当它找不到这个类时，就发生了java.lang.NoClassDefFoundError的错误，
+   而ClassNotFoundException是在编译的时候在classpath中找不到对应的类而发生的错误
+   。ClassNotFoundException比NoClassDefFoundError容易解决，是因为在编译时我们就
+   知道错误发生，并且完全是由于环境的问题导致。而如果你在J2EE的环境下工作，并且得到
+   NoClassDefFoundError的异常，而且对应的错误的类是确实存在的，这说明这个类对于
+   类加载器来说，可能是不可见的。
+   -->
+
+  <!--<servlet>-->
+  <!--  <servlet-name>CallServlet</servlet-name>-->
+  <!--  <servlet-class>com.hspedu.tomcat.servlet.CallServlet</servlet-class>-->
+  <!--</servlet>-->
+
+  <!--<servlet-mapping>-->
+  <!--  <servlet-name>CallServlet</servlet-name>-->
+  <!--  <url-pattern>/callServlet</url-pattern>-->
+  <!--</servlet-mapping>-->
+
+
+
+</web-app>

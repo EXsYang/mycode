@@ -1,0 +1,19 @@
+package com.atguigu.exer3;
+
+public class Customer {
+
+	Clerk clerk;
+	
+	
+	
+	
+	
+	//共享数据，店员手里的产品数量
+	
+	//生产者和消费者线程共同操作店员数据，即其中有一个属性是店员类的
+	
+	
+	
+	
+	
+}

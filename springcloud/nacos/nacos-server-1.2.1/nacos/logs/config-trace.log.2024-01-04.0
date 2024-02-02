@@ -1,0 +1,3 @@
+2024-01-04 23:27:28,977|192.168.0.129|e-commerce-nacos-config-client-dev.yaml|DEFAULT_GROUP|null|null|1704382047229|192.168.0.129|persist|pub|-1|bed55ecc4ca9ff364b0a026cd4044ee9
+2024-01-04 23:27:29,821|192.168.0.129|e-commerce-nacos-config-client-dev.yaml|DEFAULT_GROUP|null|null|1704382047229|192.168.0.129|dump|ok|2592|50
+2024-01-04 23:27:30,087|192.168.0.129|e-commerce-nacos-config-client-dev.yaml|DEFAULT_GROUP|null|null|1704382047229|192.168.0.129|notify|ok|2486|192.168.0.129:8848

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取子节点和父节点 的</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 80px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // dom元素绑定事件，传入的this是其本身！！！
+            // jquery对象绑定点击事件，隐式传入dom 对象！！！！ --测试见jQuery-selector-notice.html文件
+
+            // jQuery parent() 方法
+            // parent() 方法返回被选元素的直接父元素。
+            // 该方法只会向上一级对 DOM 树进行遍历。
+
+            // 获取父节点
+            var $parent = $("span").parent(); // parent() 返回一个 jquery对象！！
+            // alert(typeof parent);//object
+            // $parent.css("background","green"); ////$parent 是jquery对象 这里css方法生效！
+
+            var p1 = document.getElementById("p1");
+
+            // p1.css("background","red"); //p1 是dom对象 这里css方法没生效！
+            $(p1).css("background", "red"); //$(p1) 是jquery对象 这里css方法生效！ css方法是jquery对象特有的方法
+
+
+            // jQuery children() 方法
+            // children() 方法返回被选元素的所有直接子元素。
+            // 该方法只会向下一级对 DOM 树进行遍历。
+
+            // 获取子节点
+            // $("div#two").css("background", "pink");
+            //$("div").children().css({"color":"red","border":"2px solid red"});
+
+
+            $("div #two02:last-child").css({"color":"green","border":"5px solid blue"});
+            //$("div #two02:nth-child(2)").css({"color":"yellow","border":"5px solid pink"});
+
+        })
+    </script>
+</head>
+
+<body>
+
+<span>span</span>
+<p id="p1">pppppppppppppppppppp</p>
+
+<hr/>
+<div id="one" class="mini">
+    div id为one
+</div>
+<input type="text" value="input!!!">
+<br>
+<div id="two">
+    div id为two
+    <div id="two01">
+        id two01
+    </div>
+    <div id="two02">
+        id two02
+    </div>
+</div>
+
+<div id="three" class="mini">
+    div id为three
+    <div id="three01">
+        id three01
+    </div>
+</div>
+
+<span id="sp">
+    span id=sp
+</span>
+</body>
+</html>
+
+
+

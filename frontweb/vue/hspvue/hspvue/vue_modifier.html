@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue修饰符使用</title>
+</head>
+<body>
+<div id="app">
+    <!-- 老韩解读
+            1. 修饰符用于指出一个指令应该以特殊方式绑定。
+            2. v-on:submit.prevent的.prevent 修饰符表示阻止表单提交的默认行为
+            3. 执行 程序员指定的方法
+     -->
+    <!--<form action="http://www.baidu.com">-->
+    <form action="http://www.baidu.com" v-on:submit.prevent="onMySubmit">
+        <!--虽然数据池data中没有属性 monster.name 但是这里使用的是数据双向渲染
+        会动态的将该属性设置到数据池中 不用担心
+        但是 如果使用的是单向渲染 则不可以使用该规则 需要显示的在data数据池中 定义该monster.name属性
+        -->
+        <!--妖怪名: <input type="text" v-model="monster.name"><br/><br/>-->
+        妖怪名: <input type="text" :value="monster.name"><br/><br/>
+        <button type="submit">注册</button>
+    </form>
+    <p>服务返回的数据是{{count}}</p>
+    <h1>修饰符扩展案例</h1>
+    <button v-on:click.once="onMySubmit">点击一次</button><br/>
+    <input type="text" v-on:keyup.enter="onMySubmit">
+    <input type="text" v-on:keyup.down="onMySubmit">
+    <!-- .trim修饰符 会在输入框中输入的如果有空格 当光标离开的时候 自动的将两端的空格去掉-->
+    <input type="text" v-model.trim="count">
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {//数据池
+            monster: {//monster数据(对象)的属性, 可以动态生成
+                name:"sssd"
+            },
+            count: 0
+        },
+        methods: {//方法池
+            onMySubmit() {
+                //console.log("我们自己的表单提交处理...");
+                //"", null, undefined都是false
+                if(this.monster.name) {
+                    //老韩提醒,如果你要访问当前Vue实例的数据池的数据, 需要this
+                    //否则，会报错ReferenceError: bookName is not defined
+                    console.log("提交表单 name=", this.monster.name);
+                    //这里，程序员就可以根据自己的业务发出ajax请求到后端
+                    //得到数据后，在进行数据更新
+                    this.count = 666;
+                } else {
+                    console.log("请输入名字..");
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

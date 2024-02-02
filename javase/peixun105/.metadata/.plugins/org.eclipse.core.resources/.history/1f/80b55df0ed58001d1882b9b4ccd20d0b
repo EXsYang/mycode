@@ -1,0 +1,21 @@
+package com.atguigu.review;
+
+public class Order {
+
+}
+
+class Order1 {
+
+	// 单例模式，饿汉式
+
+	private Order1() {// 私有化构造器
+
+	}
+
+	private static Order1 instance = new Order1();
+
+	public static Order1 getInstance() {
+		return instance;
+	}
+
+}

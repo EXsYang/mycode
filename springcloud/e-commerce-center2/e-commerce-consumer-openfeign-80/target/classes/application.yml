@@ -1,0 +1,38 @@
+server:
+  port: 80
+spring:
+  application:
+    # 这个名字将来会注册到注册中心
+    name: e-commerce-consumer-openfeign-80
+
+#配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-Server
+    #表示从Eureka-Server抓取注册信息
+    #如果是单节点，可以不配置，如果是一个集群,则必须配置true,才能配合Ribbon进行使用负载均衡
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个Eureka-Server Zone:区域
+      #当Eureka-Server集群中只有一个Eureka-Server时，按下面的写法
+      #defaultZone: http://localhost:9001/eureka
+      #下面这里我们将本微服务注册到Eureka-Server集群,使用逗号间隔
+      defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002:9002/eureka
+
+#logging:
+#  level:
+#    # 对MemberFeignService接口调用过程打印信息-debug
+#    com.hspedu.springcloud.service.MemberFeignService: debug
+
+#ribbon:
+#  #1. 设置feign客户端超时时间(openfeign默认支持ribbon)
+#  #2. feign客户端建立连接从服务提供方获取可用资源的所用的全部时间
+#  #3. 时间单位是毫秒
+#  ReadTimeout: 8000
+#  # 两端连接所用时间
+#  ConnectionTimeout: 8000
+
+  #ReadTimeout (读取超时): 这个参数设置了在与服务器建立连接之后，客户端等待服务器响应的最长时间。
+  #如果在这个时间内客户端没有收到服务器的响应数据，就会发生读取超时错误。在你的例子中，ReadTimeout: 8000 意味着如果在8000毫秒（即8秒）内没有接收到数据，就会触发超时。
+  #ConnectionTimeout (连接超时): 这个参数设置了客户端尝试与服务器建立连接的最长时间。
+  #如果在这个时间内客户端无法成功与服务器建立连接，就会发生连接超时错误。在你的例子中，ConnectionTimeout: 8000 表示如果在8000毫秒（即8秒）内没有建立连接，就会触发超时。

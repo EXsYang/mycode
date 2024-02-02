@@ -1,0 +1,60 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB #指定文件大小最大值，默认 1MB ,如果上传的文件单个大小大于1M就会报错，这里修改为10MB
+      max-request-size: 50MB #指定每次请求的所有的文件加在一起的最大值，默认为 10MB
+  datasource: #配置数据源
+    # 说明: 如果你没有指定useSSL=true ,启动项目会报红警告, 环境的问题，小伙伴们灵活处理
+    # useSSL=true是否设置跟所使用的mysql的版本有关
+    # 在该yml文件中不需要像之前在.properties文件在使用 &amp; 来转义 & ,可以直接使用 & 符号
+    url: jdbc:mysql://localhost:3306/spring_boot?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: hsp
+    # mysql数据库驱动，是在pom.xml文件中引入的mysql-connector-java依赖中的，不同的数据库需要引入不同的数据库驱动
+    driver-class-name: com.mysql.jdbc.Driver
+    # 配置Druid和监控 这时druid数据源已经进来了，同时监控功能已经开启,即可以访问到Druid Monitor 系统了
+    # druid数据源可以读取本文件中配置的的连接数据库的信息，即url,username,password,driver-class-name
+#    druid:
+#      stat-view-servlet:
+#        enabled: true
+#        login-username: jack
+#        login-password: 666
+#        reset-enable: false
+#      web-stat-filter: #配置web监控 [web应用功能, uri监控,Session监控]
+#        enabled: true
+#        url-pattern: /*
+#        # 下面使用双引号或者单引号都可以
+##        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+#        exclusions: '.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#      filter:
+#        stat: #sql监控
+#          slow-sql-millis: 1000  #设置1000毫秒就是慢查询
+#          log-slow-sql: true #启用慢查询的日志
+#          enabled: true
+#        wall: # 配置sql防火墙
+#          enabled: true
+#          config:
+#            # 配置sql防火墙黑名单  https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE-wallfilter
+#            # 在拦截配置－语句 中 查看具体配置
+#            drop-table-allow: false  #如果有删除表的sql就不执行
+##            select-all-column-allow: false # 配置是否允许执行SELECT * FROM T这样的语句。这种的sql查询，到黑名单
+
+#  mvc:
+#    view:
+#      prefix: /
+#      suffix: .html
+
+
+#server:
+#  #配置端口
+#  port: 9999
+#  tomcat: #对tomcat配置
+#    threads:
+#      max: 10 #最大的工作线程， 默认是200
+#      min-spare: 5 #最小工作线程, 默认是10
+#    accept-count: 200 #tomcat启动的线程达到最大值, 接受排队的请求个数,默认100
+#    max-connections: 2000 #最大连接数, 并发数
+#    connection-timeout: 10000 #建立连接的超时时间, 单位是毫秒
+#    #还有很多其它的配置,老师就不一一列举
+
+

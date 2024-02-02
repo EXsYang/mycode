@@ -1,0 +1,12 @@
+package com.cx.cx;
+
+public class TestMax {
+	public static void main(String[] args) {
+		int x=2;
+		int a;
+		 a=(x++)*3;
+		System.out.println(a);
+		
+		}
+	
+}

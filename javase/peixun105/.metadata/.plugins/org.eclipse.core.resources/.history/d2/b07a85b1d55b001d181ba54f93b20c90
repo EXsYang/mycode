@@ -1,0 +1,54 @@
+package com.atguigu.com;
+
+public class AAA {
+
+	// public static void main(String[] args) {
+	// System.out.println("world");
+	// }
+	// public static void main(String[] args) {
+	// B b = new B();
+	// b.b();
+	// }
+}
+
+class C {
+	int x = 0;
+
+	public void a() {
+		System.out.println("class C:a方法");
+	}
+}
+
+interface D {
+	int x = 0;
+
+	default void a() {
+		System.out.println("interface:D方法");
+	}
+}
+
+interface F {
+	int x = 0;
+
+	// public abstract default void a() {
+	
+	// Illegal combination of modifiers for the interface method a;only one of
+	// abstract, default, or static permitted
+	// 接口方法a的修饰符的非法组合; 只允许抽象、默认或静态中的一种
+	abstract  void a() {
+		System.out.println("interface:D方法");
+	}
+}
+
+class E extends C implements D {// The inherited method C.a() cannot hide the public abstract method in D
+								// 继承的方法C.a()不能隐藏D中的公共抽象方法
+	public static void main(String[] args) {
+		E e = new E();
+		e.a();
+	}
+
+	public void t() {
+		a();
+		// System.out.println(super.x);//The field x is ambiguous 字段x是模糊的
+	}
+}

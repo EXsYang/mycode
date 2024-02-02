@@ -1,0 +1,68 @@
+package com.atguigu.review;
+
+public class Order {
+
+}
+
+class Order1 {
+
+	// 单例模式，饿汉式
+
+	private Order1() {// 私有化构造器
+
+	}
+
+	private static Order1 instance = new Order1();
+
+	public static Order1 getInstance() {
+		return instance;
+	}
+
+}
+class Order2 {
+	
+	private Order2() {
+		
+	}
+	
+	private static Order2 instance2 = null;
+	
+	public Order2 getInstance2() {
+		if(instance2 == null) {
+			synchronized(Order2.class) {
+				if(instance2 == null) {
+					instance2 = new Order2();
+				}
+			}
+		}
+		return instance2;
+	}
+	
+	class FinalTest{
+		 //final修饰属性：可以考虑赋值的位置：显式初始化、代码块中初始化、构造器中初始化
+		final int a;//默认初始化
+		int a2 = 2;//显式初始化
+		
+		{
+			//a = 3;//代码块中初始化
+		}
+		public FinalTest(final int a) {
+			 //a = 2;//构造器中初始化
+			a = 2;//构造器中初始化
+			
+			
+			
+		}
+		
+		public void assignment() {
+			//a = 4;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+}

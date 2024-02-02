@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+
+    <!--指定要扫描的基本包以及子包的java类-->
+    <!--<component-scan base-package="com.hspedu1.controller"></component-scan>-->
+    <component-scan base-package="com.hspedu1.controller,com.hspedu1.service"></component-scan>
+</beans>

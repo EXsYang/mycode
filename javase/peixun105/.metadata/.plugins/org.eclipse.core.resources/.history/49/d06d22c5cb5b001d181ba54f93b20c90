@@ -1,0 +1,17 @@
+package com.atguigu.com;
+
+public class AAA {
+
+//	public static void main(String[] args) {
+//		System.out.println("world");
+//	}
+//	public static void main(String[] args) {
+//	B b = new B();
+//	b.b();
+//	}
+}
+class C{
+	public static void main(String[] args) {
+		System.out.println("C中的main");
+	}
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.mapper.PetMapper">
+
+    <!--
+    1. 配置/实现 public List<Pet> getPetByUserId(Integer userId);
+    2. 通过 User 的 id 来获取 pet 对象，可能有多个，因此使用 List 接收
+     private Integer id;
+    private String nickname;
+    // 一个宠物对应一个主人
+    private User user;
+    -->
+    <resultMap id="resultPetMap" type="Pet">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <association property="user" column="user_id"
+                     select="com.hspedu.mapper.UserMapper.getUserById"/>
+    </resultMap>
+    <select id="getPetByUserId" parameterType="Integer" resultMap="resultPetMap">
+        SELECT * FROM `mybatis_pet` WHERE `user_id` = #{userId};
+    </select>
+
+
+
+
+
+    <!--
+    1. 配置/实现  public Pet getPetById(Integer id);
+    2. 通过 pet 的 id 获取 Pet 对象, 同时会查询到pet对象关联的user对象
+    3. 因为查询 `mybatis_pet`表返回来的字段的处理方式 上面配置 getPetByUserId() 时
+       ，和配置的 resultMap 处理返回来的数据/封装成一个Pet对象的方式是相同的
+       因此可以复用  resultMap="resultPetMap"
+    -->
+
+    <select id="getPetById" parameterType="Integer" resultMap="resultPetMap">
+        SELECT * FROM `mybatis_pet` WHERE `id` = #{id};
+    </select>
+
+
+</mapper>
+

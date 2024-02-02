@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 60px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // dom元素绑定事件，传入的this是其本身！！！
+            // jquery对象绑定点击事件，隐式传入dom 对象！！！！ --测试见jQuery-selector-notice.html文件
+
+            //1. 改变 id 为 one 的元素的背景色为 #0000FF
+            $("#b1").click(
+                function () {
+                    //id选择器
+                    $("#one").css("background", "#0000FF");
+                }
+            )
+            //2. 改变 class 为 mini 的所有元素的背景色为 #FF0033
+            $("#b2").click(
+                function () {
+                    //类选择器
+                    $(".mini").css("background", "#FF0033");
+                }
+            )
+
+            //3. 改变元素名为 <div> 的所有元素的背景色为 #00FFFF
+            $("#b3").click(
+                function (){
+                    //元素选择器
+                    $("div").css("background","#00FFFF");
+                }
+            )
+            //4. 改变所有元素的背景色为 #00FF33
+            $("#b4").click(
+                function (){
+                    $("*").css("background","#00FF33");
+                }
+            )
+            //5. 改变所有的<span>元素和 id 为 two class为 .mini 的元素的背景色为 #3399FF
+            $("#b5").click(
+                function (){
+                    // 逗号间隔。 类似于 只要满足其中一个都算选中
+                    $("span,#two,.mini").css("background","#3399FF");
+                }
+            )
+
+        })
+
+        /*
+            html class空格隔开用法和注意事项
+
+            在HTML中，class属性用于为元素定义类名，目的是为了组合具有共同特点的元素，方便对其进行样式控制、JavaScript操作等。而class属性的值则是一个或多个由空格隔开的单词，用于表示一组元素的共同特征。本文将从多个方面对html class空格隔开进行详细阐述。
+            一、class属性的用法
+            class属性可以用于HTML元素的任何位置，如div、span、p等，以及所有具有有效href属性的元素，如a标签。
+            在一个HTML页面中，可以为多个元素定义相同的class属性值，以便于为它们定义相同的样式或者操作行为。同时，也可以为单个元素定义多个class属性值，这些值会按照空格分隔的顺序生效，将每个单词对应的样式和操作合并起来。例如：
+            <p class="text1 text2">这是一个有class属性的段落元素</p>
+            在上述例子中，该段落元素将同时拥有text1和text2两个class属性的样式和操作。
+            二、class属性的命名规范
+            由于class属性一般用于表示一组元素的共同特征，因此在命名class属性时，应该遵循一些规范，以方便样式和操作的管理和维护。
+            首先，class属性的命名应该具有描述性，清晰明了地表达出所代表的元素的特征。例如，如果将一组段落元素的对齐方式设为左对齐，可以将其class属性命名为align-left，而不是a
+            其次，class属性的命名应该遵循一定的命名约定，例如：
+            以字母开头，可以包含字母、数字、连字符和下划线
+            不能以数字开头
+            避免使用HTML和CSS的关键字，如body、header、nav、font、background等
+            三、class属性的优化
+            在HTML页面中，class属性的使用越多，页面加载和渲染的效率就会越低。因此，在使用class属性时，也可以考虑优化，以提升页面性能。
+            首先，可以使用继承来减少class属性的使用次数。通过在父元素上定义class属性，可以将多个子元素的相同属性和样式继承下来，避免在每个子元素上都定义class属性。例如：
+    <div class="parent">
+        <p>这是一个段落元素</p>
+        <a>这是一个链接元素</a>
+    </div>
+            在上述例子中，子元素p和a都继承了父元素div的class属性和样式。
+其次，可以使用通配符选择器，对多个元素同时应用相同的样式。例如：
+    <style>
+        /!* 将所有元素的margin和padding设置为0 *!/
+        * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+            在上述例子中，通配符选择器将所有元素的margin和padding都设置为了0。
+            四、class属性的其他注意事项
+            最后，还有一些关于class属性的其他注意事项需要注意：
+            不要过度使用class属性，遵循简单和可预测的原则
+            不要在class属性中使用HTML标签或者代码闭合符号等特殊符号
+            不要使用中文或者非英文字符作为class属性值，以避免编码问题和浏览器兼容性问题
+            总之，在使用class属性时，应该遵循一些规范和注意事项，以提升页面性能和管理效率。
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<input type="button" value="改变 id 为 one 的元素的背景色为 #0000FF" id="b1"/>
+<input type="button" value=" 改变 class 为 mini 的所有元素的背景色为 #FF0033" id="b2"/>
+<input type="button" value=" 改变元素名为 <div> 的所有元素的背景色为 #00FFFF" id="b3"/>
+<input type="button" value=" 改变所有元素的背景色为 #00FF33" id="b4"/>
+<input type="button" value=" 改变所有的<span>元素和 id 为 two class为 .mini 的元素的背景色为 #3399FF" id="b5"/>
+<hr/>
+<div id="one" class="mini">div id为one</div>
+<div id="two">div id为two</div>
+<div id="two2">div id为two2</div>
+<div id="three" class="mini">div id为three</div>
+<span id="s_one" class="mini">span  one</span>
+<span id="s_two">span two</span><br>
+
+在一个HTML页面中，可以为多个元素定义相同的class属性值，以便于为它们定义相同的样式或者操作行为。<br>
+同时，也可以为单个元素定义多个class属性值，这些值会按照空格分隔的顺序生效，将每个单词对应的样式和操作合并起来。<br>
+<a href="views/cart/cart.jsp" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0"><br>
+    <i class="icon-handbag"> 购物车</i>
+    <%--${sessionScope.cart.totalCount} 本质是调用cart对象的getTotalCount()方法--%>
+    <span class="header-action-num">${sessionScope.cart.totalCount}</span>
+</a>
+</body>
+</html>

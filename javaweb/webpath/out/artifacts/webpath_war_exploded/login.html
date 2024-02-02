@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <!--  最后的/一定要带,带上才是一个路径,不带表示是一个资源,完蛋  -->
+    <!--    <base href="http://localhost:8080/webpath/"/>-->
+    <!--  base标签简写形式
+            浏览器解析第一个/ 会解析成 http://localhost:8080/
+    -->
+<!--        <base href="/webpath/"/>-->
+
+
+</head>
+<body>
+
+<!--实现跳转到user.html-->
+<!--1.完整的URL-->
+<!--<form action="http://localhost:8080/webpath/views/user/user.html">-->
+
+<!-- 2. 使用相对路径解决
+        浏览器url格式:http://ip:port/工程名[Application context]/资源
+
+        一个非常重要的规则:页面所有的相对路径,在默认情况下,都会参考当前浏览器地址栏的路径
+        http://ip:port/工程名[Application context]/ 这里最后的斜杠有 => http://localhost:8080/webpath/
+        即,资源名前面的一大段
+
+     前面不写斜杠,浏览器默认的 http://localhost:8080/webpath/ -->
+<!--<form action="views/user/user.html">-->
+
+<!-- 3.
+        第一个斜杠/ 是浏览器解析, 被解析成 http://localhost:8080/
+-->
+<!--<form action="/webpath/views/user/user.html">-->
+
+
+<!-- 4.
+        使用base标签
+-->
+<!--<form action="views/user/user.html" method="post">-->
+
+<!-- 5. 通过转发 表单提交 访问user.html-->
+<!--<form action="http://localhost:8080/webpath/loginServlet">-->
+<!--<form action="loginServlet">-->
+<!--<form action="/webpath/loginServlet">-->
+
+<!-- 6. 通过重定向 表单提交 访问user.html-->
+<!--<form action="http://localhost:8080/webpath/loginServlet">-->
+
+<!--下面的写法不稳定,不推荐使用-->
+<!--<form action="myRedirect">-->
+
+<!--下面的写法,比较稳定-->
+<form action="/webpath/myRedirect">
+
+
+    u2 : <input type="text"><br/>
+    <input type="submit" value="登录">
+
+</form>
+</body>
+</html>

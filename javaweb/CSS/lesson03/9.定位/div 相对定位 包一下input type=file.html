@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div 直接写相对定位</title>
+
+    <style>
+
+        div {
+            position: relative;
+        }
+
+        input[name="pic"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 150px;
+            /*opacity: 0;*/
+            cursor: pointer;
+            background-color: #FF00FF;
+        }
+        input[id="testInput"] {
+            position: absolute;
+            left: 500px;
+            top: 0;
+            height: 250px;
+            /*opacity: 0;*/
+            cursor: pointer;
+            background-color: red;
+        }
+        input[name="fileInput"] {
+            position: absolute;
+            left: 900px;
+            top: 0;
+            /*height: 250px;*/
+            /*opacity: 0;*/
+            cursor: pointer;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img src="img/1.jpg" alt="">
+    <input type="file" name="pic">
+    <!--input type="file" 有一个默认宽度1-->
+    <input type="file" name="fileInput">
+    <!--input 有一个默认宽度2-->
+    <input id="testInput">
+</div>
+
+</body>
+</html>

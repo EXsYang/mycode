@@ -1,0 +1,24 @@
+package com.dl.xh;
+
+import java.util.Scanner;
+
+public class A101001 {
+	public static void main(String[] args) {
+		int a[][]=new int[3][4];
+	
+		Scanner in=new Scanner(System.in);
+		System.out.println("输入成绩：");		
+		for(int i=0;i<yd.length;i++) {
+			int a=in.nextInt();
+			
+			System.out.println(yd[i]);
+			
+			
+		}
+		System.out.println("输入完成");
+		
+		
+		
+	
+	}
+}

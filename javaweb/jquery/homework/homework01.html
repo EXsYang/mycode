@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework01</title>
+
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        /*  $(function () {
+              // 只要是p标签就绑定一个click事件   $("p")即使是单个元素返回也是返回的一个数组对象，取下标为零位置的元素
+              $("p").click(function (){
+
+              })
+
+
+              var $ps = $("p");
+              $ps.each(function () {
+                  $(this).click(
+                      function () {
+                          alert("文本内容是= " + $(this).text());
+                      }
+                  )
+              })
+
+
+          })*/
+        $(function (){
+            //方式1
+            //老韩思路
+            //1. 选择器选择p元素-基础选择器
+            //2. 绑定事件-函数-获取p元素的文本
+            //3. 统一绑定.
+            // 只要是p标签就绑定一个click事件   $("p")即使是单个元素返回也是返回的一个数组对象，取下标为零位置的元素
+            $("p").click(function (){
+                //3. 当我们点击p元素时, 会隐式的传入this(dom), 表示你当前点击的p
+                //   元素,对应的dom对象
+                //alert("p的内容是= " + this.innerText)
+                alert("p的内容是(jquer方式)=" + $(this).text())
+            })
+
+            //方式2
+            //对所有的p元素进行遍历
+            //遍历执行内部function 依然会隐式的传入this(表示当前的p的dom对象)
+            //这是遍历出一个p对象, 就绑定一个click事件
+            $("p").each(function (){
+                $(this).click(function (){
+                    alert("p的内容~=" + $(this).text())
+                })
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+</body>
+</html>

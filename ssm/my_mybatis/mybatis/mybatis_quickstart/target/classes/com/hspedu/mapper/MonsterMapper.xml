@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+1. 这是一个mapper xml文件
+2. 该文件可以去实现对应的接口的方法
+3. namespace 指定该xml文件和哪个接口对应！！！
+注意: 下面的namespace指定的是Mapper 而不是PoJo。
+ mybatis-config.xml 文件的 mappers-mapper resource="" 属性中指定的也是Mapper
+ 但是目录之间是使用斜杠间隔的同时还有后缀名
+-->
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+<!--测试是否可以简写 不可以！！！ 会报错-->
+<!--<mapper namespace="MonsterMapper">-->
+    <!--配置addMonster
+    1. id="addMonster" 就是接口的方法名
+    2. parameterType="com.hspedu.entity.Monster" 方法的形参的类型
+    3. 注意parameterType="com.hspedu.entity.Monster" 可以简写
+    4. 写入sql语句=> 建议先在sqlyog测试好没有问题再拿过来
+    5. (`age`,`birthday`,`email`,`gender`,`name`,`salary`) 表的字段
+    6. (#{age},#{birthday},#{email},#{gender},#{name},#{salary}) 是从传入的monster的属性来的
+       ,比如Monster类中的属性  private Integer age; 属性名age 填入到#{age}
+    7. 这里#{age} age 对应monster对象的属性名 其他类似
+       而不是sql语句上面的字段名`age` 但是这里是相同的 保持一致的
+    8. 配置useGeneratedKeys="true" keyProperty="id"
+        可以获取到自增长的主键id 自增长后的值 返回来 在Java程序中通过monster.getId()拿到
+    9. 这里的形参是一个monster对象 但是可以直接通过#{}来取出对象中的属性值
+    -->
+
+    <!--<insert id="addMonster" parameterType="com.hspedu.entity.Monster" useGeneratedKeys="true" keyProperty="id">-->
+    <!--useGeneratedKeys 返回自增长的值
+        keyProperty 自增长的值 对应的对象的属性是哪一个 如下 如果写的name
+        就是将数据库自增长的id的值赋给monster对象的name属性 注意不要写错了 ，
+        要和对应的JavaBean中对象的属性对应
+    -->
+    <!-- 给MonsterMapper.xml mapper-insert 配置属性
+         useGeneratedKeys="true" keyProperty="id" 这两个属性组合使用
+         可以获取到自增长的主键id 自增长后的值 返回来 在Java程序中通过monster.getId()拿到-->
+    <!--使用typeAliases设置类名简写后-->
+    <insert id="addMonster" parameterType="Monster" useGeneratedKeys="true" keyProperty="id">
+    <!--<insert id="addMonster" parameterType="Monster" useGeneratedKeys="true" keyProperty="name">-->
+    INSERT INTO `monster`
+    (`age`,`birthday`,`email`,`gender`,`name`,`salary`)
+    VALUES(#{age},#{birthday},#{email},#{gender},#{name},#{salary});
+    </insert>
+
+    <!--配置/实现delMonster方法
+    1. 这里 java.lang.Integer 是Java类型 ，可以直接简写成Integer,可以识别到
+        java.lang 包下的类可以直接拿来用
+    2. 这里写入delete语句
+    3. 这里使用#{} 直接取出delMonster()方法的形参 id
+    -->
+    <delete id="delMonster" parameterType="java.lang.Integer">
+    DELETE FROM `monster` WHERE `id`=#{id};
+    </delete>
+
+    <!--配置/实现updateMonster
+    parameterType="com.hspedu.entity.Monster" parameterType可以简写
+    【但是上面的mapper namespace="com.hspedu.mapper.MonsterMapper"没有简写】
+    在mybatis-config.xml文件中 配置typeAliases 可以实现类名简写
+     <typeAliases>
+            <typeAlias type="com.hspedu.entity.Monster" alias="Monster"/>
+     </typeAliases>
+    -->
+    <!--<update id="updateMonster" parameterType="com.hspedu.entity.Monster">-->
+    <!--使用typeAliases设置类名简写后-->
+    <update id="updateMonster" parameterType="Monster">
+        UPDATE `monster` SET `age`=#{age},`birthday` = #{birthday},`email` = #{email},
+        `gender`=#{gender},`name`=#{name},`salary` = #{salary} WHERE id = #{id};
+    </update>
+
+    <!--配置/实现getMonsterById-->
+    <!--<select id="getMonsterById" resultType="com.hspedu.entity.Monster">-->
+    <!--resultType="Monster" 也可以简写-->
+    <select id="getMonsterById" resultType="Monster">
+    <!--<select id="getMonsterById" resultType="Monster">-->
+          SELECT * FROM `monster` WHERE id = #{id};
+    </select>
+    <!--配置/实现 findAllMonster
+    说明：期望从这条语句中返回结果的类全限定名或别名。
+    注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。 resultType 和 resultMap 之间只能同时使用一个。
+    即 这里返回的是所有的monster的list集合 但是没有必要写resultType="List"
+    而是直接写集合中包含的类型Monster即可！
+    -->
+    <select id="findAllMonster" resultType="Monster">
+          SELECT * FROM `monster`;
+    </select>
+
+
+
+</mapper>

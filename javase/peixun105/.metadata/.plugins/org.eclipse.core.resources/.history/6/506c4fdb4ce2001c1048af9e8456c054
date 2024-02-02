@@ -1,0 +1,23 @@
+package com.atguigu.exer3;
+
+public class Customer extends Thread {
+
+	Clerk clerk;
+
+	// consumption()
+
+	int cu;// 消费者消费产品
+
+	public void run() {
+		// 消费产品 consumption()
+		for (;;) {
+			cu--;
+			System.out.println("消费第" + cu + "个产品" + "\t当前店员手里产品数量为：" + clerk.getProduct());
+		}
+	}
+
+	// 共享数据，店员手里的产品数量
+
+	// 生产者和消费者线程共同操作店员数据，即其中有一个属性是店员类的
+
+}

@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+D:\Java_developer_tools\peixun105\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

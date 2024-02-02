@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载完毕事件</title>
+    <script type="text/javascript">
+
+        var s = function (){
+            alert("s 被调用");
+        }
+
+        function f2(){
+            alert("f2 被调用");
+        }
+
+        // alert("hello");
+        window.onload = function () {
+            alert(" 动态注册 onload 事件hi!");
+        }
+
+    </script>
+</head>
+<!--<body onload="s()">-->
+<body>
+world1
+u:<input type="text">
+</body>
+</html>

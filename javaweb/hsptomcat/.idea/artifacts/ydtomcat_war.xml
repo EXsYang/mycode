@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ydtomcat:war">
+    <output-path>$PROJECT_DIR$/ydtomcat/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ydtomcat</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ydtomcat.war">
+      <element id="artifact" artifact-name="ydtomcat:war exploded" />
+    </root>
+  </artifact>
+</component>

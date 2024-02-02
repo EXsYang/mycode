@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象解构</title>
+    <script type="text/javascript">
+
+        //对象解构
+        /**
+         * let monster = {name: '牛魔王', age: 800}
+         * 细节说明
+         * 1. 对象解构时，let{name, age} 中的 name 和 age 名称需要和对象属性名保持一致
+         * 2. 也可解构对象部分属性，比如 let{age} 这样就只取出age 属性
+         * 3. 还有其它的形式,比如方法上使用对象解构
+         */
+            //monster是一个对象
+        let monster = {name: '牛魔王', age: 800};
+        let teacher = {name: '韩顺平', age: 59};
+        //传统方式取出属性-解构 对象名.属性名
+        console.log(teacher.name, teacher.age);
+
+        //ES6对象解构
+        //老韩解读
+        //1. 把monster对象的属性, 赋值给{name,age}
+        //2. {name,age} 的取名name 和 age 要和monster对象的属性名保持一致
+        //3. 使用{} 包括, 不要使用[]
+        //4. {name,age} 顺序是无所谓
+        //let {name, age} = monster;
+        //let {name} = teacher;  //对象解构 teacher中的 某些属性也可以 需要哪些解构哪些
+        //let {name, age} = teacher;
+        console.log("========================！！！");
+        console.log("name=", name);
+        console.log("name=", name, " age=", age);
+
+        //下面这个写法也可以
+        //let {name, age} = {name: '牛魔王', age: 800};
+
+        //还有其它的形式,比如方法上使用对象解构
+        //如果这样使用，仍然要保证名称和对象的属性名一致
+        function f1({name, age}) {
+
+            console.log("f1-name=", name, " ", "f1-age=", age)
+        }
+
+        f1(monster);
+        f1(teacher); //相当于调用了两次f1函数 而不是覆盖！！ 因为这里是调用 而不是方法声明
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let dog = {color: 'red', age: 3};
+
+        console.log("-------------------------------------")
+
+        console.log(dog.color,dog.age);
+
+        // 前面在对象解构中声明了一个age let{name,age} 这里就不可以再次声明了
+        // 声明方式 包括 普通的声明方式和对象解构的声明方式都不可以再次声明
+        //  let age = 7;    let {color,age} = dog; 这两种方式都相当于声明过变量age了！！
+        // 否则会报错
+        // redeclaration：重复声明
+        // Uncaught SyntaxError: redeclaration of let age
+        //let age = 7;
+
+        //age = 33; // 使用let 声明的变量不可以重复声明，但是可以修改 但是teacher中的age并没有修改为33，
+        // 还是原来的值！！！
+        console.log(age)
+        console.log("teacher age=",teacher.age);// 还是原来的声明对象teacher中的值
+        console.log("teacher=",teacher);//  teacher=  Object { name: "韩顺平", age: 59 } 没变
+        //let {color,age} = dog; // 这里相当于再次声明了age变量 会报错！
+
+        //console.log(color,age)
+
+        function f2({name,age}){
+            console.log("f2-name= ",name," ","f2-age= " ,age);
+            //
+        }
+        function f3({namex,age}){ // 这里的形参名要和传进来的对象的属性名保持一致，否则取不到值！！！
+
+            console.log("f2-name= ",namex," ","f2-age= " ,age); // f2-name=  undefined   f2-age=  800
+        }
+
+        f2(teacher); // 传定义好的对象名 可以！！
+        f2({name: '牛魔王', age: 800}); // 直接传一个对象具体的信息也可以！！
+        f3({name: '牛魔王', age: 800}); // 直接传一个对象具体的信息也可以！！
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

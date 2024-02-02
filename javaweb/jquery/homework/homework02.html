@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格隔行变色</title>
+    <style>
+         table{
+             border: 1px solid;
+             border-collapse: collapse;
+         }
+    </style>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+/*    $(function (){
+        // :nth-child(index/even/odd/equation)  equation: 方程式
+        // nth-child(2) 下标从1开始，这里的2，就是第二个
+        // 一定要加空格!! 类似于ul li
+        $("table[id='t1'] tr:nth-child(odd)").css("background","red");
+        $("table[id='t1'] tr:nth-child(even)").css("background","blue");
+    })
+    $(function (){
+        $("table[id='t2'] tr:nth-child(odd)").css("background","green");
+        $("table[id='t2'] tr:nth-child(even)").css("background","yellow");
+    })*/
+
+    $(function () {
+        //老师思路[先死后活，化繁为简, 一步一步的来做]
+        //1. 先选择到table
+        //2. 得到 tr
+        //3. 得到even/odd的tr元素
+        //4. 得到指定的table:eq(index) 可以得到指定index的table
+        //   index是从0开始编号
+        //5. 老师不要求同学们记住规则,但是看懂, 能维护
+        $("table:eq(0) tr:even").css("background", "red");
+        $("table:eq(0) tr:odd").css("background", "blue");
+
+        $("table:eq(1) tr:even").css("background", "green");
+        $("table:eq(1) tr:odd").css("background", "yellow");
+    });
+    </script>
+
+</head>
+<body>
+<table id="t1"  height="100px" width="300px" >
+    <tr>
+        <td id="1"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<p></p>
+<table id="t2" border="1px" bgcolor="#ffc0cb" height="100px" width="300px">
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

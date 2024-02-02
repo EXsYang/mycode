@@ -1,0 +1,45 @@
+package com.atguigu.exer1;
+
+public class Person {
+	public static void main(String[] args) {
+		
+		Person a = new Person();
+		Person b = new Person("uan",22);
+		//System.out.println(a.equals(b));//
+		Man c = new Man();
+		System.out.println(a.equals(c));//多态性对于属性，编译和运行都看左边！！！，类型不同，应该返回的是一个false
+		
+	}
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	int  age = 11;
+	String name = "yang";
+	static int width;
+	
+public Person(String name, int age) {
+	this.name = name ;
+	this.age = age ;
+}
+	
+public boolean equals(Object obj) {
+	if(this == obj) {
+		return true;
+	}
+	if(obj instanceof Person) {
+		Person o = (Person)obj;//此时Man类型转换为了Person类型，对于属性来说都看左边，也就是都调用的是Person中的属性
+//		if(this.age == o.age&&this.name.equals(o.name)) {
+//			return true;
+//		}
+		System.out.println(this.age);
+		System.out.println(o.age);
+		System.out.println(this.name);
+		System.out.println(o.name);
+	}
+	return false;
+	
+	
+}
+
+}

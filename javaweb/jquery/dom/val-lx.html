@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>val()课堂练习</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#b1").focus(function (){
+                var currentVal = $(this).val();
+                // if (this.defaultValue == this.value){
+                if (this.defaultValue == currentVal){
+                    // $(this).val("");
+                    this.value = "";
+                }
+            })
+            $("#b1").blur(function (){
+                var currentVal = $(this).val();
+                if ("" == this.value){
+                    $(this).val("用户邮箱/手机号/用户名");
+                    // this.value = "用户邮箱/手机号/用户名";
+                }
+            })
+
+            //单独的一个测试代码
+            // $("#b1").click(function (){
+            //     alert("默认值=" + this.defaultValue);
+            // })
+
+            //1.给b1绑定一个获取焦点事件
+            //2.当用户把光标定位到输入框b1, 该事件就会被触发
+          /*  $("#b1").focus(function (){
+                //获取-判断
+                //获取到当前值
+                var currentVal = $(this).val();
+                //如果当前值就是默认值, 就清空, 让用户输入自己的值
+                if(currentVal == this.defaultValue) {
+                    $(this).val("");
+                }
+            })
+
+            //1. 给b1绑定一个失去焦点事件 blur
+            //2. 当用户的光标离开这个输入框,就会触发
+            $("#b1").blur(function (){
+                //获取当前值
+                var currentVal = $(this).val();
+                //判断如果当前值为"", 说明用户没有输入内容
+                //就恢复提示默认信息
+                if(currentVal == "") {
+                    $(this).val(this.defaultValue);
+                }
+            })*/
+
+           /* 获取 HTML, 文本和值
+            1、设置或返回所选元素的内容（包括 HTML 标记）: html()
+            2、读取和设置某个元素中的文本内容: text(). 该方法既可以用于 HTML 也可以用于 XML
+            文档. 3、读取和设置某个元素中的值: val() --- 该方法类似 JavaScript 中的 value 属性. 对于文
+            本框, 下拉列表框, 单选框该方法可返回元素的值*/
+        })
+    </script>
+</head>
+<body>
+<input type="text" value="用户邮箱/手机号/用户名" id="b1"/><br>
+<input type="password" value="" id="b2"/><br>
+<input type="button" value="登陆" id="b3"/>
+</body>
+</html>

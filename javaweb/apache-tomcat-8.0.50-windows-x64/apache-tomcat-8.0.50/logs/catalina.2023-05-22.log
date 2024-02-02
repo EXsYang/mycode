@@ -1,0 +1,106 @@
+22-May-2023 16:03:41.764 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.50
+22-May-2023 16:03:41.790 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 7 2018 20:06:05 UTC
+22-May-2023 16:03:41.791 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.50.0
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk\jdk1.8\jre
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-May-2023 16:03:41.792 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\conf\logging.properties
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 16:03:41.793 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 16:03:41.794 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+22-May-2023 16:03:41.794 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:03:41.794 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:03:41.795 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp
+22-May-2023 16:03:41.798 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.16 using APR version 1.6.3.
+22-May-2023 16:03:41.799 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-May-2023 16:03:42.464 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2m  2 Nov 2017)
+22-May-2023 16:03:43.258 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-May-2023 16:03:43.267 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:03:43.268 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1927 ms
+22-May-2023 16:03:43.311 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-May-2023 16:03:43.311 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.50
+22-May-2023 16:03:43.324 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs
+22-May-2023 16:03:44.212 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [580] milliseconds.
+22-May-2023 16:03:44.231 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs has finished in 907 ms
+22-May-2023 16:03:44.232 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples
+22-May-2023 16:03:45.638 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples has finished in 1,406 ms
+22-May-2023 16:03:45.639 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager
+22-May-2023 16:03:45.689 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager has finished in 51 ms
+22-May-2023 16:03:45.689 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager
+22-May-2023 16:03:45.745 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager has finished in 56 ms
+22-May-2023 16:03:45.746 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person
+22-May-2023 16:03:45.814 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person has finished in 68 ms
+22-May-2023 16:03:45.815 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT
+22-May-2023 16:03:45.854 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT has finished in 39 ms
+22-May-2023 16:03:45.854 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test
+22-May-2023 16:03:45.880 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test has finished in 25 ms
+22-May-2023 16:03:45.884 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-May-2023 16:03:45.898 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:03:45.904 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 2636 ms
+22-May-2023 16:09:28.822 信息 [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-May-2023 16:09:28.823 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+22-May-2023 16:09:28.885 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:09:28.948 信息 [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-May-2023 16:09:28.986 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+22-May-2023 16:09:29.044 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:09:29.125 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+22-May-2023 16:09:29.125 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:10:26.694 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.50
+22-May-2023 16:10:26.697 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 7 2018 20:06:05 UTC
+22-May-2023 16:10:26.698 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.50.0
+22-May-2023 16:10:26.698 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-May-2023 16:10:26.698 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-May-2023 16:10:26.698 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-May-2023 16:10:26.698 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk\jdk1.8\jre
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\conf\logging.properties
+22-May-2023 16:10:26.699 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 16:10:26.700 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 16:10:26.700 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 16:10:26.700 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+22-May-2023 16:10:26.700 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:10:26.701 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+22-May-2023 16:10:26.701 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp
+22-May-2023 16:10:26.705 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.16 using APR version 1.6.3.
+22-May-2023 16:10:26.705 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-May-2023 16:10:27.340 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2m  2 Nov 2017)
+22-May-2023 16:10:27.452 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-9998"]
+22-May-2023 16:10:27.464 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:10:27.466 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1093 ms
+22-May-2023 16:10:27.507 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-May-2023 16:10:27.507 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.50
+22-May-2023 16:10:27.521 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs
+22-May-2023 16:10:28.343 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [566] milliseconds.
+22-May-2023 16:10:28.364 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs has finished in 843 ms
+22-May-2023 16:10:28.365 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples
+22-May-2023 16:10:28.859 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples has finished in 493 ms
+22-May-2023 16:10:28.859 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager
+22-May-2023 16:10:28.900 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager has finished in 41 ms
+22-May-2023 16:10:28.901 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager
+22-May-2023 16:10:28.946 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager has finished in 45 ms
+22-May-2023 16:10:28.946 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person
+22-May-2023 16:10:28.981 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person has finished in 35 ms
+22-May-2023 16:10:28.981 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT
+22-May-2023 16:10:29.011 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT has finished in 30 ms
+22-May-2023 16:10:29.011 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test
+22-May-2023 16:10:29.036 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test has finished in 25 ms
+22-May-2023 16:10:29.040 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-9998"]
+22-May-2023 16:10:29.053 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:10:29.059 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 1592 ms
+22-May-2023 16:11:43.669 信息 [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-May-2023 16:11:43.669 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-9998"]
+22-May-2023 16:11:43.738 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:11:43.802 信息 [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-May-2023 16:11:43.825 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-9998"]
+22-May-2023 16:11:43.889 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+22-May-2023 16:11:43.947 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-9998"]
+22-May-2023 16:11:43.948 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]

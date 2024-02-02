@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.io.Reader</OriginalElement>
+  <nodes>
+    <node x="164.0" y="255.0">java.io.StringReader</node>
+    <node x="253.5" y="85.0">java.io.Closeable</node>
+    <node x="108.5" y="85.0">java.lang.Readable</node>
+    <node x="348.0" y="255.0">java.io.BufferedReader</node>
+    <node x="0.0" y="255.0">java.io.FileReader</node>
+    <node x="193.0" y="170.0">java.io.Reader</node>
+    <node x="234.5" y="0.0">java.lang.AutoCloseable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.io.FileReader" target="java.io.Reader">
+      <point x="0.0" y="-17.5" />
+      <point x="72.0" y="230.0" />
+      <point x="210.66666666666666" y="230.0" />
+      <point x="-35.33333333333334" y="17.5" />
+    </edge>
+    <edge source="java.io.Reader" target="java.io.Closeable">
+      <point x="26.5" y="-17.5" />
+      <point x="272.5" y="145.0" />
+      <point x="321.0" y="145.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.Reader" target="java.lang.Readable">
+      <point x="-26.5" y="-17.5" />
+      <point x="219.5" y="145.0" />
+      <point x="171.0" y="145.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.BufferedReader" target="java.io.Reader">
+      <point x="0.0" y="-17.5" />
+      <point x="439.5" y="230.0" />
+      <point x="281.33333333333337" y="230.0" />
+      <point x="35.33333333333337" y="17.5" />
+    </edge>
+    <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="java.io.StringReader" target="java.io.Reader">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6460980036297641" x="265.5" y="145.0" />
+  <SelectedNodes>
+    <node>java.io.BufferedReader</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

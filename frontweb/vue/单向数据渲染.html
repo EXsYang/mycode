@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据渲染</title>
+</head>
+<body>
+<!--<div id="app">-->
+<!--    <h1>{{message}}</h1>-->
+<!--    <img src="{{img_src}}" alt="图片显示失败显示" title="悬停文字"> <br/>-->
+<!--    <img v-bind:src="img_src" v-bind:width="img_width"  title="悬停文字1"> <br/>-->
+
+<!--</div>-->
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+    // 如果在插值表达式 之前创建过vue对象实例 那么 后面的插值表达式会原生输出 而不会从数据池拿数据
+    //let vm = new Vue({
+    //
+    //})
+</script>
+
+<div id="app2">
+    <h1>{{message}}</h1>
+    <!--老师解读
+    1. 使用插值表达式引用 data数据池数据是在标签体内
+    2. 如果是在标签/元素 的属性上去引用data数据池数据时，不能使用插值表达式
+    3. 需要使用v-bind, 因为v-bind是vue来解析, 默认报红,但是不影响解析
+    4. 如果不希望看到报红, 直接 alt+enter 引入 xmlns:v-bind
+    -->
+    <!--<img src="{{img_src}}">-->
+    <img v-bind:src="img_src" v-bind:width="img_width">
+    <img :src="img_src" :width="img_width">
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app2", //创建的vue实例挂载到 id=app的div
+        data: { //data{} 表示数据池(model的有了数据), 有很多数据 ,以k-v形式设置(根据业务需要来设置)
+            message: "hello, 耗子精",
+            img_src: "1.jpg",
+            img_width: "200px"
+        }
+    })
+    console.log("vm=>", vm);
+</script>
+
+</body>
+</html>

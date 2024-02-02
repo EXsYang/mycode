@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--namespace 指定当前的xml配置文件和哪一个接口匹配-->
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+<!--实现配置接口方法getMonsterById  select还可以配置属性  parameterType="" 这里简化先不配置  -->
+    <select id="getMonsterById" resultType="com.hspedu.entity.Monster">
+        select * from `monster` where `id` = ?
+    </select>
+</mapper>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>axios 应用实例</title>
+</head>
+<body>
+<!--页面视图-->
+<div id="app">
+    <h1>{{msg}}</h1>
+    <!--<table style="border:1px solid" width="200px">-->
+    <table border="1px" width="200px">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr v-for="monster in monsterList" >
+            <td>{{monster.name}}</td>
+            <td>{{monster.age}}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="vue.js"></script>
+<script src="axios.min.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"妖怪信息列表",
+            monsterList:[]//表示妖怪的信息数组
+        },
+        methods:{ //自定义方法 Vue生命周期函数不是在这里写的！！ 而是和el data methods 属性同级
+            list(){ // 使用axios发送Ajax请求 获取数据
+
+                /*
+                    老韩解读
+                    1. axios.get() 表示发出ajax请求
+                    2. http://localhost:63342/axios/data/response.data.json 表示请求的url
+                       要根据实际情况来填写
+                    3. axios发出ajax请求的基本语法
+                       axios.get(url).then(箭头函数).then(箭头函数)...catch(箭头函数)
+                       (1) 如果get请求成功就进入到第一个then()
+                       (2) 可以再 第一个then()中继续发出axios的ajax请求
+                       (3) 如果有异常, 会进入到 catch(箭头函数)
+                    4. list在生命周期函数created() 中调用-自己去回顾vue的生命周期函数
+                 */
+
+                // 下面填入的url idea右上角使用浏览器打开的地址 地址栏中是什么就写什么 注意端口号一致
+                // 打开的端口号是多少 就在下面的get url中填多少
+                axios.get("http://localhost:63342/axios/data/response.data.json")
+                    .then((responseData) => {
+                        console.log("responseData= ",responseData);
+                        //下面是输出结果 可见 axios 封装的 responseData 和 promise 返回的 responseData 不同
+                        //axios 在最外层 又封装了一层 data、status 等 封装为一个新的对象当作responseData返回的
+                        //responseData= Object { data: {…}, status: 200, statusText: "OK", headers: {…}, config: {…}, request: XMLHttpRequest }
+
+                        //使用JSON.stringify(json) 把json对象转成一个字符串,方便观察
+                        console.log("responseData= ", JSON.stringify(responseData));
+
+                        //responseData.data 是从服务器端请求到的数据
+                        // ,这里就是response.data.json文件里的内容
+                        console.log("responseData.data= ",responseData.data);
+                        // responseData.data.data是response.data.json文件里声明的"data"属性，
+                        // 因为整个文件返回的内容 是一个json对象，这里相当于是json对象里的属性"data"
+                        console.log("responseData.data.data= ",responseData.data.data);
+                        //"responseData.data.data.items" 是真正想要的数据 即妖怪数组
+                        console.log("responseData.data.data.items= ",responseData.data.data.items);
+
+                        //将妖怪列表数组信息, 绑定到 data数据池的 monsterList
+                        //老师小技巧，一定要学会看返回的数据格式!!!
+                        this.monsterList = responseData.data.data.items;
+
+                        //可以再次发出ajax请求, 老师故意发出了第二次ajax请求， 回顾老师讲过的promise发出多次请求
+                        // 如果下面还要.then/.catch 下面的这个return 一定不能少！！！
+                        // return 后会将该.then() 这个整体当作一个promise/axios对象 才可以.方法
+                        // return axios.get("http://localhost:57823/axios/data/response.data.json")
+                    })
+                     //.then(responseData => {
+                     //    console.log("第二次axios发出 ajax请求responseData= ", responseData)
+                     //})
+                    .catch(err => {
+                        console.log("出现异常= ",err);
+                })
+
+
+
+            }
+        },
+        created(){// 声明周期函数 在这里发出axios ajax请求最合适 注意声明周期函数书写的位置！！
+            this.list();
+        }
+
+    })
+
+
+</script>
+
+
+<!--下面是axios实际应用-->
+<!--<script>-->
+<!--    // @ is an alias to /src-->
+<!--    // 导入 HelloWorld 组件， 可以在 HomeView文件中使用-->
+
+<!--    //导入 request对象-->
+<!--    import request from "@/utils/request";-->
+
+<!--    //引入ElMessage-->
+<!--    import {ElMessage} from 'element-plus'-->
+
+<!--    //导出组件 可以让其他文件使用导出的组件 components-HelloWorld-->
+<!--    export default {-->
+<!--        //name: 'HomeView',-->
+<!--        name: 'Home',-->
+<!--        components: {},-->
+<!--        /*Data property should be a function  否则报错 => dataOptions.call is not a function*/-->
+<!--        //data:  [-->
+<!--        //  {-->
+<!--        //    date: '2016-05-03',-->
+<!--        //    name: 'Tom',-->
+<!--        //    address: 'No. 189, Grove St, Los Angeles',-->
+<!--        //  }-->
+<!--        //],-->
+<!--        //注意 不可以在下面这里写数据 而是要将数据 放到 data() 函数中-->
+<!--        //search: "",-->
+<!--        created() {-->
+<!--            //vue生命周期的钩子方法 在这里发出ajax请求最为合适-->
+<!--            this.list()//调用list-->
+
+<!--        },-->
+<!--        data() {-->
+<!--            // 注意 需要最好返回一个对象 使用{} 包起来-->
+<!--            return {-->
+<!--                //存放后端校验错误信息-->
+<!--                serverValidErrors:{},-->
+<!--                //新增分页导航控件需要的数据-->
+<!--                currentPage: 1,//当前的页数-->
+<!--                pageSize: 5,//每页的记录数-->
+<!--                total: 10,//总共有多少条记录-->
+
+<!--                tableData: [],-->
+<!--                search: '',//检索条件，可以再次进行分页时，保留检索条件，因为上面使用了 v-model="search" 双向绑定-->
+<!--                dialogVisible: false,-->
+<!--                form: {}, //定义一个空表单-->
+<!--                //定义添加表单的校验规则-->
+<!--                rules: {-->
+<!--                    name: [-->
+<!--                        // 这里我们可以写多个针对name属性的校验规则 trigger:触发-->
+<!--                        {required: true, message: "请输入家居名", trigger: "blur"}-->
+<!--                    ],-->
+<!--                    maker: [-->
+<!--                        // 这里我们可以写多个针对maker属性的校验规则-->
+<!--                        {required: true, message: "请输入制造商名", trigger: "blur"}-->
+<!--                    ],-->
+<!--                    price: [-->
+<!--                        // 这里我们可以写多个针对price属性的校验规则-->
+<!--                        {required: true, message: "请输入价格", trigger: "blur"},-->
+<!--                        // 使用正则表达式对输入的数据进行校验-->
+<!--                        {pattern: /^([1-9]\d*|0)(\.\d+)?$/, message: "请输入数字", trigger: "blur"}-->
+<!--                    ],-->
+<!--                    sales: [-->
+<!--                        // 这里我们可以写多个针对sales属性的校验规则-->
+<!--                        {required: true, message: "请输入销量", trigger: "blur"},-->
+<!--                        {pattern: /^([1-9]\d*|0)$/, message: "请输入正整数或0", trigger: "blur"}-->
+<!--                    ],-->
+<!--                    stock: [-->
+<!--                        // 这里我们可以写多个针对stock属性的校验规则-->
+<!--                        {required: true, message: "请输入库存", trigger: "blur"},-->
+<!--                        {pattern: /^([1-9]\d*|0)$/, message: "请输入正整数或0", trigger: "blur"}-->
+<!--                    ],-->
+
+<!--                }-->
+<!--            }-->
+<!--        },-->
+<!--        methods: { //方法池-->
+<!--            add() {-->
+<!--                //显示对话框-->
+<!--                this.dialogVisible = true; //分号可带可不带-->
+<!--                //当调用add()函数时,清空form表单 上一次添加的数据,就不再显示了-->
+<!--                //如果不清空根据 vue数据的双向绑定规则 会在数据池动态的-->
+<!--                // 创建并生成form.name/form.maker等属性 再次点开会显示这些数据-->
+<!--                this.form = {}-->
+
+<!--                //清空上次前端校验的信息 $refs是vue里的-->
+<!--                // !== 不全等 类型和值都不等-->
+<!--                if (this.$refs.form !== undefined){-->
+<!--                    console.log("this.$refs.form !== undefined 清空上次前端校验的信息")-->
+<!--                    this.$refs['form'].resetFields()-->
+<!--                }-->
+
+<!--                //清空上次后端校验的信息-->
+<!--                this.serverValidErrors = {}-->
+
+<!--            },-->
+<!--            save() {//将填写的表单数据,发送给后端-->
+
+<!--                // 添加和更新走的是同一个方法-->
+<!--                // 点击form表单的确定按钮后触发 然后根据 数据池form 中是否有数据判断 要走的逻辑是更新还是新增-->
+<!--                if (this.form.id) {-->
+<!--                    console.log("save() 走的是更新数据 this.form.id= ", this.form.id)-->
+
+<!--                    // 如果form中有form.id 的数据 , 就说明是更新操作-->
+<!--                    // 这里不可以根据form表单是否为空来判断是更新还是新增 因为 如果是新增操作-->
+<!--                    // ,在新增时填写了一些需要新增的furn的数据后,该from表单就不为空了-->
+<!--                    // 但是没有办法指定填写form.id 因此可以根据 form.id是否存在 来判断是否为更新操作-->
+<!--                    // 如果是更新操作,因为在函数handleEdit(row)中 设置了this.form = row; 又因为 在list()函数中-->
+<!--                    // 返回的furnList 中有id属性 因此, 如果是更新操作 this.form.id 是有值的,进行条件判断是为true-->
+<!--                    // 如果不存在form.id 即为 undefined , 条件判断为false-->
+
+<!--                    // 更新操作-->
+<!--                    // 本质是发出ajax请求-异步处理-->
+<!--                    request.put("/api/update", this.form).then(res => {-->
+<!--                        console.log("save() update res= ", res);-->
+
+
+<!--                        //if (res.code === '200' ) {-->
+<!--                        // 注意 这里的 res.code Msg 中的属性是 int 返回的 是int 类型的,到了前端 转换为了json对象返回的-->
+<!--                        // 此时 res.code 的类型为 number！ 所以不可以写 res.code === '200' 而是写 res.code === 200-->
+<!--                        console.log("typeof res.code= ", typeof res.code)-->
+<!--                        //typeof res.code=  number-->
+
+<!--                        if (res.code === 200) {-->
+<!--                            //老韩写的这种 Message 消息反馈组件 , 不需要写导入语句，就可以直接使用,更加简洁-->
+<!--                            this.$message({-->
+<!--                                type: "success",-->
+<!--                                message: res.msg-->
+<!--                            })-->
+
+<!--                            //下面这种 Message 消息反馈组件 是el-plus 官方文档中的-->
+<!--                            // 要使用 ElMessage 需要显示的引入el-plus组件 写上 import { ElMessage } from 'element-plus'-->
+<!--                            // 和上面简写 为this.$message 效果相同！-->
+<!--                            //ElMessage({-->
+<!--                            //  message: '更新成功',-->
+<!--                            //  //message: res.msg,-->
+<!--                            //  type: 'success',-->
+<!--                            //})-->
+<!--                        } else {-->
+<!--                            this.$message({-->
+<!--                                type: "error",-->
+<!--                                message: res.msg-->
+<!--                            })-->
+<!--                        }-->
+
+<!--                        // 更新之后,关闭 弹出的form表单输入框-->
+<!--                        this.dialogVisible = false;-->
+
+<!--                        // 刷新 显示数据-->
+<!--                        this.list();-->
+<!--                    })-->
+
+
+<!--                } else {-->
+<!--                    console.log("save() 走的是新增数据 this.form.id= ", this.form.id)-->
+
+<!--                    //console.log("save() this.form.id= " , this.form.id)-->
+
+<!--                    //var sss = {}-->
+<!--                    //if (sss){-->
+<!--                    //  console.log("即使一个对象sss定义为=> {} 也表示true") // 这句话是正确的-->
+<!--                    //}-->
+
+
+<!--                    // 下面是新增数据/保存数据的代码-->
+<!--                    //1. url: http://localhost:8080/ssm/save-->
+<!--                    //2. this.form : 携带的数据-->
+<!--                    //request.post("http://localhost:8080/ssm/save",this.form).then(res => {-->
+
+<!--                    // 测试 如果携带的是一个json字符串 判断后端能否处理? 结果:可以处理-->
+<!--                    //var strJsonForm = JSON.stringify(this.form);-->
+<!--                    //console.log("strJsonForm= ",strJsonForm)-->
+<!--                    // 下面这种 传递的是json字符串 后端也可以正常完成添加操作-->
+<!--                    //request.post("/api/save", strJsonForm).then(res => {-->
+
+
+<!--                    //增加表单前端验证 如果通过才会提交表单 否则返回false 不提交表单-->
+<!--                    this.$refs['form'].validate((valid)=>{-->
+
+<!--                        //这里我们先让前端校验放行 用来测试后端校验是否生效 后面再改回来-->
+<!--                        //valid = true;-->
+
+<!--                        //valid就是表单校验后返回的结果-->
+<!--                        if (valid){//如果校验通过-->
+
+<!--                            request.post("/api/save", this.form).then(res => {-->
+<!--                                console.log("save() res= ", res)-->
+<!--                                if (res.code === 200){-->
+<!--                                    this.dialogVisible = false-->
+<!--                                    //新增数据后 再次调用list()函数 刷新显示数据-->
+<!--                                    //list(); //直接写 list(), 会报错 ERROR list is not defined-->
+<!--                                    this.list();// 必须加this.-->
+<!--                                }else if (res.code === 400){ //后端校验失败-->
+<!--                                    //取出校验失败的信息赋给serverValidErrors-->
+<!--                                    this.serverValidErrors.name = res.extend.errorMsg.name;-->
+<!--                                    this.serverValidErrors.maker = res.extend.errorMsg.maker;-->
+<!--                                    this.serverValidErrors.price = res.extend.errorMsg.price;-->
+<!--                                    this.serverValidErrors.sales = res.extend.errorMsg.sales;-->
+<!--                                    this.serverValidErrors.stock = res.extend.errorMsg.stock;-->
+
+<!--                                }-->
+
+
+<!--                            })-->
+
+<!--                        }else { //校验没有通过-->
+
+<!--                            this.$message({-->
+<!--                                type: "error",-->
+<!--                                message: "前端校验失败,不提交"-->
+<!--                            })-->
+
+<!--                            return false; //放弃提交-->
+<!--                        }-->
+<!--                        //return false; //放弃提交-->
+
+<!--                    })-->
+
+
+
+<!--                }-->
+<!--                //因为 上面的 if(this.form.id){}else{} 中都有-->
+<!--                // this.dialogVisible = false; this.list();-->
+<!--                // 而把 this.dialogVisible = false; this.list(); 提出来放到 if-else 的后面 可以吗?-->
+<!--                // 不可以!! 直接在下面写,会出问题 看起来好像  this.list(); 失效了一样-->
+<!--                // 因为 ajax 是异步请求, 在回调函数 res=>{} 执行完之前, 就直接走到了在下面写的 this.dialogVisible = false; this.list();-->
+<!--                // 因为回调函数还没执行完就走到了 this.list(); 返回的是旧数据-->
+<!--                // 所以看起来好像  this.list(); 失效了一样-->
+<!--                // 所以, 应该在回调执行完之后 再加入 this.list(); 这样拿到的才是最新数据!-->
+
+<!--                // 下面-->
+<!--                //this.dialogVisible = false-->
+<!--                //this.list();-->
+<!--            },-->
+<!--            // list() 方法: 向后端发出ajax请求,返回所有的家居信息/furn数据-->
+<!--            // list()方法，应该是自动调用的, 放在created()方法中调用最合适-->
+<!--            list() {-->
+<!--                ////在request.js 文件中通过 response拦截器处理的res 传给下面的 res-->
+<!--                //request.get("/api/furns").then(res => {-->
+<!--                //  console.log("list() res=", res)-->
+<!--                //-->
+<!--                //  //为什么是 res.data.extend.furnList; 可以根据console输出的数据结构分析出来-->
+<!--                //  // 调用时 这个this不能省略-->
+<!--                //  //this.tableData = res.data.extend.furnList;-->
+<!--                //-->
+<!--                //  // 在request.js 文件中 对返回的 response 结果-->
+<!--                //  // ,进行了统一拦截处理 let res = response.data;-->
+<!--                //  // 使res指向response.data;-->
+<!--                //  // 所以下面 可以简写成 res.extend.furnList;-->
+<!--                //  this.tableData = res.extend.furnList;-->
+<!--                //})-->
+
+<!--                //走请求分页的接口 而不请求所有数据-->
+<!--                request.get("/api/furnsByConditionPage", {-->
+<!--                    //params属性可以携带请求参数,在该对象内部指定-->
+<!--                    //params是axios内建对象-->
+<!--                    params: {-->
+<!--                        //这里的json对象属性pageNum ,-->
+<!--                        // 将来对应后端目标方法形参的 Integer pageNum ,要对应好-->
+<!--                        pageNum: this.currentPage,-->
+<!--                        pageSize: this.pageSize,-->
+<!--                        search: this.search-->
+<!--                    }-->
+<!--                }).then(res => { //处理返回的分页信息 带条件的-->
+<!--                    console.log("list() furnsByConditionPage res= ", res);-->
+
+<!--                    this.tableData = res.extend.pageInfo.list-->
+<!--                    this.total = res.extend.pageInfo.total-->
+
+
+<!--                })-->
+
+
+<!--            },-->
+<!--            handleEdit(row) {-->
+<!--                // 该方法功能是 点击编辑, 回显数据-->
+
+<!--                //console.log("row= ",row)-->
+
+<!--                //console.log("row.id= ",row.id)-->
+<!--                //console.log("row.name= ",row.name)-->
+<!--                //console.log("row.maker= ",row.maker)-->
+<!--                //console.log("row.target= ",row.target)-->
+<!--                //console.log("row.handler= ",row.handler)-->
+
+<!--                //输出结果 如下,结合 转为json字符串之后的 strJson_row 输出结果 可见-->
+<!--                //row 对象的结构 , 可以使用 row直接 点 下面对应的属性 id/name/maker...-->
+<!--                //row.id=  1-->
+<!--                //row.name=  hh桌子1-->
+<!--                //row.maker=  tt家居1-->
+<!--                //row.target=  undefined-->
+<!--                //row.handler=  undefined-->
+
+<!--                //将行数据row转成json字符串输出-->
+<!--                //console.log("strJson_row= ",JSON.stringify(row))-->
+<!--                //strJson_row=  {"id":1,"name":"hh桌子1","maker":"tt家居1","price":180,"sales":666,"stock":7,"imgPath":"assets/images/product-image/1.jpg"}-->
+
+<!--                // 点击编辑, 回显数据 将当前行的家居信息绑定到弹出对话框的form-->
+<!--                // 将被点击的数据值 赋给this.form, 使其可以在表单中显示出改行的信息-->
+<!--                // 这里是直接从对应的行上获取的数据，并将其显示到form表单的输入框中-->
+<!--                // 方式一: 在前端获取数据 并填入-->
+<!--                // 因为返回的数据 row 不是JSON格式 所以需要先转为JSON对象 然后绑定到 this.form-->
+<!--                // JSON.stringify(row) : 将row转为json字符串-->
+<!--                // JSON.parse(JSON.stringify(row)) : 将json字符串转成json对象-->
+<!--                this.form = JSON.parse(JSON.stringify(row));-->
+
+<!--                // 经过测试 不转为json格式直接绑定 也可以,但还是转一下更保险-->
+<!--                // 如果使用的是下面这个 修改form弹出框中的数据 斑马纹表格中的数据也会动态的变化-->
+<!--                // 原因是双向绑定还是单向绑定? row数据池中的数据变化了 动态的 其他也变化-->
+<!--                //this.form = row;-->
+
+<!--                // 如果根据这一行的id 去数据库中获取数据,并填入到 form表单中显示出来 如何做-->
+<!--                // 后端提供一个根据id 返回furn数据的接口 在这里发出ajax 根据返回来的数据 res 将其赋给form-->
+<!--                //row.id-->
+<!--                // 方式二: 常规方式 可以通过row.id 去后端数据库DB 获取对应的家居信息-->
+<!--                // ,返回后将其绑定到 this.form ,绑定后 其数据会显示到form表单的输入框中-->
+<!--                request.get("/api/findFurn/" + row.id).then(res => {-->
+
+<!--                    console.log("handleEdit(row) axios get findFurnById res= ", res);-->
+
+<!--                    this.form = res.extend.furn;-->
+
+
+<!--                })-->
+
+
+<!--                //显示表单-->
+<!--                this.dialogVisible = true-->
+
+
+<!--            },-->
+<!--            handleDel(id) {-->
+
+<!--                console.log("handleDel(id) 要删除的furn id= ", id)-->
+
+<!--                request.delete("/api/del/" + id).then(res => {-->
+<!--                    // 这里是 发出ajax请求后的回调函数-->
+<!--                    console.log("handleDel(id) res= ", res);-->
+
+<!--                    if (res.code === 200) {-->
+<!--                        //老韩写的这种 Message 消息反馈组件 , 不需要写导入语句，就可以直接使用,更加简洁-->
+<!--                        this.$message({-->
+<!--                            type: "success",-->
+<!--                            message: res.msg-->
+<!--                        })-->
+<!--                    } else {-->
+<!--                        this.$message({-->
+<!--                            type: "error",-->
+<!--                            message: res.msg-->
+<!--                        })-->
+<!--                    }-->
+
+<!--                    //刷新显示页面-->
+<!--                    this.list();-->
+
+<!--                })-->
+<!--            },-->
+
+<!--            handleCurrentChange(pageNum) {//处理分页请求-->
+<!--                //  当 导航条页码/分页超链接 被点击时触发该方法-->
+<!--                //  ,同时会携带被点击的pageNum-->
+<!--                console.log("pageNum= ", pageNum)-->
+<!--                this.currentPage = pageNum;-->
+
+<!--                //发出分页请求-->
+<!--                this.list();-->
+<!--            },-->
+<!--            handlePageSizeChange(pageSize) {-->
+<!--                //  当导航条每页显示的数据条数被更改时触发该方法,同时携带页码导航条设置的pageSize过来-->
+<!--                console.log("pageSize= ", pageSize)-->
+
+<!--                this.pageSize = pageSize;-->
+
+<!--                //发出分页请求-->
+<!--                this.list();-->
+
+<!--            },-->
+
+<!--        }-->
+
+<!--    }-->
+<!--</script>-->
+</body>
+</html>

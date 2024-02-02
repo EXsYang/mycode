@@ -1,0 +1,40 @@
+2024-01-11 19:26:09,869 INFO initializing Raft sub-system
+
+2024-01-11 19:26:09,871 INFO raft notifier started
+
+2024-01-11 19:26:09,727 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:09,892 INFO finish loading all datums, size: 0 cost 22 ms.
+
+2024-01-11 19:26:09,917 INFO cache loaded, datum count: 0, current term: 0
+
+2024-01-11 19:26:09,917 INFO finish to load data from disk, cost: 47 ms.
+
+2024-01-11 19:26:09,928 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:09,928 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2024-01-11 19:26:12,146 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2024-01-11 19:26:12,155 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2024-01-11 19:26:16,492 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@serverAddr
+
+2024-01-11 19:26:19,703 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:19,703 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:19,703 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:21,763 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.0.40","key":"192.168.0.40:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2024-01-11 19:26:21,940 INFO leader timeout, start voting,leader: {"heartbeatDueMs":5000,"ip":"192.168.0.40:8848","leaderDueMs":15684,"state":"FOLLOWER","term":0,"voteFor":""}, term: 0
+
+2024-01-11 19:26:49,713 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@seata-storage-micro-service
+
+2024-01-11 19:26:52,570 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@seata-account-micro-service
+
+2024-01-11 19:26:52,570 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@seata-account-micro-service
+
+2024-01-11 19:27:35,854 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@seata-order-micro-service
+

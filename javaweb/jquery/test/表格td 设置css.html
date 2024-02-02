@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>td.css</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(function (){
+            $("td").eq(1).css('background-color', 'red');
+            $("td").eq(2).css('background', 'yellow');
+            //$("td").get(0).css('background', 'blue');
+            //alert($("#td0002").get(0)); // [object HTMLTableCellElement] 是dom元素
+
+        })
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>1</td>
+        <td id="td0002">2</td>
+        <td>3</td>
+    </tr>
+</table>
+</body>
+</html>

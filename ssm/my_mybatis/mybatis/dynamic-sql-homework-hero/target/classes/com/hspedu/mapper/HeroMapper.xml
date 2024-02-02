@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.mapper.HeroMapper">
+
+    <!--
+    1. 配置/实现 public void addHero(Hero hero);
+    2. 编写方法，添加hero记录[方法就在Mapper.xml配置]
+
+    -->
+    <insert id="addHero" parameterType="Hero">
+        INSERT INTO `hero` (`nickname`,`skill`,`rank`,`salary`,`date`)
+        VALUES(#{nickname},#{skill},#{rank},#{salary},#{date});
+    </insert>
+
+    <!--
+    1. 配置/实现  public List<Hero> findHeroByRank(Integer rank);
+    2. 编写方法，查询rank 大于 10的所有hero,如果输入的rank不大于0，则输出所有hero
+
+    -->
+    <select id="findHeroByRank" parameterType="Integer" resultType="Hero">
+        <!--SELECT * FROM `hero` WHERE 1 = 1-->
+        SELECT * FROM `hero`
+        <where>
+            <if test="rank > 0">
+                AND `rank` > #{rank};
+            </if>
+        </where>
+    </select>
+
+    <!--
+    1. 配置/实现   public List<Hero> findHeroByRanks_foreach(Map<String,Object> map);
+    2. 编写方法，查询rank为 3,6,8[rank可变]的hero  对应的sql子句是: IN(3,6,8)
+
+    -->
+    <select id="findHeroByRanks_foreach" parameterType="map" resultType="Hero">
+        SELECT * FROM `hero`
+        <where>
+            <if test="ranks != null">
+                `rank` IN
+                <!--collection="ranks" 对应你的入参map的key - ranks-->
+                <foreach collection="ranks" item="rank" open="(" separator="," close=")">
+                    <!-- #{rank} 这里填入的rank 是和上面 item设置的值关联的 不能乱写  -->
+                    #{rank}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+
+    <!--
+    1. 配置/实现  public void updateHero_set(Hero hero);
+    2. 编写方法，修改hero信息，如果没有设置新的属性值，则保持原来的值
+  private Integer id;
+    //外号
+    private String nickname;
+    //技能
+    private String skill;
+    // 排行
+    private Integer rank;
+    // 薪水
+    private Double salary;
+    // 入伙时间
+    // private Date date;
+    private String date;
+    -->
+    <update id="updateHero_set" parameterType="Hero">
+        UPDATE `hero`
+        <set>
+            <if test="nickname != null and nickname != ''">
+                `nickname` = #{nickname},
+            </if>
+            <if test="skill != null and skill != ''">
+                `skill` = #{skill},
+            </if>
+            <if test="rank != null and rank != ''">
+                `rank` = #{rank},
+            </if>
+            <if test="salary != null and salary != ''">
+                `salary` = #{salary},
+            </if>
+            <if test="date != null and date != ''">
+                `date` = #{date},
+            </if>
+        </set>
+        <!--这里还是需要带WHERE 的 set没有能力处理-->
+        WHERE `id` = #{id};
+    </update>
+
+    <!--
+      1. 配置/实现 public List<Hero> findHeroById(Map<String,Object> map);
+      2. 编写方法，可以根据id查询hero,如果没有传入id,就返回所有hero
+
+    -->
+    <select id="findHeroById" parameterType="map" resultType="Hero">
+        SELECT * FROM `hero`
+        <if test="id != null and id != ''">
+            <where>
+               AND `id` = #{id};
+            </where>
+        </if>
+
+    </select>
+
+    <!-- choose/when/otherwise
+    1. 配置/实现 public List<Hero> findHeroByIdOrName_choose(Map<String,Object> map);
+    编写方法，可以根据id或者name查询hero,如果传入了id 就使用id查询,
+    如果没有传入id,就使用nickname查询, 如果nickname也没传入,默认查询 rank > 3 的hero
+    注意 when标签 不会自动的加上 'WHERE' , 因此需要程序员自己在when语句中自己加上 WHERE
+    -->
+    <select id="findHeroByIdOrName_choose" parameterType="map" resultType="Hero">
+        SELECT * FROM `hero`
+        <choose>
+            <when test="id != null and id != ''">
+                WHERE `id` = #{id}
+            </when>
+            <when test="nickname != null and nickname != ''">
+                WHERE `nickname` = #{nickname}
+            </when>
+            <otherwise>
+                WHERE `rank` > 3
+            </otherwise>
+        </choose>
+
+
+
+    </select>
+
+
+
+
+  </mapper>

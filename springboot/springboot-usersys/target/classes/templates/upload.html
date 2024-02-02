@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--引入thymeleaf名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body bgcolor="#CED3FE">
+<img src="images/1.GIF"/>
+<hr/>
+<div style="text-align: center">
+    <h1>注册用户~</h1>
+    <!--enctype="multipart/form-data" enctype类型更改为 支持多文件上传
+    method="post" 指定为post方式提交表单
+    -->
+
+    <form action="#" method="post" th:action="@{/upload}" enctype="multipart/form-data">
+        用户名:<input type="text" style="width:150px" name="name"/><br/><br/>
+        电 邮:<input type="text" style="width:150px" name="email"/><br/><br/>
+        年 龄:<input type="text" style="width:150px" name="age"/><br/><br/>
+        职 位:<input type="text" style="width:150px" name="job"/><br/><br/>
+        头 像:<input type="file" style="width:150px" name="header"><br/><br/>
+        <!--当写了multiple属性后就可以按住ctrl同时选择多个文件进行上传 -->
+        宠 物:<input type="file" style="width:150px" name="photos" multiple><br/><br/>
+        <input type="submit" value="注册"/>
+        <input type="reset" value="重新填写"/>
+    </form>
+</div>
+<hr/>
+<img src="images/logo.png"/>
+</body>
+</html>

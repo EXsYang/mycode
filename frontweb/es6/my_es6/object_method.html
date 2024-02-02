@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象方法的简写形式</title>
+    <script type="text/javascript">
+        //JavaScript中 自定义对象的方式1 观察这里定义函数的方式，和其他方式的区别
+        //person是一个空对象，没有自定义的函数和属性
+        var person = new Object();
+        console.log("person类型=" + typeof(person));//object
+        //增加一个属性name
+        person.name = "韩顺平";
+        //增加一个属性
+        person.age = 20;
+        //增加函数
+        person.say = function () {
+            //这里的this就是person
+            console.log("person的信息 " + this.name + " " + this.age + " " + this.job);
+        }
+
+
+
+        // 传统-对象方法定义
+        let monster = {
+            name: "红孩儿",
+            age: 400,
+            sayHi: function () {
+                console.log("信息=> 姓名：" + this.name, " 年龄：" + this.age);
+            }
+        }
+
+        monster.sayHi();
+
+        let monster02 = {
+            name: "红孩儿!!",
+            age: 400,
+        }
+
+        monster02.sayHi = function () {
+            console.log("信息=> 姓名：" + this.name, " 年龄：" + this.age);
+        }
+
+        monster02.sayHi();
+
+
+        // ES6-对象方法定义
+        let monster03 = {
+            name: "红孩儿~",
+            age: 400,
+            sayHi() {
+                console.log("信息=> 姓名：" + this.name, " 年龄：" + this.age);
+            }
+        }
+
+        monster03.sayHi();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

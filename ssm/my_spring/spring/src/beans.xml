@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xml declaration should precede all document content
+    xml声明应位于所有文档内容之前
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean class="com.hspedu.spring.test.Man"/>
+    <!--<bean class="com.hspedu.spring.test.Man"/>-->
+
+
+
+    <!--配置House对象，演示整个Bean的生命周期
+        老师解读
+        1. init-method="init" 指定bean的初始化方法 , 在setter方法后执行
+        2. init方法执行的时机，有spring容器来控制
+        3. destroy-method="destroy" 指定bean的销毁方法, 在容器关闭的时候执行
+        4. destroy方法执行的时机，有spring容器来控制
+        -->
+    <bean class="com.hspedu.spring.bean.House" id="house"
+          init-method="init"
+          destroy-method="destroy">
+        <property name="name" value="北京豪宅"/>
+    </bean>
+
+    <!--配置Cat对象
+      老师解读
+      1. 在默认情况下 scope属性是 singleton lazy-init="false"
+      2. 在ioc容器中, 只要有一个这个bean对象
+      3. 当程序员执行getBean时, 返回的的是同一个对象
+      4. 如果我们希望每次getBean返回一个新的Bean对象，则可以scope="prototype"
+      5. 如果bean的配置是 scope="singleton" lazy-init="true" 这时,ioc容器就不会提前创建该对象
+         , 而是当执行getBean方法的时候，才会创建对象
+      6. 如果bean的配置是 scope="prototype" lazy-init 不管是true 还是false ioc容器都不会提前创建该对象
+         , 而是当执行getBean方法的时候，才会创建对象
+
+        注意使用细节：
+        1. 默认是单例 singleton, 在启动容器时, 默认就会创建 , 并放入到 singletonObjects 集合
+        2. 当 <bean scope="prototype" > 设置为多实例机制后, 该 bean 是在 getBean()时才创
+        建
+        3. 如 果 是 单 例 singleton, 同 时 希 望 在 getBean 时 才 创 建 , 可 以 指 定 懒 加 载
+        lazy-init="true" (注意默认是 false)
+        4. 通常情况下, lazy-init 就使用默认值 false , 在开发看来, 用空间换时间是值得的, 除非
+        有特殊的要求. 5. 如果 scope="prototype" 这时你的 lazy-init 属性的值不管是 ture, 还是 false 都是在
+        getBean 时候，才创建对象.
+  -->
+    <bean class="com.hspedu.spring.bean.Cat" id="cat" scope="singleton" lazy-init="true">
+        <property name="id" value="1"/>
+        <property name="name" value="小猫"/>
+    </bean>
+
+
+    <!--测试bean对象的创建顺序
+    老师解读
+    1. 在默认情况下, bean创建的顺序是按照配置顺序(从上到下)来的
+    2. 但是如果我们增加了 depends-on="department01" 这时就会先创建id= department01对象
+    -->
+    <bean class="com.hspedu.spring.bean.Student" id="student" depends-on="department"/>
+    <bean class="com.hspedu.spring.bean.Department" id="department"/>
+
+
+    <!--配置Monster对象
+       1. 如果bean指定了 abstract="true", 表示该bean对象, 是用于被继承
+       2. 本身这个bean就不能被获取/实例化
+       -->
+    <bean id="monster12" class="com.hspedu.spring.bean.Monster" abstract="true">
+        <property name="monsterId" value="101"/>
+        <property name="name" value="蜈蚣精~"/>
+        <property name="skill" value="蜇人~"/>
+    </bean>
+
+    <bean id="monster13" class="com.hspedu.spring.bean.Monster" parent="monster12"/>
+
+    <!--配置Monster对象-->
+    <bean id="monster10" class="com.hspedu.spring.bean.Monster">
+        <property name="monsterId" value="10"/>
+        <property name="name" value="蜈蚣精"/>
+        <property name="skill" value="蜇人"/>
+    </bean>
+
+    <!--
+  老韩解读
+  1. 配置Monster对象
+  2.但是这个对象的属性值和 id="monster10"对象属性一样
+  3.parent="monster10" 指定当前这个配置的对象的属性值从 id=monster10的对象来
+  -->
+
+    <!--<bean id="monster11" class="com.hspedu.spring.bean.Monster">-->
+    <!--    <property name="monsterId" value="10"/>-->
+    <!--    <property name="name" value="蜈蚣精"/>-->
+    <!--    <property name="skill" value="蜇人"/>-->
+    <!--</bean>-->
+    <bean id="monster11" class="com.hspedu.spring.bean.Monster" parent="monster10"/>
+
+
+    <!--配置monster对象，通过FactoryBean获取
+    老师解读
+    1. class 指定使用的FactoryBean
+    2. key表示就是 MyFactoryBean 属性key
+    3. value就是你要获取的对象对应key
+    -->
+    <bean class="com.hspedu.spring.factory.MyFactoryBean" id="my_monster05">
+        <property name="key" value="monster04"/>
+    </bean>
+
+
+    <!--配置2个实例工厂对象-->
+    <bean id="myInstanceFactory" class="com.hspedu.spring.factory.MyInstanceFactory"/>
+    <bean id="myInstanceFactory2" class="com.hspedu.spring.factory.MyInstanceFactory"/>
+    <!--配置monster对象, 通过实例工厂
+       要先有一个实例工厂对象 否则是没有办法调用实例工厂对象拥有的getMonster()方法的
+       老韩解读
+       1. factory-bean 指定使用哪个实例工厂对象返回bean
+       2. factory-method 指定使用实例工厂对象的哪个方法返回bean
+       3. constructor-arg value="monster03" 指定获取到实例工厂中的哪个monster
+       -->
+    <bean id="my_monster02" factory-bean="myInstanceFactory" factory-method="getMonster">
+        <constructor-arg value="monster03"/>
+    </bean>
+    <bean id="my_monster03" factory-bean="myInstanceFactory2" factory-method="getMonster">
+        <constructor-arg value="monster03"/>
+    </bean>
+
+
+    <!--配置monster对象,通过静态工厂获取
+   老师解读
+   1. 通过静态工厂获取/配置bean
+   2. class 是静态工厂类的全路径
+   3. factory-method 表示是指定静态工厂类的哪个方法返回对象
+   4. constructor-arg value="monster02" value是指定要返回静态工厂的哪个对象
+   -->
+    <!-- 静态工厂 即使没有一个静态工厂对象 我们也可以调用它的getMonster()方法 因为方法本身就是静态的-->
+    <bean id="my_monster01" class="com.hspedu.spring.factory.MyStaticFactory" factory-method="getMonster">
+        <!--这里不写下面的参数 上面的factory-method="getMonster" 会报红 切为syntax检查就不会爆红了
+        或者是 写上下面的这行参数
+        -->
+        <constructor-arg value="monster02"/>
+    </bean>
+    <bean id="my_monster04" class="com.hspedu.spring.factory.MyStaticFactory" factory-method="getMonster">
+        <!--这里不写下面的参数 上面的factory-method="getMonster" 会报红 切为syntax检查就不会爆红了
+        或者是 写上下面的这行参数
+        -->
+        <constructor-arg value="monster02"/>
+    </bean>
+
+
+    <!--配置Dept对象-->
+    <bean class="com.hspedu.spring.bean.Dept" id="dept"/>
+    <!--配置Emp对象-->
+    <bean class="com.hspedu.spring.bean.Emp" id="emp">
+        <property name="name" value="jack"/>
+        <property name="dept" ref="dept"/>
+        <!--这里我希望给dept的name属性指定值[级联属性赋值] 底层会去找dept对象的setName方法-->
+        <property name="dept.name" value="Java开发部"/>
+    </bean>
+
+
+    <!--定义一个util:list 并且指定id 可以达到数据复用
+  老师说明: 在使用util:list 名称空间时候，需要引入相应的标签, 一般来说通过alt+enter会自动加入
+  , 如果没有就手动添加一下即可.
+  -->
+    <util:list id="myBookList">
+        <value>三国演义~</value>
+        <value>水浒传~</value>
+        <value>西游记~</value>
+        <value>红楼梦~</value>
+    </util:list>
+
+    <bean class="com.hspedu.spring.bean.BookStore" id="bookStore">
+        <property name="bookList">
+            <list>
+                <value>三国演义</value>
+                <value>水浒传</value>
+                <value>西游记</value>
+                <value>红楼梦</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.hspedu.spring.bean.BookStore" id="bookStore2">
+        <property name="bookList" ref="myBookList"/>
+    </bean>
+
+
+    <!--配置Master对象
+   体会 spring 容器配置特点 依赖注入-非常灵活
+   -->
+    <bean class="com.hspedu.spring.bean.Master" id="master">
+        <property name="name" value="太上老君"/>
+        <!--给list属性赋值-->
+        <property name="monsterList">
+            <list>
+                <!--引用的方法-->
+                <ref bean="monster01"/>
+                <ref bean="monster02"/>
+                <!--内部bean的方式-->
+                <bean class="com.hspedu.spring.bean.Monster">
+                    <property name="monsterId" value="666"/>
+                    <property name="name" value="黄袍怪"/>
+                    <property name="skill" value="吹沙子"/>
+                </bean>
+            </list>
+        </property>
+        <!--给Map属性赋值-->
+        <property name="monsterMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>monster03</value>
+                    </key>
+                    <!--这里老师使用的外部bean,引入-->
+                    <ref bean="monster03"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>monster04</value>
+                    </key>
+                    <ref bean="monster04"/>
+                </entry>
+            </map>
+        </property>
+        <!--给set属性赋值-->
+        <property name="monsterSet">
+            <set>
+                <ref bean="monster05"/>
+                <ref bean="monster06"/>
+                <bean class="com.hspedu.spring.bean.Monster">
+                    <property name="monsterId" value="17"/>
+                    <property name="name" value="银角大王"/>
+                    <property name="skill" value="金银葫芦"/>
+                </bean>
+            </set>
+        </property>
+        <!--给数组属性赋值
+      老师多说一句: array标签中使用 value 还是 bean , ref .. 要根据你的业务决定
+      -->
+        <property name="monsterName">
+            <array>
+                <value>小妖怪</value>
+                <value>"大妖怪"</value>
+                <value>老妖怪</value>
+            </array>
+        </property>
+        <!--给Properties属性赋值 结构k(String)-v(String)-->
+        <property name="pros">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+                <prop key="ip">127.0.0.1</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <!--配置MemberServiceImpl对象-使用内部bean-->
+    <!--<bean class="com.hspedu.spring.service.MemberServiceImpl" id="memberService2">-->
+    <!--    &lt;!&ndash;自己配置一个内部bean 内部bean 默认是单例的 非懒加载的 因此ioc容器创建时-->
+    <!--    会被放在单例池中 即也会创建对象 调用 MemberDAOImpl 构造器 &ndash;&gt;-->
+    <!--    <property name="memberDAO">-->
+    <!--        <bean class="com.hspedu.spring.dao.MemberDAOImpl"/>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+
+    <!--在spring beans 中不是只可以配置javabean 而是所有的类都可以被配置
+    小技巧 先配置class属性 后面的id 会默认分配一个方便书写时进行参考
+    -->
+    <!--配置MemberDAOImpl对象的bean 因为该对象没有属性 直接只配一个class 和 id 即可-->
+    <!--配置MemberServiceImpl对象
+       老韩解读
+       1. ref="memberDAO"表示  MemberServiceImpl对象属性memberDAO引用的对象是id=memberDAO
+       的对象
+       2. 这里就体现出spring容器的依赖注入
+           容器里某一个对象的属性 是要依赖/引用容器里面的另外一个对象！！
+
+       3. 注意再spring容器中, 他是作为一个整体来执行的, 即如果你引用到一个bean对象, 对你配置的顺序没有要求
+       4. 建议还是按顺序，好处是阅读的时候，比较方便
+   -->
+    <!--<bean class="com.hspedu.spring.dao.MemberDAOImpl" id="memberDAO"/>-->
+
+    <bean class="com.hspedu.spring.service.MemberServiceImpl" id="memberService">
+        <!--这里是通过set方法 进行设置的 因此在MemberServiceImpl类中
+        一定要提供一个 setMemberDAO()方法 否则会直接爆红！
+        -->
+        <property name="memberDAO" ref="memberDAO"/>
+
+        <!--小细节： ref 写错会立马报错 spring配置文件 会自动进行检测 前提是一个
+            spring配置文件 文件图标有一个绿叶子 如果没有配置spring容器文件就不会进行检测 识别不了
+         -->
+        <!--<property name="memberDAO" ref="memberDAOx"/>-->
+
+
+    </bean>
+
+    <!--配置MemberDAOImpl对象 放在引用之后也可以 因为是一个整体 通过扫描 后把引用关系
+   放在了beanDefinitionMap中 是在这里梳理好的地方直接拿的
+    -->
+    <bean class="com.hspedu.spring.dao.MemberDAOImpl" id="memberDAO"/>
+
+
+    <!--通过p名称空间来配置bean
+       老韩解读
+       1. 将光标放在p , 输入alt+enter , 就会自动的添加xmlns
+       2. 有时需要多来几次
+   -->
+    <bean id="monster06" class="com.hspedu.spring.bean.Monster"
+          p:monsterId="106"
+          p:name="红孩儿"
+          p:skill="吐火"
+    />
+
+    <!--配置Monster对象，并且指定构造器
+    老师解读
+    1. constructor-arg标签可以指定使用构造器的参数
+    2. index表示构造器的第几个参数 从0开始计算的
+    3. 除了可以通过index 还可以通过 name / type(按照顺序) 来指定参数方式
+    4. 解除大家的疑惑, 类的构造器，不能有完全相同类型和顺序的构造器，所以可以通过type来指定
+    -->
+    <bean class="com.hspedu.spring.bean.Monster" id="monster03">
+        <constructor-arg name="monsterId" value="111"/>
+        <constructor-arg name="name" value="老虎精"/>
+        <constructor-arg name="skill" value="吃人"/>
+    </bean>
+    <bean class="com.hspedu.spring.bean.Monster" id="monster04">
+        <constructor-arg index="0" value="112"/>
+        <constructor-arg index="1" value="老鼠精"/>
+        <constructor-arg index="2" value="吃大米"/>
+    </bean>
+    <bean class="com.hspedu.spring.bean.Monster" id="monster05">
+        <constructor-arg type="java.lang.Integer" value="113"/>
+        <constructor-arg type="java.lang.String" value="狸猫精"/>
+        <constructor-arg type="java.lang.String" value="喵喵叫"/>
+
+        <!--注意顺序！！ 是按照构造器中的顺序 依次赋值的-->
+        <!--<constructor-arg type="java.lang.String" value="喵喵叫"/>-->
+        <!--<constructor-arg type="java.lang.String" value="狸猫精"/>-->
+    </bean>
+
+
+    <!--配置Monster 通过类型来获取
+        1.当我们给某个bean对象设置属性的时候
+        2.底层是使用对应的setter方法完成的, 比如setName()
+        3.如果没有这个方法，就会报错
+        如果在下面程序员没有指定id 系统会默认分配 id ,分配 id 的规则是 全类名#0 , 全类名#1 这样的规则来分配 id
+    -->
+    <bean class="com.hspedu.spring.bean.Monster">
+        <property name="name" value="蜘蛛精!!!"/>
+        <property name="skill" value="吐口水!!!"/>
+        <property name="monsterId" value="1002"/>
+    </bean>
+
+
+    <!--
+      老韩解读
+      1. 配置monster对象/javabean
+      2. 在beans中可以配置多个bean
+      3. bean表示就是一个java对象
+      4. class属性是用于指定类的全路径->spring底层使用反射创建
+      5. id属性表示该java对象在spring容器中的id, 通过id可以获取到对象
+      6. <property name="monsterId" value="100"> 用于给该对象的属性赋值 如果没有赋值 就使用默认值
+  -->
+    <bean class="com.hspedu.spring.bean.Monster" id="monster01">
+        <!--<property name="monsterId" value="1"></property> 使用自闭和标签的方式 -->
+        <!--使用自闭和标签的方式 ：-->
+        <property name="monsterId" value="1"/>
+        <property name="name" value="牛魔王哦"/>
+        <property name="skill" value="牛魔王拳哦"/>
+    </bean>
+
+    <!--id 不可以重复!-->
+    <bean class="com.hspedu.spring.bean.Monster" id="monster02">
+        <!--<property name="monsterId" value="1"></property> 使用自闭和标签的方式 -->
+        <!--使用自闭和标签的方式 ：-->
+        <property name="monsterId" value="1001"/>
+        <property name="name" value="牛魔王~"/>
+        <property name="skill" value="牛魔王拳~"/>
+    </bean>
+
+
+</beans>

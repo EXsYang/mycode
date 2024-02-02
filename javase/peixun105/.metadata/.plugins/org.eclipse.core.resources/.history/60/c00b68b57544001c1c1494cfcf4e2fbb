@@ -1,0 +1,27 @@
+package com.atguigu.exer2;
+
+import java.util.Scanner;
+
+public class EcmDef extends Exception{
+int a ;
+int b ;
+	
+	
+	public int ecm() {
+		
+		Scanner sca  = new Scanner(System.in);
+		 a = sca.nextInt();
+		 b = sca.nextInt();
+		throw new NumberFormatException();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

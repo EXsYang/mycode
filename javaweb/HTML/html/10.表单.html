@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单学习</title>
+</head>
+<body>
+<!--表单form
+
+action :表单提交的位置，可以是网站，也可以是一个请求处理地址
+method :post,get 提交方式
+    get 方式提交：我们可以在url中看到我们提交的信息，不安全，高效
+    post :比较安全 url里面看不到提交的信息，可以传输大文件
+
+-->
+<a href="" target="_blank"></a>
+<form action="1.我的第一个网页.html" method="get">
+    <!--  文本输入框 ：input type="text"
+    value="杨达真帅" 默认初始值
+    readonly 只读 不可以修改
+    disabled 禁用
+    hidden   隐藏
+
+    placeholder：提示信息，用在输入框中
+    required :输入不可以为空 非空判断
+    pattern: 正则表达式
+
+    maxlength="8"   最长能写几个字符
+    size="30"       文本框的长度
+    -->
+
+    <!--    <p>名字：<input type="text" name="username"></p>-->
+    <p>名字：<input type="text" name="username" value="杨达好帅" maxlength="8" size="30"></p>
+    <p>名字：<input type="text" name="username" value="默认内容" readonly maxlength="8" size="30"></p>
+<!--    <p>名字：<input type="text" name="username" placeholder="请输入用户名" required></p>-->
+    <!--  密码框 ：input type="password"-->
+    <p>密码：<input type="password" name="pwd"></p>
+    <p>隐藏密码框：<input type="password" name="pwd" hidden value="123"></p>
+
+    <!--单选框标签
+    input type="radio"
+    value :单选框的值
+    name :表示组，name相同即为同一个组
+    disabled ：禁用 单选框选不了
+    checked :默认选中
+    -->
+    <p>性别：
+        <input type="radio" value="boy" name="sex" checked/> 男
+        <input type="radio" value="boy" name="sex" checked disabled/>中性
+        <input type="radio" value="girl" name="sex"/>女
+    </p>
+
+    <!--多选框
+    input type="checkbox"
+    checked :默认选中
+    复选框里只要有checked属性，不管是否为其赋值，结果为空或true或false或任意值，均为选中状态。
+    -->
+    <p>爱好：
+        <input type="checkbox" value="sleep" name="hobby" checked>睡觉
+        <input type="checkbox" value="code" name="hobby">敲代码
+        <input type="checkbox" value="chat" name="hobby">聊天
+        <input type="checkbox" value="game" name="hobby">游戏
+    </p>
+
+    <!--按钮
+    input type="button" 普通按钮
+    input type="image"  图像按钮
+    input type="submit" 提交按钮
+    input type="reset"  重置
+    -->
+    <p>按钮：
+        <input type="button" name="btn1" value="点击变长">
+        <input type="image" src="../resources/image/1.jpg">
+    </p>
+
+    <!--文件域
+    input type="file" name="files"
+        -->
+    <p>
+        <input type="file" name="files">
+        <input type="button" value="上传" name="upload">
+    </p>
+
+    <!--下拉框，列表框
+       selected：默认选中
+       -->
+
+    <p>国家：
+        <select name="列表名称" multiple >
+            <option value="china">中国</option>
+            <option value="us" selected>美国</option>
+            <option value="eth">瑞士</option>
+            <option value="yindu">印度</option>
+        </select>
+    </p>
+
+    <!--文本域
+    textarea name="textarea" cols="30" rows="10" 默认的value值是textarea标签之间的内容
+        -->
+    <p>反馈：
+        <textarea name="textarea" cols="30" rows="10">文本内容</textarea>
+    </p>
+
+<!--邮箱验证-->
+    <p>邮箱
+        <input type="email" name="email">
+    </p>
+<!--URL验证-->
+    <p>URL验证：
+        <input type="url" name="url">
+    </p>
+<!--数字-->
+    <p>商品数量：
+        <input type="number" name="num" max="100" min="0" step="10">
+    </p>
+    <!--滑块 input type="range"
+    -->
+    <p>音量：
+        <input type="range" name="voice" min="0" max="100" step="2">
+    </p>
+<!--搜索框-->
+    <p>搜索：
+        <input type="search" name="search">
+    </p>
+
+<!--增强鼠标可用性
+label 标签指向和for值相同的id处
+-->
+    <p>增强鼠标可用性:
+        <label for="mark">你点我试试</label>
+        <input type="text" id="mark">
+    </p>
+
+<!--查正则表达式网址；https://www.jb51.net/tools/regexsc.htm    -->
+    <p>自定义邮箱：
+<!--HTML中转义字符使用一个\ java中使用两个\\ 带有必填字段的 HTML 表单：required-->
+<!--        <input type="text" name="diymail" pattern="\\." required >-->
+        <input type="text" name="diymail" pattern="[\w]+\@[\w.]+" required >
+
+    </p>
+
+    <p>
+        <!--提交查询-->
+        <input type="submit">
+        <!--重置 ：不是清空，恢复到表单的初始状态-->
+        <input type="reset" value="重置表单">
+    </p>
+
+
+</form>
+
+
+</body>
+</html>

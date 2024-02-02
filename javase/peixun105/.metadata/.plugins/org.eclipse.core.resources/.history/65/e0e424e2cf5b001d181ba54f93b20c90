@@ -1,0 +1,41 @@
+package com.atguigu.com;
+
+public class AAA {
+
+//	public static void main(String[] args) {
+//		System.out.println("world");
+//	}
+//	public static void main(String[] args) {
+//	B b = new B();
+//	b.b();
+//	}
+}
+class C{
+	int x = 0;
+	
+	void a() {
+		System.out.println("class C:a方法");
+	}
+}
+
+interface D{
+	int x = 0;
+	default void a() {
+		System.out.println("interface:D方法");
+	}
+}
+
+class E extends C implements D{
+	public void t() {
+		a();
+	}
+}
+
+
+
+
+
+
+
+
+

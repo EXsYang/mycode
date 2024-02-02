@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        //严格检查模式
+        'use strict';
+
+        //定义一个person对象，四个属性
+        //Js中对象，{...} 键值对描述属性，多个属性之间使用逗号，
+        //最后一个属性不加逗号！
+        var person = {
+            name: "yangda",
+            age: 20,
+            email: "1111111@qq.com",
+            score:100
+        }
+//         console.log(person)
+//         VM88:1
+//         {
+//             name: 'yangda', age
+//         :
+//             20, email
+//         :
+//             '1111111@qq.com', score
+//         :
+//             100
+//         }
+//         undefined
+//         person.name = "dada"
+//         'dada'
+//         console.log(person)
+//         VM143:1
+//         {
+//             name: 'dada', age
+//         :
+//             20, email
+//         :
+//             '1111111@qq.com', score
+//         :
+//             100
+//         }
+//         undefined
+//         person.IG = 2324
+//         2324
+//         console.log(person)\
+// VM215:1
+//         Uncaught
+//         SyntaxError: Invalid
+//         or
+//         unexpected
+//         token
+//         console.log(person)
+//         VM221:1
+//         {
+//             name: 'dada', age
+//         :
+//             20, email
+//         :
+//             '1111111@qq.com', score
+//         :
+//             100, IG
+//         :
+//             2324
+//         }
+//         undefined
+//         person.dd
+//         undefined
+//         delete IG
+//         true
+//         delete IG;
+//         true
+//         delete IG
+//         ]
+//         VM282:1
+//         Uncaught
+//         SyntaxError: Unexpected
+//         token
+//         ']'
+//         age in person
+//         VM331:1
+//         Uncaught
+//         ReferenceError: age
+//         is
+//         not
+//         defined
+//         at < anonymous >
+//         :
+//         1
+//         :
+//         1
+//         (anonymous)
+//         @ VM331:
+//         1
+//         'age' in person
+//         true
+//         "age" in person
+//         true
+//         "toString" in person
+//         true
+//         person.hasOwnProperty(toString)
+//         false
+//         person.hasOwnProperty('toString')
+//         false
+//         person.hasOwnProperty('age')
+//         true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

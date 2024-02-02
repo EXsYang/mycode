@@ -1,0 +1,46 @@
+#nav {
+    background: chocolate;
+    width: 300px;
+}
+
+.title {
+    font-family: 楷体;
+    font-size: 30px;
+    font-weight: bold;
+    height: 30px; /*title块的高度*/
+    line-height: 30px;
+    background: #FF00FF url("../images/d.jpg")  268px 0px no-repeat;
+
+}
+
+/*ul {*/
+/*    background: chocolate;*/
+/*}*/
+
+/*ul li
+list-style: none;    去掉圆点
+list-style: circle;  空心圆
+list-style: decimal; 数字
+list-style: square;  正方形
+
+
+*/
+ul li {
+    height: 30px;
+    list-style: circle;
+    text-indent: 1em;
+    background-image: url("../images/r.jpeg");
+    background-repeat: no-repeat;
+    background-position: 230px 0px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 17px;
+    color: #000;
+}
+
+a:hover{
+    color: #00FF00;
+    text-decoration: underline;
+}

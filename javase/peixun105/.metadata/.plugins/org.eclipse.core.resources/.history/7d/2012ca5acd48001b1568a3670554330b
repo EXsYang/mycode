@@ -1,0 +1,45 @@
+<%@page import="java.net.URLDecoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>jsp本质就是servlet </h1>
+	<h1>&lt;%  小脚本：作用是可以写java代码  %&gt;   </h1>
+	<h1>&lt;%=  表达式：作用是把值显示在页面上  %&gt;   </h1>
+	<h1>404错误：路径有问题  </h1>
+	<h1>500错误：代码有问题  </h1>
+	<%
+		String str = "";
+		Object o = request.getAttribute("isLogin");
+		if(o != null){
+			str = "用户名密码错误！";
+		}
+	%>
+	
+	<%
+		String name = "";
+		//接收cookie值
+		Cookie[] cookies = request.getCookies();
+		for(int i = 0; i < cookies.length; i++){
+			//获取cookie中key的值    getName()     获取value值    getValue()
+			if("name".equals(cookies[i].getName())){
+				//把16进制的值 转成中文
+				
+				name = URLDecoder.decode(cookies[i].getValue(), "utf-8");
+			}
+		}
+	%>
+	
+	<form action="LoginServlet">
+		<h2 style="color:red"><%=str %> </h2>
+		用户名：<input type="text" name="name" value="<%=name %>"><br>
+		密码：<input type="password" name="password"><br>
+		<input type="submit" value="提交"><br>
+	</form>
+</body>
+</html>

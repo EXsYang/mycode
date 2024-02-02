@@ -1,0 +1,25 @@
+package com.atguigu.exer1;
+
+
+
+public class Man extends Person {
+	static int width;
+	int  age = 33;
+	String name = "da";
+	public Man() {
+		// TODO Auto-generated constructor stub
+	}
+	
+public Man(String name,int age) {
+	super.name = name ;
+	super.age = age ;
+}	
+	
+
+
+	
+	
+	
+	
+	
+}

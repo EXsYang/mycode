@@ -1,0 +1,92 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: e-commerce-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # Flag that enables DiscoveryClient gateway integration.
+          # 启用DiscoveryClient 服务发现
+          enabled: true
+      routes: #配置路由,可以配置多个路由,List<RouteDefinition> routes
+        - id: member_route01 #路由的id,程序员自己配置,要求唯一
+          # gateway 最终访问的url 是 url=uri + Path
+          # 匹配后提供服务的路由地址:也可以是外网 http://www.baidu.com
+          # 比如 客户端/浏览器请求的url http://localhost:20000/member/get/1
+          # 如果根据Path匹配成功 最终访问的url/转发的url 就是http://localhost:10000/member/get/1
+          # 如果匹配失败,则有gateway返回404信息
+          # 疑惑：这里的uri这里暂时配置的是固定的，在当前的情况可以不是Eureka Server[服务发现]
+          # ,后面会使用灵活的方式配置,就会使用Eureka Server[服务发现]
+          #uri: http://localhost:10000
+          #解读：
+          # 1. lb :协议名, member-service-provider (注册到Eureka-Server的服务名[小写])
+          # 2. 默认情况下,负载均衡的算法是轮询
+          uri: lb://member-service-provider
+          # 使用下面的`uri: http://www.baidu.com` + `- Path=/`
+          # 来测试 `- RemoteAddr=127.0.0.1` 指的是浏览器端的地址而不是提供服务端的地址
+#          uri: http://www.baidu.com
+          predicates: #断言，可以有多种形式
+            # Path支持多个路径,用逗号间隔即可
+            #- Path=/member/get/**,/member/save
+            - Path=/member/get/**
+#            - Path=/
+            #- After=2025-01-03T14:00:58.257+08:00[Asia/Shanghai]
+            #- Before=2024-01-03T14:00:58.257+08:00[Asia/Shanghai]
+            #- Between=2024-01-03T14:00:58.257+08:00[Asia/Shanghai],2025-01-03T14:00:58.257+08:00[Asia/Shanghai]
+            # Cookie键值对的值可以是正则表达式regular expression,即下面hsp的位置可以是正则表达式
+            #- Cookie=user, hsp
+            # Header键值对的值可以是正则表达式regular expression,即下面hello的位置可以是正则表达式
+            #- Header=X-Request-Id, hello
+            #- Host=**.hspedu.**,**.ydedu.**
+            #- Method=GET,POST
+            # Query需要携带请求参数 请求形式如:http://localhost:20000/member/get/6?email=nmw@qq.com
+            #- Query=email, [\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+
+            #说明:  /24 是一种称为CIDR（无类别域间路由）的表示法，用于表示IP地址的一个子网。
+            # RemoteAddr=127.0.0.1/24表示只有来自 127.0.0.0 到 127.0.0.255 这个IP地址范围
+            # 的请求都能被匹配到。 RemoteAddr指的是发出请求的一端，这里指的是浏览器/Postman
+            #- RemoteAddr=127.0.0.1/24
+            # 在 IPv6 中，::1 是本地主机的回环地址，类似于 IPv4 中的 127.0.0.1。
+            # 这里通过F12 抓包发现Remote Address:[::1]:20000
+            # 可以Chrome使用IPV4直接访问http://127.0.0.1:20000/member/get/5 结果:访问成功
+            # 在火狐可以使用http://localhost:20000/member/get/3 访问成功
+            # 由此可见在火狐 RemoteAddr:127.0.0.1:20000
+            #- RemoteAddr=127.0.0.1
+          #下面是Gateway Filter(使用较少) 注意过滤器的层级关系，和id是同一层级
+#          filters:
+#            - AddRequestParameter=color, red
+#            - AddRequestParameter=address, henan
+        - id: member_route02 #路由的id,程序员自己配置,要求唯一
+#          #uri: http://localhost:10000
+          uri: lb://member-service-provider
+          predicates: #断言，可以有多种形式
+#            # 比如 客户端/浏览器请求的url http://localhost:20000/member/save
+#            # 如果根据Path匹配成功 最终访问的url/转发的url 就是 http://localhost:10000/member/save
+            - Path=/member/save
+#        - id: member_route03 #路由的id,程序员自己配置,要求唯一
+#          uri: http://www.baidu.com
+#          predicates: #断言，可以有多种形式
+#            - Path=/
+
+
+# 配置Eureka-Client
+eureka:
+  instance:
+    hostname: e-commerce-service #服务实例名·,主域名
+  client:
+    register-with-eureka: true #将自己注册到Eureka-Server
+    #表示从Eureka-Server抓取注册信息
+    #如果是单节点，可以不配置，如果是一个集群,则必须配置true,才能配合Ribbon进行使用负载均衡
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个Eureka-Server Zone:区域
+      #当Eureka-Server集群中只有一个Eureka-Server时，按下面的写法
+      #defaultZone: http://localhost:9001/eureka
+      #下面这里我们将本微服务注册到Eureka-Server集群,使用逗号间隔
+      #defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002:9002/eureka
+      #这里为了方便就使用Eureka-Server的单机环境
+      defaultZone: http://eureka9001.com:9001/eureka
+
+

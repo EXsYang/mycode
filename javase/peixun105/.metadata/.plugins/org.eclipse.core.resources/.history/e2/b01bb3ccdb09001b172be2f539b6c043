@@ -1,0 +1,15 @@
+package com.dl.xh;
+import java.util.Scanner;
+
+
+public class H1 {
+		public static void main(String[] args) {
+			int scores []= {a};
+		
+			Scanner in=new Scanner(System.in);
+			System.out.println(" ‰»Î≥…º®£∫");
+			int a=in.nextInt();
+			
+	}
+
+}

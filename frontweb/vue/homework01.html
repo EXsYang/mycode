@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>hw01</title>
+</head>
+<!--1、使用Vue的数据双向绑定 完成如下功能-->
+<!--1) 当用户在输入框输入1.jpg 、2.jpg 、3.jpg时可以切换显示对应的图片-->
+<!--2) 使用Vue的数据双向绑定完成-->
+<body>
+<div id="app">
+    <h1>请输入图片编号 1.jpg-2.jpg-3.jpg</h1>
+    <!--老师说明:
+   1. 这里我们使用了数据的双向渲染-data{} 数据池的 img_src
+   -->
+    <!--这里做一个双向数据绑定-->
+    <input type="text" v-model="img_src"> <br/>
+    <!--这里做一个单向数据绑定-->
+    <img :src="img_src" v-bind:width="img_width"> <br/>
+
+    <!--下面的图片路径是写死的 做展示用-->
+    <img src="1.jpg" v-bind:width="img_width">
+    <img src="2.jpg" v-bind:width="img_width">
+    <img src="3.jpg" :width="img_width">
+
+</div>
+
+<script src="vue.js"></script>
+
+<script type="text/javascript">
+
+    let vm = new Vue({
+        el:"#app",//创建的vue实例挂载到 id=app的div
+        data:{ //data{} 表示数据池(model的有了数据), 有很多数据 ,以k-v形式设置(根据业务需要来设置)
+            img_src: "1.jpg",
+            img_width: "200px"
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

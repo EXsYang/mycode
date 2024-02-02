@@ -1,0 +1,16 @@
+package com.atguigu.com;
+
+public class MainTest {//main方法可以被其它方法调用吗
+	    private static int times = 3;
+	    public static void main2(String[] args) {
+	        times--;
+	        main(args);
+	    }
+	    public static void main(String[] args) {
+	        System.out.println("main方法执行:" + times + args);
+	        if (times <= 0) {
+	            System.exit(0);
+	        }
+	        main2(args);
+	    }
+	}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接伪类</title>
+    <style>
+        /*默认的颜色*/
+        a{
+            text-decoration: none;
+            /*color: #000;*/
+        }
+        /*未访问的链接*/
+        a:link{
+            color: #FF0000;
+        }
+        /*已访问的链接*/
+        a:visited{
+            color: #00FF00;
+        }
+        /*当有鼠标悬浮在链接上的状态*/
+        a:hover{
+            color: #FF00FF;
+            font-size: 50px;
+        }
+        /*鼠标按住未释放(被选择的链接)的状态*/
+        a:active{
+            color: #0000FF;
+        }
+
+        /*text-shadow: h-shadow v-shadow blur color;
+        h-shadow    必需。水平阴影的位置。允许负值。
+        v-shadow    必需。垂直阴影的位置。允许负值。
+        blur    	可选。模糊的距离。
+        color       可选。阴影的颜色。
+        */
+        /*#price{*/
+        /*    text-shadow: #FF00FF 10px 10px 2px;*/
+        /*}*/
+        #price{
+            text-shadow:  10px 10px 2px aqua;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+<p>
+    <img src="images/1.jpeg" alt="女性头像">
+</p>
+
+<p>
+    <a href="">女性头像1.0</a>
+</p>
+<p>
+    <a href="#">作者：Reborn</a>
+</p>
+<p>
+    <a href="##">￥100</a>
+</p>
+<p id="price">
+    $100
+</p>
+</body>
+</html>

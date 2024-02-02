@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script type="text/javascript">
+
+        // 浏览器访问地址需要是 http://localhost:8080/ajax/login.html
+        // ,而不可以是通过右上角打开的浏览器！！否则tomcat 监听不到！
+        // 原生方式ajax
+        /* window.onload = function () { //页面加载后执行function
+             // 获取xhr对象进行异步通信
+             var xhr = new XMLHttpRequest();
+             // 获取输入框 username 的dom对象
+             var username = document.getElementById("uname");
+             // alert(username); // 直接打印是[object HTMLInputElement]
+             // alert(typeof username); // typeof username 打印是object
+             // 获取checkButton 的dom对象
+             var checkButton = document.getElementById("checkButton");
+             // 绑定点击事件，点击后进行异步通讯
+             checkButton.onclick = function () {
+                 // alert("click");
+                 // 获取文本框内容
+                 var usernameVal = username.value;
+                 // alert(usernameVal);
+                 /!*正常情况下form表单提交事件是按照input 的name属性来获取值的!!，于此时ajax请求不同!!*!/
+                 // 将文本框内容发送给服务器
+                 // 服务器getParameter() 是根据url中?后的键值对key来获取的，而不是根据html input的name属性
+                 xhr.open("GET", "/ajax/checkLoginServlet?uname=" + usernameVal, true);
+
+                 // onreadystatechange 事件：
+                 // 当请求被发送到服务器时，我们需要执行一些基于响应的任务。
+                 // 每当 readyState 改变时，就会触发 onreadystatechange 事件。
+                 // readyState 属性存有 XMLHttpRequest 的状态信息。
+                 // 下面是 XMLHttpRequest 对象的三个重要的属性：
+                /!* onreadystatechange
+                     存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+                     readyState
+                         存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+                     status
+                         200: "OK"
+                         404: 未找到页面                  *!/
+
+                 xhr.onreadystatechange = function (){
+                     // console.log("xhr= " + xhr); //[object XMLHttpRequest]
+                     // console.log("xhr= ",xhr);// 具体的数据
+
+                     // 当 readyState 等于 4 且状态为 200 时，表示响应已就绪：
+                     if (xhr.readyState == 4 && xhr.status == 200){
+                         // 获取返回的数据
+                         var responseText = xhr.responseText;
+                         // var response = xhr.response;
+                         // console.log("response= " + response);
+                         // console.log("response typeof= " + typeof response);
+
+                         console.log("responseText= " + responseText);
+                         console.log("responseText typeof= " + typeof responseText);
+                         // 判断返回的内容
+                         if (responseText == ""){
+                             // 说明该用户名可以用 设置说明信息
+                             document.getElementById("myres").value = "该用户名可用";
+                         }else{
+                             // 说明该用户名不可用 设置说明信息
+                             document.getElementById("myres").value = "该用户名不可用";
+                             // 在浏览器的div id="div1"标签 打印出该用户的信息
+                             document.getElementById("div1").innerText = responseText;
+                         }
+
+                     }else {
+
+                     }
+
+
+                 }
+                 // 不写 xhr.send() 不会发送异步请求！"GET"方式send()方法里什么都不用填，"POST"方式send()方法里填要发送的内容
+                 xhr.send();
+             }
+         }
+ */
+        // document.onfocus
+        //    ==========================老韩代码如下：===============================================
+           window.onload = function () { //页面加载后执行function
+               var checkButton = document.getElementById("checkButton");
+               //给checkButton绑定onclick
+               checkButton.onclick = function () {
+
+                   //1. 创建XMLHttpRequest对象(!!!) [ajax引擎对象]
+                   var xhr = new XMLHttpRequest();
+                   //   获取用户填写的用户名
+                   var uname = document.getElementById("uname").value;
+
+                   //2. 准备发送指定数据 open, send
+                   //老韩解读
+                   //(1)"GET" 请求方式可以 GET/POST
+                   //(2)"/ajax/checkUserServlet?username=" + uname 就是 url
+                   //(3)true , 表示异步发送
+                   xhr.open("GET", "/ajax/checkLoginServlet?uname=" + uname, true);
+
+                   //老师说明，在send函数调用前，给XMLHttpRequest 绑定一个事件onreadystatechange
+                   //该事件表示，可以去指定一个函数，当数据变化，会触发onreadystatechange
+                   // 每当 xhr对象readyState 改变时，就会触发 onreadystatechange 事件
+                   xhr.onreadystatechange = function () {
+                       //如果请求已完成，且响应已就绪, 并且状态码是200
+                       if (xhr.readyState == 4 && xhr.status == 200) {
+                           //把返回的jon数据,显示在div
+                           document.getElementById("div1").innerHTML = xhr.responseText;
+
+
+                           //console.log("xhr=", xhr)
+                           var responseText = xhr.responseText;
+                           //console.log("返回的信息=" + responseText);
+                           if (responseText != "") {
+                               document.getElementById("myres").value = "用户名不可用"
+                           } else {
+                               document.getElementById("myres").value = "用户名可用"
+                           }
+                       }
+                   }
+
+                   //3. 真正的发送ajax请求[http请求]
+                   // 老韩再说明如果你POST 请求，再send("发送的数据")
+                   xhr.send();
+
+
+               }
+           }
+
+
+
+
+    </script>
+</head>
+<body>
+<h1>用户注册~</h1>
+<form action="/ajax/checkLoginServlet" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkButton" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>

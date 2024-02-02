@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次选择器应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 80px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //1. 改变 <body> 内所有 <div>[所有div] 的背景色为 #0000FF
+            $("#b1").click(
+                function (){
+                    //说明: 在给定的祖先元素下匹配 所有 后代元素
+                    $("body div").css("background","#0000FF");
+                }
+            )
+            //2. 改变 <body> 内子 <div>[第一层div] 的背景色为 #FF0033
+            // $("#b2").click(
+            //     function (){
+            //         //在给定的父元素下匹配所有子元素 /*子选择器  一代，儿子*/
+            //         $("body > div").css("background","#FF0033");
+            //     }
+            // )
+            $("#b2").click(
+                function (){
+                    //在给定的父元素下匹配所有子元素 /*子选择器  一代，儿子*/
+                    $("#two > div").css("background","green");
+                }
+            )
+
+
+
+
+            //3. 改变 id 为 one 的下一个 <div> 的背景色为 #0000FF
+            $("#b3").click(
+                function (){
+                    //匹配所有紧接在 prev 元素后的 next 元素
+                    // /*相邻兄弟选择器（同辈）：只有一个，相邻(向下)
+                        /*1、相邻兄弟选择器是指在另一个元素之后可以选择的元素,两者具有相同的父元素。*/
+                        /*2、如需选择与另一元素紧密相连的元素,且两者具有相同的父元素,则可使用相邻兄弟选择器。*/
+                    //*如果紧邻的元素不是div而是其他类型的元素，则不会被选中!!! */
+                    $("#one + div").css("background","#0000FF");
+                }
+            )
+            //4. 改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 # #0000FF
+            $("#b4").click(
+                function (){
+                    // 注意：("prev ~ div") 选择器只能选择 "#prev" 元素后面的同辈元素;
+                    //匹配所有紧接在 prev 元素后的 next 元素  /*通用兄弟选择器，当前选中元素的向下的所有的兄弟元素*/
+                    $("#two ~ div").css("background","#0000FF");
+                }
+            )
+            //5. 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF+
+            $("#b5").click(
+                function (){
+                    // 注意：("prev ~ div") 选择器只能选择 "#prev" 元素后面的同辈元素; 而 jQuery
+                    // 中的方法 siblings() 与前后位置无关, 只要是同辈节点就可以选取
+                    $("#two").siblings("div").css("background","#0000FF");
+                }
+            )
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="改变 <body> 内所有 <div> 的背景色为 #0000FF" id="b1"/>
+<input type="button" value="改变 <body> 内子 <div> 的背景色为 #FF0033" id="b2"/>
+<input type="button" value=" 改变 id 为 one 的下一个 <div> 的背景色为 #0000FF" id="b3"/>
+<input type="button" value=" 改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 # #0000FF" id="b4"/>
+<input type="button" value=" 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF" id="b5"/>
+<hr/>
+<div id="one" class="mini">
+    div id为one
+</div>
+<!--<input type="text" value="input!!!">-->
+<!--<br/>-->
+<div id="two">
+    div id为two
+    <div id="two01">
+        id two01
+    </div>
+    <div id="two02">
+        id two02
+    </div>
+</div>
+
+<div id="three" class="mini">
+    div id为three
+    <div id="three01">
+        id three01
+    </div>
+</div>
+
+<span id="sp">
+    span id=sp
+</span>
+
+</body>
+</html>

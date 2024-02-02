@@ -1,0 +1,95 @@
+package com.atguigu.review;
+
+public class Order {
+
+}
+
+class Order1 {
+
+	// 单例模式，饿汉式
+
+	private Order1() {// 私有化构造器
+
+	}
+
+	private static Order1 instance = new Order1();
+
+	public static Order1 getInstance() {
+		return instance;
+	}
+
+}
+
+class Order2 {
+
+	private Order2() {
+
+	}
+
+	private static Order2 instance2 = null;
+
+	public Order2 getInstance2() {
+		if (instance2 == null) {
+			synchronized (Order2.class) {
+				if (instance2 == null) {
+					instance2 = new Order2();
+				}
+			}
+		}
+		return instance2;
+	}
+
+	 class FinalTest {
+		// final修饰属性：可以考虑赋值的位置：显式初始化、代码块中初始化、构造器中初始化
+		final int a;// 默认初始化
+		int a2 = 2;// 显式初始化
+
+		{
+			 a = 3;//代码块中初始化
+		}
+
+		public FinalTest() {
+			
+		}
+		//public static FinalTest(final int a) {
+			//Illegal modifier for the constructor in type FinalTest;
+			//only public, protected & private are permitted
+		
+//		public final FinalTest(final int a) {
+//					//Illegal modifier for the constructor in type FinalTest; 
+//					//only public, protected & private are permitted
+//			System.out.println(a);
+//			// a = 2;//构造器中初始化
+//			//a = 2;// 2. final修饰局部变量：
+//			/**
+//			 * 尤其是使用final修饰形参时，表明此形参是一个常量。 当我们调用此方法时，给常量形参赋一个实参。一旦赋值以后，
+//			 * 就只能在方法体内使用此形参，但不能进行重新赋值。
+//			 */
+//			// The final local variable a cannot be assigned. It must be blank and not using
+//			// a compound assignment
+//			// 不能给最后的局部变量a赋值。 它必须为空，并且不使用复合赋值
+//
+//		}
+
+		public void assignment() {
+			// a = 4;
+		}
+		/*static class Cat{
+			*//**
+			 * The member type Cat cannot be declared static; static types can only be declared in static or top level types
+			 * 成员类型Cat不能声明为static; 静态类型只能在静态类型或顶级类型中声明 
+			 *//*
+			
+		}*/
+		
+		final class Cat{
+			
+		}
+		
+		//final{//Syntax error, insert "enum Identifier" to complete EnumHeader
+		      //语法错误，插入“enum标识符”以完成EnumHeader 
+		//	System.out.println("da");
+		//}
+	}
+
+}

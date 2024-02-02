@@ -1,0 +1,106 @@
+2024-01-09 13:33:13,279 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 13:33:13,283 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10004_true,
+
+2024-01-09 13:33:13,284 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10004_true,
+
+2024-01-09 13:33:17,671 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10006:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 13:33:17,671 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10006_true,192.168.0.39:10004_true,
+
+2024-01-09 13:34:21,762 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 13:34:21,762 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 192.168.0.39:80_true,
+
+2024-01-09 13:34:21,762 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 192.168.0.39:80_true,
+
+2024-01-09 13:55:13,763 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:80@DEFAULT@DEFAULT_GROUP@@member-service-nacos-consumer-80, region: unknown, msg: client timeout after 15000, last beat: 1704779698685
+
+2024-01-09 13:55:27,477 INFO service: DEFAULT_GROUP@@member-service-nacos-consumer-80 {POS} {IP-ENABLED} valid: 192.168.0.39:80@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-09 13:55:27,515 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 192.168.0.39:80_true,
+
+2024-01-09 14:05:01,015 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 14:05:01,020 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 192.168.0.39:80_true,
+
+2024-01-09 14:05:01,029 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 14:05:01,029 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10004_true,
+
+2024-01-09 14:05:02,280 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10006:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 14:05:02,280 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10006_true,192.168.0.39:10004_true,
+
+2024-01-09 14:08:05,373 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 192.168.0.39:80_true,
+
+2024-01-09 20:46:22,140 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [198.18.0.1:8091:unknown:default_1.0_true_false_default]
+
+2024-01-09 20:46:22,149 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 198.18.0.1:8091_true,
+
+2024-01-09 21:19:05,944 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:80@DEFAULT@DEFAULT_GROUP@@member-service-nacos-consumer-80, region: unknown, msg: client timeout after 15000, last beat: 1704806329739
+
+2024-01-09 21:19:08,309 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:10004@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704806331268
+
+2024-01-09 21:19:13,311 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:10006@DEFAULT@DEFAULT_GROUP@@member-service-nacos-provider, region: unknown, msg: client timeout after 15000, last beat: 1704806333632
+
+2024-01-09 21:19:27,820 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:10004:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-09 21:19:27,820 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 192.168.0.39:10006_false,
+
+2024-01-09 21:19:27,861 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:80:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-09 21:19:27,861 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 
+
+2024-01-09 21:19:32,725 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:10006:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-09 21:19:32,725 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+
+2024-01-09 23:16:03,274 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 23:16:03,317 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 192.168.0.39:10010_true,
+
+2024-01-09 23:26:13,151 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:10010@DEFAULT@DEFAULT_GROUP@@seata_storage_micro_service, region: unknown, msg: client timeout after 15000, last beat: 1704813957879
+
+2024-01-09 23:26:29,188 INFO service: DEFAULT_GROUP@@seata_storage_micro_service {POS} {IP-ENABLED} valid: 192.168.0.39:10010@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-09 23:26:29,307 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 192.168.0.39:10010_true,
+
+2024-01-09 23:26:30,291 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 23:26:30,292 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 
+
+2024-01-09 23:26:34,029 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 23:26:34,029 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 192.168.0.39:10010_true,
+
+2024-01-09 23:36:00,215 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:10010@DEFAULT@DEFAULT_GROUP@@seata_storage_micro_service, region: unknown, msg: client timeout after 15000, last beat: 1704814306918
+
+2024-01-09 23:36:00,215 INFO {POS} {IP-DISABLED} valid: 198.18.0.1:8091@default@DEFAULT_GROUP@@serverAddr, region: unknown, msg: client timeout after 15000, last beat: 1704814308372
+
+2024-01-09 23:36:17,347 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-DEAD} cluster: default, dead ips size: 1, content: [198.18.0.1:8091:unknown:default_1.0_false_false_default]
+
+2024-01-09 23:36:17,347 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 
+
+2024-01-09 23:36:17,347 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-09 23:36:17,347 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 
+
+2024-01-09 23:36:23,579 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [198.18.0.1:8091:unknown:default_1.0_true_false_default]
+
+2024-01-09 23:36:23,616 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 198.18.0.1:8091_true,
+
+2024-01-09 23:36:23,984 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-09 23:36:23,984 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 192.168.0.39:10010_true,
+
+2024-01-09 23:43:02,957 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-DEAD} cluster: default, dead ips size: 1, content: [198.18.0.1:8091:unknown:default_1.0_true_false_default]
+
+2024-01-09 23:43:02,957 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 
+
+2024-01-09 23:43:11,627 INFO {POS} {IP-DISABLED} valid: 192.168.0.39:10010@DEFAULT@DEFAULT_GROUP@@seata_storage_micro_service, region: unknown, msg: client timeout after 15000, last beat: 1704814974353
+
+2024-01-09 23:43:26,729 INFO DEFAULT_GROUP@@seata_storage_micro_service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.0.39:10010:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-09 23:43:26,953 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@seata_storage_micro_service, ips: 
+

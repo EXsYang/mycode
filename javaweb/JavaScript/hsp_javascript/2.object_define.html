@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义对象方式2：{} 形式</title>
+    <script type="text/javascript">
+        //菜鸟教程中的说明
+        //JavaScript 中的所有事物都是对象：字符串、数值、数组、函数...
+        //此外，JavaScript 允许自定义对象。
+       //  使用对象字面量来创建对象，语法格式如下：
+       // { name1 : value1, name2 : value2,...nameN : valueN }
+       //其实就是大括号里面创建 name:value 对，然后 name:value 对之间以逗号 , 隔开。
+
+        //演示自定义对象方式2：{} 形式
+        var person = {
+            name: "老韩", //说明多个属性和函数之间，使用,隔开
+            age: 20,
+            hi: function () {
+                console.log("person信息= " + this.name + " " + this.age);
+            },
+            sum: function (n1, n2) {
+                return n1 + n2;
+            }
+        }
+
+        //使用
+        console.log("外部访问 name= " + person.name + " age=" + person.age);
+        person.hi();
+        console.log("sum=" + person.sum(10, 30));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

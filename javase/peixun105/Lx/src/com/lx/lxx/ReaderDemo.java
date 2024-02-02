@@ -1,0 +1,172 @@
+package com.Slxx;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+
+/**FileName:	com.io 	ReaderDemo.java
+ * TODO:		
+ * Copyright:	Copyright (c) 2015-2016 All Rights Reserved. Company: 01skill-soft.com Inc.
+ * @author: 	老张
+ * @Date:		2020年10月28日:下午4:09:25
+ * @version: 	1.0
+ * 
+ *           Modification History: Date			Author 		Version 	Description
+ *           ----------------------------------------------------------------------
+ *           					   2020年10月28日 	老张	 		1.0 		1.0 Version
+ * 
+ */
+public class ReaderDemo {
+	public static void main(String[] args) throws Exception {
+//		testReadMethod4();
+		testReadInputStreamMethod2();
+	}
+	/**
+	 * @TODO	 :E:\Slam Dunk 001-101\[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv复制到D盘根目录下
+	 * @Date	 :2020年10月29日 上午9:23:44
+	 * @Author	 :老张   :
+	 */
+	public static void testReadInputStreamMethod2(){
+		InputStream  input=null;
+		OutputStream output=null;
+		try {
+			input=new FileInputStream(new File("E:"+File.separator+"Slam Dunk 001-101"+File.separator+"[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv"));
+			output=new FileOutputStream(new File("D:/dddd.mkv"));
+			byte[] bcuf=new byte[2048];
+			int a=input.read(bcuf);
+			while(a!=-1){
+				output.write(bcuf,0,a);
+				a=input.read(bcuf);
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				input.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	/**
+	 * @TODO	 :E:\Slam Dunk 001-101\[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv复制到D盘根目录下
+	 * @Date	 :2020年10月29日 上午9:23:44
+	 * @Author	 :老张   :
+	 */
+	public static void testReadInputStreamMethod1(){
+		InputStream  input=null;
+		OutputStream output=null;
+		try {
+			input=new FileInputStream(new File("E:"+File.separator+"Slam Dunk 001-101"+File.separator+"[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv"));
+			output=new FileOutputStream(new File("D:/aaaa.mkv"));
+			
+			int a=input.read();
+			while(a!=-1){
+				System.out.println(a);
+				output.write(a);
+				a=input.read();
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				input.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void testReadMethod4() {
+//		①、确定输入还是输出
+//		②、确定字符还是字节
+		Reader reader=null;
+		try{
+			reader=new FileReader(new File("D:/A.java"));
+//			③、从输入流中读
+			char[] cbuf=new char[50];
+			int  a=reader.read(cbuf, 0, cbuf.length);//====reader.read(cbuf);
+			while(a!=-1){
+				for(int i=0;i<a;i++)
+					System.out.print(cbuf[i]);
+				a=reader.read(cbuf, 0, cbuf.length);			
+			}
+		}catch(IOException ex){
+			
+		}
+		finally {
+//			④、释放io资源
+			try {
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+	public static void testReadMethod3() throws IOException{
+//		①、确定输入还是输出
+//		②、确定字符还是字节
+		Reader reader=new FileReader(new File("D:/A.java"));
+//		③、从输入流中读
+		char[] cbuf=new char[50];
+		int  a=reader.read(cbuf, 0, cbuf.length);//====reader.read(cbuf);
+		while(a!=-1){
+			for(int i=0;i<a;i++)
+				System.out.print(cbuf[i]);
+			a=reader.read(cbuf, 0, cbuf.length);			
+		}
+//		④、释放io资源
+		reader.close();
+	}
+	public static void testReadMethod2() throws Exception{
+//		创建了一个字符输入流并关联到D盘的A.java这个文件上
+		Reader reader=new FileReader(new File("D:/A.java"));
+		char cs[]=new char[20];
+//		从输入流中一次读100个字符，并存于cs中，
+		int a=reader.read(cs);
+		while(a!=-1){
+			for(int i=0;i<a;i++)
+				System.out.print(cs[i]);
+			a=reader.read(cs);
+		}
+		reader.close();
+	}
+	public static void testReadMethod1() throws Exception{
+//		①、创建File对象   目的将其作为数据源     \是转移字符， 路径/  |   \\   贱
+		File file=new File("D:\\A.java");
+//		②、创建指向数据源的字符输入流（管道）
+		Reader reader=new FileReader(file);
+		int a=reader.read();//需要10S，那么下一行代码必须等到10S后才能执行   
+		
+		while(a!=-1){
+//		a就是读出来的内容
+			char c=(char)a;
+			System.out.print(c);
+			a=reader.read();
+		}
+		reader.close();
+		
+	}
+}
+
+
+

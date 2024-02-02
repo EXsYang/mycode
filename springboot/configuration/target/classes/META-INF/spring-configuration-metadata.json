@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "name": "monster",
+      "type": "com.hspedu.springboot.bean.Monster",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    }
+  ],
+  "properties": [
+    {
+      "name": "monster.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.birth",
+      "type": "java.util.Date",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.car",
+      "type": "com.hspedu.springboot.bean.Car",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.cars",
+      "type": "java.util.Map<java.lang.String,java.util.List<com.hspedu.springboot.bean.Car>>",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.hobby",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.is-married",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.name",
+      "type": "java.lang.String",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.salaries",
+      "type": "java.util.Set<java.lang.Double>",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.skill",
+      "type": "java.lang.String[]",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    },
+    {
+      "name": "monster.wife",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.hspedu.springboot.bean.Monster"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,30 @@
+server:
+  port: 9002
+
+#配置eureka-server
+eureka:
+  instance:
+    hostname: eureka9002.com #服务实例名
+  client:
+    #配置不向注册中心注册自己 默认值是true
+    register-with-eureka: false
+    #表示自己就是注册中心,作用就是维护注册的服务实例,不需要去检索服务
+    #也就是说是不是需要去抓取注册 只需要维护别人注册的注册信息就可以了
+    fetch-registry: false
+    service-url:
+      #设置于eureka-server 交互模块,查询服务和注册服务都需要依赖这个地址[当没有使用eureka集群时可以像下面这样写]
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #eureka-server集群,相互注册,这里注册到eureka9001 server
+      defaultZone: http://eureka9001.com:9001/eureka/
+
+      #当访问http://eureka9002.com:9002/ 时,火狐浏览器总是跳转https://eureka9002.com:9002/
+      #使用Edge浏览器和Chrome浏览器,同时关闭clash代理,开着代理会导致访问失败
+      #这时可以暂时使用 localhost 访问 因为在hosts文件中配置的域名 eureka9002.com 映射的地址就是本地
+      #主机的ip地址127.0.0.1 即等同于http://localhost:9002/
+
+
+#  server:
+#    #禁用自我eureka保护模式
+#    enable-self-preservation: false
+#    #设置超时时间为2秒,在两秒钟收不到心跳包，就认为是超时,禁用自我eureka保护模式下,就会把服务信息(k-v)从列表移除
+#    eviction-interval-timer-in-ms: 2000

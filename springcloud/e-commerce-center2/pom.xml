@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--e-commerce-center:电子商务中心
+    e-commerce-center 项目是使用默认的Maven中央仓库生成的
+          e-commerce-center2 项目是使用阿里镜像生成的-->
+    <groupId>com.hspedu.springcloud</groupId>
+    <artifactId>e-commerce-center2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--这里列出了父项目/父工程聚合管理的子模块/子项目/微服务模块-->
+    <modules>
+        <module>member-service-provider-10000</module>
+        <module>member-service-consumer-80</module>
+        <module>e_commerce_center-common-api</module>
+        <module>e-commerce-eureka-server-9001</module>
+        <module>e-commerce-eureka-server-9002</module>
+        <module>member-service-provider-10002</module>
+        <module>e-commerce-consumer-openfeign-80</module>
+        <module>e-commerce-gateway-20000</module>
+        <module>member-service-nacos-provider-10004</module>
+        <module>member-service-nacos-provider-10006</module>
+        <module>member-service-nacos-consumer-80</module>
+        <module>e-commerce-nacos-config-client5000</module>
+        <module>seata_storage_micro_service-10010</module>
+        <module>seata_account_micro_service-10012</module>
+        <module>seata-order-micro-service-10008</module>
+    </modules>
+    <!--<packaging>war</packaging>-->
+    <!-- 表明是一个父工程,聚合管理其他模块 -->
+    <packaging>pom</packaging>
+
+    <name>e-commerce-center2</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <!--
+    老韩提醒: 版本和老师保持一致: 否则容易出现版本兼容问题, 先跟着老师走通一套配置
+    在这里指定mysql、mybatis.spring.boot.version...的版本，不使用版本仲裁
+    -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>4.12</junit.version>
+        <!--
+           老师说明: 使用最新版本的log4j , 防止安全漏洞(这里过去一年了不是最新版本了)
+        -->
+        <log4j.version>2.17.2</log4j.version>
+        <lombok.version>1.18.20</lombok.version>
+        <mysql.version>5.1.47</mysql.version>
+        <druid.version>1.1.17</druid.version>
+        <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
+    </properties>
+
+    <!--这里注销掉，因为这里是父工程，主要目的不是去引入依赖，而是进行版本的指定！-->
+    <!--<dependencies>-->
+    <!--  <dependency>-->
+    <!--    <groupId>junit</groupId>-->
+    <!--    <artifactId>junit</artifactId>-->
+    <!--    <version>4.11</version>-->
+    <!--    <scope>test</scope>-->
+    <!--  </dependency>-->
+    <!--</dependencies>-->
+
+    <!-- dependencyManagement 主要用于锁定版本，本身并不引入依赖jar
+    ,即刷新Maven时看不到依赖的引入dependencies
+
+    1. dependencyManagement 作用: 子模块继承后, 锁定版本, 子模块不用再写 version
+    2. 配置各个依赖和版本，后面如果有需要还会增加
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.2.RELEASE</version>
+                <!-- 老师解读:
+                1. type: pom 和 scope import 配合使用
+                2. 表示父项目的子模块,在引入 springboot 相关依赖时锁定版本为2.2.2.RELEASE
+                3. 通过 pom + import 解决 maven 单继承机制
+                -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--配置spring cloud 注意spring cloud 的版本要和springboot的版本对应
+            否则会出问题，或者跑不起来
+            -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--引入 cloud alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--配置mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--配置druid数据源-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!--配置springboot 整合mybatis的依赖 mybatis starter-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <!--
+                在properties标签中指定mybatis.spring.boot.version 的版本，不使用版本仲裁
+                <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
+                -->
+                <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+
+            <!--配置log4j,使用的最新版本-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!--配置junit-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!--配置lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

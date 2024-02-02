@@ -1,0 +1,58 @@
+package com.atguigu.review;
+
+public class test1 {
+	public static void main(String[] args) {
+		
+		//使用冒泡排序
+		int[] arr = new int[]{34,5,22,-98,6,-76,0,-3};
+		
+		for(int i = 0;i < arr.length-1;i++) {//控制循环的轮数
+			for(int j = 0;j<arr.length-1-i;j++) {//控制排序次数
+				if(arr[j]>arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+			}
+		for(int i = 0;i<arr.length ;i++) {
+			System.out.print(arr[i]+"\t");
+		}
+		//System.out.println();这个是换行
+		System.out.print(" ");
+		
+		//反转上面的数组
+		for(int i = 0;i<arr.length/2;i++) {
+			
+			int temp = arr[0];
+			arr[i] = arr[arr.length-1];
+			arr[arr.length-1] = temp;
+		}
+		for(int i = 0;i<arr.length ;i++) {
+			System.out.print(arr[i]+"\t");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

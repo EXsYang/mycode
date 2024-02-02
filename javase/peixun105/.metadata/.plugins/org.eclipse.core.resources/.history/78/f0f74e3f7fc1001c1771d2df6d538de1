@@ -1,0 +1,66 @@
+package com.atguigu.review;
+
+import java.util.Scanner;
+
+public class RectangleTest {
+	public static void main(String args[]) {
+	
+		Scanner scan = new Scanner(System.in);
+		
+		byte b = scan.nextByte();
+		short s = scan.nextShort();
+		char c = scan.nextChar();
+		int a = scan.nextInt();
+		long l = scan.nextLong();
+		float f = nextFloat();
+		double d = nextDouble();
+		boolean B = nextBoolean();
+		Ststem.out.println(b);
+		Ststem.out.println(s);
+		Ststem.out.println(c);
+		Ststem.out.println(a);
+		Ststem.out.println(l);
+		Ststem.out.println(f);
+		Ststem.out.println(d);
+		Ststem.out.println(B);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 生成没有注释的 bean-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 配置数据库连接信息 按照实际情况配置
+            逆向工程之所以成功连接到数据库 获取到furn表的信息
+            是因为在这里配置了 连接数据库的必要信息
+         -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/furn_ssm?characterEncoding=utf8"
+                        userId="root"
+                        password="hsp">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 指定 javaBean/POJO/entity 生成的位置
+            targetPackage="com.hspedu.furn.bean"
+            targetProject=".\src\main\java":该路径指的是上面的包targetPackage="com.hspedu.furn.bean"所在的位置
+            name="enableSubPackages":是否要生成子包
+        -->
+        <javaModelGenerator targetPackage="com.hspedu.furn.bean"
+                            targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 指定 sql 映射文件生成的位置 即 mapper.xml 文件的位置
+             targetPackage="mapper" : "mapper"指的是一个命名为mapper的包
+             targetProject=".\src\main\resources": 指定 上面的"mapper"包所处的位置
+             name="enableSubPackages":是否生成子包
+        -->
+        <sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 指定 dao 接口生成的位置, 也就是 mapper 接口
+            因为mybatis框架是属于DAO层的框架 因此生成的mapper接口 也放在 dao层
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hspedu.furn.dao"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 指定要逆向生成的表和生成策略
+        tableName="furn": 指的是数据库中表的名称 即数据库中有一张叫"furn"的表,否则报错
+        domainObjectName="Furn" 使用逆向工程自动生成的JavaBean/POJO/entity的名称 通常首字母大写
+
+        注意 使用逆向工程生成的 Furn.java 文件中 没有全参构造器 需要手动添加
+
+        -->
+        <table tableName="furn" domainObjectName="Furn"></table>
+    </context>
+</generatorConfiguration>

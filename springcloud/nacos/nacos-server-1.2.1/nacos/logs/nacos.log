@@ -1,0 +1,94 @@
+2024-01-11 00:09:09,069 INFO [capacityManagement] start correct usage
+
+2024-01-11 00:09:09,934 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-11 00:09:11,596 WARN clearConfigHistory start
+
+2024-01-11 00:19:09,940 INFO [capacityManagement] start correct usage
+
+2024-01-11 00:19:09,988 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-11 00:19:11,603 WARN clearConfigHistory start
+
+2024-01-11 00:29:10,003 INFO [capacityManagement] start correct usage
+
+2024-01-11 00:29:10,004 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-11 00:29:11,611 WARN clearConfigHistory start
+
+2024-01-11 00:39:10,019 INFO [capacityManagement] start correct usage
+
+2024-01-11 00:39:10,020 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-11 00:39:11,644 WARN clearConfigHistory start
+
+2024-01-11 00:49:10,032 INFO [capacityManagement] start correct usage
+
+2024-01-11 00:49:10,032 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-11 00:49:11,675 WARN clearConfigHistory start
+
+2024-01-11 19:25:58,742 INFO Starting Nacos v1.2.1 on F2 with PID 1088 (D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\target\nacos-server.jar started by yangda in D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\bin)
+
+2024-01-11 19:25:58,764 INFO The following profiles are active: standalone
+
+2024-01-11 19:26:01,191 INFO Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$1b68076a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-11 19:26:01,313 INFO Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-11 19:26:01,315 INFO Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5745ca0e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-11 19:26:01,318 INFO Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$403caa1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-11 19:26:01,324 INFO Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2024-01-11 19:26:02,747 INFO Tomcat initialized with port(s): 8848 (http)
+
+2024-01-11 19:26:02,776 INFO Starting service [Tomcat]
+
+2024-01-11 19:26:02,776 INFO Starting Servlet Engine: Apache Tomcat/9.0.13
+
+2024-01-11 19:26:02,788 INFO The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\jdk\jdk1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\jdk\jdk1.8\bin;C:\jdk\jdk1.8\jre\bin;C:\Program Files\Common Files\Oracle\Java\javapath;D:\setupruanjian\app\oracle\product\11.2.0\server\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;D:\hspmysql\mysql-5.7.25-winx64\bin;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\Cloudflare\Cloudflare WARP\;D:\Java_developer_tools\program\nodejs14.17\;C:\Users\yangd\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\yangd\AppData\Local\Programs\Python\Python36\;D:\python\Scripts\;D:\python\;C:\Users\yangd\AppData\Local\Microsoft\WindowsApps;D:\pycharm\PyCharm Community Edition 2019.1.1\bin;;;D:\Github\Microsoft VS Code\bin;C:\Users\yangd\AppData\Roaming\npm;.]
+
+2024-01-11 19:26:03,255 INFO Initializing Spring embedded WebApplicationContext
+
+2024-01-11 19:26:03,255 INFO Root WebApplicationContext: initialization completed in 4446 ms
+
+2024-01-11 19:26:10,628 INFO Reflections took 91 ms to scan 1 urls, producing 6 keys and 24 values 
+
+2024-01-11 19:26:10,769 INFO Reflections took 7 ms to scan 1 urls, producing 2 keys and 12 values 
+
+2024-01-11 19:26:10,782 INFO Reflections took 8 ms to scan 1 urls, producing 3 keys and 15 values 
+
+2024-01-11 19:26:12,962 INFO Use Mysql as the driver
+
+2024-01-11 19:26:15,204 INFO Initializing ExecutorService 'applicationTaskExecutor'
+
+2024-01-11 19:26:15,449 INFO Adding welcome page: class path resource [static/index.html]
+
+2024-01-11 19:26:15,850 INFO Creating filter chain: Ant [pattern='/**'], []
+
+2024-01-11 19:26:15,888 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30990c1b, org.springframework.security.web.context.SecurityContextPersistenceFilter@2783717b, org.springframework.security.web.header.HeaderWriterFilter@5ad10c1a, org.springframework.security.web.csrf.CsrfFilter@25748410, org.springframework.security.web.authentication.logout.LogoutFilter@15eebbff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a335fa8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4baf352a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2453f95d, org.springframework.security.web.session.SessionManagementFilter@c260bdc, org.springframework.security.web.access.ExceptionTranslationFilter@4264b240]
+
+2024-01-11 19:26:16,028 INFO Exposing 2 endpoint(s) beneath base path '/actuator'
+
+2024-01-11 19:26:16,058 INFO Initializing ExecutorService 'taskScheduler'
+
+2024-01-11 19:26:16,210 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2024-01-11 19:26:16,217 INFO Started Nacos in 20.151 seconds (JVM running for 21.71)
+
+2024-01-11 19:26:16,217 INFO Nacos logs files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\logs\
+
+2024-01-11 19:26:16,218 INFO Nacos conf files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\conf\
+
+2024-01-11 19:26:16,218 INFO Nacos data files: D:\Java_developer_tools\springcloud\nacos\nacos-server-1.2.1\nacos\data\
+
+2024-01-11 19:26:16,220 INFO Nacos started successfully in stand alone mode.
+
+2024-01-11 19:26:16,348 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2024-01-11 19:26:16,348 INFO Initializing Servlet 'dispatcherServlet'
+
+2024-01-11 19:26:16,358 INFO Completed initialization in 10 ms
+

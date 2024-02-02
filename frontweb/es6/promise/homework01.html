@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-ajax</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        //思路
+        $.ajax({
+            url: "data/student_100.json",
+            success(data) {
+                console.log("第一次ajax请求数据=", data);
+                $.ajax({
+                    url: `data/class_${data.class_id}.json`,
+                    success(data) {
+                        console.log("第2次ajax请求数据=", data);
+                        $.ajax({
+                            url: `data/school_${data.school_id}.json`,
+                            success(data) {
+                                console.log("第3次ajax请求数据=", data);
+                            },
+                            error(err) {
+                                console.log("ajax请求发生异常:", err)
+                            }
+                        })
+                    },
+                    error(err) {
+                        console.log("ajax请求发生异常:", err)
+                    }
+                })
+            },
+            error(err) {
+                console.log("ajax请求发生异常:", err)
+            }
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

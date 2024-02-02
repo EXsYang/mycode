@@ -1,0 +1,38 @@
+package com.atguigu.exer1;
+
+public class ComparableRectangle  extends Rectangle implements CompareObject {
+
+	
+	
+	
+	
+	public ComparableRectangle() {
+		super();
+	}
+
+	public ComparableRectangle(double winth, double hight) {
+		super(winth, hight);
+	}
+
+	public int compareTo(Object o) {
+		if(this == o) {
+			return 0;
+		}
+		if (o instanceof Circle) {
+			Circle c = (Circle)o;
+			if(this.redius == c.redius) {
+				return 0;
+			}
+			if(this.redius < c.redius) {
+				return -1;
+			}
+		}
+				return 1;
+		
+				
+			
+		
+		}
+	
+	
+}

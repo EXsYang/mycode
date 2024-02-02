@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //根据给出的数据, 用ES6的方式, 编写方法, 使用对象解构的方式, 得到 oper 和 arr, 并根据oper的值 , oper可以是+、-、*、/  来计算结果
+        var cal = {
+            oper: "/",
+            arr: [1, 2, 3, 5]
+        }
+
+        function f1({oper, arr}) {
+            let res = 0;//初始化的值，要分析考虑
+            //这里小伙伴们可以考虑arr的传入，并且做分析
+            //判断arr 是不是null, 并且arr.length <=1 , 就直接返回arr[0]
+            if ("+" == oper) {
+                res = arr[0]; // 防止初始化的0 对数组的结果有影响
+                for (let i = 1; i < arr.length; i++) { //注意不要带等号！！i < arr.length
+                    res += arr[i];
+                }
+            } else if ("-" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res -= arr[i];
+                }
+            } else if ("*" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res *= arr[i];
+                }
+            } else if ("/" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res /= arr[i];
+                }
+            } else {
+                console.log("oper输入不正确..")
+            }
+            return res;
+        }
+
+        console.log("f1运算的结果=", f1(cal))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

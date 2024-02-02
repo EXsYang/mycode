@@ -1,0 +1,19 @@
+package com.VVa;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Xin {
+public static void main(String[] args) {
+	List<String> list = new ArrayList<>();
+	list.add("Tom");
+	list.add("Amy");
+	list.add(1, "John");
+	list.set(1,"Tom");
+	list.remove("Tom");
+	list.remove(0);
+	System.out.println(list);
+	System.out.println(list.get(0));
+	
+}
+}

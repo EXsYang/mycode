@@ -1,0 +1,42 @@
+package com.lx.lxx;
+
+public class ReaderDemo {
+
+		public static void main(String[] args) throws Exception {
+//			testReadMethod4();
+			testReadInputStreamMethod2();
+		}
+		/**
+		 * @TODO	 :E:\Slam Dunk 001-101\[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv复制到D盘根目录下
+		 * @Date	 :2020年10月29日 上午9:23:44
+		 * @Author	 :老张   :
+		 */
+		public static void testReadInputStreamMethod2(){
+			InputStream  input=null;
+			OutputStream output=null;
+			try {
+				input=new FileInputStream(new File("E:"+File.separator+"Slam Dunk 001-101"+File.separator+"[52wy][SlamDunk][014][Jpn_Chs_Cht][x264_aac][DVDRip][BBD2D57B].mkv"));
+				output=new FileOutputStream(new File("D:/dddd.mkv"));
+				byte[] bcuf=new byte[2048];
+				int a=input.read(bcuf);
+				while(a!=-1){
+					output.write(bcuf,0,a);
+					a=input.read(bcuf);
+				}
+				
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			finally{
+				try {
+					input.close();
+					output.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+}

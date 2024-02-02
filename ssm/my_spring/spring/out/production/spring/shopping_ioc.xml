@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+    <!-- 想要
+    @Resource
+    private JdbcTemplate jdbcTemplate;  生效
+    首先要在.java 文件中加上自动装配的注解 @Resource , 还要在ioc容器的.xml文件中如下配置
+    -->
+    <!-- 配置要扫描的包-->
+    <context:component-scan base-package="com.hspedu.spring.tx.homework.dao"/>
+    <context:component-scan base-package="com.hspedu.spring.tx.homework.service"/>
+
+    <!--配置JdbcTemplate-->
+    <!--首先要配置一个数据源对象-->
+    <!--引入外部的jdbc.properties文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--配置数据源对象DataSource-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <!--给数据源对象配置属性值-->
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+    </bean>
+
+    <!--再正式配置JdbcTemplate-->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <!--给JdbcTemplate对象配置dataSource属性
+        name="dataSource" 是JdbcTemplate对象的一个属性
+        ref="dataSource" 指的是上面配置好的 id="dataSource" 的一个bean
+        -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置@Transactional 要想让声明式事务的注解好用需要配置下面liangz
+     相关的配置 (1)配置事务管理器对象 (2)开启基于注解的声明式事务管理功能-->
+    <!--配置事务管理器对象  数据源事务管理器
+        1.DataSourceTransactionManager 这个对象是进行事务管理
+        2.一定要配置数据源属性，这样指定该事务管理器 是对哪个数据源进行事务控制
+        -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="dataSourceTransactionManager">
+        <!--指定dataSource 要指定的数据源dataSource和jdbcTemplate
+        的数据源dataSource必须是同一个！！ 数据源事务管理器最终能够控制事务
+        能够提交能够回滚 还是针对数据源中取出来的连接 -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--配置/开启基于注解的声明式事务管理功能 并指定你启用的是哪一个数据源事务管理器/对象
+        一定要引入结尾为 tx 包下的driven
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    -->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+
+
+</beans>

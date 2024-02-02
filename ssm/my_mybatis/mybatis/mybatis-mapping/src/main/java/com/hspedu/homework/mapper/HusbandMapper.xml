@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.homework.mapper.HusbandMapper">
+
+    <!--
+     配置/实现 public Husband getHusbandById(Integer id);
+     //根据id获取 Husband
+
+     -->
+    <!--原始方式-->
+   <!-- <select id="getHusbandById" parameterType="Integer" resultType="Husband">
+        SELECT * FROM `husband` WHERE `id` = #{id};
+    </select>-->
+
+    <!--xml 配置方式 实现级联操作 第一种方式-->
+    <resultMap id="resultHusbandMap" type="Husband">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="wife" javaType="Wife">
+            <result property="id" column="id"/>
+            <!--看看下面的name 是否设置为"铁扇公主" 如果是 则说明column="name"
+            是按照顺序进行匹配的 因为 上面匹配了一个column="name"了
+            结论:不是按匹配的顺序匹配的 而是sql语句从数据库中查询返回来的数据，
+            就近匹配的第一个，这里的值是"牛魔王"
+
+            -->
+            <result property="name" column="wife_name"/>
+        </association>
+
+    </resultMap>
+    <select id="getHusbandById" parameterType="Integer" resultMap="resultHusbandMap">
+        SELECT * FROM `husband`,`wife`
+        WHERE `husband`.`id` = 1 AND `husband`.`id` = `wife`.`id`;
+    </select>
+
+    <!--xml 配置方式 实现级联操作 第二种方式-->
+    <resultMap id="resultHusbandMap2" type="Husband">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="wife" column="wife_id"
+                     select="com.hspedu.homework.mapper.WifeMapper.getWifeById"/>
+    </resultMap>
+    <select id="getHusbandById2" parameterType="Integer" resultMap="resultHusbandMap2">
+        SELECT * FROM `husband` WHERE `id` = #{id};
+    </select>
+
+</mapper>

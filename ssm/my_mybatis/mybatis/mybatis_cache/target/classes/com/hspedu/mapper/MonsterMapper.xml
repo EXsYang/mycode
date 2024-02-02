@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+1. 这是一个mapper xml文件
+2. 该文件可以去实现对应的接口的方法
+3. namespace 指定该xml文件和哪个接口对应！！！
+注意: 下面的namespace指定的是Mapper 而不是PoJo。
+ mybatis-config.xml 文件的 mappers-mapper resource="" 属性中指定的也是Mapper
+ 但是目录之间是使用斜杠间隔的同时还有后缀名
+-->
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+
+    <!--
+        1. 配置二级缓存, 是mybatis自带的
+        2. FIFO - 先进先出：按对象进入缓存的顺序来移除它们
+        3. flushInterval="60000" 刷新间隔 是毫秒单位 60000 表示 60秒
+        4. size="512": 引用数目，属性可以被设置为任意正整数，默认1024
+        5. readOnly="true":(只读)属性可以被设置为true 或 false:如果我们只是用于读操作，
+           建议设置成true，这样可以提高效率，如果有修改操作，设置成false,默认就是false
+    -->
+    <cache eviction="FIFO" flushInterval="60000"
+            size="512" readOnly="true"/>
+
+
+    <!-- 在 XxxMapper.xml 中启用 EhCache ， 当然原来 MyBatis 自带的缓存配置就要注销了
+    配置/启用 ehcache-->
+    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+
+
+
+
+
+
+    <!--
+    flushCache="true" 默认是true
+    insert、update、delete 操作数据后需要刷新缓存，如果不执行刷新缓存会出现脏读
+    默认为 true，默认情况下为 true 即刷新缓存，一般不用修改。
+    -->
+    <!--<update id="updateMonster" parameterType="Monster" flushCache="true">-->
+    <!--<update id="updateMonster" parameterType="com.hspedu.entity.Monster">-->
+    <!--使用typeAliases设置类名简写后-->
+    <update id="updateMonster" parameterType="Monster">
+
+        UPDATE `monster` SET `age`=#{age},`birthday` = #{birthday},`email` = #{email},
+        `gender`=#{gender},`name`=#{name},`salary` = #{salary} WHERE id = #{id};
+    </update>
+
+    <!--配置/实现getMonsterById-->
+    <!--<select id="getMonsterById" resultType="com.hspedu.entity.Monster">-->
+    <!--resultType="Monster" 也可以简写-->
+
+    <!--useCache="false" 让二级缓存失效-->
+    <!--<select id="getMonsterById" resultType="Monster" useCache="false">-->
+    <select id="getMonsterById" resultType="Monster">
+    <!--<select id="getMonsterById" resultType="Monster">-->
+          SELECT * FROM `monster` WHERE id = #{id};
+    </select>
+    <!--配置/实现 findAllMonster
+    说明：期望从这条语句中返回结果的类全限定名或别名。
+    注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。 resultType 和 resultMap 之间只能同时使用一个。
+    即 这里返回的是所有的monster的list集合 但是没有必要写resultType="List"
+    而是直接写集合中包含的类型Monster即可！
+    -->
+    <select id="findAllMonster" resultType="Monster">
+          SELECT * FROM `monster`;
+    </select>
+
+
+
+</mapper>

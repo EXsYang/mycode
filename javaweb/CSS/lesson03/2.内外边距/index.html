@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型测试</title>
+    <style>
+        #box {
+            width: 300px;
+            border: 8px solid red;
+        }
+
+        /*顺时针
+        margin:0  外边距上下左右都为0
+        margin:0 1px 外边距上下0,左右1px
+        margin:0 1px 2px 3px 外边距上右下左为 0 1 2 3
+
+        border：边框
+        pa
+        */
+        h2 {
+            font-size: 15px;
+            background-color: #21499a;
+            line-height: 30px;
+            color: white;
+            text-align: center;
+            margin: 0;
+            /*margin-top: 0;*/
+            /*margin-right: 0;*/
+            /*margin-bottom: 0;*/ /*下外边距*/
+            /*margin-left: 0;*/
+        }
+
+        form {
+            background-color: green;
+        }
+
+        div:nth-of-type(1) {
+            border: 3px solid wheat;
+        }
+
+        div:nth-of-type(2) {
+           padding: 0;  /*内边距*/
+           /*padding-top: 0;*/
+           /*padding-right: 0;*/
+           /*padding-bottom: 0;*/
+           /*padding-left: 0;*/
+        }
+
+        div:nth-of-type(3) {
+            border: 3px solid yellow;
+        }
+        /*div:nth-of-type(3) {*/
+        /*    border: 3px dashed yellow;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="box">
+    <h2>京东会员登录</h2>
+    <form action="#">
+        <div>
+            <span>用户名：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>密&nbsp;&nbsp; 码：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>邮&nbsp;&nbsp; 箱：</span>
+            <input type="text">
+        </div>
+    </form>
+
+</div>
+
+
+</body>
+</html>

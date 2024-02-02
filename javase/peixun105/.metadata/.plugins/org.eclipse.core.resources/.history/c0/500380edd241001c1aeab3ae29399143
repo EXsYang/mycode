@@ -1,0 +1,16 @@
+package com.atguigu.exer1;
+
+public class InterfaceTest {
+public static void main(String[] args) {
+	ComparableCircle com1 = new ComparableCircle();
+	ComparableCircle com2 = new ComparableCircle();
+	
+	com1.compareTo(2);
+	com2.compareTo(2);
+	
+	
+	
+	
+	
+}
+}

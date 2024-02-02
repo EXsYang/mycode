@@ -1,0 +1,31 @@
+server:
+  # 如果在浏览器地址栏这样请求 http://localhost/xx  默认请求的是80端口
+  port: 80
+
+
+spring:
+  application:
+    name: member-service-consumer-80
+  #配置sleuth 和 zipkin
+  zipkin:
+    # base-url表示的就是在zipkin哪个端口进行监听
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样率 在0-1之间,1表示全部采样
+      probability: 1
+
+#配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-Server
+    #表示从Eureka-Server抓取注册信息
+    #如果是单节点，可以不配置，如果是一个集群,则必须配置true,才能配合Ribbon进行使用负载均衡
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个Eureka-Server Zone:区域
+      #当Eureka-Server集群中只有一个Eureka-Server时，按下面的写法
+      #defaultZone: http://localhost:9001/eureka
+      #下面这里我们将本微服务注册到Eureka-Server集群,使用逗号间隔
+      defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002:9002/eureka
+

@@ -1,0 +1,42 @@
+2024-01-11 00:03:05,610 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:07:24,176 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:08:37,067 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:09:18,269 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:09:34,064 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:11:23,595 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:21,487 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:31,904 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:31,991 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:56388, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,56388,127114505850100
+
+2024-01-11 00:24:31,991 INFO send udp packet: 198.18.0.1,56388,127114505850100
+
+2024-01-11 00:24:32,156 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:42,079 INFO retry to push data, key: 198.18.0.1,56388,127114505850100
+
+2024-01-11 00:24:42,079 INFO send udp packet: 198.18.0.1,56388,127114505850100
+
+2024-01-11 00:24:46,978 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:47,337 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-11 00:24:52,089 INFO retry to push data, key: 198.18.0.1,56388,127114505850100
+
+2024-01-11 00:24:52,089 WARN max re-push times reached, retry times 2, key: 198.18.0.1,56388,127114505850100
+
+2024-01-11 19:26:17,551 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-11 19:26:50,728 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-11 19:26:53,581 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-11 19:27:36,858 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+

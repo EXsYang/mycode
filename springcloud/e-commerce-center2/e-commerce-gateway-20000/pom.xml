@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>e-commerce-center2</artifactId>
+        <groupId>com.hspedu.springcloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>e-commerce-gateway-20000</artifactId>
+
+    <!--引入相关的依赖，引入了当前需要的依赖，后面如果需要其他的，在灵活调整即可-->
+    <dependencies>
+
+        <!--引入gateway-starter 网关场景启动器starter 使用版本仲裁-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+
+        <!--引入 eureka-client 场景启动器starter 依然使用版本仲裁，防止自己引入的版本可能会不兼容的问题-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <!--注意这里有一个starter 不要引错了-->
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--老韩特别说明:
+         1. 不要引入 spring-boot-starter-web和spring-boot-starter-actuator
+            否则会出现冲突
+         2. 因为gateway是一个服务网关,不需要web...
+         -->
+
+        <!--引入web starter 使用版本仲裁 -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--</dependency>-->
+
+        <!--starter-actuator 是springboot程序的监控系统，可以实现系统的健康检测
+        可以通过 http://localhost:10000/actuator 看到相关的连接和信息
+        -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-actuator</artifactId>-->
+        <!--</dependency>-->
+
+        <!--引入lombok, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--引入e_commerce_center-common-api
+                   version=1.0-SNAPSHOT
+                   groupId=com.hspedu.springcloud
+                   artifactId=e_commerce_center-common-api
+               -->
+        <dependency>
+            <groupId>com.hspedu.springcloud</groupId>
+            <artifactId>e_commerce_center-common-api</artifactId>
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>

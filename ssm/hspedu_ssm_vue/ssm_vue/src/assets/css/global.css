@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box 就是将 border 和 padding 数值包含在 width 和 height 之内，这样的好
+        处就是修改 border 和 padding 数值盒子的大小不变
+    https://blog.csdn.net/qq_26780317/article/details/80736514
+    */
+    box-sizing: border-box;
+}

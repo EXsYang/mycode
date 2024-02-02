@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>注册用户</h1>
+<form action="http://localhost:8080/servlet/requestMethods" method="post">
+    u : <input type="text" name="username"/><br/><br/>
+    p : <input type="password" name="pwd"/><br/><br/>
+    请选择你喜欢的老师：
+    <input type="checkbox" name="hobby" value="hsp"/>韩顺平
+    <input type="checkbox" name="hobby" value="lh"/>老韩
+    <input type="checkbox" name="hobby" value="spls"/>顺平老师<br/><br/>
+
+    <p>性别：
+        <input type="radio" value="boy" name="sex" checked/> 男
+        <input type="radio" value="boy" name="sex" checked disabled/>中性
+        <input type="radio" value="girl" name="sex"/>女
+    </p>
+
+    <p>国家：
+        <select name="列表名称">
+            <option value="china">中国</option>
+            <option value="us" selected>美国</option>
+            <option value="eth">瑞士</option>
+            <option value="yindu">印度</option>
+        </select>
+    </p>
+    <p>反馈：
+        <textarea name="textarea" cols="30" rows="10">文本内容</textarea>
+    </p>
+    <input type="submit" value="注册">
+
+
+
+
+</form>
+
+</body>
+</html>

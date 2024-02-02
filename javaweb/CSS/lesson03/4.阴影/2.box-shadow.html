@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-shadow</title>
+<!--    box-shadow 属性应用阴影于元素。-->
+    <style>
+        body{
+            /*方式三：在body中的居中，在哪个盒子里添加的背景图片，就在哪个盒子里居中！*/
+            background-image: url("images/1.jpeg");
+            /*不平铺*/
+            background-repeat: no-repeat;
+            /*水平 垂直  正数为向右、向下*/
+            background-position: center 10px;
+            /*与上面等价*/
+            background-position: 50% 10px;
+        }
+        div{
+            width: 300px;
+            height: 100px;
+            padding: 15px;
+            background-color: yellow;
+            /*水平方向偏移量 垂直方向偏移量 模糊效果范围 阴影颜色*/
+            box-shadow: 10px 10px 5px grey;
+            /*margin: 0 auto;居中方式对图片无效*/
+            /*margin: 0 auto;*/
+
+        }
+
+        .t{
+        /*只对添加了background-image的盒子生效，没添加即使用也不生效*/
+        background-position: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div>已设置 box-shadow 的 div 元素</div>
+<!--方式一：display: block 将元素显示为块级元素,此时可以使用text-align: center
+将img图片居中
+-->
+<!--<div style="display: block;text-align: center">-->
+<!--    <img class="t" src="images/1.jpeg" width="100px" height="100px" alt="">-->
+<!--</div>-->
+
+<!--方式二：-->
+<!--1.在文件内，创建一个div模块，在div内，使用img标签创建一张图片。-->
+<!--2.在css标签中，设置div的宽度、高度，并且将div的text-align属性设置为center，实现将图片在div内居中显示。-->
+<!--<div style="text-align: center;">-->
+<!--    <img class="t" src="images/1.jpeg" width="100px" height="100px" alt="">-->
+<!--</div>-->
+
+<!--方式三：position单词意思：位置-->
+<!--设为背景图片，使用背景图片的定位 background-position: center;-->
+
+
+</body>
+</html>

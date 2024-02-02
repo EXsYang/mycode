@@ -1,0 +1,8 @@
+package com.atguigu.com;
+
+public class Person extends Persontest {
+
+	String name;
+	int age;
+
+}

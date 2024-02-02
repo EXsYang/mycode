@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event-hw2</title>
+</head>
+<body>
+
+
+
+
+<!--<div id="app">
+    <h1>{{message}}</h1>
+    请输入书名: <input type="text" v-model="bookName">
+    <button v-on:click="show">点击显示书名~</button>
+</div>
+<script src="vue.js"></script>
+&lt;!&ndash;创建一个vue实例,并挂载到id=app的div&ndash;&gt;
+<script>
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div, el 就是element的简写
+        data: { //data{} 表示数据池(model中的数据), 有很多数据 ,以k-v形式设置(根据业务需要来设置)
+            message: "Vue事件处理的作业",
+            bookName: "天龙八部"
+        },
+        methods: {
+            show() {
+                //老韩提醒,如果你要访问当前Vue实例的数据池的数据, 需要this
+                //否则，会报错ReferenceError: bookName is not defined
+                alert("你输入的书名是:" + this.bookName)
+            }
+        }
+    })
+</script>-->
+
+
+<div id="app">
+    <h1>{{message}}</h1> <br/><br/>
+    <!--书名：<input type="text" value="xxx"> <button>点击显示输入框的内容 弹窗显示</button>-->
+    <!--这里使用双向数据渲染-->
+    书名：<input type="text" v-model="bookName"> <button @click="alertBookName()">点击显示输入框的内容 弹窗显示</button>
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            message:"演示Vue事件绑定操作",
+            bookName:"天龙八部"
+        },
+        methods:{
+            alertBookName(){
+                alert(vm.bookName);
+            }
+        }
+    })
+</script>
+</body>
+</html>

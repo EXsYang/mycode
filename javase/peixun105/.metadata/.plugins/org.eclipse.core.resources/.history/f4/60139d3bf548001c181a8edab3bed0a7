@@ -1,0 +1,62 @@
+package com.atguigu.team.service;
+
+import com.atguigu.team.domain.Architect;
+import com.atguigu.team.domain.Designer;
+import com.atguigu.team.domain.Employee;
+import com.atguigu.team.domain.NoteBook;
+import com.atguigu.team.domain.PC;
+import com.atguigu.team.domain.Printer;
+import com.atguigu.team.domain.Programmer;
+
+public class NameListService {
+
+	private Employee[] employee;
+	
+	
+	public  NameListService() {
+		//employee = new Employee[12];
+		Employee e = new Employee();
+		Programmer p = new Programmer();
+		Designer d = new Designer();
+		Architect a = new Architect();
+		PC pc = new PC();
+		NoteBook n = new NoteBook();
+		Printer pr = new Printer();
+		Data date = new Data();
+		
+		employee = new Employee[] {{},{},{},{},{}{},{},{},{},{}{},{}};
+	}
+	
+	
+	
+	public Employee[] getAllEmployees(Employee[] employee) {
+		
+		return employee;
+		
+	}
+	
+	public Employee getEmployee(int id) throws TeamException{
+		if(id<13 && id > 0) {
+			
+			return this.employee[id];
+		}else {
+			throw new TeamException("找不到指定的员工");
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+public static void main(String[] args) {
+	NameListService n = new NameListService();
+	
+}
+}

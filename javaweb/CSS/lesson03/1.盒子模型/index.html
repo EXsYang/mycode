@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型测试</title>
+    <style>
+        /*body总有一个默认的外边距margin,习惯一上来置成0*/
+        /*h1,h2,ul,li,a,body{*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*    text-decoration: none;*/
+        /*}*/
+        /*border: 粗细 样式 颜色
+         solid：实线
+         dashed: 虚线
+          */
+
+        #box {
+            width: 300px;
+            border: 8px solid red;
+            /*text-align: center;*/
+            /*外边距的妙用：居中元素*/
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 15px;
+            background-color: #21499a;
+            line-height: 30px;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        form {
+            background-color: green;
+        }
+
+        /*  :nth-of-type(n) 选择器匹配属于父元素的特定类型（:前写的是什么类型，
+        如下用到的是div）的第 N 个子元素的每个元素.*/
+        /*   n 可以是数字、关键词或公式,指的是第几个指定类型的元素。*/
+
+        /* 选中了两个，一个是最外层的div,一个是里层的用户名div*/
+        div:nth-of-type(1) {
+            border: 3px solid wheat;
+        }
+
+        div:nth-of-type(2) {
+            border: 3px dashed black;
+        }
+
+        div:nth-of-type(3) {
+            border: 3px solid yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <h2>京东会员登录</h2>
+    <form action="#">
+        <div>
+            <span>用户名：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>密&nbsp;&nbsp; 码：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>邮&nbsp;&nbsp; 箱：</span>
+            <input type="text">
+        </div>
+    </form>
+
+</div>
+
+
+</body>
+</html>

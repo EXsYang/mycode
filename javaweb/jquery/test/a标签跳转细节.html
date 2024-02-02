@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        /*1、text()方法
+
+        用于获取所有匹配元素的内容；
+        设置或返回当前jQuery对象所匹配的DOM元素内的text内容。
+        所谓text内容，就是在该元素的html内容(即innerHTML属性值)的基础上过滤掉所有HTML标记后的文本内容(即IE浏览器的DOM元素特有的innerText属性值)。
+        2、使用语法
+        $("Element").text();
+        3、参数
+        当参数为空时，表示获取该元素的文本内容，而如果方法中包含参数，则表示将参数值设置为元素文本内容。
+        4、返回值
+        返回合并了每个匹配元素(包含其后代元素)中的文本内容后的字符串。
+        *
+        * */
+
+        $(function () {
+            $("#btn001").click(function () {
+                //console.log("a标签innerText= ",$("#bd").text());
+                alert($("#bd").text());// 可以输出a标签的innerText内容
+                //alert($("#bd").text());
+                //$("#bd").text()
+
+                // a标签在什么情况下会跳转？调用方法会吗？
+                //声明方式：<table><tr> <td class="product-name"><a href="#">${furn.name}name</a></td></tr></table>
+                // 并且使用另外一个a标签进行绑定点击事件
+                //$("td.product-name").eq(0).css('background-color', 'blue');
+
+
+                //var $td01 = $("#td01");
+
+
+            })
+
+            $("#delete").click(function (){
+                //onclick的执行顺序优于href顺序，执行完onclick才会执行href跳转
+                //如果没对 href 做处理 那么对 onclick 事件本身解析会有干扰
+
+                // a标签在什么情况下会跳转？调用方法会吗？
+                //声明方式：<table><tr> <td class="product-name"><a href="#">${furn.name}name</a></td></tr></table>
+                // 并且使用另外一个a标签进行绑定点击事件 即此种方式 绑定的是删除的a标签
+                //$("td.product-name").eq(0).css('background-color', 'blue'); //此语句使${furn.name}name变蓝
+                // $("td.product-name").eq(0)是一个Jquery对象 才能使用Jquery中的方法
+
+                // 如下代码会跳转 跳转到和本事件关联的 $("#delete") 的a标签的href 地址
+                //$("td.product-name").eq(0).text().css('background-color', 'blue');
+                //alert($("div").text().css('background-color', 'red')) // 此click函数绑定的a标签会跳转
+                alert($("div").text().html()); // .html() 对于一个string 类型的值 也是不存在的方法 此刻会按照a的href属性进行页面跳转
+
+                let b = window.confirm("确定要删除用户 " + $(this).attr("id") + " 吗？");
+                if (!b){
+                    //老韩解读：如果我们返回的false ,则表示放弃提交，页面就会停留在原页面
+                    return false;// 可以让 a标签不进行跳转，停留在原页面
+                }
+                return false;// 可以让 a标签不进行跳转，停留在原页面
+
+            })
+
+            $("#bd").click(function () {
+
+                //return false;
+                //alert($(this).parent().get(1).firstChild().text());
+                // 默认是true 什么都不写  只要不写 return false 此function 中的代码 走完就跳转
+                //  代码执行到最后也会跳转
+                //alert($(this).get(0)); //http://localhost:60952/jquery/test/www.baidu.com
+                alert($(this).get(1)); //undefined
+                alert($(this).get(1).firstChild()); //undefined
+                alert("ok")
+
+            })
+            $("#bd22").click(function () {
+                alert($("#bd22").text());
+                return false;
+                //alert($(this).parent().get(1).firstChild().text());
+
+            })
+            $("#test1div").click(function () {
+                //onclick的执行顺序优于href顺序，执行完onclick才会执行href跳转
+                //如果没对 href 做处理 那么对 onclick 事件本身解析会有干扰
+                //此处的问题使onclick/click()事件中代码没有return false 同时click()事件中代码出错 如调用不存在的函数
+                //或者使用非Jquery对象调用Jquery对象特有的方法(如 .css()、.html()方法) onclick()函数中会抛出一个
+                //Uncaught TypeError: $(...).text().html is not a function  此时因为click()函数中没有执行到return false
+                // 而且出错后的代码 也不会再执行了 此刻就会执行 a标签里的href 内容！！！ 进行跳转！！！
+                //href="javascript:void(0);"  可以解决问题 写上此死链接 可以阻止该a标签的跳转 因为该href是一个死链接！！
+
+                alert($("div").text())//
+                //alert($("div").text().css('background', 'red')) // 这里出错 后面的语句不会执行了 什么也没发生
+                alert($("div").text().html()) // 同上 这里也会出错 后面的语句不会执行了 什么也没发生
+                // 如果此点击事件绑定的是a标签 此刻会按照a的href属性进行页面跳转
+                alert(typeof $("div").text()) //string
+                console.log("==========")
+                console.log($("div").text().css('background', 'red')) //Uncaught TypeError: $(...).text().css is not a function
+            })
+
+
+        })
+
+    </script>
+    <title>a标签的跳转</title>
+   <!-- onclick的事件被先执行，其次是href中定义的（页面跳转或者javascript）
+
+    同时存在两个定义的时候（onclick与href都定义了），如果想阻止href的动作，在onclick必须加上return false; 一般是这样写onclick="xxx();return false;".
+
+    在href中定义的函数如果有返回值的话，当前页面的内容将被返回值代替
+
+    如果页面过长有滚动条，且希望通过链接的 onclick 事件执行操作。应将它的 href 属性设为 javascript:void(0);，而不要是 #，这可以防止不必要的页面跳动；
+
+    所以，比较推荐的写法是
+    <a href="javascrip:void(0)" onclick="subgo()"></a>
+    javascript:void(0),没启实质上的作用，它仅仅是一个死链接
+
+    实际上 #包含了一个位置信息默认的锚是#top 也就是网页的上端 ，而javascript:void(0) 仅仅表示一个死链接，没有任何信息。
+    所以调用脚本的时候最好用void(0)
+
+    href一般是指向一个URL地址，也可以调用javascript ,如href="javascript:xxx();",
+    文档中推荐这样写：<a href="javascript:void(0)" onclick="xxx();">xx</a>,
+    但是这种方法在复杂环境有时会产生奇怪的问题，尽量不要用javascript:协议做为A的href属性，
+    这样不仅会导致不必要的触发window.onbeforeunload事件，在IE里面更会使gif动画图片停止播放。
+
+    点击这样一个链接时会有两种情况发生，1、如果dosomthing返回true，那么浏览器就会发生跳转到cool.html，
+    相反如果返回false的话，就会忽略href,可以让 a标签不进行跳转，停留在原页面。因此借住这个特性，可以写代码......
+    <a href="cool.html" onclick="dosomthing()">xx</a>-->
+<script type="text/javascript">
+     function dosomthing(){
+        return confirm("确定要离开吗？");
+    }
+     function dosomthing(){
+         var a = confirm("确定要离开吗？");
+         if (a){
+             window.location.href = "cool.html";
+         }
+     }
+
+
+     //$(function () {
+     //    $("#a_href").click(function () {
+     //        return confirm("确定要离开吗？");
+     //    })
+     //})
+
+     $(function () {
+         $("#a_href").click(function (){
+             var a = confirm("确定要离开吗？");
+             if (!a){
+                 //alert("cool.html")
+                 //window.location.href = "cool1.html"; //
+                return false;
+                // alert("ok") // 写这句话 跳到cool1.html; 不写 跳到原本的href=www.baidu.com
+                // this.href; // dom元素 可以直接点属性 获取值
+             }
+             return a;
+         })
+     })
+</script>
+</head>
+<body>
+<button id="btn001">点我啊</button>
+<br>
+<button id="btn002">点我2</button>
+<a href="www.baidu.com" id="bd">点我跳转到百度</a>
+<a href="#" id="bd22">点我跳转#</a>
+<table>
+    <tr>
+        <td id="td01">td01</td>
+    </tr>
+</table>
+<!--下行代码中的el表达式未生效，因为这里是html 而不是jsp-->
+<table>
+    <tr>
+        <td class="product-name"><a href="#">${furn.name}name</a></td>
+
+        <td class="product-remove">
+            <a href="#" id="update"><i class="icon-pencil">修改</i></a>
+            <a href="###" id="delete"><i class="icon-close">删除</i></a>
+            <!--<a href="javascript:void(0);" id="delete"><i class="icon-close">删除</i></a>-->
+        </td>
+    </tr>
+
+</table>
+<br>
+<div>
+    ssssdiv
+</div>
+<button id="test1div">
+    点我查看普通div输出text().css()
+</button>
+<br>
+<a href="www.baidu.com" id="a_href">点我测试弹出确认框进行测试</a>
+
+
+
+</body>
+</html>

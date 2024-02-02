@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板字符串的使用</title>
+    <script type="text/javascript">
+        //1、字符串，换行会原生输出
+        let str1 = `for(int i = 0;i<=4;i++){
+            System.out.println(i);
+                    }`
+
+        console.log(str1);
+
+        //2. 字符串插入变量和表达式。变量名写在 ${} 中，${} 中可以放入 JavaScript 表达式。就是进行计算
+
+
+        //老师解读
+        //(1) 当解析 ${name}, 就找最近的name遍历, 进行替换
+        //(2) 然后可以得到最后解析的字符串
+        let name = "hspedu";
+        let str3 = `${name}`;
+        console.log(str3);
+
+        let str2 = `2+2=${2+2}`;
+        console.log(str2);
+        let n1 = 33;
+        let n2 = 44;
+        let str4 = `n1+n2=${n1 + n2}`;
+        let str5 = `${n1}+${n2}=${n1 + n2}`;
+        console.log(str4);
+        console.log(str5);
+
+
+        //let app = "appstr";
+        //let monster01 = {"App":app};
+        //let str6 = `<App/>`;
+        //console.log("str6======",str6);
+
+        //3. 字符串中调用函数
+
+        function sayHi(name){
+            console.log("hi" + name); // 如果sayHi()函数没有使用return返回数据 那么最后输出的是undefined
+             //return "hi" + name;
+        }
+
+        let str7 = `${sayHi("yangda")}` // 程序走到这里就会输出sayHi()函数中 打印的信息！
+
+        //console.log(str7);
+
+        //4. 模板字符串当作 HTML 模板使用：
+        window.onload = function (){    // 页面加载完毕后执行
+            let header = "";
+            let tags = ["RUNOOB", "GOOGLE", "TAOBAO"];
+
+            let html = `<h2>${header}</h2><ul>`;
+
+            //  for in 和 for of 是JavaScript的语法 这里不是学习重点
+            for (const x of tags) {
+                html += `<li>${x}</li>`;
+            }
+
+            html += `</ul>`;
+            document.getElementById("demo").innerHTML = html;
+        }
+
+    </script>
+</head>
+<body>
+
+<div id="demo"></div>
+</body>
+</html>

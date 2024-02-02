@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对多选框进行操作</title>
+    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#b1").click(
+                function () {
+                    var $inputs = $("input[name=hobby]:checked");
+                    alert("选中的个数= " + $inputs.length);
+                    // 爱好名称
+
+                    $inputs.each(function (){
+                        // 隐式的传入this 就是单个的input对象   dom对象
+                        // alert("爱好名称= " + $(this).val());
+
+                        /*textContent 属性设置或返回指定节点的文本内容，以及它的所有后代。
+                        如果您设置了 textContent 属性，会删除所有子节点，并被替换为包含指定字符串的一个单独的文本节点。
+                        提示：有时，此属性可用于取代 nodeValue 属性，但是请记住此属性同时会返回所有子节点的文本。
+                        文本内容包含所有子节点的文本
+                        语法
+                        设置节点的文本内容：
+                        node.textContent=text
+
+                        返回节点的文本内容：
+                        node.textContent
+                        */
+                        alert("爱好名称~= " + this.nextSibling.textContent);//.textContent输出 网球~
+
+                    })
+
+                }
+            )
+        })
+
+        //获取input name="sport" 标签后的文本
+        var btn11 = document.getElementById("btn11");
+        btn11.onclick = function () {
+            var sports = document.getElementsByName("sport");
+            for (let i = 0; i < sports.length; i++) {
+                //alert(sports[i].value);
+                alert(sports[i].nextSibling.textContent) //获取input后面的文本内容
+            }
+        }
+
+    </script>
+</head>
+<body>
+<h1>对多选框进行操作</h1>
+<input type="checkbox" name="hobby" value="篮球"/>篮球~
+<input type="checkbox" name="hobby" value="足球"/>足球~
+<input type="checkbox" name="hobby" value="网球"/>网球~
+<input type="checkbox" name="hobby" value="排球"/>排球~
+<input type="button" id="b1" value="点击测试"/> <br>
+<P>
+    你会的运动项目：
+</P>
+<input type="checkbox" name="sport" value="zq" checked="checked">足球
+<input type="checkbox" name="sport" value="tq">台球
+<input type="checkbox" name="sport" value="ppq">乒乓球 <br/>
+</body>
+</html>

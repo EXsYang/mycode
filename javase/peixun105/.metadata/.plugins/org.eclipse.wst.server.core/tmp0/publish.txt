@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Thu Dec 31 16:21:57 CST 2020
+org.eclipse.jst.jee.server\:JspServlet=D\:\\tomcat\\apache-tomcat-8.0.29\\webapps\\JspServlet
+org.eclipse.jst.jee.server\:text=D\:\\tomcat\\apache-tomcat-8.0.29\\webapps\\text
+org.eclipse.jst.jee.server\:JspServlet2054=D\:\\tomcat\\apache-tomcat-8.0.29\\webapps\\JspServlet2054

@@ -1,0 +1,53 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--配置HspDispatcherServlet, 作为我们自己的前端控制器-->
+<!--
+  <servlet>
+    <servlet-name>HspDispatcherServlet</servlet-name>
+    <servlet-class>com.hspedu.hspspringmvc.servlet.HspDispatcherServlet</servlet-class>
+    &lt;!&ndash;给HspDispatcherServlet配置参数，指定要操作的spring容器配置文件&ndash;&gt;
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      &lt;!&ndash;classpath: 指的就是src/main/resource/ 目录,
+      源文件的环境/编写代码的环境下放入到该resource目录
+      的文件会自动的放到运行环境的类加载路径classpath目录下&ndash;&gt;
+      <param-value>classpath:hspspringmvc.xml</param-value>
+    </init-param>
+    &lt;!&ndash;HspDispatcherServlet 在tomcat启动时就自动加载&ndash;&gt;
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HspDispatcherServlet</servlet-name>
+    &lt;!&ndash;因为HspDispatcherServlet作为前端控制器,所以需要拦截所有请求,url-pattern配置成 / &ndash;&gt;
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+-->
+
+
+  <!--配置HspDispatcherServlet1, 作为我们自己的前端控制器-->
+  <servlet>
+    <servlet-name>HspDispatcherServlet1</servlet-name>
+    <servlet-class>com.hspedu1.hspspringmvc1.servlet.HspDispatcherServlet1</servlet-class>
+
+    <!--配置初始化参数-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:hspspringmvc1.xml</param-value>
+    </init-param>
+
+    <!--HspDispatcherServlet1 在tomcat启动时就自动加载-->
+    <load-on-startup>1</load-on-startup>
+
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HspDispatcherServlet1</servlet-name>
+    <!--因为HspDispatcherServlet1作为前端控制器,所以需要拦截所有请求,url-pattern配置成 /-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>

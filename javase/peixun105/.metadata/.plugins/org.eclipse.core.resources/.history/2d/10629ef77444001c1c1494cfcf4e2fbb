@@ -1,0 +1,18 @@
+package com.atguigu.exer2;
+
+import java.util.Scanner;
+
+public class EcmDef {
+
+	Scanner sca  = new Scanner();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

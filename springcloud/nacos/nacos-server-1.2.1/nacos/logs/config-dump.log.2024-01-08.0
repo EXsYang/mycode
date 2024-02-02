@@ -1,0 +1,12 @@
+2024-01-08 12:47:46,564 INFO [dump-all-ok] e-commerce-nacos-config-client-dev.yaml+DEFAULT_GROUP, 1704441132018, length=50, md5=45532accaf3aac3463cf9ac5574f458d
+
+2024-01-08 12:47:46,587 INFO [dump-all-ok] e-commerce-nacos-config-client-test.yaml+DEFAULT_GROUP, 1704441431090, length=62, md5=dc70666498a36fd402e69a451676dea3
+
+2024-01-08 12:47:46,588 INFO [dump-all-ok] e-commerce-nacos-config-client-dev.yaml+order, 1704443042093, length=64, md5=923fec50c890f894053f49868d4623d3
+
+2024-01-08 12:47:46,588 INFO [dump-all-ok] e-commerce-nacos-config-client-dev.yaml+seckill, 1704443168877, length=61, md5=678b6a2f87311b69c40f0cf2a8fc0c8a
+
+2024-01-08 12:47:46,588 INFO [dump-all-ok] e-commerce-nacos-config-client-dev.yaml+seckill, 1704443813529, length=64, md5=d109b9dd09937d11daa82329c77bf2ac
+
+2024-01-08 12:47:46,589 INFO [dump-all-ok] e-commerce-nacos-config-client-dev.yaml+search, 1704444002292, length=67, md5=cb9e5b8b06f9cff0d05b4caa62a9af72
+

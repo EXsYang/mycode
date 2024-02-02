@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>e-commerce-center2</artifactId>
+        <groupId>com.hspedu.springcloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--该项目继承父项目的groupId是 com.hspedu.springcloud
+    因此这里就不需要再指定groupId
+    -->
+    <!--会员服务提供者-->
+    <artifactId>member-service-provider-10000</artifactId>
+
+    <!--引入相关的依赖-->
+    <dependencies>
+
+        <!--引入sleuth + zipkin 依赖
+        说明: 1. 使用版本仲裁
+              2. starter-zipkin 包含了sleuth
+        -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+        <!--引入 eureka-client 场景启动器starter 依然使用版本仲裁，防止自己引入的版本可能会不兼容的问题-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <!--注意这里有一个starter 不要引错了-->
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+
+        <!--引入web starter 使用版本仲裁(从父项目继承了版本,即从下面这个位置)
+        <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.2.RELEASE</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--starter-actuator 是springboot程序的监控系统，可以实现系统的健康检测
+        可以通过 http://localhost:10000/actuator 看到相关的连接和信息
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--引入mybatis 整合到springboot程序-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--引入druid starter, 整合到springboot程序 使用该启动器只需要简单的配置即可-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <!--这里需要单独指定版本，因为父项目中没有指定
+            ，即这里使用不了版本仲裁-->
+            <version>1.1.17</version>
+        </dependency>
+
+        <!--引入mysql,使用版本仲裁-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--引入spring-boot-starter-jdbc, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+
+        <!--引入lombok, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--引入test starter, 用于DAO层和Service层做springboot环境下的测试, 使用版本仲裁-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+
+        <!--引入e_commerce_center-common-api
+            version=1.0-SNAPSHOT
+            groupId=com.hspedu.springcloud
+            artifactId=e_commerce_center-common-api
+        -->
+        <dependency>
+            <groupId>com.hspedu.springcloud</groupId>
+            <artifactId>e_commerce_center-common-api</artifactId>
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <version>${project.version}</version>
+        </dependency>
+
+
+
+
+
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hspedu.springcloud.dao.MemberDao">
+
+    <!--<resultMap id="BaseResultMap" type="com.hspedu.springcloud.entity.Member">-->
+    <resultMap id="BaseResultMap" type="Member">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <id column="name" property="name" jdbcType="VARCHAR"></id>
+        <id column="pwd" property="pwd" jdbcType="VARCHAR"></id>
+        <id column="mobile" property="mobile" jdbcType="VARCHAR"></id>
+        <id column="email" property="email" jdbcType="VARCHAR"></id>
+        <id column="gender" property="gender" jdbcType="TINYINT"></id>
+    </resultMap>
+
+    <!--配置/实现queryMemberById
+    1.这里可以使用resultType="Member"
+    2.当然也可以使用resultMap="自定义的resultMap",这里我们使用resultMap,将来利于扩展,更加灵活
+    -->
+    <!--<select id="queryMemberById" parameterType="Long" resultType="com.hspedu.springcloud.entity.Member">-->
+    <!--<select id="queryMemberById" parameterType="Long" resultType="Member">-->
+    <select id="queryMemberById" parameterType="Long" resultMap="BaseResultMap">
+        SELECT * FROM `member` WHERE `id`=#{id};
+    </select>
+
+
+    <!--配置/实现save
+        useGeneratedKeys 返回自增长的值
+        keyProperty 自增长的值 对应的对象的属性是哪一个 如下 如果写的name
+        就是将数据库自增长的id的值赋给monster对象的name属性 注意不要写错了 ，
+        要和对应的JavaBean中对象的属性对应
+         useGeneratedKeys="true" keyProperty="id" 这两个属性组合使用
+         可以获取到自增长的主键id 自增长后的值 返回来 在Java程序中通过member.getId()拿到
+
+        useGeneratedKeys="true":
+        这个设置用于MyBatis插入操作，用来指示MyBatis框架在执行插入操作后应从数据库获取生成的主键值。
+        当您的数据库表中有一个自增长的主键字段时，这个设置非常有用。
+        keyProperty="id":
+        keyProperty 属性指定了MyBatis应该将获取到的主键值赋值给哪个Java对象的属性。
+        在这种情况下，keyProperty="id" 表示MyBatis会将数据库生成的主键值赋值给 Member 对象的 id 属性。
+
+        在MyBatis中设置 useGeneratedKeys="true" 和 keyProperty="id" 可以使您在执行插入操作后拿到由数据库自动生成的主键值。这种设置在使用自增长主键的场景中非常常见和有用。
+
+        这是如何工作的：
+
+        useGeneratedKeys="true":
+
+        这个属性告诉MyBatis在执行插入操作后从数据库中获取生成的主键值。
+        这适用于数据库表中有自增长主键的情况。
+        keyProperty="id":
+
+        keyProperty 指定了MyBatis应将获取到的主键值赋值给哪个Java对象的属性。
+        在您的例子中，keyProperty="id" 表示MyBatis将数据库生成的主键值赋值给 Member 对象的 id 属性。
+        当您在MyBatis映射器文件中进行插入操作（比如使用 <insert> 标签）并且这些属性被正确设置时，MyBatis将执行以下操作：
+
+        执行插入语句将数据插入数据库。
+        数据库生成新的主键值（因为 id 字段被设置为自增长）。
+        MyBatis从数据库获取这个新生成的主键值。
+        MyBatis将这个主键值赋值给 Member 对象的 id 属性。
+        因此，在插入操作完成后，您可以通过 Member 对象获取到新生成的主键值。例如，如果您的 Member 对象名为 member，则可以通过 member.getId() 来访问新生成的主键值。这对于需要在插入后立即使用新生成的主键的场景特别有用。
+    -->
+    <!--<insert id="save" parameterType="Member" useGeneratedKeys="true" keyProperty="id">-->
+    <!--parameterType="member" 这里也可以小写开头,但我们还是使用首字母大写的类名-->
+    <!--<insert id="save" parameterType="member" useGeneratedKeys="true" keyProperty="id">-->
+    <insert id="save" parameterType="Member" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `member` (`NAME`,`pwd`,`mobile`,`email`,`gender`)
+        VALUES (#{name},MD5(#{pwd}),#{mobile},#{email},#{gender});
+    </insert>
+</mapper>
+
+
+
+

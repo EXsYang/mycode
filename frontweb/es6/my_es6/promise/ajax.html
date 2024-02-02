@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <!--引入jquery-->
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        //jquery发出ajax的方式-回顾
+
+        $.ajax({
+            //type:"GET", //不写默认是GET请求
+            url:"data/monster.json",
+            //data:{},
+            success(resultData) {//如果请求成功了，回调处理函数success
+                console.log("第一次请求=",resultData);
+                // 如果请求成功 发出第二次ajax请求
+                $.ajax({
+                    url:`data/monster_detail_${resultData.id}.json`,
+                    //success:function (resultData){
+                    //    console.log("第二次请求=",resultData);
+                    //},
+
+                    ////下面是es6对象的方法简写形式
+                    success(resultData) {
+                        console.log("第二次请求=",resultData);
+
+                        //$.ajax => callback hell
+                        //$.ajax
+                        //$.ajax
+                    },
+                    error(err) {//出错的回调函数
+                        console.log("第二次请求出现异常=",err);
+                    }
+                })
+            },
+            error(err){//出错的回调函数
+                console.log("第一次请求出现异常=",err);
+            },
+            //dataType:"json" //如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断
+
+
+        })
+
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+package com.atguigu.exer1;
+
+public class StaticTest {
+	public static void main(String[] args) {
+		
+		
+		Man  m = new Man();
+		m.setWidth(20);
+		System.out.println(m.getWidth());
+		Person p = new Person();
+		System.out.println(p.getWidth());
+	}
+}

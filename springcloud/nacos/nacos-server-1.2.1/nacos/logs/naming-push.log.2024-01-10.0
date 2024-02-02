@@ -1,0 +1,246 @@
+2024-01-10 01:00:57,632 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-10 01:02:14,766 INFO DEFAULT_GROUP@@seata_account_micro_service is changed, add it to push queue.
+
+2024-01-10 01:05:10,041 INFO DEFAULT_GROUP@@seata_account_micro_service is changed, add it to push queue.
+
+2024-01-10 01:05:10,041 INFO DEFAULT_GROUP@@seata_account_micro_service is changed, add it to push queue.
+
+2024-01-10 01:05:25,476 INFO DEFAULT_GROUP@@seata_account_micro_service is changed, add it to push queue.
+
+2024-01-10 02:12:20,266 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 02:12:26,326 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:21:50,412 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 02:21:52,218 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:22:05,984 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 02:22:07,343 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:22:10,528 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:22:36,352 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:02,495 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:05,921 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:06,405 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:17,795 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:21,043 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 02:24:21,421 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 22:19:17,205 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-10 22:46:31,772 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 22:46:43,459 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 22:47:01,002 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:01:42,421 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:02:02,485 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:02:22,733 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:03:42,511 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:03:57,554 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:04:36,740 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:09:05,464 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:09:06,195 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:52774, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,52774,122588097778800
+
+2024-01-10 23:09:06,195 INFO send udp packet: 198.18.0.1,52774,122588097778800
+
+2024-01-10 23:09:07,661 INFO received ack: {"type": "push-ack", "lastRefTime":"122588097778800", "data":""} from: 198.18.0.1:52774, cost: 1466 ms, unacked: 0, total push: 1
+
+2024-01-10 23:09:20,498 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:09:20,498 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:52774, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,52774,122603091053200
+
+2024-01-10 23:09:20,498 INFO send udp packet: 198.18.0.1,52774,122603091053200
+
+2024-01-10 23:09:20,606 INFO received ack: {"type": "push-ack", "lastRefTime":"122603091053200", "data":""} from: 198.18.0.1:52774, cost: 108 ms, unacked: 0, total push: 2
+
+2024-01-10 23:10:53,611 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:10:53,896 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:52774, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,52774,122696489497800
+
+2024-01-10 23:10:53,896 INFO send udp packet: 198.18.0.1,52774,122696489497800
+
+2024-01-10 23:10:54,300 INFO received ack: {"type": "push-ack", "lastRefTime":"122696489497800", "data":""} from: 198.18.0.1:52774, cost: 404 ms, unacked: 0, total push: 3
+
+2024-01-10 23:12:19,856 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:12:55,488 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:15:21,202 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:15:21,202 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:64460, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,64460,122963795111000
+
+2024-01-10 23:15:21,202 INFO send udp packet: 198.18.0.1,64460,122963795111000
+
+2024-01-10 23:15:21,208 INFO received ack: {"type": "push-ack", "lastRefTime":"122963795111000", "data":""} from: 198.18.0.1:64460, cost: 6 ms, unacked: 0, total push: 4
+
+2024-01-10 23:15:30,300 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:15:30,312 INFO serviceName: DEFAULT_GROUP@@seata-account-micro-service changed, schedule push for: 198.18.0.1:64460, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,64460,122972893139900
+
+2024-01-10 23:15:30,312 INFO send udp packet: 198.18.0.1,64460,122972893139900
+
+2024-01-10 23:15:30,313 INFO received ack: {"type": "push-ack", "lastRefTime":"122972893139900", "data":""} from: 198.18.0.1:64460, cost: 1 ms, unacked: 0, total push: 5
+
+2024-01-10 23:17:08,894 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:17:20,093 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:19:14,152 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:19:20,972 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:23:49,526 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:24:00,830 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:32:38,138 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:32:47,551 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:32:54,875 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:33:50,987 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:34:01,258 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:34:05,501 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:35:14,269 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:35:24,671 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:36:43,167 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:36:46,252 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-10 23:36:46,505 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:59735, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,59735,124248844803500
+
+2024-01-10 23:36:46,505 INFO send udp packet: 198.18.0.1,59735,124248844803500
+
+2024-01-10 23:36:46,580 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:52252, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,52252,124248844803500
+
+2024-01-10 23:36:46,580 INFO send udp packet: 198.18.0.1,52252,124248844803500
+
+2024-01-10 23:36:46,580 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:63840, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,63840,124248844803500
+
+2024-01-10 23:36:46,584 INFO send udp packet: 198.18.0.1,63840,124248844803500
+
+2024-01-10 23:36:46,584 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:36:46,585 INFO serviceName: DEFAULT_GROUP@@seata-storage-micro-service changed, schedule push for: 198.18.0.1:62169, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,62169,124249177731500
+
+2024-01-10 23:36:46,585 INFO send udp packet: 198.18.0.1,62169,124249177731500
+
+2024-01-10 23:36:46,952 INFO received ack: {"type": "push-ack", "lastRefTime":"124248844803500", "data":""} from: 198.18.0.1:52252, cost: 372 ms, unacked: 3, total push: 9
+
+2024-01-10 23:36:46,952 INFO received ack: {"type": "push-ack", "lastRefTime":"124248844803500", "data":""} from: 198.18.0.1:59735, cost: 447 ms, unacked: 2, total push: 9
+
+2024-01-10 23:36:46,953 INFO received ack: {"type": "push-ack", "lastRefTime":"124249177731500", "data":""} from: 198.18.0.1:62169, cost: 368 ms, unacked: 1, total push: 9
+
+2024-01-10 23:36:48,043 INFO received ack: {"type": "push-ack", "lastRefTime":"124248844803500", "data":""} from: 198.18.0.1:63840, cost: 1459 ms, unacked: 0, total push: 9
+
+2024-01-10 23:37:31,294 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:37:59,907 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:43:34,616 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:43:34,627 INFO serviceName: DEFAULT_GROUP@@seata-storage-micro-service changed, schedule push for: 198.18.0.1:62474, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,62474,124657209332800
+
+2024-01-10 23:43:34,627 INFO send udp packet: 198.18.0.1,62474,124657209332800
+
+2024-01-10 23:43:34,643 INFO received ack: {"type": "push-ack", "lastRefTime":"124657209332800", "data":""} from: 198.18.0.1:62474, cost: 16 ms, unacked: 0, total push: 10
+
+2024-01-10 23:43:42,816 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:43:42,817 INFO serviceName: DEFAULT_GROUP@@seata-storage-micro-service changed, schedule push for: 198.18.0.1:62474, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,62474,124665408909600
+
+2024-01-10 23:43:42,817 INFO send udp packet: 198.18.0.1,62474,124665408909600
+
+2024-01-10 23:43:42,828 INFO received ack: {"type": "push-ack", "lastRefTime":"124665408909600", "data":""} from: 198.18.0.1:62474, cost: 11 ms, unacked: 0, total push: 11
+
+2024-01-10 23:43:50,097 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:43:50,161 INFO serviceName: DEFAULT_GROUP@@seata-storage-micro-service changed, schedule push for: 198.18.0.1:62474, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,62474,124672752416600
+
+2024-01-10 23:43:50,161 INFO send udp packet: 198.18.0.1,62474,124672752416600
+
+2024-01-10 23:43:50,169 INFO received ack: {"type": "push-ack", "lastRefTime":"124672752416600", "data":""} from: 198.18.0.1:62474, cost: 8 ms, unacked: 0, total push: 12
+
+2024-01-10 23:46:40,611 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:46:41,137 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:46:41,153 INFO serviceName: DEFAULT_GROUP@@seata-storage-micro-service changed, schedule push for: 198.18.0.1:62474, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,62474,124843729999100
+
+2024-01-10 23:46:41,252 INFO send udp packet: 198.18.0.1,62474,124843729999100
+
+2024-01-10 23:46:41,253 INFO received ack: {"type": "push-ack", "lastRefTime":"124843729999100", "data":""} from: 198.18.0.1:62474, cost: 1 ms, unacked: 0, total push: 13
+
+2024-01-10 23:46:51,882 INFO DEFAULT_GROUP@@seata-storage-micro-service is changed, add it to push queue.
+
+2024-01-10 23:46:54,958 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:46:56,111 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:46:59,925 INFO DEFAULT_GROUP@@seata-account-micro-service is changed, add it to push queue.
+
+2024-01-10 23:47:10,258 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:47:11,616 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:48:40,246 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:48:48,943 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:49:20,302 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:49:35,597 INFO DEFAULT_GROUP@@seata-order-micro-service is changed, add it to push queue.
+
+2024-01-10 23:51:11,013 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-10 23:51:11,025 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:63402, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,63402,125113618263000
+
+2024-01-10 23:51:11,026 INFO send udp packet: 198.18.0.1,63402,125113618263000
+
+2024-01-10 23:51:11,073 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:65046, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,65046,125113618263000
+
+2024-01-10 23:51:11,073 INFO send udp packet: 198.18.0.1,65046,125113618263000
+
+2024-01-10 23:51:11,077 INFO received ack: {"type": "push-ack", "lastRefTime":"125113618263000", "data":""} from: 198.18.0.1:65046, cost: 4 ms, unacked: 1, total push: 15
+
+2024-01-10 23:51:11,208 INFO received ack: {"type": "push-ack", "lastRefTime":"125113618263000", "data":""} from: 198.18.0.1:63402, cost: 182 ms, unacked: 0, total push: 15
+
+2024-01-10 23:51:20,500 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2024-01-10 23:51:20,500 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:63402, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,63402,125123092827900
+
+2024-01-10 23:51:20,500 INFO send udp packet: 198.18.0.1,63402,125123092827900
+
+2024-01-10 23:51:20,500 INFO serviceName: DEFAULT_GROUP@@serverAddr changed, schedule push for: 198.18.0.1:65046, agent: Nacos-Java-Client:v1.1.1, key: 198.18.0.1,65046,125123092827900
+
+2024-01-10 23:51:20,500 INFO send udp packet: 198.18.0.1,65046,125123092827900
+
+2024-01-10 23:51:20,531 INFO received ack: {"type": "push-ack", "lastRefTime":"125123092827900", "data":""} from: 198.18.0.1:65046, cost: 31 ms, unacked: 1, total push: 17
+
+2024-01-10 23:51:20,532 INFO received ack: {"type": "push-ack", "lastRefTime":"125123092827900", "data":""} from: 198.18.0.1:63402, cost: 32 ms, unacked: 0, total push: 17
+

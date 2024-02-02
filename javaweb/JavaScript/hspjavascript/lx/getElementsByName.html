@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementsByName</title>
+    <script type="text/javascript">
+        /*
+       只有getElementById() 不放在window.onload取不到值！！！！！！！！！
+       document.getElementById('参数')：根据id获取元素，由于id是唯一的，获取到的是一个元素。
+       document.getElementsByName('参数')：根据name获取元素，由于name不是唯一的（比如不同的input的name可以相同），获取到的是元素数组。
+       document.getElementsByTagName('参数')：根据tagName获取元素，由于tagName不是唯一的，获取到的是元素数组。
+       例：页面有如下3个元素
+           <input type="text" id="user1" name="count" value="001"/>
+           <input type="text" id="user2" name="count" value="001"/>
+           <input type="text" id="user3" name="count" value="001"/>
+       document.getElementById('user2')  获取到的是第2个元素
+       document.getElementsByName('count')  获取到的是全部3个元素
+       document.getElementsByName('count')[0]  获取到的是第1个元素
+       document.getElementsByTagName('input')  获取到的是全部3个元素
+       document.getElementsByTagName('input')[1]  获取到的是第2个元素*/
+        // 全选
+        var football = document.getElementById("football"); // 只有getElementById() 不放在window.onload取不到值！！！
+        // alert("football= " + football); // football= null
+
+        window.onload = function (){
+            var football2 = document.getElementById("football");
+            // alert("football2= " + football2); // football2= object HTMLInputElement
+        }
+
+        var sports = document.getElementsByName("sport");  // 即使不放在window.onload也可以取到值
+        // alert("sports= " + sports); //sports= [object NodeList]
+        window.onload = function (){
+            var sports2 = document.getElementsByName("sport");
+            // alert("sports2= " + sports2); // sports2= [object NodeList]
+        }
+
+        var inputs = document.getElementsByTagName("input");  // 即使不放在window.onload也可以取到值
+        alert("inputs= " + inputs); //inputs= [object HTMLCollection]
+        window.onload = function (){
+            var inputs2 = document.getElementsByTagName("input");
+            alert("inputs2= " + inputs2); // inputs2= [object HTMLCollection]
+        }
+
+
+        function selectAll(){ // 静态方式不需要放在window.onload事件里
+            for (let i = 0; i < sports.length; i++) {
+                sports[i].checked = true;
+            }
+        }
+        // 全不选
+        function selectNone(){ // 静态方式不需要放在window.onload事件里
+            for (let i = 0; i < sports.length; i++) {
+                sports[i].checked = false;
+            }
+        }
+        // 反选
+        function selectReverse(){ // 静态方式不需要放在window.onload事件里
+            for (let i = 0; i < sports.length; i++) {
+                // if (sports[i].checked == true){
+                //     sports[i].checked = false;
+                // }else if (sports[i].checked == false){
+                //     sports[i].checked = true;
+                // }
+
+                //简便方式 在 JavaScript 语言中，所有的变量，都可以做为一个 boolean 类型的变量去使用。 => 去看逻辑运算符
+                sports[i].checked = !sports[i].checked;
+            }
+        }
+
+
+    </script>
+
+</head>
+<body>
+你会的运动项目：
+<input type="checkbox" name="sport" value="zq" checked="checked" id="football">足球
+<input type="checkbox" name="sport" value="tq">台球
+<input type="checkbox" name="sport" value="ppq">乒乓球 <br/><br/>
+<button onclick="selectAll()">全选</button>
+<button onclick="selectNone()">全不选</button>
+<button onclick="selectReverse()">反选</button>
+</body>
+</html>
