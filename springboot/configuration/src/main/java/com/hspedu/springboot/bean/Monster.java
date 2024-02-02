@@ -39,4 +39,6 @@ public class Monster {
     private Set<Double> salaries;
     private Map<String, List<Car>> cars;
 
+
+
 }
