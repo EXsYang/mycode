@@ -21,7 +21,7 @@ public interface MonsterMapper extends BaseMapper<Monster> {
     //自定义方法
 
     // 使用mybatisplusx插件自动生成的方法
-    // 选择好要生成的方法后，将光标放在方法名最后面alt+enter。 insertSelective alt+enter
+    // 选择好要生成的方法'insertSelective'后，将光标放在方法名最后面alt+enter。 insertSelective alt+enter
     int insertSelective(Monster monster);
 
     int deleteByEmail(@Param("email") String email);

@@ -1,0 +1,47 @@
+08-Feb-2024 03:50:32.957 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.50
+08-Feb-2024 03:50:32.989 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 7 2018 20:06:05 UTC
+08-Feb-2024 03:50:32.989 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.50.0
+08-Feb-2024 03:50:32.989 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+08-Feb-2024 03:50:32.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+08-Feb-2024 03:50:32.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Feb-2024 03:50:32.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk\jdk1.8\jre
+08-Feb-2024 03:50:32.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+08-Feb-2024 03:50:32.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Feb-2024 03:50:32.991 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+08-Feb-2024 03:50:32.991 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+08-Feb-2024 03:50:32.991 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\conf\logging.properties
+08-Feb-2024 03:50:32.992 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Feb-2024 03:50:32.992 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+08-Feb-2024 03:50:32.992 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+08-Feb-2024 03:50:32.993 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+08-Feb-2024 03:50:32.993 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+08-Feb-2024 03:50:32.993 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50
+08-Feb-2024 03:50:32.994 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp
+08-Feb-2024 03:50:32.997 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.16 using APR version 1.6.3.
+08-Feb-2024 03:50:32.998 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+08-Feb-2024 03:50:33.749 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2m  2 Nov 2017)
+08-Feb-2024 03:50:34.800 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+08-Feb-2024 03:50:34.807 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+08-Feb-2024 03:50:34.809 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2312 ms
+08-Feb-2024 03:50:34.860 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+08-Feb-2024 03:50:34.860 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.50
+08-Feb-2024 03:50:34.874 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs
+08-Feb-2024 03:50:35.729 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [471] milliseconds.
+08-Feb-2024 03:50:35.749 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\docs has finished in 875 ms
+08-Feb-2024 03:50:35.750 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples
+08-Feb-2024 03:50:36.915 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\examples has finished in 1,165 ms
+08-Feb-2024 03:50:36.916 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager
+08-Feb-2024 03:50:36.993 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\host-manager has finished in 77 ms
+08-Feb-2024 03:50:36.994 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager
+08-Feb-2024 03:50:37.035 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\manager has finished in 42 ms
+08-Feb-2024 03:50:37.036 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\member
+08-Feb-2024 03:50:37.064 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\member has finished in 28 ms
+08-Feb-2024 03:50:37.065 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person
+08-Feb-2024 03:50:37.083 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\person has finished in 18 ms
+08-Feb-2024 03:50:37.084 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT
+08-Feb-2024 03:50:37.129 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\ROOT has finished in 45 ms
+08-Feb-2024 03:50:37.129 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test
+08-Feb-2024 03:50:37.149 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Java_developer_tools\mycode\javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\webapps\test has finished in 20 ms
+08-Feb-2024 03:50:37.155 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+08-Feb-2024 03:50:37.174 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+08-Feb-2024 03:50:37.178 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 2369 ms
