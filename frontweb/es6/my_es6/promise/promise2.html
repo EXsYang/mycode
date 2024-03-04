@@ -5,8 +5,24 @@
     <title>promise代码重排</title>
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-        // 将 重复的代码提取出来 封装成一个方法
 
+        /* 不是程序发生异常才进入到catch中吗？Promise对象分别进入到.then()和.catch()执行的时机是？
+        在 JavaScript 的 `Promise` 对象中，`.then()` 和 `.catch()` 方法被用于处理异步操作的成功结果和失败结果：
+
+        1. **`.then()`**：当 `Promise` 被成功解决（或"fulfilled"）时，`.then()` 方法中的回调函数将被调用。这通常表示异步操作已成功完成，并且可以通过 `.then()` 方法中的回调函数获取到操作的结果。
+
+        2. **`.catch()`**：当 `Promise` 被拒绝（或"rejected"）时，`.catch()` 方法中的回调函数将被调用。这通常表示异步操作失败或出现错误。`Promise` 被拒绝可以由于多种原因，包括手动拒绝（例如，在 `Promise` 内部通过调用 `reject()` 函数）、抛出异常（在 `Promise` 的执行函数或 `.then()` 方法的回调函数中抛出错误）。
+
+        在 `this.$confirm` 的情况中，它使用 `Promise` 来处理用户的交互：
+
+        - 当用户点击“确定”按钮时，`$confirm` 的 `Promise` 被解决，这导致 `.then()` 方法中的回调函数被执行。这里，并不是因为程序没有异常就进入 `.then()`，而是因为对话框的逻辑是当用户确认操作时，视为流程“成功”，从而进入 `.then()`。
+
+        - 当用户点击“取消”按钮或关闭对话框时，`$confirm` 的 `Promise` 被拒绝，这导致 `.catch()` 方法中的回调函数被执行。在这种情况下，进入 `.catch()` 并不意味着程序发生了异常，而是因为按照 `Element UI` 的 `$confirm` 方法的约定，取消操作会拒绝 `Promise`。
+
+        因此，在 `Promise` 的上下文中，"成功" 和 "失败" 并不总是指程序的执行没有错误，而是指异步操作的结果符合或不符合预期。在 `this.$confirm` 的场景中，"成功" 和 "失败" 只是代表用户是确认还是取消了对话框中的操作。
+         */
+
+        // 将 重复的代码提取出来 封装成一个方法
         function get(url,data){
 
           return new Promise((resolve,reject) => {

@@ -44,6 +44,8 @@
                        (2) 可以再 第一个then()中继续发出axios的ajax请求
                        (3) 如果有异常, 会进入到 catch(箭头函数)
                     4. list在生命周期函数created() 中调用-自己去回顾vue的生命周期函数
+                    5. 需要注意的是，Axios 会将响应包装在一个对象中，通常我们需要访问 response.data 来获取实际的数据。
+                    在这个例子中，responseData 是 Axios 返回的完整响应对象，而 responseData.data 才是您真正感兴趣的后端返回的数据。
                  */
 
                 // 下面填入的url idea右上角使用浏览器打开的地址 地址栏中是什么就写什么 注意端口号一致
