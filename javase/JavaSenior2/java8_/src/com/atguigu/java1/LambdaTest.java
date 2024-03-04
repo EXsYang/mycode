@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 /**
  * Lambda表达式的使用举例
- *
+ * lambda表达式在Java中依赖于函数式接口。
  * @author shkstart
  * @create 2019 上午 11:30
  */
