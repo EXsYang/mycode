@@ -12,13 +12,26 @@
 
         //数组定义方式2
         var cars2 = [];//空数组
-        //添加元素
+        //添加元素方式1
         cars2[0] = "奥迪";
         cars2[1] = "宝马";
         cars2[2] = "奔驰";
         console.log("cars2=" + cars2);
         console.log("cars2[2]=" + cars2[2]);//奔驰
         console.log("cars2[10]=" + cars2[10]);//如果该元素不存在，返回的就是undefined
+
+        //添加元素方式2
+        // push() 方法将新的元素添加到数组的末尾，并返回新数组的长度。
+        var cars7 = ["Audi", "BMW", "Volvo"];
+        cars7.push("Mercedes");
+        console.log(cars7); // 输出: ["Audi", "BMW", "Volvo", "Mercedes"]
+        // 在这个例子中，"Mercedes" 被添加到了 cars 数组的末尾。push() 方法是数组中常用的方法之一，用于向数组末尾添加一个或多个元素，并返回新的数组长度。
+
+        // 如果你想在数组的开始处添加元素，可以使用 unshift() 方法：
+        var cars = ["Audi", "BMW", "Volvo"];
+        cars.unshift("Mercedes");
+        console.log(cars); // 输出: ["Mercedes", "Audi", "BMW", "Volvo"]
+        // 这里，unshift() 方法将新的元素添加到数组的开头，并同样返回新数组的长度。
 
         //数组定义方式3
         var cars3 = new Array("Audi", "BMW", "Volvo");

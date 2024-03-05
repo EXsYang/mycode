@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前端使用axios向后端发送数据的携带参数的形式</title>
+</head>
+<body>
+<!--
+ 形式1:
+    该写法出现在springboot_vue项目的 src/views/HomeView.vue:245
+   //下面是走分页的逻辑(带条件的) 注意这里请求furnByPage时，携带的参数有哪些，注意下面这种写法
+      // request.get("/api/furnsBySearchPage", {
+      request.get("/api/furnsBySearchPage2", {
+        params: {
+          pageNum: this.currentPage,
+          pageSize: this.pageSize,
+          search: this.search
+        }
+      }).then(
+          //下面这个res是通过request.js中的拦截器处理后的res
+          res => {
+            console.log("带条件的分页list() res=", res)
+            //将返回的数据和tableData绑定
+            //this.tableData = res.data.data
+            console.log(res)
+            //records:记录 绑定数据
+            this.tableData = res.data.records
+
+            //通过请求获取到表中的记录数 并绑定到数据池中的数据 this.total
+            this.total = res.data.total
+
+          }
+      )
+-->
+
+
+<!--
+ 形式2:
+ updateCategory(){
+      //1. 注意: 这里我们只是提交需要修改的字段信息，没有提交的字段，在
+      //   数据库中不会被修改(保持原来的值.. 我们可以观察sql语句)
+      //2. var {id, name, icon, proUnit} = this.category 进行对象解构
+      var {id, name, icon, proUnit} = this.category
+      //调用后端程序的接口/API, 发出修改请求
+      //发送请求,到后端程序去获取分类信息(实时数据,DB获取)
+      this.$http({
+        // 解读这里的url是获取后端分级菜单列表的url地址，即获取带层级的商品分类表`commodity_category`所有数据
+        url: `http://localhost:9090/commodity/category/update`,
+        method: 'post',
+
+        // 下面的adornData()方法中的`{id, name, icon, proUnit}`是一个新创建的对象
+        // ，同时使用到了对象的简写
+        data: this.$http.adornData({id, name, icon, proUnit}, false)
+      }).then(({data}) => { //这里的{data} 是对象解构，解构了上面url请求后端返回来的数据，
+        // responseData对象的data属性
+        //输出
+        console.log("updateCategory()方法 .then(({data}) 返回的data= ", data);
+        //返回需要展示的数据 data.data.data
+        //如果使用{data}, 得到的要展示的数据使用 data.data 即可，因为解构了一层
+
+        //取消显示对话框
+        // this.dialogVisible = false
+
+
+        //刷新分类列表 绑定数据
+        this.getCategories();
+
+        // console.log(" 删除的节点的父节点分类对应的id",node.parent.data.id)
+        // console.log(" 删除的节点的父节点node.parent",node.parent)
+        //设置需要展开的菜单 删除的节点的父节点分类对应的id
+        // node 即为当前点击的节点
+        // this.expandedKey = [this.category.parentId]
+
+      })
+
+
+    },
+
+1. **解构赋值**:
+    ```javascript
+    var {id, name, icon, proUnit} = this.category;
+    ```
+    这行代码执行了一个操作：从 `this.category` 对象中解构出 `id`, `name`, `icon`, 和 `proUnit` 四个属性，并创建了四个同名的局部变量。如果 `this.category` 中包含这些属性，那么这些局部变量将被赋予相应的值。
+
+2. **在 `adornData` 方法中使用**:
+    当你在调用 `this.$http.adornData({id, name, icon, proUnit}, false)` 时，实际上是在创建一个新的对象，并将之前解构得到的变量作为该对象的属性值。
+
+这里的 `{id, name, icon, proUnit}` 是对象字面量的简写语法，等同于：
+
+```javascript
+{
+    id: id,
+    name: name,
+    icon: icon,
+    proUnit: proUnit
+}
+```
+
+这种简写形式基于ES6的属性名简写特性，如果对象的属性名和变量名（变量存储着要赋给属性的值）相同，则可以省略冒号和值部分，直接写一个名字即可。
+
+因此，解构赋值在这里的作用如下：
+
+- **首先**，它从 `this.category` 中提取了必要的属性。
+- **然后**，通过在 `adornData` 方法中使用这些同名变量，你实际上构建了一个新的对象，这个新对象拥有与 `this.category` 中相同的属性名和对应的值。
+- **最后**，这个新构建的对象被传递给 `adornData` 方法，并最终被用于 HTTP 请求的数据部分。
+
+这个过程并非多余，而是一种常见的实践，用于明确地选择要发送的数据字段，尤其在不想发送整个 `this.category` 对象或者 `this.category` 包含一些不应该发送的额外属性时。这样可以确保只有需要的数据被发送到服务器，同时还清楚地文档化了 API 调用所使用的数据字段。
+-->
+</body>
+</html>

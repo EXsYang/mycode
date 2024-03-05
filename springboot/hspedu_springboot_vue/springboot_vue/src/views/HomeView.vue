@@ -84,7 +84,7 @@
     说明:
     1. el-dialog ：v-model="dialogVisible" 表示对话框, 和 dialogVisible 变量双向
     绑定,控制是否显示对话框
-    2. el-form :model="form" 表示表单数据和 form 数据变量双向绑定
+    2. el-form :model="form" 表示表单数据和 form 数据变量单向绑定，但是在内部el-form-item 和 el-input 使用 v-model 实现双向绑定
     3. el-input v-model="form.name" 表示表单的 input 控件，名字为 name 需要和
     后台 Javabean[Furn] 属性一致，这样到后端才会进行数据封装
     -->
