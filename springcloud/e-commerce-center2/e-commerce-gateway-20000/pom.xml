@@ -15,6 +15,11 @@
     <dependencies>
 
         <!--引入gateway-starter 网关场景启动器starter 使用版本仲裁-->
+        <!-- 注意:
+           1. gateway本身不需要 spring-boot-starter-web
+           2. 所以不用引入 spring-boot-starter-web,
+              如果引入spring-boot-starter-web,启动时会报告冲突
+        -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>

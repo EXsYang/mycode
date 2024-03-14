@@ -1,4 +1,11 @@
 # 先加载bootstrap.yml 再加载application.yml
+
+# `bootstrap.yml` 文件通常翻译成中文，可以称之为 "引导配置文件" 或 "启动配置文件"。
+# 这个文件主要用于 Spring Boot 应用程序或 Spring Cloud 微服务框架中
+# ，用于加载应用程序启动时的配置信息，比如服务注册中心的地址、配置中心的信息等。
+# 它通常与 `application.yml` 或 `application.properties` 文件一起使用
+# ，但是 `bootstrap.yml` 的配置在应用程序上下文的早期就被加载，主要用于
+# 系统级的配置和引导程序所需的配置。
 server:
   port: 5000
 
@@ -14,7 +21,8 @@ spring:
       config:
         #将来配置中心 和服务注册中心可能不是在一台主机上,因此依然需要指定配置中心的地址
         server-addr: localhost:8848 #配置中心地址
-        file-extension: yaml #指定yaml格式的配置 这里必须写yaml,而不能写yml
+        file-extension: yaml # 指定在nacos-config配置中心，配置文件的扩展名。yaml格式的配置
+                             # 这里必须写yaml,而不能写yml
         #group: seckill #指定order/seckill组，默认是DEFAULT_GROUP
 
 #        group: seckill #指定seckill组，默认是DEFAULT_GROUP
