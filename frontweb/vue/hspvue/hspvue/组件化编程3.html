@@ -3,6 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>组件化编程-局部组件</title>
+    <!--关于组件化编程的使用 参考
+     D:\Java_developer_tools\mycode\springboot\hspedu_springboot_vue\springboot_vue\src\App.vue:28
+
+
+参考代码如下:
+
+    <script>
+    // 这里是在讲解 前端技术栈-es6 模块化编程时讲过
+
+    // 先导入再导出，才可以在本类App.vue中进行使用 Header组件
+    // 在<script>标签内导入组件，在export default { components: {} }
+    // 的components中导出组件 就可以在本页面中使用该组件(此处是Header和Aside)
+    // @ 就是 src
+    // 导入
+
+    import Header from "@/components/Header";
+
+    import Aside from "@/components/Aside";
+
+    export default {
+      name: "Layout",
+      components: {
+        Header,
+        Aside
+      }
+    }
+    </script>
+
+
+
+     -->
+
+
 </head>
 <body>
 <div id="app">
