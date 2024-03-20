@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在属性位置传入一个箭头函数作为校验器规则</title>
+
+    <script>
+        /*
+         在 JavaScript 中，你可以以多种方式定义对象的方法或属性。
+         箭头函数和普通函数是其中两种常用的方式。这两种方式有一些关键的区别
+         ，特别是在 this 绑定的行为上。下面我将通过例子来展示这两种不同的定义方式：
+        普通函数定义方式
+            使用普通函数定义对象的方法时，函数中的 this 指向的是
+            调用该函数的对象（除非函数被非方法式调用）。
+        */
+        const person = {
+            name: 'Alice',
+            greet: function () {
+                console.log('Hello, ' + this.name);
+            }
+        };
+        person.greet(); // 输出: Hello, Alice
+
+        // 在这个例子中，greet 是用普通函数定义的。当调用 person.greet() 时
+        // ，this 在 greet 函数内部指向 person 对象。
+
+    </script>
+
+    <script>
+        /*
+        箭头函数定义方式
+        箭头函数没有自己的 this，它会捕获其所在上下文的 this 值
+        ，作为自己的 this 值，因此箭头函数内部的 this 是词法绑定的。
+         */
+
+
+        const person = {
+            name: 'Bob',
+            greet: () => {
+                console.log('Hello, ' + this.name);
+            }
+        };
+
+        person.greet(); // 可能输出: Hello, （如果在全局作用域中，this.name 未定义的话）
+
+        /*
+        在这个例子中，greet 是用箭头函数定义的。如果 greet 方法在全局作用域中
+        被调用（如示例中那样直接调用 person.greet()），那么 this 并不会指向
+        person 对象（如果是在严格模式下，this 将是 undefined；如果是在非严格模式下
+        ，this 将指向全局对象 window）。这是因为箭头函数不绑定 this，
+        它捕获了定义时所在上下文的 this 值。
+
+        对比
+        this 绑定：
+
+        普通函数：this 指向调用函数时的上下文对象。
+        箭头函数：没有自己的 this，它会捕获定义时所在的上下文中的 this。
+        语法简洁：
+
+        普通函数：可能更适合需要多步操作或包含多个语句的场景。
+        箭头函数：更简洁，适用于单行表达式或直接返回值的场景。
+        使用场景：
+
+        普通函数：更适合作为方法使用，尤其是当你需要引用对象本身时（通过 this 关键字）。
+        箭头函数：适用于不需要绑定 this 的场景，如事件处理器、定时器、Promise 回调等。
+        在实际编程中，选择哪种方式取决于具体的场景和需求。
+         */
+    </script>
+
+
+    <script>
+        export default {
+            data() {
+                var checkAge = (rule, value, callback) => {
+                    if (!value) {
+                        return callback(new Error('年龄不能为空'));
+                    }
+                    setTimeout(() => {
+                        if (!Number.isInteger(value)) {
+                            callback(new Error('请输入数字值'));
+                        } else {
+                            if (value < 18) {
+                                callback(new Error('必须年满18岁'));
+                            } else {
+                                callback();
+                            }
+                        }
+                    }, 1000);
+                };
+                var validatePass = (rule, value, callback) => {
+                    if (value === '') {
+                        callback(new Error('请输入密码'));
+                    } else {
+                        if (this.ruleForm.checkPass !== '') {
+                            this.$refs.ruleForm.validateField('checkPass');
+                        }
+                        callback();
+                    }
+                };
+                var validatePass2 = (rule, value, callback) => {
+                    if (value === '') {
+                        callback(new Error('请再次输入密码'));
+                    } else if (value !== this.ruleForm.pass) {
+                        callback(new Error('两次输入密码不一致!'));
+                    } else {
+                        callback();
+                    }
+                };
+                return {
+                    ruleForm: {
+                        pass: '',
+                        checkPass: '',
+                        age: ''
+                    },
+                    rules: {
+                        pass: [
+                            { validator: validatePass, trigger: 'blur' }
+                        ],
+                        checkPass: [
+                            { validator: validatePass2, trigger: 'blur' }
+                        ],
+                        age: [
+                            { validator: checkAge, trigger: 'blur' }
+                        ]
+                    }
+                };
+            },
+            methods: {
+                submitForm(formName) {
+                    this.$refs[formName].validate((valid) => {
+                        if (valid) {
+                            alert('submit!');
+                        } else {
+                            console.log('error submit!!');
+                            return false;
+                        }
+                    });
+                },
+                resetForm(formName) {
+                    this.$refs[formName].resetFields();
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+</body>
+
+</html>

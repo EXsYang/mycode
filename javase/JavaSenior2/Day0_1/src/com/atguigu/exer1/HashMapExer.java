@@ -19,7 +19,9 @@ public class HashMapExer {
         map.put(e2.getId(), e2);
         map.put(e3.getId(), e3);
         // HashMap key可以放null , ConcurrentHashMap key不可以放null,会抛出空指针异常 java.lang.NullPointerException
-        map.put(null,2); //key=null	value=2
+        // map.put(null,2); //key=null	value=2
+        // map.put(null,3); //key=null	value=2
+        // map.put(null,4); //key=null	value=2
 
 
 

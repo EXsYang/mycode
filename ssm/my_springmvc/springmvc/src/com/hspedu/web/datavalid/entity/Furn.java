@@ -1,5 +1,7 @@
 package com.hspedu.web.datavalid.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.util.StringUtils;
 
@@ -11,8 +13,19 @@ public class Furn {
     //id 在前端的add()方法中 没有传id的值，id是自增长的 因此这里不需要验证注解
     private Integer id;
 
+    /*
+    **区别**:
+    - **来源**: `javax.validation.constraints.@NotBlank`来自Java EE的Bean Validation API，是一个标准；而`org.hibernate.validator.constraints.@NotBlank`是特定于Hibernate Validator的。
+    - **推荐使用**: 推荐使用`javax.validation.constraints.@NotBlank`，因为它是标准的一部分，而且具有更广泛的兼容性。
+    - **版本**: 如果你使用的是较老的Hibernate Validator版本（5.x及以下），你可能还会遇到`org.hibernate.validator.constraints.@NotBlank`。但在新版本中，应优先使用`javax.validation.constraints.@NotBlank`，因为它遵循了最新的Bean Validation 2.0标准。
+    因此，如果没有特殊理由需要兼容老版本的Hibernate Validator，**建议使用`javax.validation.constraints.@NotBlank`来保持代码的现代性和兼容性。**
+     */
     // String类型 验证为空首选@NotEmpty
-    // @NotEmpty(message = "家居名不能为空,请输入家居名")
+    @NotEmpty(message = "家居名不能为空,请输入家居名")
+    // 这里的 @NotEmpty、 @NotBlank 是包 org.hibernate.validator.constraints; 下 的注解
+    // 在hspliving项目的 commodity/entity/BrandEntity.java 中的有和这里同名的注解
+    // @NotBlank是包 javax.validation.constraints; 下的注解
+    // @NotBlank
     private String name;
 
     // @NotEmpty(message = "制造商名不能为空,请输入制造商名")
