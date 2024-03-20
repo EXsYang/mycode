@@ -43,6 +43,8 @@ public class Monster {
      * Assert:断言，生效，明确，肯定 /əˈsɜːrt/
      * Asserts that the annotated string, collection, map or array is not {@code null} or empty {size=0} .
      * @NotEmpty 注解在修饰string, collection, map or array 类型时生效 修饰其他类型不会生效
+     *           , 即@NotEmpty 注解用在 String 集合 数组
+     *           , 如果对象的属性是 String类型首选 `javax.validation.constraints.@NotBlank`来保持代码的现代性和兼容性
      */
     //@NotEmpty
     @NotEmpty(message = "name不能为空")

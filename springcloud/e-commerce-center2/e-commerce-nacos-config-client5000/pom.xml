@@ -14,6 +14,10 @@
     <!--引入相关的依赖，引入了当前需要的依赖，后面如果需要其他的，在灵活调整即可-->
     <dependencies>
 
+        <!--spring-cloud-starter-alibaba-nacos-config 和
+            spring-cloud-starter-alibaba-nacos-discovery 都属于 spring-cloud-alibaba-dependencies BOM管理
+            即都属于spring-cloud-alibaba的依赖
+            -->
         <!--引入nacos-config starter 场景启动器 使用版本仲裁-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

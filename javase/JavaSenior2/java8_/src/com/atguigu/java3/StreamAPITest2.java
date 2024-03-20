@@ -66,7 +66,7 @@ public class StreamAPITest2 {
 //        forEach(Consumer c)——内部迭代
         employees.stream().forEach(System.out::println);
 
-        //使用集合的遍历操作
+        //使用集合的遍历操作 注意和上面的主体不一样，一个是stream的终止操作，一个是集合的普通方法
         employees.forEach(System.out::println);
     }
 

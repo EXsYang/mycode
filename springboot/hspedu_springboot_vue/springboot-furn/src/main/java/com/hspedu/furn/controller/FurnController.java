@@ -193,7 +193,16 @@ public class FurnController {
         //判断search是否有内容
         if (StringUtils.hasText(search)){
             //queryWrapper.like("name",search);形参第一个位置"name" 是和数据库表的字段匹配 第二个位置是检索条件
+            // 使用 queryWrapper.like 构建一个模糊查询条件。这里的 "name" 是数据库表中的字段名，
+            // 它应该与表中实际的列名相匹配。"search" 是用户输入的检索条件，用于匹配 "name" 字段中的内容。
+            // 例如，如果 "search" 的值为 "Chair"，则此查询将寻找所有 "name" 字段包含 "Chair" 的记录。
             queryWrapper.like("name",search);
+            /*
+                第一个参数 "name" 是用于指定数据库中用于匹配的字段，
+                而第二个参数 search 是用户提供的用于模糊匹配的文本值。
+                这行代码将生成一个 SQL WHERE 子句，类似于 WHERE name LIKE '%search%'，
+                用于在数据库查询中执行模糊匹配。
+             */
         }
 
 
@@ -249,6 +258,31 @@ public class FurnController {
          *
          */
 
+        /**
+         * 在使用 MyBatis Plus 时，`@TableName` 和 `@TableField` 注解用于指定实体类与数据库中的表及字段的对应关系。不过，这些注解并不是强制性的。如果不使用这些注解，MyBatis Plus 会采取一些默认的规则来映射实体类与数据库表及其字段：
+         *
+         * 1. **默认的表名映射**：如果不使用 `@TableName` 注解，MyBatis Plus 默认将实体类的名称按照驼峰命名法转换成下划线命名法来与数据库表名进行匹配。例如，实体类名 `Furn` 默认对应于数据库中的 `furn` 表。如果你的数据库表名确实是 `furn`，那么即使不使用 `@TableName` 注解，映射也可以正常工作。
+         *
+         * 2. **默认的字段映射**：类似地，如果不使用 `@TableField` 注解，MyBatis Plus 会将实体类属性按照驼峰命名法转换为下划线命名法来匹配数据库中的字段名。例如，实体类属性 `userName` 默认映射到数据库字段 `user_name`。因此，如果你的实体类属性和数据库字段正好符合这种命名规则，那么即使不使用 `@TableField` 注解，字段映射也能正确进行。
+         *
+         * 由于你提供的 `Furn` 类的属性名（如 `id`, `name`, `maker`, `price`, `sales`, `stock`）看起来是符合通常的命名习惯的，并且如果数据库表 `furn` 的字段也遵循相同的命名规则（如 `id`, `name`, `maker`, `price`, `sales`, `stock`），那么即使没有明确使用 `@TableName` 或 `@TableField` 注解，MyBatis Plus 也能够正确地映射实体类和数据库表及其字段。
+         *
+         * 这就是为什么在某些情况下，即使没有写 `@TableName`、`@TableField` 等注解，代码仍然可以正常工作的原因。不过，如果数据库的表名或字段名与实体类的名称或属性不完全匹配，那么就需要使用这些注解来明确指定映射关系了。
+         */
+
+        /**
+         * 当你在使用 MyBatis 或 MyBatis Plus 时，确实有不同的方式来映射 Java 对象的属性和数据库表的字段：
+         *
+         * 1. **在 MyBatis 中**，`ResultMap` 是常用来定义 Java 对象属性和数据库表字段之间映射关系的配置。在你的 `XxxMapper.xml` 文件中，通过 `<resultMap>` 元素可以详细指定哪个字段映射到哪个属性。如果你在 XML 映射文件中定义了这样的映射，即使在 Java 实体类中没有使用 `@TableField` 或 `@TableName` 注解，映射也仍然可以工作，因为 MyBatis 根据 XML 文件中的配置进行操作。
+         *
+         * 2. **在 MyBatis Plus 中**，情况稍有不同。虽然 MyBatis Plus 支持和继承了 MyBatis 的很多特性，但它更推荐使用注解（如 `@TableName` 和 `@TableField`）来声明映射关系。尽管如此，如果你不使用这些注解，MyBatis Plus 会默认使用实体类名和属性名（通过驼峰转下划线的规则）来匹配数据库中的表名和字段名。但是，MyBatis Plus 不使用 XML 文件中的 `<resultMap>` 配置来定义映射关系。它主要通过实体类和其注解来处理映射。
+         *
+         *    对于表达式 `Furn::getName` 和 `lambdaQueryWrapper.like(sf, search)` 的情况，MyBatis Plus 使用的是 Java 8 的类型引用（也称为方法引用）和 Lambda 表达式。这里，`Furn::getName` 被解析为一个属性到字段的映射（通过内部机制，不通过 XML 映射），它依赖于 MyBatis Plus 能够理解的实体类属性名。如果你没有使用 `@TableField` 来指定字段名，那么就假定属性名转换规则（驼峰转下划线）适用。
+         *
+         * 总的来说，如果在使用 MyBatis Plus 且希望通过 `lambdaQueryWrapper.like(sf, search);` 这样的逻辑进行操作，你通常不需要在 Mapper XML 文件中配置 `ResultMap`。而是直接通过实体类和相关的注解来控制映射关系。如果字段名和实体属性名符合默认的命名转换规则（或者通过注解指定），这种方式可以正常工作。如果你已经习惯了 MyBatis 的 `ResultMap` 并且在使用纯 MyBatis，那么 XML 映射文件中的配置是必要的。但对于 MyBatis Plus，推荐使用注解来定义映射关系，以充分利用它提供的功能和简化开发流程。
+         */
+
+
         //先创建LambdaQueryWrapper，封装检索条件
         LambdaQueryWrapper<Furn> lambdaQueryWrapper = Wrappers.<Furn>lambdaQuery();
 
@@ -259,6 +293,15 @@ public class FurnController {
             //6. 改写上面的方式,可能小伙伴会清楚一些.
             // 说明: 因为 SFunction<Furn, Object> 有一个抽象方法
             // R apply(T t); //这个方法表示根据类型 T 的参数获取类型 R 的结果 , 而
+            /**
+             * 在 MyBatis Plus 中，表达式 `SFunction<Furn, Object> sf = Furn::getName;` 实际上是使用 Java 8 的方法引用特性来引用 `Furn` 类的 `getName` 方法，而不是直接调用该方法。这种语法不是获取 `Furn` 对象的 `name` 属性的值，而是用于指代 `Furn` 类的 `name` 属性本身。
+             *
+             * 当这个表达式用于 `lambdaQueryWrapper.like(sf, search);` 中时，MyBatis Plus 内部机制会将这个方法引用转换为对应的数据库字段名。这个转换是基于你的实体类和数据库之间的映射关系，通常是实体类属性名到数据库字段的映射（按照约定，如驼峰命名到下划线命名的转换），而不是获取属性的实际值。
+             *
+             * 所以，这里的 `sf` 代表的是一个函数式接口，它指向 `Furn` 类的 `getName` 属性名，用于构造查询条件。这使得查询条件的构建变得类型安全，因为如果 `Furn::getName` 引用的属性名在编译时被重命名，代码会产生编译错误，这样可以避免运行时的错误。
+             *
+             * 总结来说，`SFunction<Furn, Object> sf = Furn::getName; lambdaQueryWrapper.like(sf, search);` 这段代码是利用 `Furn` 类的 `getName` 方法引用来构建一个对应于 `name` 字段的模糊查询条件，而不是获取某个具体 `Furn` 实例的 `name` 属性的值。
+             */
             SFunction<Furn, Object> sf = Furn::getName;
             lambdaQueryWrapper.like(sf, search);
         }
