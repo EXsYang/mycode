@@ -83,6 +83,9 @@ public class JsonHandler {
  *  @RequestBody的作用 第1个功能
  * 1. @RequestBody User user 在形参指定了 @RequestBody
  * 2. springmvc就会将提交的json字符串数据填充给指定Javabean
+ * 3. @RequestBody 注解在 Spring Framework 中用于将 HTTP 请求体的内容绑定到控制器方法的参数上。当使用此注解时，Spring 的 HTTP 消息转换器会自动将请求体中的内容（通常是 JSON 或 XML）解析并映射到指定的 Java 对象上。这个过程是自动的，依赖于 Spring Boot 配置的消息转换器，通常是基于 Jackson 或 Gson 库进行 JSON 数据的序列化和反序列化。
+ *    这里是一个更精确且全面的描述：
+ *    @RequestBody 注解主要用于处理 HTTP POST 和 PUT 请求，它告诉 Spring 框架的调度器，方法参数应该被绑定到 Web 请求的体部。这个注解使得控制器能够接收复杂类型的数据结构（如自定义的 Java 对象），而非仅仅是请求参数或路径变量。Spring 框架通过使用配置的 HTTP 消息转换器自动地将请求体内容转换为相应的 Java 类型，从而简化了数据绑定的过程。转换过程不仅限于 JSON，还支持其他格式如 XML，但具体支持哪些格式取决于应用程序上下文中配置的消息转换器。
  *
  *  @RequestBody注解,用来接收json格式数据
  *  1.我们的前端如果是以json格式来发送添加信息furn,那么我们后端需要使用@RequestBody注解
@@ -90,7 +93,8 @@ public class JsonHandler {
  *  2.如果前端是以表单形式提交,则不需要使用@RequestBody注解,同时保证http请求头 content-type是对应的 这里即为Content-Type:multipart/form-data
 
  *
- *  @RequestBody第2个功能 是整体取出 Post 请求内容！ 即获取post请求体
+ *  @RequestBody第2个功能 是整体取出 Post 请求内容！
+ *  即获取post请求体 前端在请求体中提交数据     如分布式解决方案项目中用到的 `data: this.$http.adornData(ids, false)`
  *  注意:1.如果前端使用`Postman的Post方式提交数据，同时指定params提交`
  *  ，在不使用@RequestBody的情况下，即形参位置没有使用任何注解，
  *  也可以将params正常的封装到下面方法形参的User对象中

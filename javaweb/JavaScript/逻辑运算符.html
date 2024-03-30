@@ -32,6 +32,28 @@
         var res2 = "老韩" || 800;
         alert("res2=" + res2);
 
+        // 5. 将 id 赋值给 this.dataForm.attrId 如果 id 不存在或为 "falsy" 值，则默认赋值为 0
+        // vue方法池定义的dataForm.attrId
+        // 在方法池的方法中调用 this.dataForm.attrId = id || 0;
+        /**
+         this.dataForm.attrId: 这是一个对象 dataForm 的属性 attrId，属于当前组件的状态 (this 指代当前组件实例)。
+
+         id: 这通常是从外部传递给函数或方法的一个参数，可能是用于指示特定数据项的唯一标识符。
+
+         ||: 这是 JavaScript 中的逻辑或运算符，用于在两个表达式之间进行选择。
+
+         0: 这是一个数字字面量，作为 id 不存在或为 "falsy" 值（如 null、undefined、''（空字符串）、false、0、NaN）时的默认值。
+
+         因此，整个表达式 this.dataForm.attrId = id || 0; 的执行逻辑如下：
+
+         检查 id 是否有 "truthy" 值（即非空、非零等）。
+         如果 id 是 "truthy"，则将其值赋给 this.dataForm.attrId。
+         如果 id 是 "falsy"，则将 0 赋给 this.dataForm.attrId。
+         这种模式在 JavaScript 中非常常见，特别是在处理函数参数或组件属性等可能未定义或有默认值的情况。
+         */
+
+
+
         //小练习
         var res3 = (10 + 1) || (6 < 0);
         alert("res3=" + res3);//11

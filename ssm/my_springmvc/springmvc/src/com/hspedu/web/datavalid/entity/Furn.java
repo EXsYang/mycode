@@ -10,6 +10,29 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class Furn {
+
+    /**
+     *
+     * import com.fasterxml.jackson.annotation.JsonProperty;
+     *
+     * 在进行前后端分离开发时，确保前端发送的JSON数据属性名与后端JavaBean中的属性名一致是非常重要的。
+     * 这样可以保证后端正确解析前端发送的数据，并将其正确映射到相应的实体类属性上。
+     *
+     * 如果前后端属性名不一致，后端将无法正确识别前端发送的数据字段，导致数据无法被正确存储或处理。
+     *
+     * 在不使用映射注解的正常情况下，前后端属性名必须保持一致。如果需要解决属性名不一致的问题，可以在JavaBean的属性上使用 @JsonProperty 注解。
+     * 这个注解可以帮助Spring框架中的Jackson库等解析工具，将JSON中的属性名映射到不同名称的JavaBean属性上。
+     *
+     * 例如，如果前端的JSON数据中包含一个字段名为 "brand_id"，而后端JavaBean的属性名为 "brandId"，可以通过在JavaBean属性上使用 @JsonProperty("brand_id") 来实现映射。
+     *
+     * 示例：
+     * @JsonProperty("brand_id") // 映射JSON中的brand_id到JavaBean的brandId属性
+     * private Long brandId;
+     *
+     * 这样的映射确保了数据的正确传输和处理，即使前后端的命名不直接对应。
+     */
+
+
     //id 在前端的add()方法中 没有传id的值，id是自增长的 因此这里不需要验证注解
     private Integer id;
 

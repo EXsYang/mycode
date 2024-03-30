@@ -52,6 +52,13 @@ public class StreamAPITest1 {
     @Test
     public void test2(){
 //        map(Function f)——接收一个函数作为参数，将元素转换成其他形式或提取信息，该函数会被应用到每个元素上，并将其映射成一个新的元素。
+        /**
+         * ## stream的map可以返回任意类型的对象并使用.collect(Collectors.toList());收集到集合中对吗？
+         *
+         * 是的，您理解得完全正确。在 Java Stream API 中，`map` 操作是一个中间操作，
+         * 它可以接受一个函数作为参数。这个函数被应用到流中的每一个元素上，并将其映射（转换）成一个新的值。
+         * 因此，`map` 操作的作用就是对流中的每个元素进行转换。
+         */
         List<String> list = Arrays.asList("aa", "bb", "cc", "dd");
         list.stream().map(str -> str.toUpperCase()).forEach(System.out::println);
 

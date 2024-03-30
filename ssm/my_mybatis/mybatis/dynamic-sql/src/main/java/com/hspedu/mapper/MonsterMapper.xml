@@ -5,19 +5,77 @@
 
 <mapper namespace="com.hspedu.mapper.MonsterMapper">
 
+    <!--
+    在 MyBatis 中，`parameterType` 属性用于指定传递给 SQL 映射语句的参数的类型。这个属性是可选的，因为 MyBatis 通常能够推断出参数的类型。然而，在某些情况下，指定 `parameterType` 可以帮助 MyBatis 更准确地处理参数。
+
+    ### 1. 当参数是简单类型或其包装类：
+
+    如果你的方法参数是一个简单类型（如 int, long, String 等）或其包装类，通常不需要显式地指定 `parameterType`，因为 MyBatis 可以直接使用这些类型。
+
+    ### 2. 当参数是 POJO（Plain Old Java Object）：
+
+    如果参数是一个 POJO，也就是自定义的 Java 类对象，MyBatis 能够通过 Java 反射机制推断出参数类型以及对应的属性。在这种情况下，通常不需要显式指定 `parameterType`。
+
+    ### 3. 当参数是 Map：
+
+    当方法参数是 `Map` 类型时，MyBatis 也能正确处理，但在某些老版本的 MyBatis 中或者为了代码的清晰性，你可能想显式指定 `parameterType="map"`。这有助于提醒读代码的人这是一个 Map 参数，并且明确 MyBatis 应如何处理该参数。但在大多数现代应用中，即使不指定，MyBatis 仍能正确处理 Map 类型的参数。
+
+    ### 4. 当参数是 List 或 Array：
+
+    对于 List 或数组类型的参数，MyBatis 同样能够正确处理而不需要显式声明 `parameterType`。特别是在使用 `<foreach>` 标签进行迭代时，MyBatis 能够识别 List 或数组并正确处理。但如果你想要提高代码的清晰度或明确指出参数的类型，可以指定 `parameterType`，如 `parameterType="list"` 或对于数组 `parameterType="array"`。然而，这通常不是必需的，因为 MyBatis 的上下文足以理解这些结构。
+
+    ### 结论：
+
+    在大多数情况下，MyBatis 能够无需 `parameterType` 而准确推断出参数类型。指定 `parameterType` 更多是为了代码的清晰和明确性，而不是必须的。但在复杂的 SQL 操作或特定场景下，明确指定 `parameterType` 可以帮助避免歧义，确保 MyBatis 正确处理参数。
+
+    简而言之，是否需要指定 `parameterType` 取决于你的具体情况和个人偏好。在大多数现代 MyBatis 应用中，除非要解决特定的问题或提高代码清晰度，否则通常不必显式指定它。
+    -->
+
 
     <!-- if 标签
     1. 配置/实现 public List<Monster> findMonsterByAge(@Param("age") Integer age);
     2. 需求：请查询 age 大于 10 的所有妖怪，如果程序员输入的 age 不大于 0, 则输出所有的妖怪!
     3. 如果用原来的方式来配置 会出现什么问题？如果使用原来的#{age}
        在test表达式是取不出来入参值  (Integer age) 中的 age 的。
-       这里针对的是 形参类型为Java类型Integer而不是POJO对象。
+       这里针对的是 形参类型为Java类型Integer而不是POJO对象。如果入参是一个对象，可以直接使用属性名即可不需要@Param("xx")注解
     4. 解决方案1(更加明确推荐) 是使用@Param 形参注解 这种方式要求 test="age >= 0" 中的参数age
        要和(@Param("age") Integer age)->@Param("age") 中的 age 保持一致 否则报错！！
        解决方案2(不推荐) 或者 不加@Param 形参注解直接写 test="age >= 0"
        要求test中使用的参数age可以是任意参数比如可以是test="cc >= 0" 不用和形参参数age 保持一致
-
-
+        解释:
+        在 MyBatis 中，如果你没有使用 `@Param` 注解给方法参数命名，行为将依赖于你是如何使用这些参数的，以及它们的数量和类型。当不使用 `@Param` 并且方法只有一个简单类型的参数时，MyBatis 通常允许你直接在动态 SQL 中引用这个参数，即便你在 `test` 表达式中没有使用参数原本的名字。
+        这种情况下，解决方案2（不推荐）实际上意味着即使你在方法签名中没有使用 `@Param` 注解来明确命名参数，你仍然可以在 MyBatis 的 XML 文件中的 `<if>` 标签里使用一个随意的名称来引用这个参数，这是因为当只有一个参数且没有使用 `@Param` 注解时，MyBatis 会默认将这个单一参数作为 SQL 映射可用的上下文数据。
+        ### 举例说明：
+        假设你有以下 MyBatis mapper 方法：
+        ```java
+        // 没有使用 @Param 注解，这是不推荐的做法，因为它会使 SQL 映射文件变得不够明确。
+        public List<Monster> findMonsterByAge(Integer age);
+        ```
+        然后在 MyBatis 的 mapper XML 文件中，你尝试使用一个与方法参数名不同的标识符（如 `cc`）：
+        ```xml
+        <select id="findMonsterByAge" resultType="com.hspedu.entity.Monster">
+            SELECT * FROM monster
+            WHERE 1 = 1
+            <if test="cc >= 0">
+                AND age > #{cc}
+            </if>
+        </select>
+        ```
+        ### 解释：
+        在这种情况下（且假设 `findMonsterByAge` 方法只有一个参数），MyBatis 对于 `test="cc >= 0"` 的解释实际上是不准确的，因为 `cc` 并没有在任何地方定义，也没有通过 `@Param` 注解与实际的方法参数 `age` 关联起来。在标准的使用场景下，这种代码将导致错误，因为 `cc` 未被定义。
+        但是，原文描述中的解决方案2似乎在尝试描述一个不严谨的使用情况，即某些特殊情况下或因框架版本差异，MyBatis 可能允许这种引用方式（但这实际上是错误的使用方法，并非 MyBatis 标准行为）。
+        实际上，如果你不使用 `@Param` 注解，并且方法中只有一个简单类型的参数，MyBatis 允许你在 `<if>` 测试表达式中直接使用该参数，但应该是这样的：
+        ```xml
+        <select id="findMonsterByAge" resultType="com.hspedu.entity.Monster">
+            SELECT * FROM monster
+            WHERE 1 = 1
+            <if test="age >= 0">
+                AND age > #{age}
+            </if>
+        </select>
+        ```
+        这里，使用 `#{age}` 是正确的做法，因为它直接对应于方法的参数 `age`。
+        总结来说，虽然你可能遇到了关于不使用 `@Param` 的描述，但在实践中，**总是推荐使用 `@Param` 注解明确参数名称**，这样可以避免歧义，使代码更加清晰和易于维护。不推荐的解决方案2描述可能是误导性的，应该避免在实际项目中使用此类不明确的引用方式。
     -->
     <select id="findMonsterByAge" parameterType="Integer" resultType="Monster">
         SELECT * FROM `monster` WHERE 1 = 1
@@ -85,7 +143,13 @@
     <!-- 测试 foreach 的标签使用
     1. 配置/实现 public List<Monster> findMonsterById_forEach(Map<String, Object> map);
     2. 需求：查询 monster_id 为 6,7,8 的妖怪
+    3. 是foreach标签
+    4. 入参map 中，会如何传入id值 k-v键值对， ids - [集合 比如List 6,7,8]
+       map 入参中应该有 键值对 'ids-[6,7,8]', key ids对应一个value list集合
 
+    当使用 MyBatis 时，如果传入的参数是一个 Map 类型，你可以在 <choose>、<when>
+    和 <otherwise> 标签中直接使用 Map 中的键作为条件测试的参考
+    即这里的ids就是map集合 填入的key值  // map.put("ids", Arrays.asList(6,7,8));
     -->
 
     <select id="findMonsterById_forEach" parameterType="map" resultType="Monster">
@@ -97,7 +161,9 @@
         1. 需要使用where标签
         2. 再写入相应的处理代码，比如ids是否为空.. 需要使用if标签
         3. 如果ids不为空，则使用foreach标签进行遍历
-        4. collection="ids" 对应你的入参map的key - ids
+        4. collection="ids" 对应你的入参map的key - ids 这里的collection就是根据key - ids，取出来的List集合(的值)
+           这里，collection="ids" 表示你将遍历传入参数 Map 的 "ids" 键对应的值。这个值应该是一个列表（List）或数组（Array），因此 MyBatis 会遍历这个列表或数组。每个遍历的元素会被称为 id，这是由 item="id" 定义的。
+           collection 的值取决于传入参数的类型和结构，它可以是直接的列表（如 List 类型参数），也可以是 Map 中的一个键（键的值为 List 或 Array）
         5. item="id" 在遍历collection="ids" ids集合时，每次取出的值，对应的变量id
         6. open="(" 对应的就是sql (6,7,8) 的第一个小括号 (
         7. separator="," 遍历出来的多个值的 分隔符号     separator: /ˈsepəreɪtər/ 分离器
@@ -116,6 +182,13 @@
         </if>
     </select>
 
+
+    <select id="findMonsterById_forEach2" parameterType="list" resultType="com.hspedu.entity.Monster">
+        SELECT * FROM monster WHERE id IN
+        <foreach item="monster" collection="monsters" open="(" separator="," close=")">
+            #{monster.id}
+        </foreach>
+    </select>
 
     <!-- 了解 trim 标签
     1. 配置/实现  public List<Monster> findMonsterByName_Trim(Map<String, Object> map);
@@ -139,6 +212,7 @@
         <!--</where>-->
 
     </select>
+
 
     <!-- updateMonster_set set 标签 重点
     1. 配置/实现  public void updateMonster_set(Map<String, Object> map);
