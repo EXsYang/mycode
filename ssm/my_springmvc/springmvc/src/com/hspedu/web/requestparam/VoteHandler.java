@@ -70,6 +70,26 @@ public class VoteHandler {
      * 关于是否可以接收 form 表单提交的数据，答案也是肯定的。当 form 表单的内容类型（Content-Type）设置为 application/x-www-form-urlencoded 时，@RequestParam 同样可以处理这些表单数据。在这种情况下，form 表单中的字段被视为请求参数，和 URL 中的查询参数类似。
      *
      * 总结一下，@RequestParam 既可以处理 URL 中的查询参数，也可以处理以 application/x-www-form-urlencoded 格式提交的 form 表单数据。
+     *
+     *
+     *    @RequestMapping("/attrgroupId/attr/allowrelation")
+     *     public R attrAllowRelation(@PathVariable("attrgroupId") Long attrgroupId,
+     *                                @RequestParam Map<String, Object> param){
+     *    前端参数如下:  其中this.$http是一个包装起来的 axios对象
+     *    this.$http({
+     *         url: this.$http.adornUrl(
+     *           "/commodity/attrgroup/" + this.attrGroupId + "/attr/allowrelation"
+     *         ),
+     *         method: "get",
+     *         params: this.$http.adornParams({
+     *           page: this.pageIndex,
+     *           limit: this.pageSize,
+     *           key: this.dataForm.key
+     *         })
+     *       }).then(({ data }) => {
+     *
+     *  @RequestParam Map<String, Object> param , 可以接收到params:中的值
+     *
      */
     @RequestMapping(value = "/vote01")
     //public String test01(String username){

@@ -135,6 +135,8 @@ public class MonsterHandler {
      通过使用 @ResponseBody 注解和 Spring 的消息转换机制，
      返回的数据会被自动转换为相应格式的 JSON 字符串，
      然后发送给客户端。这使得创建返回 JSON 数据的 RESTful API 变得非常简洁和直接。
+
+     注意: 后端使用 @RequestBody Long[] ids 接收数据，前端也需要使用数组传递数据！如 [1, 2, 3] 的JSON数组
      ===========================================================
 
      @Valid 和 @Validated 这两个有什么区别？
