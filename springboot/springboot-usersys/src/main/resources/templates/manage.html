@@ -43,6 +43,11 @@
             <td th:text="${user.age}">e</td>
         </tr>
 
+        <!-- 这里使用 + 连接操作 -->
+        <span th:text="'￥' + ${users}">¥5199.00</span>
+
+        <!-- 这里表示 users如果有属性 可以使用.方法名的方式取出  -->
+        <!--<img th:src="${users.getSkuDefaultImg()}">-->
     </table>
     <br/>
 </div>

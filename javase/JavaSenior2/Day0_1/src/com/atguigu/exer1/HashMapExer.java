@@ -19,11 +19,24 @@ public class HashMapExer {
         map.put(e2.getId(), e2);
         map.put(e3.getId(), e3);
         // HashMap key可以放null , ConcurrentHashMap key不可以放null,会抛出空指针异常 java.lang.NullPointerException
-        // map.put(null,2); //key=null	value=2
-        // map.put(null,3); //key=null	value=2
-        // map.put(null,4); //key=null	value=2
+        map.put(null,2); //key=null	value=2
+        map.put(null,3); //key=null	value=2
+        map.put(null,4); //key=null	value=2
+        // HashMap key和value都可以放null
+        // map.put(null,null); //key=null	value=2
 
 
+        //ConcurrentHashMap 类型的集合不可以存储key=null,会报空指针异常 NullPointerException
+        //Exception in thread "main" java.lang.NullPointerException
+        // 	at java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+        // 	at java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+        // 	at com.atguigu.exer1.HashMapExer.main(HashMapExer.java:28)
+
+        ConcurrentHashMap<Object, Object> concurrentHashMap = new ConcurrentHashMap<>();
+        // concurrentHashMap.put(null,1111);
+        // concurrentHashMap.put(null,null);
+
+        System.out.println("concurrentHashMap= " + concurrentHashMap);
 
 
 
