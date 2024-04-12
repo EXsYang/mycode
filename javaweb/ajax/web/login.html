@@ -26,6 +26,9 @@
                  /!*正常情况下form表单提交事件是按照input 的name属性来获取值的!!，于此时ajax请求不同!!*!/
                  // 将文本框内容发送给服务器
                  // 服务器getParameter() 是根据url中?后的键值对key来获取的，而不是根据html input的name属性
+
+                 //结论 在 AJAX 发送请求时，它会考虑当前页面地址栏中的 URL，或者更具体地说，它会考虑 <base> 标签（如果有的话）指定的基本 URL。如果没有 <base> 标签，它默认使用当前页面的路径作为基路径。
+                //因此，你的 AJAX 请求的最终 URL 将由页面的 URL 或 <base> 标签（如果设置了的话）决定。这样确保了无论页面如何被服务器移动或嵌套，AJAX 请求都能正确指向目标 Servlet。这是 Web 开发中常用的技巧，用于确保资源路径的正确性，特别是在可能存在多个应用上下文或复杂目录结构的大型应用中。
                  xhr.open("GET", "/ajax/checkLoginServlet?uname=" + usernameVal, true);
 
                  // onreadystatechange 事件：

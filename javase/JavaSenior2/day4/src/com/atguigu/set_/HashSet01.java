@@ -4,7 +4,8 @@ import java.util.HashSet;
 
 /**
  * @author yangda
- * @description:
+ * @description: Set接口：存储无序的、不可重复的数据
+ * HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
  * @create 2022-11-15-11:03
  */
 public class HashSet01 {
