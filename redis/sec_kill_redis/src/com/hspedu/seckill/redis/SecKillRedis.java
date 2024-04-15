@@ -1,7 +1,10 @@
 package com.hspedu.seckill.redis;
 
+import com.hspedu.seckill.util.JedisPoolUtil;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.Transaction;
 
 import java.util.List;
 
@@ -28,7 +31,12 @@ public class SecKillRedis {
         }
 
         //- 连接到Redis 得到jedis对象
-        Jedis jedis = new Jedis("192.168.198.135", 6379);
+        // Jedis jedis = new Jedis("192.168.198.135", 6379);
+
+        //- 通过jedis连接池获取到jedis连接
+        JedisPool jedisPoolInstance = JedisPoolUtil.getJedisPoolInstance();
+        Jedis jedis = jedisPoolInstance.getResource();
+        System.out.println("---使用的连接池技术---");
 
         //- 拼接票的库存key
         String stockKey = "sk:" + ticketNo + ":ticket";
@@ -36,11 +44,14 @@ public class SecKillRedis {
         //- 拼接秒杀用户要存放到的set集合对应的key，这个set集合可以存放对个userId
         String userKey = "sk:" + ticketNo + ":user";
 
+        //-- 加入redis乐观锁机制，监控库存，watch
+        jedis.watch(stockKey);
+
         //- 获取到对应的票的库存,判断是否为null
         String stock = jedis.get(stockKey);
         if (stock == null) {
             System.out.println("秒杀还没有开始,请等待...");
-            jedis.close();
+            jedis.close(); // 如果这个jedis是从连接池获取的,这里jedis.close(),就是将jedis对象/连接, 释放/放回jedis连接池
             return false;
         }
 
@@ -59,12 +70,33 @@ public class SecKillRedis {
         }
 
         // 到这里，就是可以正常买票的逻辑了
-        //1. 将票的库存量减1
-        jedis.decr(stockKey);
-        //2. 将该用户加入到抢票成功对应的set集合中(不会有重复的uid)
-        //sadd <key><value1><value2> ..... 将一个或多个 member 元素加入到集合 key 中
-        // ，已经存在的member 元素将被忽略
-        jedis.sadd(userKey, uid);
+
+        // //1. 将票的库存量减1
+        // jedis.decr(stockKey);
+        // //2. 将该用户加入到抢票成功对应的set集合中(不会有重复的uid)
+        // //sadd <key><value1><value2> ..... 将一个或多个 member 元素加入到集合 key 中
+        // // ，已经存在的member 元素将被忽略
+        // jedis.sadd(userKey, uid);
+
+        //--使用redis事务,完成秒杀 start
+        // 使用的是redis事务的 乐观锁机制 watch multi
+        // 这里不会出现超卖问题，但会出现库存遗留问题--
+        Transaction multi = jedis.multi();
+
+        //--组队操作
+        multi.decr(stockKey); //将票的库存量减1
+        multi.sadd(userKey, uid); //将该用户加入到抢票成功对应的set集合中(不会有重复的uid)
+
+        //--执行redis事务中组队的代码
+        List<Object> results = multi.exec();
+
+        //判断redis事务中组队的代码是否执行成功, 如果在
+        // 事务执行之前这个(或这些)watch的 key 被其他命令所改动，那么事务将被打断
+        if (null == results || results.size() == 0){
+            System.out.println("抢票失败...");
+            jedis.close();
+            return false;
+        }
 
         System.out.println(uid + " 秒杀成功..");
         jedis.close();
