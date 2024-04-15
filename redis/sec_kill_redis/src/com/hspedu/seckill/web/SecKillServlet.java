@@ -1,6 +1,7 @@
 package com.hspedu.seckill.web;
 
 import com.hspedu.seckill.redis.SecKillRedis;
+import com.hspedu.seckill.redis.SecKillRedisByLua;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,10 @@ public class SecKillServlet extends HttpServlet {
         String ticketNo = request.getParameter("ticketNo");
 
         //3. 调用秒杀方法
-        boolean isOk = SecKillRedis.doSecKill(userId, ticketNo);
+        // boolean isOk = SecKillRedis.doSecKill(userId, ticketNo);
+
+        //3. 调用lua脚本完成秒杀方法
+        boolean isOk = SecKillRedisByLua.doSecKill(userId,ticketNo);
 
         //4. 将结果返回给前端-这个地方可以根据业务需要调整
         // response.getWriter().println(isOk); //注意这里不要带ln
