@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--
+    解读:modelVersion
+    1. 描述这个pom文件/pom模型遵循的哪个版本
+    2. 对应maven2 和 maven3 而言, 这里的modelVersion只能是4.0.0
+-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        解读: 下面是指定该项目的坐标, 是创建项目时，程序员指定
+        1. groupId: 组织名
+        2. artifactId: 项目名
+        3. version: 版本
+    -->
+    <groupId>com.hspedu</groupId>
+    <artifactId>java-project-maven</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--
+        老师解读
+        1. 这里就是引入项目需要的jar包, 类似传统项目的import jar的作用
+        2. 在 dependencies标签内, 可以指定多个需要依赖的jar /导入jar
+        3. 引入的jar包需要一个完整的jar包坐标, 从mvn仓库查询得到
+    -->
+    <dependencies>
+        <dependency>
+            <!-- 依赖jar的 groupId ： 组织名-->
+            <groupId>junit</groupId>
+            <!-- 依赖jar的 artifactId ： 项目名-->
+            <artifactId>junit</artifactId>
+            <!-- 依赖jar的 version ： 版本-->
+            <version>4.12</version>
+            <!-- 该jar包的作用范围, 这里就是说引入的junit包，作用范围在 src/test。。目录下,
+                 关于scope后面我们还会详解.
+             -->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>

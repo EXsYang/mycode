@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>maven_D</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+
+        <!--
+        maven_D项目直接依赖 junit4.13.2
+        -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <!--
+                可选依赖
+                optional: 默认是false，表示不隐藏，可以向上传递给引入maven_D的maven_A maven模块/项目了
+                optional: 设置为true，表示隐藏，就不可以向上传递给引入maven_D的maven_A maven模块/项目了
+            -->
+            <!--<optional>true</optional>-->
+
+            <!--
+                配置依赖生效的范围
+                作用范围说明
+                1. 主程序范围有效(src/main 文件夹范围内)
+                2. 测试程序范围有效(src/test 文件夹范围内)
+                3. 是否参与打包（package 指令范围内)
+                4. compile(默认，在主程序、测试代码、打包都有效)
+
+                scope: 默认是compile 在主程序、测试代码、打包都有效
+                scope: 设置为test, 只在测试代码生效
+
+                细节说明:
+                1. 如果设置了<scope>test</scope> 或者<scope>provided</scope>
+                , 那么该junit4.13.2 就不向上一级传递了
+                2. 设置为<scope>compile</scope>或者<scope>runtime</scope>
+                , 该junit4.13.2 仍然向上一级传递
+            -->
+            <!--<scope>compile</scope>-->
+            <!--<scope>runtime</scope>-->
+
+            <!--<scope>test</scope>-->
+            <!--<scope>provided</scope>-->
+        </dependency>
+
+        <!-- 在这里真正的引入一下 maven-source-plugin 插件
+        ，解决直接在build-plugins-plugin导入，却没有在 dependency 中
+        真正导入的爆红问题，在 dependency 中真正导入该插件后爆红消失，
+        然后再将该插件的dependency注销即可
+        -->
+        <!--<dependency>-->
+        <!--    &lt;!&ndash; 插件坐标 &ndash;&gt;-->
+        <!--    <groupId>org.apache.maven.plugins</groupId>-->
+        <!--    <artifactId>maven-source-plugin</artifactId>-->
+        <!--    &lt;!&ndash;-->
+        <!--     注意-->
+        <!--    当前maven用的是3.6.3-->
+        <!--    , 对应的这个插件maven-source-plugin的版本是 2.2.1-->
+        <!--    不同的maven版本，能够用的maven插件，有对应关系！！-->
+        <!--    &ndash;&gt;-->
+        <!--    <version>2.2.1</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <!--
+        在build时，自定义maven插件
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <!-- 插件坐标 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <!--
+                 注意
+                当前maven用的是3.6.3
+                , 对应的这个插件maven-source-plugin的版本是 2.2.1
+                不同的maven版本，能够用的maven插件，有对应关系！！
+                -->
+                <version>2.2.1</version>
+
+                <!--配置插件什么时候执行的配置-->
+                <executions>
+                    <execution>
+                        <!-- goal:目标
+                        https://maven.apache.org/plugins/maven-source-plugin/
+                        The Source Plugin has five goals. 源插件有五个目标
+                        source:jar is used to bundle the main sources of the project into a jar archive.
+                        source:test-jar on the other hand, is used to bundle the test sources of the project into a jar archive.
+
+                        这段英文描述的是 Maven 项目中使用的两种 JAR 打包方式的区别：
+                        - `source:jar` 用于将项目的主源代码打包成一个 JAR 文件。
+                        - `source:test-jar` 则用于将项目的测试源代码打包成一个 JAR 文件。
+                        这两种方式通常用于在 Maven 构建过程中分别处理和封装主要代码和测试代码。
+                         -->
+                        <goals>
+                            <!-- 对主程序输出的源码打包 -->
+                            <goal>jar</goal>
+                            <!-- 对测试程序输出的源码打包 -->
+                            <goal>test-jar</goal>
+                        </goals>
+                        <!--
+                         phase: 阶段
+                         在 generate-test-resources 阶段执行
+                         -->
+                        <phase>generate-test-resources</phase>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

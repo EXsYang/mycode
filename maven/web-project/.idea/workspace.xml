@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e04d65c6-af91-44be-bc31-38d61dbdfaf0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/smartfox_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/java-hello.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/src/com/hspedu/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-hello/src/com/hspedu/HelloTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/src/main/java/com/hspedu/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-project-maven/src/test/java/com/hspedu/TestHello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project-01/maven-project-01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project-01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/src/main/java/at/sgg/Hi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/src/test/java/at/sgg/TestHi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-maven-project/test-maven-project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-hello-maven/web-hello-maven.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../springboot/my-springboot/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springboot/my-springboot/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../springboot/my-springboot/.idea/jarRepositories.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Java_developer_tools\developer_tools_IDEA\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fDngoovpInzWBV6KrWHTNrDIv2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e04d65c6-af91-44be-bc31-38d61dbdfaf0" name="Default Changelist" comment="" />
+      <created>1713344631730</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713344631730</updated>
+      <workItem from="1713344633135" duration="908000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="307" y="28" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1713344875425">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="307" y="28" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1713344875425" />
+  </component>
+</project>

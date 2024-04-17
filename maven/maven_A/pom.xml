@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hspedu</groupId>
+    <artifactId>maven_A</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+
+        <!--
+         解读: maven依赖关系 直接依赖
+         1. 这里我们maven_A 项目的pom.xml 引入 mysql5.1.47
+         2. 这时, 我们就说maven_A 项目直接依赖 mysql5.1.47 jar
+
+         -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <!--
+            说明:
+            1. 当同级配置了相同资源的不同版本，
+               后配置的覆盖先配置的(老韩提醒：要尽量避免这种没有意义的冲突)
+            2. 这就是特殊优先原则
+        -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.43</version>
+        </dependency>
+
+
+        <!--声明优先-
+            如果maven_D中直接依赖junit4.13.2
+            maven_B中直接依赖junit4.13
+            此时maven_A的pom.xml 同时直接依赖maven_D和maven_B,
+            这时，maven_A所使用的junit的版本是maven_D中直接依赖的junit4.13.2
+            因为这里在maven_A中先声明/引入的maven_D，因此junit4.13.2生效
+
+            引入maven_D, 故意将其声明/放在maven_B之前
+        -->
+        <dependency>
+            <groupId>com.hspedu</groupId>
+            <artifactId>maven_D</artifactId>
+            <version>1.0-SNAPSHOT</version>
+
+            <!--
+                1. 如果我们希望主动排除某些jar
+                2. exclusions-exclusion 指定要排除依赖的
+                   groupId和artifactId即可，不需要指定版本version
+                3. 可以通过排除以来搞定 exclusions-exclusion
+                4. 这里只会排除maven_D中传递到maven_A中的依赖，其他的不受影响
+                   ,如下面配置的 直接依赖 maven_B 中传递的junit4.12
+                   ,仍然可以传递到maven_A
+            -->
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>junit</groupId>-->
+            <!--        <artifactId>junit</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
+
+        </dependency>
+
+        <!--
+         解读: maven依赖关系 直接依赖
+         1. 这里我们maven_A 项目的pom.xml 引入 maven_B
+         2. 这时, 我们就说maven_A 项目直接依赖  maven_B
+         3. 因为 maven_B 直接依赖 junit4.12
+         4. 这时，我们就说 maven_A 项目间接依赖 junit4.12
+
+         -->
+        <dependency>
+            <groupId>com.hspedu</groupId>
+            <artifactId>maven_B</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
+
+</project>
