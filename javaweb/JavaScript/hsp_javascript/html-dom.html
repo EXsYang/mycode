@@ -5,6 +5,13 @@
     <title>演示HTML DOM 相关方法</title>
     <link rel="stylesheet" type="text/css" href="style/css.css"/>
     <script type="text/javascript">
+
+        // window.location.href 的用途都是相同的 —— 控制浏览器加载新的页面。不论是在ajax还是query中使用，它都会改变浏览器的地址栏，并导致浏览器加载新的 URL。
+        // 实际上是在告诉浏览器在登录成功后跳转到指定的 URL，即 "/goods/toList"。这种跳转是一种客户端重定向，所以它会改变浏览器地址栏的地址。
+        //window.location.href = "cool1.html"; //
+
+
+
         //老师使用动态注册/绑定来演示
         window.onload = function () {
 

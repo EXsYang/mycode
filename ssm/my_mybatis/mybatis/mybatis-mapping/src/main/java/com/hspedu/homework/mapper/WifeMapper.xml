@@ -11,8 +11,24 @@
 
     -->
     <resultMap id="resultWifeMap" type="Wife">
-        <!--这里如果 没有指定 就按照默认的规则进行匹配
-        即 javabean属性名和表的字段名要保持一致，否则匹配不上，封装的Javabean对象该属性值为null-->
+        <!--
+        如果在 MyBatis 的 `<resultMap>` 中没有明确指定映射关系，
+        MyBatis 默认采用属性名与字段名相同的规则来自动匹配。
+        这意味着，JavaBean 的属性名必须与数据库表的字段名完全一致（包括字母的大小写），
+        否则这些字段将无法被正确封装，其对应的属性值会是 `null`。
+
+        例如，如果数据库中的字段名为 `wife_name`，而 JavaBean 中的属性名为 `wifeName`，
+        不使用 `<result>` 指定映射关系的话，`wifeName` 属性将会得到 `null` 值。
+
+
+
+        这里如果 没有指定 就按照默认的规则进行匹配
+        即 javabean属性名和表的字段名要保持一致，否则匹配不上，封装的Javabean对象该属性值为null
+
+        总结:
+        MyBatis: 需要属性名和字段名完全一致，或者通过 `<resultMap>` 明确指定映射关系。
+        MyBatis Plus: 提供自动的驼峰命名转换，更加灵活。
+        -->
         <!--<result property="id" column="id"/>-->
         <result property="name" column="wife_name"/>
     </resultMap>

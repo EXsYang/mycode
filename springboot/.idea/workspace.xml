@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c37ebfbe-44db-45c2-8f82-4db94dcd9a52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../javaweb/cookie-session/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaweb/JavaScript/hsp_javascript/html-dom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../javaweb/JavaScript/hsp_javascript/html-dom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaweb/cookie-session/src/com/hspedu/cookie/CookiePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/../javaweb/cookie-session/src/com/hspedu/cookie/CookiePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaweb/jquery/test/a标签跳转细节.html" beforeDir="false" afterPath="$PROJECT_DIR$/../javaweb/jquery/test/a标签跳转细节.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redis/redis_springboot/src/main/java/com/hspedu/redis/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../redis/redis_springboot/src/main/java/com/hspedu/redis/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redis/redis_springboot/src/main/java/com/hspedu/redis/controller/RedisTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../redis/redis_springboot/src/main/java/com/hspedu/redis/controller/RedisTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mybatis/src/main/java/com/hspedu/springboot/mybatis/bean/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatis/src/main/java/com/hspedu/springboot/mybatis/bean/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mybatis/src/main/resources/mapper/MonsterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatis/src/main/resources/mapper/MonsterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/hspedu/springboot/mybatisplus/bean/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/hspedu/springboot/mybatisplus/bean/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/MonsterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/MonsterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-usersys/src/main/java/com/hspedu/springboot/exception/AccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-usersys/src/main/java/com/hspedu/springboot/exception/AccessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootweb/src/main/java/com/hspedu/springboot/controller/ParameterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootweb/src/main/java/com/hspedu/springboot/controller/ParameterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/my_mybatis/mybatis/mybatis-mapping/src/main/java/com/hspedu/entity/IdenCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/my_mybatis/mybatis/mybatis-mapping/src/main/java/com/hspedu/entity/IdenCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/my_mybatis/mybatis/mybatis-mapping/src/main/java/com/hspedu/homework/mapper/WifeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/my_mybatis/mybatis/mybatis-mapping/src/main/java/com/hspedu/homework/mapper/WifeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/my_springmvc/springmvc/src/com/hspedu/web/datavalid/MonsterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/my_springmvc/springmvc/src/com/hspedu/web/datavalid/MonsterHandler.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Java_developer_tools\developer_tools_IDEA\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fUzjvKdsxSClopZSmpnTjyPDHI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c37ebfbe-44db-45c2-8f82-4db94dcd9a52" name="Default Changelist" comment="" />
+      <created>1713870582401</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713870582401</updated>
+      <workItem from="1713870583573" duration="2185000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="399" y="67" width="737" height="650" key="find.popup" timestamp="1713871487148">
+      <screen x="0" y="0" width="1536" height="783" />
+    </state>
+    <state x="399" y="67" width="737" height="650" key="find.popup/0.0.1536.783@0.0.1536.783" timestamp="1713871487148" />
+  </component>
+</project>

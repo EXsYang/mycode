@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--配置 getMonsterById-->
+<!--namespace指定要关联的接口的全类名-->
 <mapper namespace="com.hspedu.springboot.mybatisplus.mapper.MonsterMapper">
 
-
+    <!--配置 insertSelective -->
     <insert id="insertSelective">
         insert into monster
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -28,9 +28,10 @@
             <if test="salary != null">#{salary,jdbcType=DECIMAL},</if>
         </trim>
     </insert>
+    <!--配置 deleteByEmail -->
     <delete id="deleteByEmail">
-delete from monster
-where
-email = #{email,jdbcType=VARCHAR}
-</delete>
+        delete from monster
+        where
+        email = #{email,jdbcType=VARCHAR}
+    </delete>
 </mapper>

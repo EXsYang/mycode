@@ -141,6 +141,14 @@ public class MonsterHandler {
 
      @Valid 和 @Validated 这两个有什么区别？
      GPT
+      * 1. @Validated 注解的作用就是启用 BrandEntity 字段上添加的校验
+      *    注解@Validated 是由Spring框架提供的，
+      *    作为@Valid的一个增强版，支持分组功能！！！ @Valid 注解不支持验证分组功能
+     * /* @RequestMapping("/save")
+     *    public R save(@Validated(SaveGroup.class) @RequestBody BrandEntity brand) {
+     *        // 业务逻辑
+     *    }
+     *
      @Valid 和 @Validated 都是用于验证 Java Bean 对象的注解，它们触发了 Spring 的验证机制。这两个注解在使用上有相似之处，但也有一些关键的区别：
 
      @Valid
