@@ -1,5 +1,8 @@
 package com.hspedu.springboot.mybatisplus.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -39,9 +42,23 @@ import java.util.Date;
  * 您的理解基本正确，我可以为您补充一些细节：
  * Spring Boot + MyBatis-Plus：
  *
- * @TableName 注解用于指定实体类与数据库中表的映射关系。如果实体类名称和数据库表名称不一致时使用。
- * @TableId 注解用于指定实体类中的哪个属性映射到数据库表的主键字段。
- * @TableField 注解用于指定实体类中的属性与数据库表中的字段的映射关系。如果属性名和字段名不一致时使用。
+ * =====================================================================================
+ *@TableName 注解用于指定一个实体类映射到数据库中的哪个表。如果实体类的名称和表的名称不一致，就需要使用这个注解来建立映射关系。
+ *@TableId 注解用于指定实体类中哪个属性映射到数据库表的主键字段。这个注解还可以指定主键生成策略，例如自增、UUID等。
+ *@TableField 注解用于指定实体类中的属性与数据库表中的字段的映射关系。这个注解非常有用，特别是当属性名和字段名不一致时。
+ * 在Mybatis-Plus中默认启用自动驼峰命名，除非字段名与属性名的映射不遵循下划线转驼峰的规则，或者有特殊映射需求，才需要显式使用@TableField。
+**
+* 示例如下：
+ * @TableName("tbl_wife") //假设数据库中有一个表名为 tbl_wife，而你希望映射到这个表的实体类名为 Wife
+ * public class Wife {
+ *     @TableId(value = "wife_id", type = IdType.AUTO) //type = IdType.AUTO 表明主键是自增类型，MyBatis Plus 会自动处理这种自增主键。
+ *     private Integer id;
+ *
+ *     @TableField("wife_name") //假设数据库表 tbl_wife 中有一个字段名为 wife_name，而实体类 Wife 中对应的属性名为 name
+ *      private String name;
+ *     // getter and setter
+ * }
+ * =====================================================================================
  * Spring Boot + MyBatis：
  *
  * 在MyBatis中，通常使用XML映射文件或注解来定义SQL语句和结果映射。

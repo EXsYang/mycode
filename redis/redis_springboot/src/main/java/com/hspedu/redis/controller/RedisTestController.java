@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisTestController {
 
 
-    //装配RedisTemplate
+    // 装配RedisTemplate，操作Redis 注意RedisTemplate<K, V> 中可以指定泛型，如RedisTemplate<String,User>
     @Resource
     private RedisTemplate redisTemplate;
 

@@ -35,6 +35,8 @@ import java.time.Duration;
 public class RedisConfig extends CachingConfigurerSupport {
 
     //这里factory报红不是错误,程序运行起来，请求过一次Controller API接口后就不会报错了
+    // 注入到容器的RedisTemplate对象，
+    // 用于操作Redis 注意RedisTemplate<K, V> 中可以指定泛型，如RedisTemplate<String,User>
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template =

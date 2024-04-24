@@ -174,6 +174,28 @@ public class ParameterController {
      *     public Result getMemberById(Long id){}
      * 上面(2)中的形式等价于指定params
      *
+     * 3.ajax请求的data中,要求前后端属性名一致
+     *  $.ajax({
+     *             url: "/login/doLogin",
+     *             type: "POST",
+     *             data: {
+     *                 mobile: $("#mobile").val(),
+     *                 password: password
+     *             },
+     *
+     *
+     * @Data
+     * public class LoginVo {
+     *
+     *
+     *     private String mobile;
+     *     private String password;
+     *
+     * }
+     *
+     *     @RequestMapping("/doLogin")
+     *     @ResponseBody //加上该注解，就不会被解析为视图了。即不会按照templates的视图，而是返回json数据
+     *     public RespBean doLogin(LoginVo loginVo){}
      *-------------------------
      * 与自定义类型参数封装(方法上不使用任何注解)的对比
      * Spring 框架中的 @RequestParam 注解和不使用任何注解的方法形参都可以用来接收 URL 参数和 application/x-www-form-urlencoded 格式的 form 表单提交的参数。但这两种方式在功能和使用场景上有所区别：
