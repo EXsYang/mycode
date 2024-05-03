@@ -3,6 +3,7 @@ package com.hspedu.spring.component;
 import com.hspedu.spring.annotation.Component;
 import com.hspedu.spring.processor.BeanPostProcessor;
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

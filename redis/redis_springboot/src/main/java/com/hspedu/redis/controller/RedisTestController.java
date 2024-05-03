@@ -224,4 +224,40 @@ public class RedisTestController {
     }
 
 
+
+    @RequestMapping("/t5")
+    public String t5() {
+
+        redisTemplate.opsForValue().set("k1",10);
+        redisTemplate.opsForValue().set("k2",100);
+
+
+        //经过测试发现, Long decrement(K key, long delta);  第二个参数为步长
+
+        System.out.println("k1原来的值=" + redisTemplate.opsForValue().get("k1"));
+        Long k1 = redisTemplate.opsForValue().decrement("k1");
+        System.out.println("decr之后返回的k1的值=" + k1);
+
+        System.out.println("k2原来的值=" + redisTemplate.opsForValue().get("k2"));
+        Long k2 = redisTemplate.opsForValue().decrement("k2",3);
+        System.out.println("decr之后返回的k2的值=" + k2);
+
+
+        return k1.toString();
+    }
+    @RequestMapping("/t6")
+    public String t6() {
+
+        //redisTemplate.hasKey() 方法在背后使用的 Redis 命令确实是 EXISTS。
+        // 这个命令用于检查给定的键是否存在于 Redis 数据库中。
+        // 如果键存在，EXISTS 命令返回 1，如果不存在，则返回 0。
+        // 在 Java 的 Spring Data Redis 库中，
+        // 这个命令被封装在 hasKey() 方法里，该方法会返回一个布尔值，
+        // true 表示键存在，false 表示键不存在。
+        Boolean k1 = redisTemplate.hasKey("k1");
+
+        return k1.toString();
+    }
+
+
 }

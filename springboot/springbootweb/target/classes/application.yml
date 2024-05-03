@@ -10,7 +10,7 @@
 # 1. 静态资源访问原理：静态映射是 /**
 # , 也就是对所有请求拦截，请求进来，先看 Controller
 # 能不能处理，不能处理的请求交给静态资源处理器，如果静态资源找不到则响应 404 页面
-
+# 优先级遵守: 精确路径 > 目录路径 > 扩展名路径 > /* > / > DefaultServlet 参考: https://www.jb51.net/article/216853.htm#_label10
 # http://localhost:8080/1.jpg 被Controller处理器拦截到了
 # 因为HiController 配置了 @RequestMapping("/1.jpg") 所以不会走到静态资源
 

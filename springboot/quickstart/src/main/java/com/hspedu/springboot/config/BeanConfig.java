@@ -15,7 +15,13 @@ import org.springframework.context.annotation.Scope;
 /**
  * @author yangda
  * @create 2023-11-25-21:51
- * @description: 1. @Configuration 注解标识这是一个配置类，等价于配置文件，类似于spring中的beans.xml文件
+ * @description:
+ *
+ * 默认情况下，通过 `@Configuration` 和 `@Bean` 注解注入的对象是单例的。
+ * 这意味着 Spring 容器在启动时会创建这些对象的唯一实例，
+ * 并且在整个应用程序的生命周期内都会重用这些实例。
+ *
+ * 1. @Configuration 注解标识这是一个配置类，等价于配置文件，类似于spring中的beans.xml文件
  * 2. 程序员可以通过@Bean 注解注入bean对象到容器
  * 3. 当一个类被 @Configuration 标识，该类对应的bean 也会注入到ioc容器中
  * 即BeanConfig类对应的bean对象也在ioc中
