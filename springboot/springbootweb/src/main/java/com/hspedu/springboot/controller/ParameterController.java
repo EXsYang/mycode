@@ -2,6 +2,7 @@ package com.hspedu.springboot.controller;
 
 import com.hspedu.springboot.bean.Monster;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -224,6 +225,45 @@ public class ParameterController {
         System.out.println("monster= " + monster);
         return "success";
     }
+
+
+    /**
+     * @ModelAttribute 是一个用于 Spring MVC 中的注解，主要用于以下两种场景：
+     *
+     * 方法级别的注解：当用在方法上时，@ModelAttribute 会使该方法在控制器的其他请求处理方法执行前运行。
+     * 这个方法可以用来预先加载数据，然后把这些数据添加到模型中，供同一个控制器中的其他方法使用。
+     * 这种用法通常用于填充表单或者初始化某些通用数据。例如，如果你想在每个请求前都加载用户信息，
+     * 并将其添加到模型中，你可以这样做：
+     * * 在这个例子中，每个处理请求的方法都可以直接从模型中访问到 user 对象。
+     * @param model
+     */
+    // @ModelAttribute
+    // public void addUserToModel(Model model) {
+    //     User user = userService.getCurrentUser(); // 假设这是获取当前用户的服务
+    //     model.addAttribute("user", user);
+    // }
+
+
+    /**
+
+     * 参数级别的注解：当用在方法的参数上时，@ModelAttribute 注解可以告诉 Spring MVC
+     * 如何从请求中获取和绑定数据到指定的对象。这通常用于处理表单提交的数据。Spring MVC
+     * 会自动按照参数名或者注解内指定的名字从请求中提取对应的数据，并绑定到对象上。
+     * 例如，如果你有一个表单，用户需要填写自己的信息，这些信息将被绑定到一个 User 对象上：
+     * 这里，@ModelAttribute("user") 注解告诉 Spring MVC，
+     * 它应该从请求中获取相应的数据并填充到 User 对象中。
+     * 然后，该对象作为参数传递给方法。
+     * 使用 @ModelAttribute 的好处包括简化代码、提升效率（通过预加载数据），
+     * 以及提高数据绑定的灵活性和控制力。这样可以更容易地处理复杂的数据绑定和表单提交场景。
+     * @param user
+     * @param model
+     * @return
+     */
+    // @PostMapping("/updateProfile")
+    // public String updateProfile(@ModelAttribute("user") User user, Model model) {
+    //     userService.update(user); // 更新用户信息
+    //     return "profileUpdated";
+    // }
 
 
 }

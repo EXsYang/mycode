@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -148,4 +150,19 @@ public class AdminController {
         return "test2";
     }
 
+
+    /**
+     * 在使用 Thymeleaf 的 Spring Boot 应用中，
+     * 控制器返回对象通常需要明确地通过 @ResponseBody 来处理 JSON 返回，
+     * 或者通过添加对象到模型并返回一个视图名称来让 Thymeleaf 渲染 HTML 页面。
+     * 如果返回的是对象本身而没有适当的注解或视图名称，通常会导致错误。
+     */
+    //返回登录用户的信息，同时接收请求携带的参数address
+    // @RequestMapping("/info")
+    // @ResponseBody //该注解不能少，否则会报错
+    // public User info(User user,String address){
+    //
+    //     System.out.println("address-->>" + address);
+    //     return user;
+    // }
 }

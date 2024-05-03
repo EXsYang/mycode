@@ -3,7 +3,13 @@ package com.hspedu.web;
 import org.aopalliance.intercept.Invocation;
 import org.jboss.logging.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author yangda
@@ -40,6 +46,80 @@ public class UserHandler {
         System.out.println("购买商品");
         return "success";
     }
+
+
+    /**
+     * 进入到商品列表页-使用Redis优化，到Redis查询,将商品列表页缓存到Redis
+     * <p>
+     * http://localhost:8080/goods/toList
+     *
+     * produces指定返回的字符串的数据格式为"text/html;charset=utf-8"，
+     * sponseBody表示直接将数据写入到响应体中返回
+     * 这两注解组合使用,可以直接将html模板页面以String格式 "text/html;charset=utf-8" 返回给前端
+     */
+    // @RequestMapping(value = "/toList",produces = "text/html;charset=utf-8")
+    // @ResponseBody//不能少，否则会出问题
+    // public String toList(Model model, User user,
+    //                      HttpServletRequest request,
+    //                      HttpServletResponse response) {
+    //
+    //     if (user == null) { //用户没有成功登录
+    //         // 下面这两个返回语句在这里都变成了返回字符串到前端了
+    //         // ，因为这里使用的注解的影响，使其没有被解析为thymeleaf模板的模板名称
+    //         // return "login";
+    //         // return "redirect:/login";
+    //
+    //         //返回登录页面的 HTML 内容
+    //         // 如果您想通过 AJAX 调用这些服务，
+    //         // 并需要在用户未登录时加载登录页面，
+    //         // 可以在服务器端渲染登录页面的 HTML 并返回它。
+    //         // 例如，您可以使用 ThymeleafViewResolver 来获取登录页面的 HTML 字符串，
+    //         // 然后返回这个字符串。这需要您确保能够在这种情况下正确处理 HTML 内容：
+    //         WebContext webContext = new WebContext(request, response, request.getServletContext(), request.getLocale());
+    //         String html = thymeleafViewResolver.getTemplateEngine().process("login", webContext);
+    //         return html;
+    //         // Local variable 'html' is redundant 局部变量“html”是多余的
+    //     }
+    //
+    //     //先到Redis获取页面-如果有，直接返回页面
+    //     ValueOperations valueOperations = redisTemplate.opsForValue();
+    //     String html = (String) valueOperations.get("goodsList");
+    //     if (StringUtils.hasText(html)) {
+    //         //如果html有内容就直接返回
+    //         return html;
+    //     }
+    //
+    //     //如果html没有内容继续往下走
+    //
+    //     //登录过, 将user信息放入到model,携带到下一个模板使用
+    //     model.addAttribute("user", user);
+    //     //将商品列表信息，放入到model,携带到下一个模板使用
+    //     //这里会到DB获取商品列表需要的数据
+    //     model.addAttribute("goodsList", goodsService.findGoodsVo());
+    //
+    //     //如果从redis没有获取到html页面，就手动渲染页面，并存入到redis
+    //     //model.asMap() 就是取出前面放入到model中的数据"user","goodsList", 进行渲染需要
+    //     //这里是一个常规的用法,直接拿来使用即可,获取web的上下文,用model中的数据,渲染html模板
+    //     WebContext webContext =
+    //             new WebContext(request, response, request.getServletContext(), request.getLocale(), model.asMap());
+    //
+    //     //process:处理方法
+    //     //使用thymeleaf引擎处理一个模板页,模板页的名称 名为"goodsList"，
+    //     //模板页中构建页面需要的数据/内容是从webContext中获取的
+    //     //上面从redis中获取的html页面如果没有内容,就在这里进行赋值
+    //     //"goodsList"的名称不可以乱写,是已经存在的,
+    //     // 或者你需要对其进行手动渲染的thymeleaf模板的名称!!!
+    //     html = thymeleafViewResolver.getTemplateEngine().process("goodsList", webContext);
+    //     if (StringUtils.hasText(html)) {
+    //         //如果此时html模板有内容,就说明渲染成功了
+    //         //将页面保存到redis,设置每60s更新一次,该页面60s失效,redis会清除该页面
+    //         //因为也有可能会更新这个商品列表页面,对redis中的缓存页面进行更新
+    //         valueOperations.set("goodsList", html, 60, TimeUnit.SECONDS);
+    //     }
+    //
+    //     return html;
+    // }
+
 
     /**
      * 老韩解读

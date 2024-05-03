@@ -10,6 +10,7 @@ spring:
     url: jdbc:mysql://localhost:3306/spring_boot?useSSL=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: hsp
+    # mysql数据库驱动，是在pom.xml文件中引入的mysql-connector-java依赖中的，不同的数据库需要引入不同的数据库驱动
     driver-class-name: com.mysql.jdbc.Driver
     # 配置Druid和监控 这时druid数据源已经进来了，同时监控功能已经开启,即可以访问到Druid Monitor 系统了
     # druid数据源可以读取本文件中配置的的连接数据库的信息，即url,username,password,driver-class-name

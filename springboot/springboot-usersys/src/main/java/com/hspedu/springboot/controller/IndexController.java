@@ -63,6 +63,29 @@ public class IndexController {
          * 如果你需要在 Thymeleaf 视图渲染之前或之后执行一些操作，可以考虑使用 Thymeleaf 提供的一些扩展机制，如 ITemplateResolver、IProcessor 等。这些扩展点可以在模板渲染的不同阶段添加自定义逻辑。
          */
 
+        /**
+         * 当在Spring Boot项目中引入了spring-boot-starter-thymeleaf依赖后，
+         * 控制器层返回String类型的值会默认被解释为要渲染的HTML模板页面的名称。
+         * 这是因为引入了Thymeleaf依赖后，Spring Boot会自动配置Thymeleaf模板引擎及其组件，
+         * 如模板解析器和视图解析器。
+         *
+         * 自动配置机制：
+         * - Spring Boot通过spring-boot-starter-thymeleaf自动配置Thymeleaf模板引擎。
+         * - 当控制器返回一个字符串，如 "index"，Spring MVC将这个字符串视为视图名称。
+         * - 视图解析器随后会在src/main/resources/templates目录下寻找名为index.html的Thymeleaf模板文件。
+         *
+         * 控制器返回字符串的处理：
+         * - 在MVC架构中，控制器的职责是处理请求并返回视图名称。
+         * - Thymeleaf模板引擎会将视图名称与模板文件关联，然后渲染成HTML格式响应客户端。
+         *
+         * 如果希望返回纯字符串而非视图：
+         * - 使用@ResponseBody注解：使方法返回的字符串直接作为HTTP响应体返回，不经过视图解析器。
+         * - 使用@RestController注解：结合@Controller和@ResponseBody的功能，适用于REST API，
+         *   自动处理所有方法返回值作为响应体。
+         */
+
+
+
 
         //这里不用写所在的包，可以直接写里面的thymeleaf文件 adminLogin.html  的文件名而不用写包名 回顾视图解析器 有前缀和后缀
         return "adminLogin";
