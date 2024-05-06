@@ -133,6 +133,11 @@
             <mvc:mapping path="/h*"/>
             <ref bean="myInterceptor02"/>
         </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/h*"/>
+            <ref bean="myInterceptor03"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 

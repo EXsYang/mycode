@@ -25,6 +25,15 @@ import java.util.Map;
 public class VoteHandler {
 
     /**
+     *
+     * 使用@RequestParam注解:
+     * - 主要用途：用来获取URL请求参数或表单数据（Content-Type: application/x-www-form-urlencoded）
+     * - 适用场景：
+     *   1. GET请求：获取URL后的查询参数（例如 ?key=value 形式的参数）。
+     *   2. POST请求：如果表单的Content-Type为application/x-www-form-urlencoded，
+     *      可以用来获取表单内的数据，如表单字段。
+     *
+     *
      * http请求的url上,有在@RequestParam注解 value属性上指定的 名字的参数名
      * 老韩解读 @RequestParam(value="name", required=false)
      * 1. 获取到超链接传递的数据 请求 http://localhost:8080/springmvc/vote/vote01?name=xx
@@ -89,6 +98,10 @@ public class VoteHandler {
      *       }).then(({ data }) => {
      *
      *  @RequestParam Map<String, Object> param , 可以接收到params:中的值
+     *
+     *
+     *
+     *
      *
      */
     @RequestMapping(value = "/vote01")

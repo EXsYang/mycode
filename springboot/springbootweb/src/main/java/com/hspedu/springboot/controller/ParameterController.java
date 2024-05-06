@@ -208,7 +208,28 @@ public class ParameterController {
      * 更多控制权：@RequestParam 提供了更多的控制权，比如处理多值参数（如同一个参数名出现多次）。
      * 不使用注解的方法形参：
      *
-     * 隐式名称匹配：如果方法的参数名和请求参数名相同，Spring 会自动将请求参数的值绑定到对应的方法参数。例如，方法参数为 String name 会自动匹配请求中的 name 参数。
+     * 隐式名称匹配：如果方法的参数名和请求参数名相同，Spring 会自动将请求参数的值绑定到对应的方法参数。
+     * 例如，方法参数为 String name 会自动匹配请求中的 name 参数。
+     *
+     * 1. 前端发送ajax使用:
+     * $.ajax({
+     *     url: '/seckillResult',
+     *     type: 'POST',
+     *     data: {
+     *         user: userId,
+     *         goodsId: goodsId
+     *     },success: function(data) {...
+     * 2. 后端的接收方式为:
+     * @RequestMapping("/seckillResult")
+     * @ResponseBody
+     * public RespBean getSeckillResult(User user, Long goodsId){} 这里data中的的goodsId: goodsId可以直接封装到Long goodsId
+     * 说明:这些数据是以application/x-www-form-urlencoded格式发送的，
+     * 这意味着数据在发送到服务器时会作为请求体（request body）的一部分，而不是URL参数。
+     * application/x-www-form-urlencoded: 这是默认的内容类型，适用于POST请求。请求的数据在发送到服务器之前，
+     * 会被编码为键值对，类似于URL查询字符串。例如：user=userId&goodsId=goodsId。
+     *
+     *
+     *
      * 简洁：对于简单的情况，不使用注解可以使代码更简洁。
      * 灵活性较低：不使用注解意味着你不能指定默认值，也不能处理可选参数的情况。
      * 补充说明：

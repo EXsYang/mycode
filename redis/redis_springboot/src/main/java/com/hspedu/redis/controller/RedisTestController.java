@@ -87,16 +87,21 @@ public class RedisTestController {
             //     redisTemplate.delete("lock");
             // }
 
-            //3释放锁=====使用 lua 脚本来锁, 控制删除原子性========
+            //3释放锁=====使用 lua 脚本来释放锁, 控制删除原子性========
+            // 注意Lua脚本的代码也可以做成一个文件放在resources目录下进行读取,通过配置文件注入DefaultRedisScript对象进行使用
+            // ,具体可以参考高并发秒杀项目V7.0版本的秒杀方法doSeckill()
+
             // 定义 lua 脚本
             String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
             // 使用 redis 执行 lua 执行
             DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
             redisScript.setScriptText(script);
+
             // 设置一下返回值类型 为 Long
             // 因为删除判断的时候，返回的 0,给其封装为数据类型。如果不封装那么默认返回 String 类型，
             // 那么返回字符串与 0 会有发生错误。
             redisScript.setResultType(Long.class);
+
             // 第一个是 script 脚本 ，第二个需要判断的 key，第三个就是 key 所对应的值
             // 老 韩 解 读 Arrays.asList("lock") 会 传 递 给 script 的 KEYS[1] , uuid 会 传 递 给 ARGV[1] , 其它的小伙伴应该很容易理解
             redisTemplate.execute(redisScript, Arrays.asList("lock"), uuid);
