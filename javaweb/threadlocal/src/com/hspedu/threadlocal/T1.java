@@ -32,6 +32,13 @@ public class T1 {
                 }
 
              */
+            // 【注意这里其实是放入到当前线程的threadLocals属性ThreadLocalMap中了】
+            //每个线程（处理一个请求）都在其自己的`ThreadLocalMap`中操作数据，保证了数据的隔离性。
+            //`ThreadLocal`利用每个线程持有自己的`ThreadLocalMap`来实现数据隔离。
+            // 虽然`ThreadLocal`变量是静态的（即类级别的，所有实例共享），
+            // 每个线程通过`ThreadLocal`实例存取的数据实际上存储在它自己的`ThreadLocalMap`中。
+            // 这保证了即使多个线程访问同一个`ThreadLocal`对象，
+            // 它们也只能访问各自独立存储的数据。
             threadLocal1.set(dog);
             //threadLocal1.set(pig);//替换
             threadLocal2.set(pig);//这个数据就会threadLocal2关联，并且都被当前Thread管理

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author yangda
  * @create 2023-10-14-16:47
- * @description: 拦截器
+ * @description: 自定义拦截器
  * 注意 想要生效 除了注入ioc容器 还需要在spring配置文件中 配置一下
  * 3、拦截器需要配置才生效，不配置是不生效的.
  */

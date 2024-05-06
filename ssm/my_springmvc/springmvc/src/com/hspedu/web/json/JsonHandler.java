@@ -80,6 +80,13 @@ public class JsonHandler {
 /**
  * 老师解读
  * @RequestBody作用
+ * 使用@RequestBody注解:
+ * - 主要用途：用于获取请求体（body）中的数据，特别是非表单编码的数据，如JSON, XML等。
+ * - 适用场景：
+ *   1. POST请求：处理Content-Type为application/json的请求体数据。
+ *   2. PUT请求：同样可以用来接收JSON或其他格式的请求体数据。
+ * - 注意：@RequestBody注解告诉Spring框架将请求体的内容读取并转换成Java对象。
+ *
  *  @RequestBody的作用 第1个功能
  * 1. @RequestBody User user 在形参指定了 @RequestBody
  * 2. springmvc就会将提交的json字符串数据填充给指定Javabean

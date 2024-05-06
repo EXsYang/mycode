@@ -39,6 +39,7 @@ public class CreateSession2 extends HttpServlet {
         session.setMaxInactiveInterval(60);
         session.setAttribute("u","tom");
         session.setAttribute("pwd","666");
+        session.setAttribute("pwd","777"); //这里会替换上面的666
 
         // 4.给浏览器发送回复信息
         response.setContentType("text/html;charset=utf-8");
