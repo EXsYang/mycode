@@ -3,62 +3,43 @@ mode:
   repository:
     type: JDBC
 dataSources:
-  user_ds:
+  write_ds:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    jdbcUrl: jdbc:mysql://192.168.198.135:3301/db_user
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3306/db_user
     username: root
     password: 123456
-  order_ds_0:
+  read_ds_0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    jdbcUrl: jdbc:mysql://192.168.198.135:3310/db_order
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3307/db_user
     username: root
     password: 123456
-  order_ds_1:
+  read_ds_1:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    jdbcUrl: jdbc:mysql://192.168.198.135:3311/db_order
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3308/db_user
     username: root
     password: 123456
 rules:
-  - !SHARDING
-    tables:
-      t_user:
-        actualDataNodes: user_ds.t_user
-      t_order:
-        actualDataNodes: order_ds_${0..1}.t_order${0..1}
-        databaseStrategy:
-          standard:
-            shardingColumn: user_id
-            shardingAlgorithmName: userid_inline
-        tableStrategy:
-          standard:
-            shardingColumn: id
-            shardingAlgorithmName: orderid_inline
-      t_order_item:
-        actualDataNodes: order_ds_${0..1}.t_order_item${0..1}
-        databaseStrategy:
-          standard:
-            shardingColumn: user_id
-            shardingAlgorithmName: userid_inline
-        tableStrategy:
-          standard:
-            shardingColumn: order_id
-            shardingAlgorithmName: orderid_item_inline
-
-    shardingAlgorithms:
-      userid_inline:
-        type: INLINE
+  - !READWRITE_SPLITTING
+    dataSources:
+      readwrite_ds:
+        writeDataSourceName: write_ds
+        readDataSourceNames:
+          - read_ds_0
+          - read_ds_1
+        transactionalReadQueryStrategy: DYNAMIC # 事务内读请求的路由策略，可选值：PRIMARY（路由至主库）、FIXED（同一事务内路由至固定数据源）、DYNAMIC（同一事务内路由至非固定数据源）。默认值：DYNAMIC
+        loadBalancerName: weight
+    loadBalancers:
+      random:
+        type: RANDOM
+      round_robin:
+        type: ROUND_ROBIN
+      weight:
+        type: WEIGHT
         props:
-          algorithm-expression: order_ds_${user_id % 2}
-      orderid_inline:
-        type: INLINE
-        props:
-          algorithm-expression: t_order${id % 2}
-      orderid_item_inline:
-        type: INLINE
-        props:
-          algorithm-expression: t_order_item${order_id % 2}
+          read_ds_0: 1
+          read_ds_1: 2
 props:
   sql-show: true
