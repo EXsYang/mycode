@@ -1,0 +1,45 @@
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+dataSources:
+  write_ds:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3306/db_user
+    username: root
+    password: 123456
+  read_ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3307/db_user
+    username: root
+    password: 123456
+  read_ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.198.135:3308/db_user
+    username: root
+    password: 123456
+rules:
+  - !READWRITE_SPLITTING
+    dataSources:
+      readwrite_ds:
+        writeDataSourceName: write_ds
+        readDataSourceNames:
+          - read_ds_0
+          - read_ds_1
+        transactionalReadQueryStrategy: DYNAMIC # 事务内读请求的路由策略，可选值：PRIMARY（路由至主库）、FIXED（同一事务内路由至固定数据源）、DYNAMIC（同一事务内路由至非固定数据源）。默认值：DYNAMIC
+        loadBalancerName: weight
+    loadBalancers:
+      random:
+        type: RANDOM
+      round_robin:
+        type: ROUND_ROBIN
+      weight:
+        type: WEIGHT
+        props:
+          read_ds_0: 1
+          read_ds_1: 2
+props:
+  sql-show: true

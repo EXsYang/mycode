@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48f21b5c-fd0a-4c61-8b85-8d5be1465fd6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/shardingsphere.bak" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GiteeDefaultAccount">
+    <option name="defaultAccountId" value="27e7fb75-5359-4177-b7b1-b43f7ec30d6e" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Java_developer_tools\developer_tools_IDEA\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2VsL3DlOLnUqc0QiI7JAqBVzEGs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="flattenModules" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java_developer_tools\mycode\atguigu_code\sharding-jdbc-demo\src\main\resources" />
+      <recent name="D:\workspaceAtguigu\sharding-jdbc-demo\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.App" />
+      <module name="sharding-jdbc-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.shardingjdbcdemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadwriteTest.testInsertOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sharding-jdbc-demo" />
+      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
+      <option name="METHOD_NAME" value="testInsertOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadwriteTest.testInsertOrderAndOrderItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sharding-jdbc-demo" />
+      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
+      <option name="METHOD_NAME" value="testInsertOrderAndOrderItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadwriteTest.testInsertOrderDatabaseStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sharding-jdbc-demo" />
+      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
+      <option name="METHOD_NAME" value="testInsertOrderDatabaseStrategy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadwriteTest.testInsertOrderTableStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sharding-jdbc-demo" />
+      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
+      <option name="METHOD_NAME" value="testInsertOrderTableStrategy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.ReadwriteTest.testInsertOrder" />
+        <item itemvalue="JUnit.ReadwriteTest.testInsertOrderAndOrderItem" />
+        <item itemvalue="JUnit.ReadwriteTest.testInsertOrderTableStrategy" />
+        <item itemvalue="JUnit.ReadwriteTest.testInsertOrderDatabaseStrategy" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48f21b5c-fd0a-4c61-8b85-8d5be1465fd6" name="Changes" comment="" />
+      <created>1717073911537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717073911537</updated>
+      <workItem from="1717073912795" duration="1218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
