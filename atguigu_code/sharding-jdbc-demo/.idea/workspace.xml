@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48f21b5c-fd0a-4c61-8b85-8d5be1465fd6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shardingsphere.bak" afterDir="false" />
+    <list default="true" id="48f21b5c-fd0a-4c61-8b85-8d5be1465fd6" name="Changes" comment="commit idea">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shardingsphere.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shardingsphere.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atguigu/shardingjdbcdemo/ReadwriteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atguigu/shardingjdbcdemo/ReadwriteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shardingsphere.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shardingsphere.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/atguigu/shardingjdbcdemo/ReadwriteTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/atguigu/shardingjdbcdemo/ReadwriteTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springboot/hspedu_springboot_vue/springboot-furn/src/test/java/com/hspedu/furn/ApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../springboot/hspedu_springboot_vue/springboot-furn/src/test/java/com/hspedu/furn/ApplicationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +56,32 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java_developer_tools\mycode\atguigu_code\sharding-jdbc-demo\src\main\resources" />
       <recent name="D:\workspaceAtguigu\sharding-jdbc-demo\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.ReadwriteTest.testSelect">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.App" />
       <module name="sharding-jdbc-demo" />
@@ -71,13 +95,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="ReadwriteTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sharding-jdbc-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.shardingjdbcdemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,21 +131,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadwriteTest.testInsertOrderDatabaseStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReadwriteTest.testSelect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sharding-jdbc-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.shardingjdbcdemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
       <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
-      <option name="METHOD_NAME" value="testInsertOrderDatabaseStrategy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReadwriteTest.testInsertOrderTableStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sharding-jdbc-demo" />
-      <option name="PACKAGE_NAME" value="com.atguigu.shardingjdbcdemo" />
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.shardingjdbcdemo.ReadwriteTest" />
-      <option name="METHOD_NAME" value="testInsertOrderTableStrategy" />
+      <option name="METHOD_NAME" value="testSelect" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ReadwriteTest.testSelect" />
+        <item itemvalue="JUnit.ReadwriteTest.testInsert" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.ReadwriteTest.testInsertOrder" />
         <item itemvalue="JUnit.ReadwriteTest.testInsertOrderAndOrderItem" />
-        <item itemvalue="JUnit.ReadwriteTest.testInsertOrderTableStrategy" />
-        <item itemvalue="JUnit.ReadwriteTest.testInsertOrderDatabaseStrategy" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +182,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit idea" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
