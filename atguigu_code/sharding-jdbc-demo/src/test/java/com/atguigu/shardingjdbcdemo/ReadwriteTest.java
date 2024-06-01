@@ -181,19 +181,37 @@ class ReadwriteTest {
 
     /**
      * 事务测试
+     * 对应 .yaml 文件中的 transactionalReadQueryStrategy 属性
+     * 注意:
+     * 1. 要想配置的transactionalReadQueryStrategy生效 需要开启事务
+     *    如 配置的是 transactionalReadQueryStrategy: PRIMARY
+     *    则读写都走同一个库，这里是都走write_ds
+     * 2. @Transactional和@Test注解同时使用，会自动进行数据清理,
+     *    即插入的数据并不会真正的插入到数据库中,但是会导致主键id已经被使用过了,会继续累加
+     *    ,即会占用id,即使数据清理了,数据库测试时自动分配的id值 一旦分配就不会再撤销了.
+     *
+     *
      */
     @Transactional//开启事务
     @Test
     public void testTrans(){
 
-        User user = new User();
-        user.setUname("铁锤333");
-        userMapper.insert(user);
+        User user2 = new User();
+        User user3 = new User();
+        User user4 = new User();
+        user2.setUname("铁锤2");
+        user3.setUname("铁锤3");
+        user4.setUname("铁锤4");
+        userMapper.insert(user2);
+        userMapper.insert(user3);
+        userMapper.insert(user4);
 
-        System.out.println("user.getId() = " + user.getId());
+        // System.out.println("user.getId() = " + user.getId());
 
-        User user2 = userMapper.selectById(user.getId());
-        System.out.println("user2 = " + user2);
+        userMapper.selectById(user2.getId());
+        userMapper.selectById(user3.getId());
+        userMapper.selectById(user4.getId());
+        // System.out.println("user2 = " + user2);
 
     }
 

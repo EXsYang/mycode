@@ -3,7 +3,7 @@ mode:
   repository:
     type: JDBC
 dataSources:
-  user_ds:
+  user_ds: #自定义的数据源名称
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
     jdbcUrl: jdbc:mysql://192.168.198.135:3301/db_user
@@ -16,10 +16,11 @@ dataSources:
     username: root
     password: 123456
 rules:
-  - !SHARDING
+  - !SHARDING   #指定垂直分片规则，(即往不同的数据源中保存不同的表数据)
+    #`按照业务拆分的方式称为垂直分片，又称为纵向拆分`，它的核心理念是专库专用。 在拆分之前，一个数据库由多个数据表构成，每个表对应着不同的业务。而拆分之后，则是按照业务将表进行归类，分布到不同的数据库中，从而将压力分散至不同的数据库。
     tables:
-      t_user:
-        actualDataNodes: user_ds.t_user
+      t_user:  #逻辑表名 -> 与JavaBean中 @TableName("t_user")注解指定的名称一致。
+        actualDataNodes: user_ds.t_user  #自定义数据源名称user_ds，从它里找实际的表名称
       t_order:
         actualDataNodes: order_ds.t_order
 
