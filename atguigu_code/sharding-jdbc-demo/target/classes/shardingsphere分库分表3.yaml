@@ -3,9 +3,9 @@ mode:
   repository:
     type: JDBC
 dataSources:
-  user_ds:
+  user_ds: #自定义的数据源名称
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     jdbcUrl: jdbc:mysql://192.168.198.135:3301/db_user
     username: root
     password: 123456
@@ -22,30 +22,55 @@ dataSources:
     username: root
     password: 123456
 rules:
-  - !SHARDING
+  - !SHARDING   #指定垂直分片规则，(即往不同的数据源中保存不同的表数据)
+    #`按照业务拆分的方式称为垂直分片，又称为纵向拆分`，它的核心理念是专库专用。 在拆分之前，一个数据库由多个数据表构成，每个表对应着不同的业务。而拆分之后，则是按照业务将表进行归类，分布到不同的数据库中，从而将压力分散至不同的数据库。
     tables:
-      t_user:
-        actualDataNodes: user_ds.t_user
+      t_user:  #逻辑表名 -> 与JavaBean中 @TableName("t_user")注解指定的名称一致。
+        actualDataNodes: user_ds.t_user  #自定义数据源名称user_ds，从它里找实际的表名称
       t_order:
-        #actualDataNodes: order_ds_0.t_order0
-        #actualDataNodes: order_ds_${0..1}.t_order0
+        #algorithm-expression: order_ds_${user_id % 2} 和 algorithm-expression: t_order${id % 2} 共同决定了数据在具体数据节点 actualDataNodes: order_ds_${0..1}.t_order${0..1} 中的分布方式。
+        #因为指定的分库策略算法userid_inline 和分表策略算法orderid_inline 用到了 user_id和id字段
+        #实际上actualDataNodes的最终取值是由databaseStrategy和tableStrategy共同决定的
         actualDataNodes: order_ds_${0..1}.t_order${0..1}
         databaseStrategy:
           standard:
+            #shardingColumn: user_id - 这一配置项指明了 user_id 作为分库策略的关键字段，即分片键。这意味着系统在决定将一行数据存储到哪个数据库时，会查看每条记录的 user_id 字段的值。
+            #shardingColumn: user_id 指定了 user_id 作为数据库分片的依据，这里的 user_id 必须是实际表中存在的字段名。这意味着表 t_order 中必须有一个名为 user_id 的列，它用于确定数据将如何在不同的数据库之间分片。
             shardingColumn: user_id
             shardingAlgorithmName: userid_inline
         tableStrategy:
           standard:
             shardingColumn: id
             shardingAlgorithmName: orderid_inline
+      t_order_item:
+        actualDataNodes: order_ds_${0..1}.t_order_item${0..1}
+        databaseStrategy:
+          standard:
+            shardingColumn: user_id
+            shardingAlgorithmName: userid_inline x
+        tableStrategy:
+          standard:
+            shardingColumn: order_id
+            shardingAlgorithmName: orderid_item_inline
+
+
+
+    #分片算法配置
     shardingAlgorithms:
       userid_inline:
         type: INLINE
         props:
+          #algorithm-expression: order_ds_${user_id % 2} 中的 user_id 直接引用了由 shardingColumn 指定的字段。在这个表达式中，user_id 用于计算哪个数据库（order_ds_0 或 order_ds_1）应该存储当前记录。这里的 ${user_id % 2} 是一个动态表达式，它根据 user_id 字段的值来动态计算和选择数据应该去的目标数据库。
           algorithm-expression: order_ds_${user_id % 2}
       orderid_inline:
         type: INLINE
         props:
           algorithm-expression: t_order${id % 2}
+      orderid_item_inline:
+        type: INLINE
+        props:
+          algorithm-expression: t_order_item${order_id % 2}
+
+
 props:
   sql-show: true

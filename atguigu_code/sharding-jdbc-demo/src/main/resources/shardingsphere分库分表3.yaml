@@ -47,7 +47,7 @@ rules:
         databaseStrategy:
           standard:
             shardingColumn: user_id
-            shardingAlgorithmName: userid_inline
+            shardingAlgorithmName: userid_inline x
         tableStrategy:
           standard:
             shardingColumn: order_id
