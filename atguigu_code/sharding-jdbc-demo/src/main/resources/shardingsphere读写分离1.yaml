@@ -29,8 +29,14 @@ rules:
         readDataSourceNames:
           - read_ds_0
           - read_ds_1
-        transactionalReadQueryStrategy: DYNAMIC # 事务内读请求的路由策略，可选值：PRIMARY（路由至主库）、FIXED（同一事务内路由至固定数据源）、DYNAMIC（同一事务内路由至非固定数据源）。默认值：DYNAMIC
-        loadBalancerName: weight
+        #注意如果方法中开启了事务注解@Transactional, transactionalReadQueryStrategy的优先级高于loadBalancers
+        #要想下面这个属性生效,需要开启事务注解@Transactional
+        transactionalReadQueryStrategy: PRIMARY # 事务内读请求的路由策略，
+        #可选值：
+        #PRIMARY（路由至主库。）如果/即使配置了读写分离,读写也会一直都走主库write_ds）。性能开销小，同一个事务中只需要一个连接就可以。没特殊情况，使用PRIMARY就好。
+        #FIXED（同一事务内路由至固定数据源。）如果配置了读写分离,则写一直走write_ds,则读一直走同一个数据源。如:read_ds_0）、
+        #DYNAMIC（同一事务内路由至非固定数据源）。默认值：DYNAMIC。写如果只有一个数据源则一直走write_ds
+        loadBalancerName: round_robin
     loadBalancers:
       random:
         type: RANDOM
