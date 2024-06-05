@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48f21b5c-fd0a-4c61-8b85-8d5be1465fd6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shardingsphere分库分表3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shardingsphere分库分表3.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/dictionaries" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/CarDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/ClassLoaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/FinalizeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/HeapDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/MemoryDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/jvm/StackDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/oom/OOMDemo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/main/java/com/atguigu/oom/OOMDemo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/src/test/java/com/atguigu/test/TestList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jvm2023/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shardingsphere分库分表【数据库垂直分片_水平分表】.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shardingsphere分库分表3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shardingsphere分库分表3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/sec_kill_redis/src/com/hspedu/seckill/util/JedisPoolUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/sec_kill_redis/src/com/hspedu/seckill/util/JedisPoolUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +78,6 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "D:/Java_developer_tools/mycode/atguigu_code/sharding-jdbc-demo/src/main/resources"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java_developer_tools\mycode\atguigu_code\sharding-jdbc-demo\src\main\resources" />
@@ -157,6 +176,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ReadwriteTest.testInsertOrderAndOrderItem" />
@@ -198,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717238709785</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit idea no x">
+      <created>1717239044915</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717239044915</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,11 +287,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit idea" />
     <MESSAGE value="commit idea x" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit idea x" />
+    <MESSAGE value="commit idea no x" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit idea no x" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
