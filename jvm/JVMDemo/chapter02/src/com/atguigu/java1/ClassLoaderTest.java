@@ -17,6 +17,9 @@ public class ClassLoaderTest {
          *  }
          */
         //获取系统类加载器
+        /**
+         * `ClassLoader.getSystemClassLoader()` 通常也返回 系统类加载器/应用程序类加载器/AppClassLoader 的实例
+         */
         ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
         System.out.println(systemClassLoader);//sun.misc.Launcher$AppClassLoader@18b4aac2
 
