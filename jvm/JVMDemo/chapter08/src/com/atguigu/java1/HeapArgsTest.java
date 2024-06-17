@@ -1,6 +1,7 @@
 package com.atguigu.java1;
 
 /**
+ * jvm8参数列表:  https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
  * 测试堆空间常用的jvm参数：
  * -XX:+PrintFlagsInitial : 查看所有的参数的默认初始值
  * -XX:+PrintFlagsFinal  ：查看所有的参数的最终值（可能会存在修改，不再是初始值）
