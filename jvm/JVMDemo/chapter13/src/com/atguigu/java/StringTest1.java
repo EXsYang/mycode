@@ -11,7 +11,8 @@ import org.junit.Test;
 public class StringTest1 {
     @Test
     public void test1() {
-        String s1 = "abc";//字面量定义的方式，"abc"存储在字符串常量池中
+        String s1 = "abc";//字面量定义的方式，"abc"存储在字符串常量池中。
+                          // 【字符串常量池(jdk7及以后在堆中)是不允许放相同的字符串的】
         String s2 = "abc";
         s1 = "hello";
 

@@ -6,6 +6,10 @@ package com.atguigu.java;
  */
 public class ObjectTest {
     public static void main(String[] args) {
-        Object obj = new Object();
+        // Object obj = new Object();
+    }
+
+    public void test1(){
+        // Object obj = new Object();
     }
 }

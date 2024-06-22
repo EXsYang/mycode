@@ -12,7 +12,8 @@ public class StackStruTest {
         int k = i + j;
 
         try {
-            Thread.sleep(6000);
+            // Thread.sleep(6000);
+            Thread.sleep(6000000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
