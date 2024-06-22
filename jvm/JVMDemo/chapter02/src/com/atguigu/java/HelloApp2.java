@@ -23,7 +23,9 @@ public class HelloApp2 {
     //只有下面这行代码时会生成clinit函数
     // private static int a = 1;//prepare：a = 0 ---> initial : a = 1
 
-    private static final int a = 1;//只有这行代码时不会生成clinit函数
+    private static int a;// 打印出来是0,并且只有这行时没有<clinit>方法，可见对于静态变量属性,只有静态变量显示赋值时才会有<clinit>
+
+    // private static final int a = 1;//只有这行代码时不会生成clinit函数
 
 
     // private static int b = 2;//只有这行代码时会生成clinit函数
@@ -34,7 +36,7 @@ public class HelloApp2 {
     // }
 
     public static void main(String[] args) {
-        // System.out.println(a);
+        System.out.println(a); //
         System.out.println("aaaa");
     }
 }
