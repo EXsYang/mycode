@@ -7,6 +7,7 @@ package com.atguigu.java2;
 public class StringExer1 {
     public static void main(String[] args) {
         String x = "ab";
+        // String y = new String("ab");// 会创建两个对象，一个在常量池，一个在堆里
         String s = new String("a") + new String("b");//new String("ab")
         //在上一行代码执行完以后，字符串常量池中并没有"ab"
 

@@ -9,8 +9,8 @@ package com.atguigu.java3;
  */
 public class StringGCTest {
     public static void main(String[] args) {
-        for (int j = 0; j < 100000; j++) {
-            String.valueOf(j).intern();
-        }
+        // for (int j = 0; j < 100000; j++) {
+        //     String.valueOf(j).intern();
+        // }
     }
 }
