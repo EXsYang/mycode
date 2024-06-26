@@ -6,6 +6,11 @@ import org.junit.Test;
  * 字符串拼接操作
  * @author shkstart  shkstart@126.com
  * @create 2020  0:59
+ *
+ * 1. 常量与常量的拼接结果在常量池，原理是编译期优化
+ * 2. 常量池中不会存在相同内容的常量。
+ * 3. 只要其中有一个是变量，结果就在堆中。变量拼接的原理是StringBuilder
+ * 4. 如果拼接的结果调用intern()方法，则主动将常量池中还没有的字符串对象放入池中，并返回此对象地址。
  */
 public class StringTest5 {
     @Test
