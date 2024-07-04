@@ -1,43 +1,138 @@
 package com.atguigu.java;
 
 /**
- * @author shkstart  shkstart@126.com
- * @create 2020  14:57
+ * 示例展示了不同的局部变量作用域和垃圾回收行为，特别考虑编译器优化对局部变量表的影响。
  */
 public class LocalVarGC {
+
+    /**
+     * localvarGC1:
+     * buffer 被分配10MB的空间，并在整个方法的作用域内存在。
+     * 尽管调用了 System.gc()，在方法执行期间，由于 buffer 没有被设置为 null，它不会被回收。
+     *
+     * 不会被回收。
+     */
     public void localvarGC1() {
-        byte[] buffer = new byte[10 * 1024 * 1024];//10MB
+        byte[] buffer = new byte[10 * 1024 * 1024]; // 在局部变量表中占据一个位置
         System.gc();
     }
 
+    /**
+     * localvarGC2:
+     * 显式将 buffer 设置为 null，断开了堆上字节数组的唯一引用。
+     * 这使得在调用 System.gc() 时，JVM会回收这块内存，因为它变得不可达。
+     *
+     * 会被回收
+     */
     public void localvarGC2() {
         byte[] buffer = new byte[10 * 1024 * 1024];
-        buffer = null;
+        buffer = null; // 主动移除引用，使得数组成为垃圾回收的候选
         System.gc();
     }
 
+    /**
+     * localvarGC3:
+     * buffer 在代码块中创建，并且随着代码块的结束失去作用域。尽管 buffer 退出了作用域，
+     * 但由于编译器优化，局部变量表中可能不再显示 buffer 的存在，这在某些工具中可能看不到 buffer。
+     * 但在堆上的数组仍存在，直到方法结束或被 GC 清理。
+     *
+     * 虽然 buffer 已经超出了它的作用域（局部代码块），
+     * 但在 Java 中，仅仅因为变量超出作用域并不意味着内存会被立即回收。
+     * 在这个方法中，buffer 仍可能未被回收，因为作用域的结束并不会自动触发垃圾回收。
+     * 即使出了作用范围，buffer还占用着局部变量表中的1的位置呢，即还作为GC Roots，是可达的
+     *
+     * 不会被回收
+     */
     public void localvarGC3() {
         {
-            byte[] buffer = new byte[10 * 1024 * 1024];
+            byte[] buffer = new byte[10 * 1024 * 1024]; // 局部代码块内的变量
         }
-        System.gc();
+        System.gc(); // 编译器可能优化掉 buffer 的局部变量表条目【即编译后的代码用jclasslib查看,
+        // 会发现局部变量表中只有this,但没有buffer】
+
+        /**
+         * 在字节码层面，确实有 buffer 这个变量的引用被存入局部变量表的操作（astore_1），这意味着即使在高级代码（Java 源代码）中由于某种编译器优化看似 buffer 没有被使用，buffer 在字节码层面仍然存在于局部变量表中。这就是说，无论源码层面的优化如何，一旦 buffer 被分配了内存并且被存入局部变量表，它就存在于运行时的内存中，除非被显式地设置为 null 或方法执行结束使其超出作用域。
+         *
+         * 深入解释
+         * 当你查看字节码时，如果看到如下指令：
+         *
+         * newarray 创建了一个数组。
+         * astore_1 将这个数组引用存储到局部变量表的位置 1。
+         * 这意味着在运行时，局部变量 buffer 确实指向了一个具体的内存区域（即那个数组），并且这个引用被存储在局部变量表的索引 1 的位置。这样的存储行为确保了，即使在高级代码中你看不到任何对 buffer 的后续操作，这个数组仍然被局部变量表持有，不会在运行时被当作垃圾收集，除非它的引用被覆盖或方法执行结束。
+         *
+         * 可能的误解
+         * 如果在某些工具（比如你之前使用的 jclasslib）中看不到 buffer 的存在，可能是因为这些工具显示的是优化后的信息，或者只显示了那些在方法执行中实际有交互的变量。这并不意味着 buffer 没有被分配或没有存在于局部变量表中，只是这种表示可能没有显示所有细节。
+         *
+         * 结论
+         * buffer 的确在字节码层面被创建并存储在局部变量表中，这一点通过 newarray 和 astore_1 指令得到了体现。任何关于 buffer 是否存在于局部变量表中的混淆都应该通过查看生成的字节码来解决。这说明，尽管源代码中的变量可能因优化而“消失”，它们在字节码中的表现可能完全不同。
+         */
     }
 
+    /**
+     * localvarGC4:
+     * 在此方法中，`buffer` 在一个独立的代码块内创建并用完，之后代码块结束。
+     * 在 Java 中，编译器会优化内存管理，尤其是在局部变量表的使用上。在 `buffer` 的作用域结束后，
+     * 其占用的局部变量表条目就成为了可重用资源。
+     * 当随后声明新的局部变量 `value` 时，编译器可能会选择使用原本 `buffer` 使用的局部变量表条目来存储 `value`。
+     * 这是因为，一旦局部变量离开了它的作用域，编译器就视其为不再需要保留，其在局部变量表中的位置就可以被随后声明的变量重用。
+     * 这种重用可以减少局部变量表的空间需求，提高资源的使用效率。
+     * 因此，在此方法中调用 `System.gc()` 时，`buffer` 指向的数组更可能被视为不可达并被回收，因为它在局部变量表中已无引用保持。
+     *
+     *
+     分配内存：在代码块内部，创建了一个 10MB 的字节数组 buffer。
+     作用域结束：一旦代码块执行完毕，buffer 变量的作用域就结束了。尽管如此，
+     它在 Java 的字节码层面上仍然占据一个局部变量表的位置，直到该位置被其他变量重写或方法执行结束。
+
+     局部变量表的更新：随后定义的 int value = 10; 可能会占用 buffer 在局部变量表中的位置，
+     尤其是在优化较好的 JVM 实现中。即使不占用相同位置，buffer 的引用在作用域结束后已经无法通过任何路径可达。
+     可达性分析：在 System.gc() 调用时，由于没有活动路径从 GC Roots（包括局部变量、活动线程等）到 buffer 的字节数组，
+     所以该数组成为垃圾收集的候选，很可能被回收。
+
+     在这种情况中，buffer 的字节数组在 System.gc() 调用时都不可达。
+     在 localvarGC4 中，虽然原理上 buffer 可以存活到方法结束，
+     但实际上它在离开作用域后就已经不可达了；
+     而在 localvarGC5 中，buffer 的作用域仅限于 localvarGC1 方法，
+     之后同样不存在有效引用。因此，在两种情况下，
+     垃圾回收器都有很大可能回收这些内存，释放出未被任何引用指向的内存空间。
+
+     会被回收，即如果局部变量表中的buffer被替换，也就是相当于被从GC Roots中移除了一般，导致内存中的byte数组对象不可达
+
+     会被回收
+     */
     public void localvarGC4() {
         {
             byte[] buffer = new byte[10 * 1024 * 1024];
         }
-        int value = 10;
+        int value = 10; // 这里 `value` 可能重用了原 `buffer` 的局部变量表条目 即原来buffer在局部变量表中位置1的slot槽位
+        //即如果局部变量表中的buffer被替换，也就是相当于被从GC Roots中移除了一般，导致内存中的byte数组对象不可达
         System.gc();
     }
 
+    /**
+     * localvarGC5:
+     * 调用 localvarGC1 方法。尽管 localvarGC1 中的 buffer 在其方法作用域内部未被清除，
+     * 但该 buffer 在 localvarGC1 方法结束后不再可达。因此，在 localvarGC5 中调用 System.gc()
+     * 可以安全地收集 localvarGC1 中创建的数组。
+     *
+     * 方法调用：localvarGC5 调用 localvarGC1 方法。
+     * 内存分配和回收：在 localvarGC1 中，分配了一个 10MB 的字节数组，但是这个数组的引用只在 localvarGC1 方法内部有效。一旦 localvarGC1 方法执行完毕，这个数组的引用就不再存在。
+     * 方法执行完毕：当控制返回到 localvarGC5 方法，并执行 System.gc() 时，之前在 localvarGC1 中创建的字节数组没有任何引用指向它。
+     * 可达性分析：同样，在执行垃圾收集时，没有从任何 GC Roots 到这个字节数组的引用路径。因此，它也被认为是不可达的，有很大的可能被垃圾回收器回收。
+     *
+     * 会被回收，在 localvarGC1 中，分配了一个 10MB 的字节数组，但是这个数组的引用只在 localvarGC1 方法内部有效。一旦 localvarGC1 方法执行完毕，这个数组的引用就不再存在。
+     *
+     * 会被回收
+     */
     public void localvarGC5() {
         localvarGC1();
         System.gc();
     }
 
+    /**
+     * 主方法，用于运行和测试 GC 行为，以及理解编译器优化对局部变量表的影响。
+     */
     public static void main(String[] args) {
         LocalVarGC local = new LocalVarGC();
-        local.localvarGC5();
+        local.localvarGC5();  // 测试 localvarGC5 方法，深入理解 GC 的可达性分析和编译器优化。
     }
 }

@@ -19,6 +19,8 @@ public class StaticInnerClass01 {
         Outer10.Inner10 inner10_ = Outer10.getInner10_();
         System.out.println("************");
         inner10_.say();
+
+
     }
 }
 
@@ -32,6 +34,21 @@ class Outer10 { //外部类
     //3. 可以直接访问外部类的所有静态成员，包含私有的，但不能直接访问非静态成员
     //4. 可以添加任意访问修饰符(public、protected 、默认、private),因为它的地位就是一个成员
     //5. 作用域 ：同其他的成员，为整个类体
+
+    public static void main(String[] args) {
+        //在外部类Outer10的main方法中，外部类Outer10可以直接new 静态内部类Inner10进行访问
+
+        // 在 Java 中，使用静态嵌套类（static nested class）和内部类（inner class）
+        // 的主要区别在于它们是否需要依赖于外部类的实例。
+        // 静态嵌套类的独立性使它们在许多场景下非常有用，
+        // 尤其是当你需要一个与外部类逻辑上相关但在功能上相对独立的组件时。
+
+        // 具体可以查看 JVM随手笔记.md 第110个问题
+        Inner10 inner10 = new Inner10();
+
+
+    }
+
     static class Inner10 {
         private static String name = "韩顺平教育";
         public void say() {

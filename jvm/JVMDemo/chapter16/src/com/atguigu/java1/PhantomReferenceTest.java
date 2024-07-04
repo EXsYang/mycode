@@ -51,7 +51,7 @@ public class PhantomReferenceTest {
 
         try {
             //不可获取虚引用中的对象
-            System.out.println(phantomRef.get());
+            System.out.println(phantomRef.get()); //null ,即使强引用存在时，用虚引用获取此对象也是获取不到的
 
             //将强引用去除
             obj = null;

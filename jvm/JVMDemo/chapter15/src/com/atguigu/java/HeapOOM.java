@@ -3,7 +3,7 @@ package com.atguigu.java;
 import java.util.ArrayList;
 
 /**
- * -Xms8m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError
+ * -Xms8m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError 常用参数
  *
  * @author shkstart  shkstart@126.com
  * @create 2020  15:29

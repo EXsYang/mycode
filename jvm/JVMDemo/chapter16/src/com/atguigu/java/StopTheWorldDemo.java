@@ -39,7 +39,7 @@ public class StopTheWorldDemo {
                 while (true) {
                     // 每秒打印时间信息
                     long t = System.currentTimeMillis() - startTime;
-                    System.out.println(t / 1000 + "." + t % 1000);
+                    System.out.println(t / 1000 + "." + t % 1000);//精确提取毫秒值：使用 t % 1000 可以精确地从总毫秒数 t 中提取出当前秒之后的毫秒数。这是因为 1000 毫秒等于 1 秒，所以余数就是超过最近完整秒数的毫秒部分。
                     Thread.sleep(1000);
                 }
             } catch (Exception ex) {

@@ -1,6 +1,7 @@
 package com.atguigu.java1;
 
 import java.lang.ref.WeakReference;
+import java.util.WeakHashMap;
 
 /**
  * 弱引用的测试
@@ -35,5 +36,10 @@ public class WeakReferenceTest {
         System.out.println("After GC:");
         //重新尝试从弱引用中获取对象
         System.out.println(userWeakRef.get());
+
+
     }
+
+
+
 }

@@ -18,6 +18,9 @@ package com.atguigu.java1;
  * 打印gc简要信息：① -XX:+PrintGC   ② -verbose:gc
  * -XX:HandlePromotionFailure：是否设置空间分配担保
  *
+ *
+ *
+ * -XX:+HeapDumpOnOutOfMemoryError 当出现OOM的时候会生成一个堆空间的dump文件
  * @author shkstart  shkstart@126.com
  * @create 2020  17:18
  */
