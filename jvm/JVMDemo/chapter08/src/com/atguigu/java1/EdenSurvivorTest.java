@@ -5,7 +5,7 @@ package com.atguigu.java1;
  *
  * -XX:NewRatio ： 设置新生代与老年代的比例。默认值是2.
  * -XX:SurvivorRatio ：设置新生代中Eden区与Survivor区的比例。默认值是8【实际测试是6】
- * -XX:-UseAdaptiveSizePolicy ：关闭自适应的内存分配策略  （暂时用不到）
+ * -XX:-UseAdaptiveSizePolicy ：关闭自适应的内存分配策略  （暂时用不到）,关闭后也不好使，还是默认值是8【实际测试是6】
  * -Xmn:设置新生代的空间的大小。 （一般不设置）
  *
  * 如果同时设置了-XX:NewRatio和-Xmn, 则以显示的设置新生代的内存大小的 -Xmn为准
