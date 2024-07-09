@@ -29,6 +29,13 @@ public class JavapTest {
     int getNum(int i){
         return num + i;
     }
+
+    // 源码层面getNum(int i)相同，返回值不同，不可以不可以当作方法重载的条件，即不可以共存会报错
+    // boolean getNum(int i){
+    //     return false;
+    // }
+
+
     protected char showGender(){
         return gender;
     }
