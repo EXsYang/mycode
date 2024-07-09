@@ -10,6 +10,8 @@ import java.util.Date;
  */
 public class MethodInvokeReturnTest {
 
+
+    
     //方法调用指令:invokespecial:静态分派
     public void invoke1(){
         //情况1：类实例构造器方法：<init>()
@@ -23,6 +25,7 @@ public class MethodInvokeReturnTest {
     }
 
     private void methodPrivate(){
+    // private static void methodPrivate(){ //不能通过类名访问， 因为是私有的。但是字节码层面是`invokestatic`
 
     }
     //方法调用指令:invokestatic:静态分派

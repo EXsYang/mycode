@@ -50,6 +50,24 @@ public class LoadAndStoreTest {
         d = 10;
     }
 
+    /**
+     * 该方法局部变量表的最大长度是5，
+     * 但是jclasslib显示出的`0，1，2`指的是索引，而不是指的槽位slot。
+     * 代码块中的局部变量没有显示出来
+     *
+     *
+     *
+     * 对于方法 foo(long l, float f)，局部变量表的分配如下：
+     *
+     * 槽位 0：由于这是一个非静态方法，槽位 0 被 this（当前对象的引用）占据。
+     * 槽位 1 和 2：long 类型参数 l 占用两个槽位。
+     * 槽位 3：float 类型参数 f 占用一个槽位。
+     * 局部变量的分配和槽位复用
+     * 接下来是局部变量 i 和 s：
+     *
+     * 局部变量 i（int类型）可能被分配到槽位 4。
+     * 局部变量 s（String类型）随后也可能被分配到槽位 4，因为 i 的作用域已经结束，且其生命周期不与 s 重叠。
+     */
     public void foo(long l, float f) {
         {
             int i = 0;
@@ -57,6 +75,7 @@ public class LoadAndStoreTest {
         {
             String s = "Hello, World";
         }
+
     }
 
 }

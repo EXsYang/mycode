@@ -29,10 +29,10 @@ public class ClassCastTest {
     public void upCast2(){
         int i = 123123123;
         float f = i;
-        System.out.println(f);//123123120
+        System.out.println(f);//1.2312312E8 这里的E8是10的8次方的意思。损失了一个3，变成了-》  123123120
 
         long l = 123123123123L;
-        l = 123123123123123123L;
+        l = 123123123123123123L; //没有超过long类型的最大值，但是超出了double表示数的精度的范围，出现了精度损失问题
         double d = l;
         System.out.println(d);//123123123123123120
 
