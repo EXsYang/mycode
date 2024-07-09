@@ -1,2 +1,2 @@
- M jvm/JVMDemo1/chapter01/src/com/atguigu/java1/JavapTest.java
+A  jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/LoadAndStoreTest.class
  M temp_status.txt
