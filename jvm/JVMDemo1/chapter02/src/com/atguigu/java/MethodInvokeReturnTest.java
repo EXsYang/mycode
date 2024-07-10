@@ -11,7 +11,7 @@ import java.util.Date;
 public class MethodInvokeReturnTest {
 
 
-    
+
     //方法调用指令:invokespecial:静态分派
     public void invoke1(){
         //情况1：类实例构造器方法：<init>()

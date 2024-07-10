@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class LoadAndStoreTest {
 
-    //1.局部变量压栈指令
+    //1.局部变量压栈指令 xload_<n>、xload n
     public void load(int num, Object obj,long count,boolean flag,short[] arr) {
         System.out.println(num);
         System.out.println(obj);
@@ -19,15 +19,18 @@ public class LoadAndStoreTest {
         System.out.println(arr);
     }
 
-    //2.常量入栈指令
+    //2.常量入栈指令 const、push、ldc
     public void pushConstLdc() {
-        int i = -1;
-        int a = 5;
-        int b = 6;
-        int c = 127;
-        int d = 128;
-        int e = 32767;
-        int f = 32768;
+        int i = -1; // iconst_m1
+        int a = 5; // iconst_5
+        int b = 6; // bipush 6
+        int c = 127; // bipush 127
+        int d = 128; // sipush 128
+        int e = 32767; // sipush 32767
+        int f = 32768; // ldc #7 <32768>
+
+        boolean g = true; // iconst_1
+        boolean h = false; // iconst_0
     }
 
     public void constLdc() {

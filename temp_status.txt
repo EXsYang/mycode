@@ -1,1 +1,15 @@
+ M jvm/JVMDemo1/chapter02/src/com/atguigu/java/ArithmeticTest.java
+AM jvm/JVMDemo1/chapter02/src/com/atguigu/java/LambdaDynamicExample.java
+ M jvm/JVMDemo1/chapter02/src/com/atguigu/java/LoadAndStoreTest.java
+ M jvm/JVMDemo1/chapter02/src/com/atguigu/java/MethodInvokeReturnTest.java
+ M jvm/JVMDemo1/chapter02/src/com/atguigu/java/StackOperateTest.java
+ M jvm/JVMDemo1/chapter02/src/com/atguigu/java1/IfSwitchGotoTest.java
+ M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/ArithmeticTest.class
+AD jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/DynamicOperation$NumericOperation.class
+AD jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/DynamicOperation.class
+ M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/LoadAndStoreTest.class
+ M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/MethodInvokeReturnTest.class
+ M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/StackOperateTest.class
+ M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java1/IfSwitchGotoTest.class
  M temp_status.txt
+?? jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/LambdaDynamicExample.class

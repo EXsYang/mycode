@@ -45,21 +45,33 @@ public class IfSwitchGotoTest {
 
     //2.比较条件跳转指令
     public void ifCompare1(){
+        // 使用的比较条件跳转指令是： if_icmple 18
         int i = 10;
         int j = 20;
-        System.out.println(i > j);
+        System.out.println(i > j);//使用的是： if_icmple 18
     }
+
+
     public void ifCompare2() {
+        // 和上面的ifCompare1()方法的字节码指令基本相同，只是用的数值不同。
+        // 即short、byte类型都是按照int类型来处理的
+        // 即使用的比较条件跳转指令也是： if_icmple 18
         short s1 = 9;
         byte b1 = 10;
-        System.out.println(s1 > b1);
+        System.out.println(s1 > b1); //使用的是： if_icmple 18
     }
 
     public void ifCompare3() {
         Object obj1 = new Object();
         Object obj2 = new Object();
         System.out.println(obj1 == obj2);//false
+        // 使用的比较条件跳转指令是:  if_acmpne 28 obj1 != obj2?如果满足则跳转28,否则接着执行下一条字节码指令
+
+
         System.out.println(obj1 != obj2);//true
+        // 使用的比较条件跳转指令是:  if_acmpeq 44,obj1 == obj2?满足则跳转44
+
+
     }
 
     //3.多条件分支跳转

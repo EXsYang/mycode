@@ -86,10 +86,16 @@ public class ArithmeticTest {
         int b = ++j;
     }
 
-    //思考
+    //思考,i++面试题
     public void method8() {
         int i = 10;
         i = i++;
+        System.out.println(i);//10
+    }
+    //思考,++i面试题
+    public void method8_() {
+        int i = 10;
+        i = ++i;
         System.out.println(i);//10
     }
 
