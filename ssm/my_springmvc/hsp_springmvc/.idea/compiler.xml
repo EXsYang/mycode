@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hsp_springmvc" />
+        <module name="my_springmvc" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="hsp_springmvc" options="-parameters" />
+      <module name="my_springmvc" options="-parameters" />
     </option>
   </component>
 </project>

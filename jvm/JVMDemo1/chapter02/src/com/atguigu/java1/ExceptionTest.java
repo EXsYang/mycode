@@ -1,5 +1,7 @@
 package com.atguigu.java1;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,14 +18,25 @@ public class ExceptionTest {
             throw new RuntimeException("参数值为0");
         }
     }
+
+    // public void throwOne(int i){  //这种方法声明的形式在jclasslib中没有看到属性 Exceptions 结构
     public void throwOne(int i) throws RuntimeException,IOException{
+        //这种方法声明的形式在jclasslib中可以看到 Exceptions 属性结构，和Code结构是并列的
+        // Code结构是用来刻画方法体中的内容的
+
         if(i == 1){
             throw new RuntimeException("参数值为1");
         }
     }
+
+
+
+
+    // @Test
     public void throwArithmetic() {
         int i = 10;
-        int j = i / 0;
+        int j = i / 0; //系统提供的异常，自动抛出`java.lang.ArithmeticException: / by zero`
+                        //对应的字节码看不到`athrow`指令,而是`idiv`
         System.out.println(j);
     }
 
