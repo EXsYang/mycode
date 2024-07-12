@@ -24,8 +24,15 @@ public class InitializationTest2 {
     public static int a = 1;//在初始化阶段<clinit>()中赋值
     public static final int INT_CONSTANT = 10;//在链接阶段的准备环节赋值
 
+    // 注意：Integer是引用类型，这里是针对引用类型来测试的
     public static final Integer INTEGER_CONSTANT1 = Integer.valueOf(100);//在初始化阶段<clinit>()中赋值
     public static Integer INTEGER_CONSTANT2 = Integer.valueOf(1000);//在初始化阶段<clinit>()中赋值
+
+    // 这里是给引用类型Integer直接赋值一个数值(这其实是自动装箱，
+    // 自动装箱在字节码层面调用的就是上面的`Integer.valueOf()` 方法)，
+    // 和`INTEGER_CONSTANT1、INTEGER_CONSTANT2`在字节码层面是一样的。即没有区别
+    public static final Integer INTEGER_CONSTANT3 = 200;//在初始化阶段<clinit>()中赋值
+    public static Integer INTEGER_CONSTANT4 = 2000;//在初始化阶段<clinit>()中赋值
 
     public static final String s0 = "helloworld0";//在链接阶段的准备环节赋值
     public static final String s1 = new String("helloworld1");//在初始化阶段<clinit>()中赋值

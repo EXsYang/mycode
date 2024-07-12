@@ -52,5 +52,8 @@ interface SerialA{
 
     int ID = 1;
     int ID1 = new Random().nextInt(10);//此时的赋值操作需要在<clinit>()中执行
+    // 只有到了Initialization初始化阶段,才会真正开始执行类中定义的Java代码。
+    // 因为ID1的显示赋值是需要new Random().nextInt(10);代码执行的，而这段代码的执行
+    // 是在<clinit>()中进行的，所以需要调用<clinit>()方法
 }
 

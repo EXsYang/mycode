@@ -22,12 +22,12 @@ public class PassiveUse1 {
 
     @Test
     public void test2(){
-        Parent[] parents = new Parent[10];
+        Parent[] parents = new Parent[10];//这里不会进行类的初始化
         System.out.println(parents.getClass());
-        System.out.println(parents.getClass().getSuperclass());
+        System.out.println(parents.getClass().getSuperclass()); //数组的父类是 Object类
 
-        parents[0] = new Parent();
-        parents[1] = new Parent();
+        parents[0] = new Parent(); //这里才会进行类的初始化
+        parents[1] = new Parent(); //这里就不会进行类的初始化了，因为类的初始化只会执行一次！
     }
 }
 

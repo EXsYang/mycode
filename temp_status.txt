@@ -1,17 +1,38 @@
-AD .idea/.gitignore
-AD .idea/workspace.xml
- M jvm/JVMDemo1/chapter02/src/com/atguigu/java/ArithmeticTest.java
- M jvm/JVMDemo1/chapter02/src/com/atguigu/java1/ExceptionTest.java
-AM jvm/JVMDemo1/chapter02/src/com/atguigu/java1/GenericTest.java
- M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java/ArithmeticTest.class
- M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java1/ExceptionTest.class
-AM jvm/JVMDemo1/out/production/chapter02/com/atguigu/java1/GenericTest.class
- M jvm/JVMDemo1/out/production/chapter02/com/atguigu/java1/IfSwitchGotoTest.class
- M springboot/springbootweb/.idea/jarRepositories.xml
- M springcloud/e-commerce-center2/.idea/encodings.xml
- M springcloud/e-commerce-center2/.idea/jarRepositories.xml
- M ssm/my_springmvc/hsp_springmvc/.idea/compiler.xml
- M ssm/my_springmvc/hsp_springmvc/.idea/jarRepositories.xml
- M ssm/my_ssm/furn-ssm/.idea/jarRepositories.xml
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java/InitializationTest1.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java/InitializationTest2.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java/LinkingTest.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java/LoadingTest.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/ActiveUse2.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/PassiveUse1.java
+ M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/PassiveUse2.java
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/HelloWorld.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest1.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest2.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/LinkingTest.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/LoadingTest.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/SubInitialization.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse1.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse2.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse3.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Child.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareA$1.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareA.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareB$1.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareB.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareC$1.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareC.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Father.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Order.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Parent.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/PassiveUse1.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/PassiveUse2.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Person.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/SerialA$1.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/SerialA.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Son.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticA.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticB.class
+A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticDeadLockMain.class
+AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/User.class
  M temp_status.txt
-?? springcloud/add_mybatis-spring-boot-starter2.0.0/.idea/vcs.xml

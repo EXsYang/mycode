@@ -14,6 +14,8 @@ public class LoadingTest {
     public static void main(String[] args) {
         try {
             Class clazz = Class.forName("java.lang.String");
+
+            // declared:已声明
             //获取当前运行时类声明的所有方法
             Method[] ms = clazz.getDeclaredMethods();
             for (Method m : ms) {
