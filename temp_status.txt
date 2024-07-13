@@ -1,38 +1,6 @@
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java/InitializationTest1.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java/InitializationTest2.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java/LinkingTest.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java/LoadingTest.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/ActiveUse2.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/PassiveUse1.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/PassiveUse2.java
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/HelloWorld.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest1.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/InitializationTest2.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/LinkingTest.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/LoadingTest.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java/SubInitialization.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse1.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse2.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/ActiveUse3.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Child.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareA$1.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareA.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareB$1.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareB.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareC$1.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/CompareC.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Father.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Order.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Parent.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/PassiveUse1.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/PassiveUse2.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Person.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/SerialA$1.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/SerialA.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/Son.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticA.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticB.class
-A  jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/StaticDeadLockMain.class
-AM jvm/JVMDemo1/out/production/chapter03/com/atguigu/java1/User.class
+ M jvm/JVMDemo1/chapter04/src/com/atguigu/java/ClassLoaderTest1.java
+ M jvm/JVMDemo1/chapter04/src/com/atguigu/java1/MyClassLoader.java
+ M jvm/JVMDemo1/chapter04_1/src/com/atguigu/java/ClassLoaderTest.java
+ M jvm/JVMDemo1/out/production/chapter04/com/atguigu/java1/MyClassLoader.class
+ M jvm/JVMDemo1/out/production/chapter04/com/atguigu/java2/MyClassLoader.class
  M temp_status.txt

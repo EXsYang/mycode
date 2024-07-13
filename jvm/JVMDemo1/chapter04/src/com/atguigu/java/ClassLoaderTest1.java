@@ -32,10 +32,10 @@ public class ClassLoaderTest1 {
             System.out.println(arr1.getClass().getClassLoader());//sun.misc.Launcher$AppClassLoader@18b4aac2
 
             int[] arr2 = new int[10];
-            System.out.println(arr2.getClass().getClassLoader());//null:不需要类的加载器
+            System.out.println(arr2.getClass().getClassLoader());//null: 对于元素是基本类型的数组,不需要类的加载器,或者说没有类的加载器
 
-
-            System.out.println(Thread.currentThread().getContextClassLoader());
+            // 当前线程的应用上下文类加载器就是系统类加载器: AppClassLoader
+            System.out.println(Thread.currentThread().getContextClassLoader());//sun.misc.Launcher$AppClassLoader@18b4aac2
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

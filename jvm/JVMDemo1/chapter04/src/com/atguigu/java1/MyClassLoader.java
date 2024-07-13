@@ -10,7 +10,7 @@ import java.nio.channels.WritableByteChannel;
  * @author shkstart
  * @create 11:03
  * <p>
- * 自定义类的加载器
+ * 自定义类的加载器,默认父类是系统类加载器：Launcher$AppClassLoader
  */
 public class MyClassLoader extends ClassLoader {
     private String rootDir;
