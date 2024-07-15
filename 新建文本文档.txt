@@ -1,0 +1,7 @@
+echo 'CodeYang <10825197+kapaiya@user.noreply.gitee.com> ==> EXsYang <yangda27@aliyun.com>' > replacements.txt
+git filter-repo --replace-text replacements.txt --force
+git filter-repo --mailmap mailmap.txt --force
+
+
+git commit --amend --author="EXsYang <yangda27@aliyun.com>"
+
