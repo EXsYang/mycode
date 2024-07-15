@@ -9,128 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/chapter03_demo_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lombok.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JVMDemo2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/chapter02.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jmap/GCTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jps/ScannerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstack/AllStackTrace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstack/ThreadDeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstack/ThreadSyncTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstack/TreadSleepTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstat/GCTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter02/src/com/atguigu/jstat/ScannerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/chapter03.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/lib/lombok.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/arthas/ArthasTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/arthas/OOMTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/arthas/ThreadDeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jconsole/HeapInstanceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jconsole/ThreadDeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/DataKeeper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/JProfilerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/MemoryLeak.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/OOMTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/ThreadDeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jvisualvm/HeapInstanceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jvisualvm/OOMTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jvisualvm/ThreadDeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/OOMTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/StudentTrace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/MapTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/MemoryLeak.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/Stack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter04/chapter04.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/GCLogTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/HeapDumpInstance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/MemoryMonitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/OOMTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter05/chapter05.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter05/src/com/atguigu/java/GCLogTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter05/src/com/atguigu/java/GCUseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter05/src/com/atguigu/java/MetaspaceOOM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/WEB-INF/classes/com/atguigu/jprofiler/BeanTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/WEB-INF/classes/com/atguigu/jprofiler/MainTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/init1.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/chapter03_demo_war_exploded/init2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jmap/GCTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jps/ScannerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/AllStackTrace.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/Number.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/ThreadDeadLock$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/ThreadDeadLock$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/ThreadDeadLock$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/ThreadDeadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/ThreadSyncTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstack/TreadSleepTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstat/GCTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter02/com/atguigu/jstat/ScannerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/META-INF/chapter03.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/ArthasTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/OOMTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/Picture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/HeapInstanceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/Bean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/Data.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/DataKeeper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/JProfilerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/MemoryLeak.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/OOMTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/Picture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/HeapInstanceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/OOMTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/Picture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/OOMTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Picture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Student.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/StudentTrace.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/WebPage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/MapTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/MemoryLeak.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Person.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Point.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Stack.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03_demo/com/atguigu/jprofiler/BeanTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter03_demo/com/atguigu/jprofiler/MainTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/GCLogTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/HeapDumpInstance.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/MemoryMonitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/OOMTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/Picture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter05/META-INF/chapter05.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter05/com/atguigu/java/GCLogTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter05/com/atguigu/java/GCUseTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chapter05/com/atguigu/java/MetaspaceOOM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../temp_status.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,9 +33,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="1hi3LO4qZZnZCY1MNK922ExuT07" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -165,8 +44,13 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.GCTest.executor": "Run",
+    "Application.HeapInstanceTest.executor": "Run with VisualVM",
     "Application.JVMTest.executor": "Run",
     "Application.ScannerTest.executor": "Run",
+    "Application.ThreadDeadLock.executor": "Run",
+    "Application.ThreadSyncTest.executor": "Run",
+    "Application.com.atguigu.jconsole.ThreadDeadLock.executor": "Run",
+    "Application.com.atguigu.jmap.GCTest.executor": "Run",
     "Application.com.atguigu.jstat.ScannerTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -177,6 +61,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "VisualVMLauncher",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -196,21 +84,7 @@
       <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.atguigu.jstat.ScannerTest">
-    <configuration name="GCLogTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.GCLogTest" />
-      <module name="chapter04" />
-      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8 -XX:+PrintGCApplicationStoppedTime" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.jprofiler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.HeapInstanceTest">
     <configuration name="GCLogTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.atguigu.java.GCLogTest" />
       <module name="chapter05" />
@@ -225,41 +99,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstat.GCTest" />
-      <module name="chapter02" />
-      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8" />
+    <configuration name="HeapInstanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jconsole.HeapInstanceTest" />
+      <module name="chapter03" />
+      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:SurvivorRatio=8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GCUseTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.GCUseTest" />
-      <module name="chapter05" />
-      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m -XX:+PrintGCDetails -XX:+UseSerialGC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemoryMonitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.MemoryMonitor" />
-      <module name="chapter04" />
-      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="PATTERN" value="com.atguigu.jconsole.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -304,13 +150,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.atguigu.jstat.ScannerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstat.ScannerTest" />
+    <configuration name="ThreadDeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstack.ThreadDeadLock" />
       <module name="chapter02" />
-      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.jstat.*" />
+          <option name="PATTERN" value="com.atguigu.jstack.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadSyncTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstack.ThreadSyncTest" />
+      <module name="chapter02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jstack.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.atguigu.jconsole.ThreadDeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jconsole.ThreadDeadLock" />
+      <module name="chapter03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jconsole.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.atguigu.jmap.GCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jmap.GCTest" />
+      <module name="chapter02" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jmap.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -340,7 +225,6 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Debug with VisualVM">
         <option name="DEBUG_PORT" value="62781" />
-        <option name="visualVMId" value="195225382209900" />
       </RunnerSettings>
       <RunnerSettings RunnerId="JProfiler" />
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
@@ -442,20 +326,22 @@
     </configuration>
     <list>
       <item itemvalue="Application.ScannerTest" />
-      <item itemvalue="Application.com.atguigu.jstat.ScannerTest" />
-      <item itemvalue="Application.GCTest" />
-      <item itemvalue="Application.MemoryMonitor" />
-      <item itemvalue="Application.GCUseTest" />
       <item itemvalue="Application.GCLogTest" />
+      <item itemvalue="Application.OOMTest" />
+      <item itemvalue="Application.com.atguigu.jconsole.ThreadDeadLock" />
+      <item itemvalue="Application.HeapInstanceTest" />
+      <item itemvalue="Application.ThreadDeadLock" />
+      <item itemvalue="Application.ThreadSyncTest" />
+      <item itemvalue="Application.com.atguigu.jmap.GCTest" />
       <item itemvalue="Tomcat Server.chapter03_demo" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.atguigu.jstat.ScannerTest" />
-        <item itemvalue="Application.GCTest" />
-        <item itemvalue="Application.GCLogTest" />
-        <item itemvalue="Application.GCUseTest" />
-        <item itemvalue="Application.MemoryMonitor" />
+        <item itemvalue="Application.HeapInstanceTest" />
+        <item itemvalue="Application.com.atguigu.jconsole.ThreadDeadLock" />
+        <item itemvalue="Application.ThreadDeadLock" />
+        <item itemvalue="Application.ThreadSyncTest" />
+        <item itemvalue="Application.com.atguigu.jmap.GCTest" />
       </list>
     </recent_temporary>
   </component>
@@ -509,7 +395,8 @@
       <workItem from="1611910989470" duration="8080000" />
       <workItem from="1611930903984" duration="1045000" />
       <workItem from="1611971068444" duration="21007000" />
-      <workItem from="1720880506342" duration="7372000" />
+      <workItem from="1720880506342" duration="16010000" />
+      <workItem from="1721016475699" duration="906000" />
     </task>
     <servers />
   </component>

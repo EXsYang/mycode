@@ -21,7 +21,7 @@ public class ThreadSyncTest {
 }
 
 class Number implements Runnable {
-    private int number = 1;
+    private int number = 1; //多个线程共享数据
 
     @Override
     public void run() {
