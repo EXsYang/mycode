@@ -9,7 +9,7 @@ import java.util.Random;
  * @create 2020  17:51
  */
 public class HeapInstanceTest {
-    byte[] buffer = new byte[new Random().nextInt(1024 * 100)];
+    byte[] buffer = new byte[new Random().nextInt(1024 * 100)];//100KB
 
     public static void main(String[] args) {
         try {

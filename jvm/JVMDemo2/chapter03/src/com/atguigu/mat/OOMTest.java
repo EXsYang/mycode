@@ -5,13 +5,15 @@ import java.util.Random;
 
 /**
  * -Xms600m -Xmx600m -XX:SurvivorRatio=8
+ *
  * @author shkstart  shkstart@126.com
  * @create 2020  21:12
  */
 public class OOMTest {
     public static void main(String[] args) {
+        String a = "aa";
         ArrayList<Picture> list = new ArrayList<>();
-        while(true){
+        while (true) {
             try {
                 Thread.sleep(5);
             } catch (InterruptedException e) {
@@ -22,7 +24,7 @@ public class OOMTest {
     }
 }
 
-class Picture{
+class Picture {
     private byte[] pixels;
 
     public Picture(int length) {
