@@ -8,7 +8,7 @@ import java.util.Vector;
  * 有一个学生浏览网页的记录程序，它将记录 每个学生访问过的网站地址。
  * 它由三个部分组成：Student、WebPage和StudentTrace三个类
  *
- *  -XX:+HeapDumpBeforeFullGC -XX:HeapDumpPath=d:\student.hprof
+ *  -XX:+HeapDumpBeforeFullGC -XX:HeapDumpPath=d:\aatest\mat_log\student.hprof
  * @author shkstart
  * @create 16:11
  */

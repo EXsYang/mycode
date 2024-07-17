@@ -1,44 +1,14 @@
  M jvm/JVMDemo2/.idea/workspace.xml
- M jvm/JVMDemo2/chapter02/src/com/atguigu/jmap/GCTest.java
  M jvm/JVMDemo2/chapter03/chapter03.iml
- M jvm/JVMDemo2/chapter03/src/com/atguigu/jvisualvm/HeapInstanceTest.java
- M jvm/JVMDemo2/chapter03/src/com/atguigu/mat/OOMTest.java
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/ArthasTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/OOMTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/Picture.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock$1.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock$2.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/ThreadDeadLock.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jconsole/HeapInstanceTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock$1.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock$2.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jconsole/ThreadDeadLock.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/Bean.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/Data.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/DataKeeper.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/JProfilerTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/MemoryLeak.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/OOMTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/Picture.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock$1.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock$2.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/ThreadDeadLock.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/HeapInstanceTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/OOMTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/Picture.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock$1.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock$2.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/ThreadDeadLock.class
+ M jvm/JVMDemo2/chapter03/src/com/atguigu/mat/StudentTrace.java
  M jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/OOMTest.class
  M jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/Picture.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/Student.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/StudentTrace.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/WebPage.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode1.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/MapTest.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/MemoryLeak.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/Person.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/Point.class
- D jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/Stack.class
  M temp_status.txt
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/jconsole/
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/jprofiler/
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/jvisualvm/
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/Student.class
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/StudentTrace.class
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/mat/WebPage.class
+?? jvm/JVMDemo2/out/production/chapter03/com/atguigu/memoryleak/
