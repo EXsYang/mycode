@@ -10,6 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../temp_status.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +51,7 @@
     "Application.GCTest.executor": "Run",
     "Application.HeapInstanceTest.executor": "Run with VisualVM",
     "Application.JVMTest.executor": "Run",
+    "Application.MapTest.executor": "Debug",
     "Application.OOMTest.executor": "Run",
     "Application.ScannerTest.executor": "Run",
     "Application.StudentTrace.executor": "Run",
@@ -92,7 +96,20 @@
       <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.atguigu.jvisualvm.ThreadDeadLock">
+  <component name="RunManager" selected="Application.MapTest">
+    <configuration name="MapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.memoryleak.MapTest" />
+      <module name="chapter03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.memoryleak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.atguigu.jvisualvm.OOMTest" />
       <module name="chapter03" />
@@ -137,20 +154,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.atguigu.mat.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.atguigu.jvisualvm.HeapInstanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jvisualvm.HeapInstanceTest" />
-      <module name="chapter03" />
-      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:SurvivorRatio=8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.jvisualvm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -308,20 +311,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.ScannerTest" />
+      <item itemvalue="Application.MapTest" />
       <item itemvalue="Application.StudentTrace" />
       <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
       <item itemvalue="Application.com.atguigu.mat.OOMTest" />
-      <item itemvalue="Application.com.atguigu.jvisualvm.HeapInstanceTest" />
       <item itemvalue="Application.OOMTest" />
       <item itemvalue="Tomcat Server.chapter03_demo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MapTest" />
         <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
         <item itemvalue="Application.StudentTrace" />
         <item itemvalue="Application.com.atguigu.mat.OOMTest" />
         <item itemvalue="Application.OOMTest" />
-        <item itemvalue="Application.com.atguigu.jvisualvm.HeapInstanceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,7 +380,7 @@
       <workItem from="1611971068444" duration="21007000" />
       <workItem from="1720880506342" duration="16010000" />
       <workItem from="1721016475699" duration="906000" />
-      <workItem from="1721033928085" duration="16973000" />
+      <workItem from="1721033928085" duration="20242000" />
     </task>
     <servers />
   </component>
