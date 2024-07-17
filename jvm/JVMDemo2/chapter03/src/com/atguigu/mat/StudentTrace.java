@@ -9,6 +9,8 @@ import java.util.Vector;
  * 它由三个部分组成：Student、WebPage和StudentTrace三个类
  *
  *  -XX:+HeapDumpBeforeFullGC -XX:HeapDumpPath=d:\aatest\mat_log\student.hprof
+ *
+ *  jdk8中指针压缩是默认开启的，具体参数是 UseCompressedOops ，可以使用`jinfo -flag UseCompressedOops PID`来查看。
  * @author shkstart
  * @create 16:11
  */

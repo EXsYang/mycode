@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/chapter03.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/chapter03.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/StudentTrace.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/StudentTrace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../temp_status.txt" beforeDir="false" />
     </list>
@@ -95,7 +94,7 @@
       <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StudentTrace">
+  <component name="RunManager" selected="Application.com.atguigu.jvisualvm.ThreadDeadLock">
     <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.atguigu.jvisualvm.OOMTest" />
       <module name="chapter03" />
@@ -320,10 +319,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
         <item itemvalue="Application.StudentTrace" />
         <item itemvalue="Application.com.atguigu.mat.OOMTest" />
         <item itemvalue="Application.OOMTest" />
-        <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
         <item itemvalue="Application.com.atguigu.jvisualvm.HeapInstanceTest" />
       </list>
     </recent_temporary>
@@ -380,7 +379,7 @@
       <workItem from="1611971068444" duration="21007000" />
       <workItem from="1720880506342" duration="16010000" />
       <workItem from="1721016475699" duration="906000" />
-      <workItem from="1721033928085" duration="13803000" />
+      <workItem from="1721033928085" duration="16366000" />
     </task>
     <servers />
   </component>
