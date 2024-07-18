@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../temp_status.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,41 +42,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.GCTest.executor": "Run",
-    "Application.HeapInstanceTest.executor": "Run with VisualVM",
-    "Application.JVMTest.executor": "Run",
-    "Application.MapTest.executor": "Debug",
-    "Application.OOMTest.executor": "Run",
-    "Application.ScannerTest.executor": "Run",
-    "Application.StudentTrace.executor": "Run",
-    "Application.ThreadDeadLock.executor": "Run",
-    "Application.ThreadSyncTest.executor": "Run",
-    "Application.com.atguigu.jconsole.ThreadDeadLock.executor": "Run",
-    "Application.com.atguigu.jmap.GCTest.executor": "Run",
-    "Application.com.atguigu.jstat.ScannerTest.executor": "Run",
-    "Application.com.atguigu.jvisualvm.HeapInstanceTest.executor": "Run",
-    "Application.com.atguigu.jvisualvm.OOMTest.executor": "Run",
-    "Application.com.atguigu.jvisualvm.ThreadDeadLock.executor": "Run",
-    "Application.com.atguigu.mat.OOMTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java_developer_tools/mycode/jvm/JVMDemo2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "VisualVMLauncher",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.GCTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HeapInstanceTest.executor&quot;: &quot;Run with VisualVM&quot;,
+    &quot;Application.JVMTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MapTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.OOMTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ScannerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentTrace.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadDeadLock.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadSyncTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jconsole.ThreadDeadLock.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jmap.GCTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jstat.ScannerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jvisualvm.HeapInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jvisualvm.OOMTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.jvisualvm.ThreadDeadLock.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.atguigu.mat.OOMTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java_developer_tools/mycode/jvm/JVMDemo2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;VisualVMLauncher&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.atguigu.java" />
@@ -381,6 +378,7 @@
       <workItem from="1720880506342" duration="16010000" />
       <workItem from="1721016475699" duration="906000" />
       <workItem from="1721033928085" duration="20242000" />
+      <workItem from="1721238659204" duration="639000" />
     </task>
     <servers />
   </component>
