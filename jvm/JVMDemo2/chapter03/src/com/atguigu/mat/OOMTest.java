@@ -25,6 +25,9 @@ public class OOMTest {
 }
 
 class Picture {
+    // picture	/ˈpɪktʃə(r)/	图片; 照片
+
+
     private byte[] pixels;
 
     public Picture(int length) {
