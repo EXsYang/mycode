@@ -4,7 +4,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * -Xms600m -Xmx600m -XX:SurvivorRatio=8
+ * -Xms600m -Xmx600m -XX:SurvivorRatio=8 -XX:+UnlockCommercialFeatures -XX:+FlightRecorder
+ *
+ *
+ *
+ * 如果要使用飞行记录仪（Java Flight Recorder），则需要在程序启动时加上两个JVM参数：
+ * -XX:+UnlockCommercialFeatures
+ * -XX:+FlightRecorder
+ *
+ *
  * @author shkstart  shkstart@126.com
  * @create 2020  21:12
  */
