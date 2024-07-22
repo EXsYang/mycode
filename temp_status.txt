@@ -1,5 +1,1 @@
- M jvm/JVMDemo2/.idea/workspace.xml
- M jvm/JVMDemo2/chapter03/src/com/atguigu/arthas/OOMTest.java
- M jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/OOMTest.class
- M jvm/JVMDemo2/out/production/chapter03/com/atguigu/arthas/Picture.class
  M temp_status.txt
