@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * -Xms600m -Xmx600m -XX:+HeapDumpBeforeFullGC -XX:HeapDumpPath=d:\aatest\heapdump\heapdumpinstance.hprof
+ * -Xms600m -Xmx600m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:\aatest\heapdump\heapdumpinstance.hprof
+ *
+ * 如果要指定生成dump文件的位置，需要指定的目录要存在，否则报下面的信息。
+ * Dumping heap to d:\aatest\heapdump\heapdumpinstance.hprof ...
+ * Unable to create d:\aatest\heapdump\heapdumpinstance.hprof: No such file or directory
+ *
  * -XX:+HeapDumpOnOutOfMemoryError
  * -XX:+HeapDumpBeforeFullGC
  * -XX:HeapDumpPath=d:\heapdumpinstance.hprof

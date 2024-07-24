@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../JVMDemo/chapter08/src/com/atguigu/java1/EdenSurvivorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JVMDemo/chapter08/src/com/atguigu/java1/EdenSurvivorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/arthas/OOMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/arthas/OOMTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/HeapDumpInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/HeapDumpInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/OOMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/OOMTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/HeapDumpInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/HeapDumpInstance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/OOMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/OOMTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/Picture.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../temp_status.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +52,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HeapDumpInstance.executor": "Run",
     "Application.OOMTest.executor": "Run",
+    "Application.com.atguigu.java.OOMTest.executor": "Run",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Java_developer_tools/mycode/jvm/JVMDemo1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,7 +81,7 @@
       <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OOMTest">
+  <component name="RunManager" selected="Application.HeapDumpInstance">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -85,12 +93,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JProfilerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jprofiler.JProfilerTest" />
-      <module name="chapter03" />
+    <configuration name="HeapDumpInstance" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.HeapDumpInstance" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:\aatest\heapdump\heapdumpinstance.hprof" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.jprofiler.*" />
+          <option name="PATTERN" value="com.atguigu.java.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.memoryleak.MapTest" />
+    <configuration name="JProfilerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jprofiler.JProfilerTest" />
       <module name="chapter03" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.memoryleak.*" />
+          <option name="PATTERN" value="com.atguigu.jprofiler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,20 +162,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.atguigu.jvisualvm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.atguigu.mat.OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.mat.OOMTest" />
-      <module name="chapter03" />
-      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:SurvivorRatio=8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.mat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -297,10 +292,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.ScannerTest" />
+      <item itemvalue="Application.HeapDumpInstance" />
       <item itemvalue="Application.OOMTest" />
-      <item itemvalue="Application.MapTest" />
       <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
-      <item itemvalue="Application.com.atguigu.mat.OOMTest" />
       <item itemvalue="Application.JProfilerTest" />
       <item itemvalue="Application.MemoryLeak" />
       <item itemvalue="Tomcat Server.chapter03_demo" />
@@ -311,7 +305,6 @@
         <item itemvalue="Application.MemoryLeak" />
         <item itemvalue="Application.JProfilerTest" />
         <item itemvalue="Application.com.atguigu.jvisualvm.ThreadDeadLock" />
-        <item itemvalue="Application.com.atguigu.mat.OOMTest" />
       </list>
     </recent_temporary>
   </component>
@@ -370,7 +363,7 @@
       <workItem from="1721033928085" duration="20242000" />
       <workItem from="1721238659204" duration="2737000" />
       <workItem from="1721300142910" duration="16468000" />
-      <workItem from="1721560851013" duration="2946000" />
+      <workItem from="1721560851013" duration="8869000" />
     </task>
     <servers />
   </component>

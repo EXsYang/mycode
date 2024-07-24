@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * -Xms600m -Xmx600m -XX:SurvivorRatio=8 -XX:+UnlockCommercialFeatures -XX:+FlightRecorder(开启飞行记录仪的JVM参数配置)
+ *
+ *
  * -XX:+PrintFlagsFinal -Xms600m -Xmx600m
  *  -XX:SurvivorRatio=8
  * 默认情况下，新生代占 1/3 ： 200m，老年代占2/3 : 400m
