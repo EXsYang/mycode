@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 /**
  * -Xms60m -Xmx60m -XX:SurvivorRatio=8
+ *
+ * -XX:+PrintGCDetails
+ * -Xloggc:d:/aatest/gclog/heaplog.log
  * @author shkstart
  * @create 14:27
  */
