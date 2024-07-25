@@ -6,7 +6,7 @@ import jdk.internal.org.objectweb.asm.Opcodes;
 /**
  * java.lang.OutOfMemoryError: Metaspace异常演示：
  *
- * -Xms60m -Xmx60m -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=10m -XX:SurvivorRatio=8 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC
+ * -Xms60m -Xmx60m -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=10m -XX:SurvivorRatio=8 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:d:/aatest/gclog/MetaSpaceOOM.log
  *
  * @author shkstart
  * @create 13:25

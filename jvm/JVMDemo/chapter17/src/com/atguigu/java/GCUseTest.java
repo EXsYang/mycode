@@ -8,6 +8,8 @@ import java.util.ArrayList;
  *  jps 、 jinfo -flag 相关垃圾回收器参数 进程ID【如: jinfo -flag UseParallelGC 6154】
  *
  *  -XX:+UseSerialGC:表明新生代使用Serial GC ，同时老年代使用Serial Old GC 【JVM没有`-XX:+UseSerialOldGC`参数】
+ *  如果启用了SerialGC在打印GC日志是可以看到DefNew(年轻代中)、Tenured(老年代中)的输出信息。
+ *  Tenured: 老年代, 终身的；长期保有的；	/ˈtenjəd/
  *
  *  -XX:+UseParNewGC：表明新生代使用ParNew GC 【设置-XX:+UseParNewGC并不会同时启用CMS GC，需要手动启用CMS GC。参考参数设置: -XX:+PrintCommandLineFlags -XX:+UseParNewGC -XX:+UseConcMarkSweepGC】
  *  -XX:+UseConcMarkSweepGC：表明老年代使用CMS GC。

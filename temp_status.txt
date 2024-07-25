@@ -1,4 +1,6 @@
+ M jvm/JVMDemo/chapter17/src/com/atguigu/java/GCUseTest.java
  M jvm/JVMDemo2/.idea/workspace.xml
- M jvm/JVMDemo2/chapter04/src/com/atguigu/java/GCLogTest.java
- M jvm/JVMDemo2/out/production/chapter04/com/atguigu/java/GCLogTest.class
+ M jvm/JVMDemo2/chapter05/src/com/atguigu/java/GCLogTest.java
+ M jvm/JVMDemo2/chapter05/src/com/atguigu/java/MetaspaceOOM.java
+ M jvm/JVMDemo2/out/production/chapter05/com/atguigu/java/MetaspaceOOM.class
  M temp_status.txt
