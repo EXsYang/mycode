@@ -1,8 +1,1 @@
- M jvm/JVMDemo/chapter08/src/com/atguigu/java1/EdenSurvivorTest.java
- M jvm/JVMDemo2/.idea/workspace.xml
- M jvm/JVMDemo2/chapter04/src/com/atguigu/java/HeapDumpInstance.java
- M jvm/JVMDemo2/chapter04/src/com/atguigu/java/OOMTest.java
- M jvm/JVMDemo2/out/production/chapter04/com/atguigu/java/HeapDumpInstance.class
- M jvm/JVMDemo2/out/production/chapter04/com/atguigu/java/OOMTest.class
- M jvm/JVMDemo2/out/production/chapter04/com/atguigu/java/Picture.class
  M temp_status.txt
