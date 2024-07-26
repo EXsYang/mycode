@@ -2,6 +2,7 @@ package com.atguigu.java2;
 
 /**
  * 栈上分配测试
+ * 栈上分配的是那些不会逃逸的对象。
  * -Xmx1G -Xms1G -XX:-DoEscapeAnalysis -XX:+PrintGCDetails
  * -Xmx1G -Xms1G -XX:+DoEscapeAnalysis -XX:+PrintGCDetails
  *

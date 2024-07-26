@@ -3,8 +3,10 @@ package com.atguigu.escape;
 /**
  * 标量替换测试
  *  -Xmx100m -Xms100m -XX:+DoEscapeAnalysis -XX:+PrintGCDetails -XX:-EliminateAllocations
+ * 栈上分配的是那些不会逃逸的对象。
  *
- *  结论：Java中的逃逸分析，其实优化的点就在于对栈上分配的对象进行标量替换。
+ *  疑问？C2编译器的栈上分配不应该是在栈上分配好多的User对象吗？怎么没看到那些User对象呢？
+ *  结论：Java中的逃逸分析，其实优化的点就在于对栈上分配的对象进行标量替换。是使用的变量替换了，所以看不到User对象！
  *
  * @author shkstart  shkstart@126.com
  * @create 2021  12:01

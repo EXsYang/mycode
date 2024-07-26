@@ -1,9 +1,9 @@
 package com.atguigu.java2;
 
 /**
- * 标量替换测试。
+ * 标量替换测试。  栈上分配的是那些不会逃逸的对象。
  * 标量替换是被应用起来了，但逃逸分析还不成熟，并没有被应用起来。
- * 这里测试的逃逸分析带来的优化提升，主要来源于标量替换
+ * 这里测试的逃逸分析带来的优化提升，主要来源于标量替换。
  *
  *  -Xmx100m -Xms100m -XX:+DoEscapeAnalysis -XX:+PrintGC -XX:-EliminateAllocations
  *
