@@ -7,6 +7,7 @@ package com.atguigu.java;
  *
  * 栈大小设置参考：
  * -Xss size
+ * -Xss128k 等价于-XX:ThreadStackSize，设置每个线程的栈大小为128k
  * 设置线程栈大小（单位为字节）。可以使用 k 或 K 表示 KB，m 或 M 表示 MB，g 或 G 表示 GB。
  * 不同平台的默认值：
  * - Linux/x64 (64-bit): 1024 KB
@@ -30,9 +31,9 @@ public class StackErrorTest {
     public static void main(String[] args) {
         // 以下代码是用于演示栈中的异常: StackOverflowError
         // 若要测试StackOverflowError，请取消以下注释，并确保没有任何终止递归的条件
-        // System.out.println(count);
-        // count++;
-        // main(args);
+        System.out.println(count);
+        count++;
+        main(args);
 
         /**
          * 为什么调用 m1() 2亿次不会报 StackOverflowError？
@@ -40,9 +41,9 @@ public class StackErrorTest {
          * - 每次调用 m1() 完成后，栈帧被立即清除，栈的深度保持不变。
          * - 与递归调用不同，循环调用不会不断增加栈深度，因为控制权返回到循环而非方法自身。
          */
-        for (int i = 0; i < 200000000; i++) {
-            m1();
-        }
+        // for (int i = 0; i < 200000000; i++) {
+        //     m1();
+        // }
 
         /**
          * 编译器优化可能会识别并移除对空方法的无效调用。
