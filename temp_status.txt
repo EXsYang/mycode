@@ -1,5 +1,1 @@
- M .gitignore
-A  allfileshas.txt
-AM bigfiles.txt
-AM bigobjects.txt
  M temp_status.txt
