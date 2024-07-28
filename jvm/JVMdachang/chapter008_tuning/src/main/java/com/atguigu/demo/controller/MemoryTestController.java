@@ -69,6 +69,13 @@ public class MemoryTestController {
 
     /**
      * 性能优化案例3：合理配置堆内存
+     *
+     * 需要使用到的测试指令：
+     * jstat -gc PID 1000 5      说明--> 1000ms打印5次gc统计信息
+     * jmap -histo:live <pid>    打印每个class的实例数目,内存占用,类全名信息.live子参数加上后,只统计活的对象数量. 此时会触发FullGC
+     * jmap -heap PID            输出整个堆空间的详细信息，包括GC的使用、堆配置信息，以及内存的使用信息等
+     *
+     *
      */
     @RequestMapping("/getData")
     public List<People> getProduct(){

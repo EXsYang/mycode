@@ -1,3 +1,8 @@
  M jvm/JVMdachang/chapter008_tuning/src/main/java/com/atguigu/demo/DemoApplication.java
- M jvm/JVMdachang/chatper08_tuning/src/com/atguigu/escape/EscapeAnalysis.java
+ M jvm/JVMdachang/chapter008_tuning/src/main/java/com/atguigu/demo/controller/MemoryTestController.java
+ M jvm/JVMdachang/chatper08_tuning/src/com/atguigu/adaptive/AdaptiveSizePolicyTest.java
+ D jvm/JVMdachang/out/production/chatper08_tuning/META-INF/chatper08_tuning.kotlin_module
+ M jvm/JVMdachang/out/production/chatper08_tuning/com/atguigu/adaptive/AdaptiveSizePolicyTest.class
+ M jvm/JVMdachang/out/production/chatper08_tuning/com/atguigu/escape/ScalarReplace$User.class
+ M jvm/JVMdachang/out/production/chatper08_tuning/com/atguigu/escape/ScalarReplace.class
  M temp_status.txt
