@@ -5,6 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * 测试 分析堆dump文件和gc日志的JVM参数:
+ * -XX:+PrintGCDetails -XX:MetaspaceSize=64m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdump3.hprof  -XX:SurvivorRatio=8  -XX:+PrintGCDateStamps  -Xms80M  -Xmx80M -Xloggc:log/gc-oom3.log
+ */
+
+/**
  * 性能优化案例3：合理配置堆内存
  * 关联的测试接口方法在
  * com.atguigu.demo.controller.MemoryTestController#getProduct() 检索关键字: 案例3
