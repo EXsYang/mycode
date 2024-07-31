@@ -72,6 +72,34 @@ public class BreakClassLoader1 extends ClassLoader {
 
         Class<?> clazz1 = classLoader1.loadClass("com.itheima.my.A");
 
+        System.out.println("classLoader1.getParent()==>" + classLoader1.getParent());
+        System.out.println("ClassLoader.getSystemClassLoader()==>" + ClassLoader.getSystemClassLoader());
+
+        // 要想修改自定义类加载器的父加载器
+        // 需要修改其构造方法
+        //  protected ClassLoader() {
+        //    在空参构造器默认传入的是系统类加载器
+        //    this(checkCreateClassLoader(), getSystemClassLoader());
+        //  }
+
+        // 要想修改其默认的父加载器可以在下面这个带参的protected的构造器中，
+        // 自己传入一个想要指定的父加载器即可。
+        // protected ClassLoader(ClassLoader parent) {
+        //  this(checkCreateClassLoader(), parent);
+        // }
+
+        // 这个是私有的，是属于在父类ClassLoader中单独使用的
+        // 在Java中，子类不能直接调用父类的私有方法。私有方法在父类中是私有的，意味着它们只能在父类的内部被访问，不能被子类或其他类访问。
+        // 私有方法：子类不能直接调用父类的私有方法。私有方法只能在声明它的类内部访问。
+        // 子类可以通过调用父类的公有或受保护的方法来间接调用父类的私有方法。
+        // 如果希望子类能够访问父类的方法，可以将方法的访问修饰符更改为protected。受保护的方法可以在子类中直接访问。
+        // private ClassLoader(Void unused, ClassLoader parent) {
+        //         this.parent = parent;
+
+
+
+
+        System.out.println();
         BreakClassLoader1 classLoader2 = new BreakClassLoader1();
         classLoader2.setBasePath("D:\\lib\\");
 

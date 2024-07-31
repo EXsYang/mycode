@@ -1,7 +1,3 @@
- M jvm/JVMDemo1/.idea/misc.xml
-AM jvm/JVMDemo1/calssloader/pom.xml
-A  jvm/JVMDemo1/calssloader/src/main/java/com/itheima/my/A.java
-A  jvm/JVMDemo1/calssloader/src/main/java/com/itheima/my/B.java
+ M jvm/JVMDemo1/calssloader/src/main/java/classloader/broken/BreakClassLoader1.java
+AM jvm/JVMDemo1/calssloader/src/main/java/classloader/private_/Parent.java
  M temp_status.txt
-?? jvm/JVMDemo1/calssloader/src/main/java/classloader/
-?? jvm/JVMDemo1/calssloader/src/main/java/org/
