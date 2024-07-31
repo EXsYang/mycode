@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @author shkstart
  * @create 2020-09-14 16:49
- *
+ * 测试类的主动使用：意味着会调用类的<clinit>()，即执行了类的初始化阶段
  * 3. 当使用类、接口的静态字段时(final修饰特殊考虑)，比如，使用getstatic或者putstatic指令。（对应访问变量、赋值变量操作）
  *
  */
