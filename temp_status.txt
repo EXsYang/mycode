@@ -1,7 +1,7 @@
  M jvm/JVMDemo1/.idea/misc.xml
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/ActiveUse2.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/ActiveUse3.java
- M jvm/JVMDemo1/chapter03/src/com/atguigu/java1/PassiveUse2.java
- M jvm/JVMDemo1/chapter04/src/com/atguigu/java1/MyClassLoader.java
- M jvm/JVMDemo1/chapter04/src/com/atguigu/java2/MyClassLoader.java
+AM jvm/JVMDemo1/calssloader/pom.xml
+A  jvm/JVMDemo1/calssloader/src/main/java/com/itheima/my/A.java
+A  jvm/JVMDemo1/calssloader/src/main/java/com/itheima/my/B.java
  M temp_status.txt
+?? jvm/JVMDemo1/calssloader/src/main/java/classloader/
+?? jvm/JVMDemo1/calssloader/src/main/java/org/
