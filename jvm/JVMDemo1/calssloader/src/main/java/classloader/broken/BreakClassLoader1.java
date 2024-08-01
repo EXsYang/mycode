@@ -107,6 +107,8 @@ public class BreakClassLoader1 extends ClassLoader {
 
         System.out.println(clazz1 == clazz2);
 
+        // 线程上下文类加载器默认是系统类加载器
+        // 但是也可以通过下面这种方式修改 线程上下文类加载器 为自定义类加载器
         Thread.currentThread().setContextClassLoader(classLoader1);
 
         System.out.println(Thread.currentThread().getContextClassLoader());

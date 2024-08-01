@@ -1,3 +1,2 @@
  M jvm/JVMDemo1/calssloader/src/main/java/classloader/broken/BreakClassLoader1.java
-AM jvm/JVMDemo1/calssloader/src/main/java/classloader/private_/Parent.java
  M temp_status.txt
