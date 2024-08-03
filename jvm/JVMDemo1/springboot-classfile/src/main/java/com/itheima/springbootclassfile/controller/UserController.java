@@ -21,6 +21,7 @@ public class UserController {
         // 但是这里使用的是 == 引用数据类型做等等比较为false!
         // 即如果传入的type是非1002(普通用户),也会看到VIP用户的内容！
         if (type == UserType.REGULAR.getType()) {
+            // 使用arthas的jad、mc、retransform指令热加载.class文件
             // if(type.equals(UserType.REGULAR.getType())){
             return new UserVO(id, "普通用户无权限查看");
         }
