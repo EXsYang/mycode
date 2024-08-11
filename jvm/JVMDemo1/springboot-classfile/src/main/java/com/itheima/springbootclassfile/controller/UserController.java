@@ -25,7 +25,7 @@ public class UserController {
             // if(type.equals(UserType.REGULAR.getType())){
             return new UserVO(id, "普通用户无权限查看");
         }
-
+        UserController.class.getClassLoader();
         return new UserVO(id, "这是尊贵的收费用户才能看的秘密!");
     }
 }

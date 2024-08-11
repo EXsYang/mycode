@@ -22,6 +22,8 @@ public class ClassLoaderTest {
         // SecureClassLoader继承于ClassLoader
         // jdk9中没有 URLClassLoader,因此如果是继承于URLClassLoader实现的自定义类加载器
         // 在jdk9中会因为不兼容而报错，而如果是继承于ClassLoader实现的自定义类加载器则没有问题
+        // 继承关系可以在java.lang.ClassLoader类中按F4来进行验证！
+
 
 
 
