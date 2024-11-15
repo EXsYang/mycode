@@ -54,9 +54,11 @@
             </exclusions>
         </dependency>
 
+        <!-- springboot和arthas整合依赖 -->
         <dependency>
             <groupId>com.taobao.arthas</groupId>
             <artifactId>arthas-spring-boot-starter</artifactId>
+            <!-- 版本和最新版本一致，arthas-tunnel-server-3.7.1-fatjar  -->
             <version>3.7.1</version>
         </dependency>
 
