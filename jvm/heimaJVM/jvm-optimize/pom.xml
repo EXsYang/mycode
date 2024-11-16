@@ -115,7 +115,9 @@
             <version>2.9.3</version>
         </dependency>
 
-        <!--AMQP依赖，包含RabbitMQ-->
+        <!--AMQP依赖，不包含RabbitMQ,只是提供整合
+         spring-boot-starter-amqp 依赖 仅 提供了与 AMQP 消息代理交互的工具和配置。它 不包含 RabbitMQ 服务器软件本身。 你需要在服务器上安装和配置 RabbitMQ。
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
