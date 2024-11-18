@@ -8,13 +8,18 @@ management:
   metrics:
     export:
       prometheus:
-        enabled: true
+        enabled: true # 上面这段配置对应 micrometer-registry-prometheus依赖
+
     tags:
       application: jvm-test #实例名采集
+
   endpoints:
     web:
       exposure:
-        include: '*' #开放所有端口
+        include: '*' #开放所有端口  对应spring-boot-starter-actuator依赖
+
+
+
 
 #设置应用名
 spring:
