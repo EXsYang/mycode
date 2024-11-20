@@ -13,4 +13,7 @@ public class JvmOptimizeApplication {
         ConfigurableApplicationContext run = SpringApplication.run(JvmOptimizeApplication.class, args);
     }
 
+
+
+
 }
