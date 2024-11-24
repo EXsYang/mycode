@@ -21,7 +21,7 @@ public class BufferedCopy02 {
         byte[] buf = new byte[1024];//注意：不要用空数组，会抛异常
         int readLength = 0;
         try {
-            //因为 FileInputStream 时 InputStream 子类 可以传进来
+            //因为 FileInputStream 是 InputStream 子类 可以传进来
             bufferedInputStream = new BufferedInputStream(new FileInputStream(srcFilePath));
             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(destFilePath));
 

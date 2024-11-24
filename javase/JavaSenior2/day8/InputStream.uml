@@ -3,59 +3,18 @@
   <ID>JAVA</ID>
   <OriginalElement>java.io.InputStream</OriginalElement>
   <nodes>
-    <node x="212.0" y="255.0">java.io.FilterInputStream</node>
-    <node x="202.5" y="340.0">java.io.BufferedInputStream</node>
-    <node x="239.47222222222223" y="85.0">java.io.Closeable</node>
-    <node x="444.0" y="255.0">java.io.ObjectInputStream</node>
-    <node x="0.0" y="255.0">java.io.FileInputStream</node>
-    <node x="374.0" y="0.0">java.lang.AutoCloseable</node>
-    <node x="229.97222222222223" y="170.0">java.io.InputStream</node>
+    <node x="17.5" y="82.5">java.io.InputStream</node>
+    <node x="-223.0" y="242.5">java.io.FilterInputStream</node>
+    <node x="-209.5" y="322.5">java.io.ObjectInputStream</node>
+    <node x="8.0" y="162.5">java.io.Closeable</node>
+    <node x="-211.5" y="82.5">java.lang.AutoCloseable</node>
+    <node x="-217.0" y="402.5">java.io.BufferedInputStream</node>
+    <node x="-216.5" y="162.5">java.io.FileInputStream</node>
   </nodes>
   <notes />
-  <edges>
-    <edge source="java.io.ObjectInputStream" target="java.io.InputStream">
-      <point x="-53.0" y="-17.5" />
-      <point x="497.0" y="230.0" />
-      <point x="358.30555555555554" y="230.0" />
-      <point x="51.333333333333314" y="17.5" />
-    </edge>
-    <edge source="java.io.InputStream" target="java.io.Closeable">
-      <point x="0.0" y="-17.5" />
-      <point x="0.0" y="17.5" />
-    </edge>
-    <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
-      <point x="0.0" y="-17.5" />
-      <point x="306.97222222222223" y="60.0" />
-      <point x="417.25" y="60.0" />
-      <point x="-43.25" y="17.5" />
-    </edge>
-    <edge source="java.io.FileInputStream" target="java.io.InputStream">
-      <point x="0.0" y="-17.5" />
-      <point x="96.0" y="230.0" />
-      <point x="255.63888888888889" y="230.0" />
-      <point x="-51.33333333333334" y="17.5" />
-    </edge>
-    <edge source="java.io.BufferedInputStream" target="java.io.FilterInputStream">
-      <point x="0.0" y="-17.5" />
-      <point x="0.0" y="17.5" />
-    </edge>
-    <edge source="java.io.FilterInputStream" target="java.io.InputStream">
-      <point x="0.0" y="-17.5" />
-      <point x="318.0" y="230.0" />
-      <point x="306.97222222222223" y="230.0" />
-      <point x="0.0" y="17.5" />
-    </edge>
-    <edge source="java.io.ObjectInputStream" target="java.lang.AutoCloseable">
-      <point x="53.0" y="-17.5" />
-      <point x="603.0" y="60.0" />
-      <point x="503.75" y="60.0" />
-      <point x="43.25" y="17.5" />
-    </edge>
-  </edges>
-  <settings layout="Hierarchic Group" zoom="0.727810650887574" x="328.0" y="187.5" />
-  <SelectedNodes>
-    <node>java.io.InputStream</node>
-  </SelectedNodes>
+  <edges />
+  <settings layout="Hierarchic Compact" zoom="1.3903743315508021" showDependencies="false" x="-11.0" y="269.0" />
+  <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
