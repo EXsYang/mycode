@@ -36,12 +36,12 @@ public class FileOutputStream01 {
             //2. new FileOutputStream(filePath,true); 创建方式，当写入内容时，追加到原来的内容后面
 
             //创建对象时自动生成a.txt文件，不需要再去调用createNewFile
-           // fileOutputStream = new FileOutputStream(filePath);
-            fileOutputStream = new FileOutputStream(filePath,true); //这里创建的输出流对象是追加的形式写入
+           fileOutputStream = new FileOutputStream(filePath);//这里创建的输出流对象是覆盖的形式写入
+           //  fileOutputStream = new FileOutputStream(filePath,true); //这里创建的输出流对象是追加的形式写入
             //写入一个字节
 //            fileOutputStream.write('G');
             // 要写入的字符串
-            String str = "yangda,world！！！！！！！the world of 天堂制作";
+            String str = "yangda,world！！！！！！！the world of 天堂制作~";
             //str,getBytes() 可以把 字符串-> 字节数组
 
 
@@ -76,17 +76,17 @@ public class FileOutputStream01 {
             // fileOutputStream.write(str.getBytes());
 
             // 3. 写入指定编码的字节数组（推荐，编码明确）
-            fileOutputStream.write(str.getBytes("UTF-8"));
+            // fileOutputStream.write(str.getBytes("UTF-8"));
 
             // 4. 写入字节数组的部分内容
             // 注意：当写入部分内容时，应使用字节数组的长度而不是字符串长度
             // 错误示例：fileOutputStream.write(bytes, 0, str.length()); // 可能导致中文字符截断
             // 正确示例：
-            // fileOutputStream.write(bytes, 0, bytes.length); // 从0开始，写入整个字节数组
+            fileOutputStream.write(bytes, 0, bytes.length); // 从0开始，写入整个字节数组
 
             // 从第0号位开始写入，写入字符串的长度str.length()个字节。如果有需要使用多个字节保存的字符则可能会截断！
             // 比如在UTF-8 编码中，一个中文占3个字节，一个英文占1个字节，所以中文字符可能会截断。
-            fileOutputStream.write(str.getBytes(),0,str.length()); // 这种方式保存的文件是ANSI格式的，显示的是乱码
+            // fileOutputStream.write(str.getBytes(),0,str.length()); // 这种方式保存的文件是ANSI格式的，显示的是乱码
 
 
         } catch (IOException e) {

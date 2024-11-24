@@ -20,6 +20,8 @@ public class CodeQuestion {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
 
         String s = br.readLine();
+
+        // 如果将文件的保存方式改为ANSI，那么这里这段使用FileReader读取文件的代码，也就会读取成中文乱码。
         //默认是按照utf-8 解析 ,文件如果是ANSI(gbk)解析会出现中文乱码
         System.out.println("读取到的内容：" + s);//读取到的内容：�����д��ҵ��zehgndshfad
         br.close();
