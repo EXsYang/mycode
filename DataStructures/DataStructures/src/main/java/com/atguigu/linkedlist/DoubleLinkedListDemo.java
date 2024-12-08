@@ -1,16 +1,15 @@
 package com.atguigu.linkedlist;
 
 public class DoubleLinkedListDemo {
-
 	public static void main(String[] args) {
-		// ²âÊÔ
-		System.out.println("Ë«ÏòÁ´±íµÄ²âÊÔ");
-		// ÏÈ´´½¨½Úµã
-		HeroNode2 hero1 = new HeroNode2(1, "ËÎ½­", "¼°Ê±Óê");
-		HeroNode2 hero2 = new HeroNode2(2, "Â¬¿¡Òå", "Óñ÷è÷ë");
-		HeroNode2 hero3 = new HeroNode2(3, "ÎâÓÃ", "ÖÇ¶àÐÇ");
-		HeroNode2 hero4 = new HeroNode2(4, "ÁÖ³å", "±ª×ÓÍ·");
-		// ´´½¨Ò»¸öË«ÏòÁ´±í
+		// ï¿½ï¿½ï¿½ï¿½
+		System.out.println("Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½");
+		// ï¿½È´ï¿½ï¿½ï¿½ï¿½Úµï¿½
+		HeroNode2 hero1 = new HeroNode2(1, "ï¿½Î½ï¿½", "ï¿½ï¿½Ê±ï¿½ï¿½");
+		HeroNode2 hero2 = new HeroNode2(2, "Â¬ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		HeroNode2 hero3 = new HeroNode2(3, "ï¿½ï¿½ï¿½ï¿½", "ï¿½Ç¶ï¿½ï¿½ï¿½");
+		HeroNode2 hero4 = new HeroNode2(4, "ï¿½Ö³ï¿½", "ï¿½ï¿½ï¿½ï¿½Í·");
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
 		doubleLinkedList.add(hero1);
 		doubleLinkedList.add(hero2);
@@ -19,15 +18,15 @@ public class DoubleLinkedListDemo {
 		
 		doubleLinkedList.list();
 		
-		// ÐÞ¸Ä
-		HeroNode2 newHeroNode = new HeroNode2(4, "¹«ËïÊ¤", "ÈëÔÆÁú");
+		// ï¿½Þ¸ï¿½
+		HeroNode2 newHeroNode = new HeroNode2(4, "ï¿½ï¿½ï¿½ï¿½Ê¤", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		doubleLinkedList.update(newHeroNode);
-		System.out.println("ÐÞ¸ÄºóµÄÁ´±íÇé¿ö");
+		System.out.println("ï¿½Þ¸Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		doubleLinkedList.list();
 		
-		// É¾³ý
+		// É¾ï¿½ï¿½
 		doubleLinkedList.del(3);
-		System.out.println("É¾³ýºóµÄÁ´±íÇé¿ö~~");
+		System.out.println("É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~~");
 		doubleLinkedList.list();
 		
 		
@@ -36,141 +35,141 @@ public class DoubleLinkedListDemo {
 
 }
 
-// ´´½¨Ò»¸öË«ÏòÁ´±íµÄÀà
+// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 class DoubleLinkedList {
 
-	// ÏÈ³õÊ¼»¯Ò»¸öÍ·½Úµã, Í·½Úµã²»Òª¶¯, ²»´æ·Å¾ßÌåµÄÊý¾Ý
+	// ï¿½È³ï¿½Ê¼ï¿½ï¿½Ò»ï¿½ï¿½Í·ï¿½Úµï¿½, Í·ï¿½Úµã²»Òªï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Å¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private HeroNode2 head = new HeroNode2(0, "", "");
 
-	// ·µ»ØÍ·½Úµã
+	// ï¿½ï¿½ï¿½ï¿½Í·ï¿½Úµï¿½
 	public HeroNode2 getHead() {
 		return head;
 	}
 
-	// ±éÀúË«ÏòÁ´±íµÄ·½·¨
-	// ÏÔÊ¾Á´±í[±éÀú]
+	// ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½]
 	public void list() {
-		// ÅÐ¶ÏÁ´±íÊÇ·ñÎª¿Õ
+		// ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 		if (head.next == null) {
-			System.out.println("Á´±íÎª¿Õ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
 			return;
 		}
-		// ÒòÎªÍ·½Úµã£¬²»ÄÜ¶¯£¬Òò´ËÎÒÃÇÐèÒªÒ»¸ö¸¨Öú±äÁ¿À´±éÀú
+		// ï¿½ï¿½ÎªÍ·ï¿½Úµã£¬ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		HeroNode2 temp = head.next;
 		while (true) {
-			// ÅÐ¶ÏÊÇ·ñµ½Á´±í×îºó
+			// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (temp == null) {
 				break;
 			}
-			// Êä³ö½ÚµãµÄÐÅÏ¢
+			// ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ï¢
 			System.out.println(temp);
-			// ½«tempºóÒÆ£¬ Ò»¶¨Ð¡ÐÄ
+			// ï¿½ï¿½tempï¿½ï¿½ï¿½Æ£ï¿½ Ò»ï¿½ï¿½Ð¡ï¿½ï¿½
 			temp = temp.next;
 		}
 	}
 
-	// Ìí¼ÓÒ»¸ö½Úµãµ½Ë«ÏòÁ´±íµÄ×îºó.
+	// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµãµ½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	public void add(HeroNode2 heroNode) {
 
-		// ÒòÎªhead½Úµã²»ÄÜ¶¯£¬Òò´ËÎÒÃÇÐèÒªÒ»¸ö¸¨Öú±éÀú temp
+		// ï¿½ï¿½Îªheadï¿½Úµã²»ï¿½Ü¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ temp
 		HeroNode2 temp = head;
-		// ±éÀúÁ´±í£¬ÕÒµ½×îºó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½
 		while (true) {
-			// ÕÒµ½Á´±íµÄ×îºó
+			// ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (temp.next == null) {//
 				break;
 			}
-			// Èç¹ûÃ»ÓÐÕÒµ½×îºó, ½«½«tempºóÒÆ
+			// ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½tempï¿½ï¿½ï¿½ï¿½
 			temp = temp.next;
 		}
-		// µ±ÍË³öwhileÑ­»·Ê±£¬temp¾ÍÖ¸ÏòÁËÁ´±íµÄ×îºó
-		// ÐÎ³ÉÒ»¸öË«ÏòÁ´±í
+		// ï¿½ï¿½ï¿½Ë³ï¿½whileÑ­ï¿½ï¿½Ê±ï¿½ï¿½tempï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½Î³ï¿½Ò»ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		temp.next = heroNode;
 		heroNode.pre = temp;
 	}
 
-	// ÐÞ¸ÄÒ»¸ö½ÚµãµÄÄÚÈÝ, ¿ÉÒÔ¿´µ½Ë«ÏòÁ´±íµÄ½ÚµãÄÚÈÝÐÞ¸ÄºÍµ¥ÏòÁ´±íÒ»Ñù
-	// Ö»ÊÇ ½ÚµãÀàÐÍ¸Ä³É HeroNode2
+	// ï¿½Þ¸ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ÄºÍµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+	// Ö»ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½Í¸Ä³ï¿½ HeroNode2
 	public void update(HeroNode2 newHeroNode) {
-		// ÅÐ¶ÏÊÇ·ñ¿Õ
+		// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½
 		if (head.next == null) {
-			System.out.println("Á´±íÎª¿Õ~");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½~");
 			return;
 		}
-		// ÕÒµ½ÐèÒªÐÞ¸ÄµÄ½Úµã, ¸ù¾Ýno±àºÅ
-		// ¶¨ÒåÒ»¸ö¸¨Öú±äÁ¿
+		// ï¿½Òµï¿½ï¿½ï¿½Òªï¿½Þ¸ÄµÄ½Úµï¿½, ï¿½ï¿½ï¿½ï¿½noï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		HeroNode2 temp = head.next;
-		boolean flag = false; // ±íÊ¾ÊÇ·ñÕÒµ½¸Ã½Úµã
+		boolean flag = false; // ï¿½ï¿½Ê¾ï¿½Ç·ï¿½ï¿½Òµï¿½ï¿½Ã½Úµï¿½
 		while (true) {
 			if (temp == null) {
-				break; // ÒÑ¾­±éÀúÍêÁ´±í
+				break; // ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			if (temp.no == newHeroNode.no) {
-				// ÕÒµ½
+				// ï¿½Òµï¿½
 				flag = true;
 				break;
 			}
 			temp = temp.next;
 		}
-		// ¸ù¾Ýflag ÅÐ¶ÏÊÇ·ñÕÒµ½ÒªÐÞ¸ÄµÄ½Úµã
+		// ï¿½ï¿½ï¿½ï¿½flag ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Òµï¿½Òªï¿½Þ¸ÄµÄ½Úµï¿½
 		if (flag) {
 			temp.name = newHeroNode.name;
 			temp.nickname = newHeroNode.nickname;
-		} else { // Ã»ÓÐÕÒµ½
-			System.out.printf("Ã»ÓÐÕÒµ½ ±àºÅ %d µÄ½Úµã£¬²»ÄÜÐÞ¸Ä\n", newHeroNode.no);
+		} else { // Ã»ï¿½ï¿½ï¿½Òµï¿½
+			System.out.printf("Ã»ï¿½ï¿½ï¿½Òµï¿½ ï¿½ï¿½ï¿½ %d ï¿½Ä½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½\n", newHeroNode.no);
 		}
 	}
 
-	// ´ÓË«ÏòÁ´±íÖÐÉ¾³ýÒ»¸ö½Úµã,
-	// ËµÃ÷
-	// 1 ¶ÔÓÚË«ÏòÁ´±í£¬ÎÒÃÇ¿ÉÒÔÖ±½ÓÕÒµ½ÒªÉ¾³ýµÄÕâ¸ö½Úµã
-	// 2 ÕÒµ½ºó£¬×ÔÎÒÉ¾³ý¼´¿É
+	// ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½,
+	// Ëµï¿½ï¿½
+	// 1 ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Òµï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+	// 2 ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void del(int no) {
 
-		// ÅÐ¶Ïµ±Ç°Á´±íÊÇ·ñÎª¿Õ
-		if (head.next == null) {// ¿ÕÁ´±í
-			System.out.println("Á´±íÎª¿Õ£¬ÎÞ·¨É¾³ý");
+		// ï¿½Ð¶Ïµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
+		if (head.next == null) {// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			System.out.println("ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½Þ·ï¿½É¾ï¿½ï¿½");
 			return;
 		}
 
-		HeroNode2 temp = head.next; // ¸¨Öú±äÁ¿(Ö¸Õë)
-		boolean flag = false; // ±êÖ¾ÊÇ·ñÕÒµ½´ýÉ¾³ý½ÚµãµÄ
+		HeroNode2 temp = head.next; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Ö¸ï¿½ï¿½)
+		boolean flag = false; // ï¿½ï¿½Ö¾ï¿½Ç·ï¿½ï¿½Òµï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Úµï¿½ï¿½
 		while (true) {
-			if (temp == null) { // ÒÑ¾­µ½Á´±íµÄ×îºó
+			if (temp == null) { // ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				break;
 			}
 			if (temp.no == no) {
-				// ÕÒµ½µÄ´ýÉ¾³ý½ÚµãµÄÇ°Ò»¸ö½Úµãtemp
+				// ï¿½Òµï¿½ï¿½Ä´ï¿½É¾ï¿½ï¿½ï¿½Úµï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½temp
 				flag = true;
 				break;
 			}
-			temp = temp.next; // tempºóÒÆ£¬±éÀú
+			temp = temp.next; // tempï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
-		// ÅÐ¶Ïflag
-		if (flag) { // ÕÒµ½
-			// ¿ÉÒÔÉ¾³ý
-			// temp.next = temp.next.next;[µ¥ÏòÁ´±í]
+		// ï¿½Ð¶ï¿½flag
+		if (flag) { // ï¿½Òµï¿½
+			// ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
+			// temp.next = temp.next.next;[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
 			temp.pre.next = temp.next;
-			// ÕâÀïÎÒÃÇµÄ´úÂëÓÐÎÊÌâ?
-			// Èç¹ûÊÇ×îºóÒ»¸ö½Úµã£¬¾Í²»ÐèÒªÖ´ÐÐÏÂÃæÕâ¾ä»°£¬·ñÔò³öÏÖ¿ÕÖ¸Õë
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµã£¬ï¿½Í²ï¿½ï¿½ï¿½ÒªÖ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿ï¿½Ö¸ï¿½ï¿½
 			if (temp.next != null) {
 				temp.next.pre = temp.pre;
 			}
 		} else {
-			System.out.printf("ÒªÉ¾³ýµÄ %d ½Úµã²»´æÔÚ\n", no);
+			System.out.printf("ÒªÉ¾ï¿½ï¿½ï¿½ï¿½ %d ï¿½Úµã²»ï¿½ï¿½ï¿½ï¿½\n", no);
 		}
 	}
 
 }
 
-// ¶¨ÒåHeroNode2 £¬ Ã¿¸öHeroNode ¶ÔÏó¾ÍÊÇÒ»¸ö½Úµã
+// ï¿½ï¿½ï¿½ï¿½HeroNode2 ï¿½ï¿½ Ã¿ï¿½ï¿½HeroNode ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½
 class HeroNode2 {
 	public int no;
 	public String name;
 	public String nickname;
-	public HeroNode2 next; // Ö¸ÏòÏÂÒ»¸ö½Úµã, Ä¬ÈÏÎªnull
-	public HeroNode2 pre; // Ö¸ÏòÇ°Ò»¸ö½Úµã, Ä¬ÈÏÎªnull
-	// ¹¹ÔìÆ÷
+	public HeroNode2 next; // Ö¸ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½, Ä¬ï¿½ï¿½Îªnull
+	public HeroNode2 pre; // Ö¸ï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½, Ä¬ï¿½ï¿½Îªnull
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	public HeroNode2(int no, String name, String nickname) {
 		this.no = no;
@@ -178,7 +177,7 @@ class HeroNode2 {
 		this.nickname = nickname;
 	}
 
-	// ÎªÁËÏÔÊ¾·½·¨£¬ÎÒÃÇÖØÐÂtoString
+	// Îªï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½toString
 	@Override
 	public String toString() {
 		return "HeroNode [no=" + no + ", name=" + name + ", nickname=" + nickname + "]";
