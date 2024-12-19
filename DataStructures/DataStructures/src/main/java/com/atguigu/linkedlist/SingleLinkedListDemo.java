@@ -62,20 +62,251 @@ public class SingleLinkedListDemo {
 		//测试一下看看是否得到了倒数第K个节点
 		HeroNode res = findLastIndexNode(singleLinkedList.getHead(), 3);
 		System.out.println("res=" + res);
-*/		
-		
+*/
+
+		System.out.println("测试合并两个单链表：mergeTwoLists()");
+		// 测试：mergeTwoLists()
+		//进行测试
+		//先创建节点
+		HeroNode h1 = new HeroNode(1, "1", "1");
+		HeroNode h3 = new HeroNode(3, "3", "3");
+		HeroNode h5 = new HeroNode(5, "5", "5");
+		HeroNode h7 = new HeroNode(7, "7", "7");
+		HeroNode h9 = new HeroNode(9, "9", "9");
+
+
+		//先创建节点
+		HeroNode h2 = new HeroNode(2, "2", "2");
+		HeroNode h4 = new HeroNode(4, "4", "4");
+		HeroNode h6 = new HeroNode(6, "6", "6");
+		HeroNode h8 = new HeroNode(8, "8", "8");
+		HeroNode h10 = new HeroNode(10, "10", "10");
+
+
+		//创建要给链表
+		SingleLinkedList singleLinkedList3 = new SingleLinkedList();
+		SingleLinkedList singleLinkedList4 = new SingleLinkedList();
+
+
+		//加入
+		singleLinkedList3.add(h1);
+		singleLinkedList3.add(h3);
+		singleLinkedList3.add(h5);
+		singleLinkedList3.add(h7);
+		singleLinkedList3.add(h9);
+
+		//加入
+		singleLinkedList4.add(h2);
+		singleLinkedList4.add(h4);
+		singleLinkedList4.add(h6);
+		// singleLinkedList4.add(h6);
+		// head -> h2 -> h4 -> h6 -> h6(同一个对象)，这种结构虽然能够创建，但是在进行其他操作（如合并链表）时可能会导致问题
+		singleLinkedList4.add(h8);
+		// singleLinkedList4.add(h10);
+
+		// 测试
+		System.out.println("原来链表3的情况~~");
+		singleLinkedList3.list();
+		System.out.println("原来链表4的情况~~");
+		singleLinkedList4.list();
+
+		// SingleLinkedList singleLinkedList1 = mergeTwoLists(singleLinkedList3, singleLinkedList4);
+		SingleLinkedList singleLinkedList1 = mergeTwoLists2(singleLinkedList3, singleLinkedList4);
+
+		// 测试合并之后的链表
+		//
+		System.out.println("测试合并之后的链表如下：");
+		singleLinkedList1.list();
+
+
+
 	}
 
 	// 合并两个有序的单链表，合并之后的链表依然有序。
-	public static void mergeTwoLists(HeroNode hero1, HeroNode hero2) {
+	public static SingleLinkedList mergeTwoLists(SingleLinkedList list1, SingleLinkedList list2) {
 
-		
+		//思路，一对数字一对数字的比较，单链表1上的第一个和单链表2上的第一个元素的值比较大小
+		// 将数字小的放在新生单链表后面，如果其中一个比较到了最后则将另一个单链表剩下的所有元素都
+		// 放在新生链表reverseHead的前面或者放在新生链表reverseHead3的最后
+
+		HeroNode head1 = list1.getHead();
+		HeroNode head2 = list2.getHead();
+
+		if(head1.next == null || head2.next == null) {
+			return null;// 有空链表不能合并，不能打印
+		}
+
+		//因为是两个有序单链表，所以先区分是从小到大还是从大到小
+		//定义一个辅助的指针(变量)，帮助我们遍历原来的链表
+		HeroNode cur1 = head1.next;
+		HeroNode cur2 = head2.next;
+		HeroNode next1 = null;// 指向当前节点[cur]的下一个节点
+		HeroNode next2 = null;// 指向当前节点[cur]的下一个节点
+		//新建一个新的链表
+		HeroNode reverseHead = new HeroNode(0, "", "");
+
+		//
+
+		//对一个链表进行循环，如果该单链表已经走到了最后，则不需要进行比较了
+		//用第一个链表作为参考
+		// while (cur1 != null || cur2 != null){
+		while (cur1 != null && cur2 != null){
+
+			// 首先记录原来的链表1当前节点的下一个节点的地址值,
+			// 因为操作完链表1当前节点后，当前节点的下一个节点就变了
+			next1 = cur1.next;
+			next2 = cur2.next;
+
+			// //比较两个头节点
+			// if (cur1.no <= cur2.no){
+			// 	// 将数字小的那个放在新链表的首位
+			// 	reverseHead.next = cur1;
+			// 	// 将数字大的那个放在新链表的首位的next位置
+			// 	cur1.next = cur2;
+			// 	//指针后移
+			// 	cur1 = next1;
+			// }
+
+			//比较两个节点
+			if (cur1.no <= cur2.no){
+				// 将数字小的那个放在新链表的末尾
+				cur1.next = reverseHead.next; //将最小的这个cur1置为null
+				// 将数字大的那个放在新链表的reverseHead.next位置
+				reverseHead.next = cur2;
+				// 将数字大的元素指向数字小的那个元素
+				cur2.next = cur1;
+				//指针后移
+				cur1 = next1;
+				cur2 = next2;
+			}else {
+				// 第一个单链表的当前元素的值比第二个单链表当前元素的值大
+				// 将数字小的那个放在新链表的末尾
+				cur2.next = reverseHead.next; //将最小的这个cur1置为null
+				// 将数字大的那个放在新链表的reverseHead.next位置
+				reverseHead.next = cur1;
+				// 将数字大的元素指向数字小的那个元素
+				cur1.next = cur2;
+				//指针后移
+				cur1 = next1;
+				cur2 = next2;
+			}
+
+		}
+
+		//将剩下的另外一个单链表挂在reverseHead3的最后
+		// 判断是哪一个链表遍历到了最后
+		// 分为三种情况
+		// 可以通过cur1 和 cur2 来进行判断
+		if (cur1 == null){
+			// 说明有可能需要将单链表2剩下的值放在新生链表的前面
+			// 继续判断
+			// 需要将单链表2剩下的值放在新生链表的前面。
+			// 另一种逻辑，使用死循环找单链表的最后一个节点，即找.next为空的元素节点，然后将另一个单链表放在最后即可
+				while (cur2 != null){
+					// 记录下一个元素
+					next2 = cur2.next;
+					// 第一个单链表的当前元素的值比第二个单链表当前元素的值大
+					// 将数字小的那个放在新链表的末尾
+					cur2.next = reverseHead.next; //将最小的这个cur1置为null
+					// 放在新链表的reverseHead.next位置
+					reverseHead.next = cur2;
+					//指针后移
+					cur2 = next2;
+				}
+		}else if (cur2 == null){
+			// 说明有可能需要将单链表2剩下的值放在新生链表的前面
+			// 继续判断
+			// 需要将单链表2剩下的值放在新生链表的前面
+			while (cur1 != null){
+				// 记录下一个元素
+				next1 = cur1.next;
+				// 第一个单链表的当前元素的值比第二个单链表当前元素的值大
+				// 将数字小的那个放在新链表的末尾
+				cur1.next = reverseHead.next; //将最小的这个cur1置为null
+				// 放在新链表的reverseHead.next位置
+				reverseHead.next = cur1;
+				//指针后移
+				cur1 = next1;
+			}
+		}else if (cur1 == null && cur2 == null){
+			//都为空，不需要进行操作
+		}
 
 
+		// 反转新生成的单向链表
+		HeroNode cur3 = reverseHead.next;
+		HeroNode next3 = null;// 指向当前节点[cur]的下一个节点
+		//新建一个新的链表
+		HeroNode reverseHead3 = new HeroNode(0, "", "");
+
+		while (cur3 != null){
+			//保存当前节点的下一个节点
+			next3 = cur3.next;
+			//将当前节点的next指向新生链表的reverseHead3.next位置
+			cur3.next = reverseHead3.next;
+			//将当前节点挂在新生节点的首位
+			reverseHead3.next = cur3;
+			//指针后移
+			cur3 = next3;
+		}
+
+
+		//返回新生单链表
+		SingleLinkedList singleLinkedList = new SingleLinkedList();
+		singleLinkedList.setHead(reverseHead3);
+		return singleLinkedList;
 
 	}
 
+	// gpt改进后的
+	public static SingleLinkedList mergeTwoLists2(SingleLinkedList list1, SingleLinkedList list2) {
+		// 获取两个链表的头节点
+		HeroNode head1 = list1.getHead();
+		HeroNode head2 = list2.getHead();
 
+		// 创建新的链表
+		SingleLinkedList mergedList = new SingleLinkedList();
+		HeroNode mergedHead = mergedList.getHead();
+
+		// 获取两个链表的第一个实际节点
+		HeroNode cur1 = head1.next;
+		HeroNode cur2 = head2.next;
+
+		// 处理特殊情况
+		if (cur1 == null) {
+			mergedHead.next = cur2;
+			return mergedList;
+		}
+		if (cur2 == null) {
+			mergedHead.next = cur1;
+			return mergedList;
+		}
+
+		// 用于构建新链表的指针
+		HeroNode current = mergedHead;
+
+		// 合并两个链表
+		while (cur1 != null && cur2 != null) {
+			if (cur1.no <= cur2.no) {
+				current.next = cur1;
+				cur1 = cur1.next;
+			} else {
+				current.next = cur2;
+				cur2 = cur2.next;
+			}
+			current = current.next;
+		}
+
+		// 处理剩余节点
+		if (cur1 != null) {
+			current.next = cur1;
+		}
+		if (cur2 != null) {
+			current.next = cur2;
+		}
+
+		return mergedList;
+	}
 
 
 
@@ -189,6 +420,10 @@ class SingleLinkedList {
 		return head;
 	}
 
+	public void setHead(HeroNode head) {
+		this.head = head;
+	}
+
 	//添加节点到单向链表
 	//思路，当不考虑编号顺序时
 	//1. 找到当前链表的最后节点
@@ -197,8 +432,16 @@ class SingleLinkedList {
 		
 		//因为head节点不能动，因此我们需要一个辅助遍历 temp
 		HeroNode temp = head;
+
+		// 重复添加同一个节点的检查
+		if (temp.next == heroNode) {
+			System.out.println("警告：节点已存在，请创建新的节点");
+			return;
+		}
+
 		//遍历链表，找到最后
 		while(true) {
+
 			//找到链表的最后
 			if(temp.next == null) {//
 				break;
@@ -206,6 +449,7 @@ class SingleLinkedList {
 			//如果没有找到最后, 将将temp后移
 			temp = temp.next;
 		}
+
 		//当退出while循环时，temp就指向了链表的最后
 		//将最后这个节点的next 指向 新的节点
 		temp.next = heroNode;
