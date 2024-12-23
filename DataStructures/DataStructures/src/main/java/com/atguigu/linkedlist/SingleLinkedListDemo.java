@@ -259,55 +259,70 @@ public class SingleLinkedListDemo {
 	}
 
 	// gpt改进后的
+	// 合并两个有序单链表的优化方法
+// 假设两个输入的链表都是按照编号（no）从小到大排序的
 	public static SingleLinkedList mergeTwoLists2(SingleLinkedList list1, SingleLinkedList list2) {
-		// 获取两个链表的头节点
+		// 获取两个链表的头节点（这些是不存储数据的虚拟头节点）
 		HeroNode head1 = list1.getHead();
 		HeroNode head2 = list2.getHead();
 
-		// 创建新的链表
+		// 创建新的链表用于存储合并后的结果
 		SingleLinkedList mergedList = new SingleLinkedList();
 		HeroNode mergedHead = mergedList.getHead();
 
-		// 获取两个链表的第一个实际节点
+		// 获取两个链表的第一个实际数据节点
+		// 因为头节点是虚拟的，所以实际数据从head.next开始
 		HeroNode cur1 = head1.next;
 		HeroNode cur2 = head2.next;
 
-		// 处理特殊情况
+		// 处理特殊情况：如果其中一个链表为空
 		if (cur1 == null) {
+			// 如果链表1为空，直接返回链表2
 			mergedHead.next = cur2;
 			return mergedList;
 		}
 		if (cur2 == null) {
+			// 如果链表2为空，直接返回链表1
 			mergedHead.next = cur1;
 			return mergedList;
 		}
 
-		// 用于构建新链表的指针
+		// 用于在新链表中追加节点的指针
+		// 初始指向合并后链表的虚拟头节点
 		HeroNode current = mergedHead;
 
-		// 合并两个链表
+		// 当两个链表都还有节点时，比较它们的编号，将较小的节点添加到新链表
 		while (cur1 != null && cur2 != null) {
 			if (cur1.no <= cur2.no) {
+				// 如果链表1当前节点编号更小，将其添加到新链表
 				current.next = cur1;
+				// 链表1指针向后移动
 				cur1 = cur1.next;
 			} else {
+				// 如果链表2当前节点编号更小，将其添加到新链表
 				current.next = cur2;
+				// 链表2指针向后移动
 				cur2 = cur2.next;
 			}
+			// 新链表的指针向后移动，准备添加下一个节点
 			current = current.next;
 		}
 
-		// 处理剩余节点
+		// 处理剩余节点：将未处理完的链表直接接到新链表末尾
 		if (cur1 != null) {
+			// 如果链表1还有剩余节点
 			current.next = cur1;
 		}
 		if (cur2 != null) {
+			// 如果链表2还有剩余节点
 			current.next = cur2;
 		}
 
+		// 返回合并后的新链表
+		// current 和 mergedHead 指向堆内存中的同一个对象
+		// 当我们通过 current.next 修改链表结构时,因为 current 和 mergedHead 指向同一个对象,所以对 current 的修改也会反映在 mergedHead 上
 		return mergedList;
 	}
-
 
 
 	//方式2：
