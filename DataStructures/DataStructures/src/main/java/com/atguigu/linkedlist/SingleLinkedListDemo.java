@@ -500,7 +500,7 @@ class SingleLinkedList {
 		}
 	}
 
-	//修改节点的信息, 根据no编号来修改，即no编号不能改.
+		//修改节点的信息, 根据no编号来修改，即no编号不能改.
 	//说明
 	//1. 根据 newHeroNode 的 no 来修改即可
 	public void update(HeroNode newHeroNode) {
