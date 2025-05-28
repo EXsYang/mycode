@@ -2,6 +2,8 @@ package com.atguigu.java;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
+import java.nio.file.*;
 
 public class CreateDemo {
     
@@ -97,5 +99,51 @@ public class CreateDemo {
         assertEquals(5, numbers.length);
         assertEquals(10, numbers[0]);
         assertEquals(50, numbers[4]);
+    }
+    
+    @Test
+    public void testFileCopyToDDrive() {
+        System.out.println("=== Testing File Copy to D Drive ===");
+        
+        try {
+            // 创建源文件内容
+            String sourceFileName = "test_source.txt";
+            String targetPath = "D:/test_copy.txt";
+            String content = "这是一个测试文件，用于演示文件复制功能。\nFile copy demonstration content.";
+            
+            // 创建临时源文件
+            File sourceFile = new File(sourceFileName);
+            try (FileWriter writer = new FileWriter(sourceFile)) {
+                writer.write(content);
+            }
+            System.out.println("源文件创建成功: " + sourceFile.getAbsolutePath());
+            
+            // 使用Files.copy方法复制文件到D盘
+            Path sourcePath = Paths.get(sourceFileName);
+            Path targetPathObj = Paths.get(targetPath);
+            
+            Files.copy(sourcePath, targetPathObj, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("文件复制成功到: " + targetPath);
+            
+            // 验证复制是否成功
+            File targetFile = new File(targetPath);
+            assertTrue("目标文件应该存在", targetFile.exists());
+            
+            // 读取并显示复制的文件内容
+            String copiedContent = new String(Files.readAllBytes(targetPathObj));
+            System.out.println("复制文件的内容:");
+            System.out.println(copiedContent);
+            
+            assertEquals("文件内容应该一致", content, copiedContent);
+            
+            // 清理临时文件
+            sourceFile.delete();
+            System.out.println("临时源文件已删除");
+            
+        } catch (IOException e) {
+            System.out.println("文件操作出现错误: " + e.getMessage());
+            e.printStackTrace();
+            fail("文件复制测试失败: " + e.getMessage());
+        }
     }
 }
