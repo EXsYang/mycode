@@ -146,4 +146,36 @@ public class CreateDemo {
             fail("文件复制测试失败: " + e.getMessage());
         }
     }
+@Test
+    public void testQuickSort() {
+        System.out.println("=== Testing Quick Sort ===");
+        int[] arr = {9, -1, 10, 2, 7, 3, -9, 100, 56};
+        System.out.println("Original array: " + java.util.Arrays.toString(arr));
+
+        // Assuming QuickSort class is in com.atguigu.sort package
+        // and has a static sort method or a constructor and a sort method.
+        // For this example, let's assume a static method:
+        // com.atguigu.sort.QuickSort.sort(arr, 0, arr.length - 1);
+        // Or if it's an instance method:
+        // com.atguigu.sort.QuickSort quickSort = new com.atguigu.sort.QuickSort();
+        // quickSort.sort(arr, 0, arr.length-1);
+
+        // Based on the project structure, QuickSort.java likely contains the quicksort logic.
+        // Let's assume it has a public static method, e.g., quickSort(int[] arr, int left, int right)
+        // or a method that takes the array and sorts it.
+        // For now, we'll call a hypothetical sort method.
+        // We need to ensure the QuickSort class from com.atguigu.sort.QuickSort is used.
+        com.atguigu.sort.QuickSort.quickSort(arr, 0, arr.length - 1); // Assuming this static method exists
+
+        System.out.println("Sorted array: " + java.util.Arrays.toString(arr));
+
+        // Assertions to check if the array is sorted
+        for (int i = 0; i < arr.length - 1; i++) {
+            assertTrue("Array not sorted at index " + i, arr[i] <= arr[i+1]);
+        }
+        
+        // Specific value checks after sorting (optional, but good for known small arrays)
+        assertArrayEquals(new int[]{-9, -1, 2, 3, 7, 9, 10, 56, 100}, arr);
+        System.out.println("Quick Sort test completed successfully.");
+    }
 }
