@@ -1,1 +1,3 @@
  M temp_status.txt
+ M tingshu_xcx/tingshu-parent/server-gateway/src/main/resources/bootstrap.properties
+ M tingshu_xcx/tingshu-parent/service/service-album/src/main/resources/bootstrap.properties
