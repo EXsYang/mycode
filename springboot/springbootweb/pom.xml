@@ -19,6 +19,20 @@
         <groupId>org.springframework.boot</groupId>
         <version>2.5.3</version>
     </parent>
+    <!--
+        spring-boot-starter-parent作用：
+        1. 依赖版本管理（BOM）：预定义常用库（如 Spring Framework、Jackson、Tomcat、Hibernate 等）的兼容版本，子模块无需手动指定版本，避免版本冲突。
+        2. 默认插件管理：包含 spring-boot-maven-plugin，支持打包可执行 JAR（包含所有依赖的 fat JAR）和运行 mvn spring-boot:run 命令。
+        3. 资源过滤和编码：默认 UTF-8 编码，支持 application.properties/yml 中的 @...@ 占位符被 Maven 属性替换。
+        4. 默认 Java 版本：Spring Boot 3.x 要求 Java 17 或更高版本。
+        结论：
+        - 仅引入 parent 使项目具备 Spring Boot 构建规范，Maven 模块在管理上可视为 Spring Boot 项目。
+        - 但功能上仍为空壳，无具体业务能力，需配合场景启动器（如 spring-boot-starter-web）激活功能。
+        参考：https://start.spring.io/actuator/info
+    -->
+
+
+
 
     <!--这里我们可以指定mysql版本号
     在<properties>中指定了version后也需要写下面这个导入mysql依赖
@@ -44,6 +58,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--
+            spring-boot-starter-web作用：
+            1. 依赖集合：通过 Maven 传递性依赖，自动引入 Web 开发相关库（如 spring-web、spring-webmvc、spring-boot-starter-json、spring-boot-starter-tomcat 等）。
+            2. 自动配置：Spring Boot 检测到 classpath 中的 Web 相关类后，自动配置 DispatcherServlet、嵌入式 Tomcat 服务器、字符编码过滤器等 Web 环境。
+            结论：
+            - 引入 spring-boot-starter-web 使项目具备 Web 开发能力，成为完整的 Spring Boot Web 项目。
+            - 不是必须引入 web 启动器，Spring Boot 项目可根据需求选择其他启动器（如 spring-boot-starter-jdbc 用于数据库操作）。
+            - 至少需一个场景启动器（如 web、jdbc 等）来激活具体功能，否则仅 parent 的项目无法运行有意义的业务。
+            - 版本由 parent 统一管理，无需单独指定。
+        -->
+
+
 
         <!--我们自己指定mysql/驱动版本- 修改版本仲裁
       默认是在 导入springboot父工程 <parent> spring-boot-starter-parent

@@ -1,3 +1,16 @@
+ M springboot/configuration/.idea/compiler.xml
+ M springboot/configuration/.idea/encodings.xml
+ M springboot/springboot-mybatis/.idea/jarRepositories.xml
+ M springboot/springboot-mybatisplus/.idea/encodings.xml
+ M springboot/springboot-mybatisplus/.idea/jarRepositories.xml
+ M springboot/springboot-usersys/.idea/compiler.xml
+ M springboot/springboot-usersys/.idea/encodings.xml
+ M springboot/springbootweb/.idea/encodings.xml
+ M springboot/springbootweb/.idea/jarRepositories.xml
+ M springboot/springbootweb/pom.xml
+ M springcloud/add_mybatis-spring-boot-starter2.0.0/.idea/jarRepositories.xml
  M temp_status.txt
- M tingshu_xcx/tingshu-parent/server-gateway/src/main/resources/bootstrap.properties
- M tingshu_xcx/tingshu-parent/service/service-album/src/main/resources/bootstrap.properties
+A  tingshu_xcx/mp_demo/src/main/java/com/atguigu/Main.java
+A  tingshu_xcx/mp_demo2/pom.xml
+A  tingshu_xcx/mp_demo2/src/main/java/org/example/Main.java
+ M tingshu_xcx/tingshu-parent/common/service-util/pom.xml
