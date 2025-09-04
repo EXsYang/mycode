@@ -8,6 +8,11 @@ import java.util.function.Consumer;
 
 /**
  * Lambda表达式的使用
+ * lambda表达式在Java中确实依赖于函数式接口。
+ * 函数式接口是只有一个抽象方法的接口（尽管它们可以有多个默认或静态方法）。
+ * Lambda表达式提供了一种简洁的方式来实现这些接口的抽象方法，
+ * 而无需显式地定义一个实现类。
+ *
  *
  * 1.举例： (o1,o2) -> Integer.compare(o1,o2);
  * 2.格式：
@@ -47,10 +52,14 @@ public class LambdaTest1 {
         System.out.println("***********************");
 
         Runnable r2 = () -> {
-            System.out.println("我爱北京故宫");
+            System.out.println("我爱北京故宫2");
         };
 
+        Runnable r3 = () -> System.out.println("我爱北京故宫3");
+
+
         r2.run();
+        r3.run();
     }
     //语法格式二：Lambda 需要一个参数，但是没有返回值。
     @Test
@@ -121,6 +130,8 @@ public class LambdaTest1 {
     //语法格式五：Lambda 需要两个或以上的参数，多条执行语句，并且可以有返回值
     @Test
     public void test6(){
+
+        // compare(Integer o1, Integer o2) 方法是函数式接口中的抽象方法。
 
         Comparator<Integer> com1 = new Comparator<Integer>() {
             @Override
