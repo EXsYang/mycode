@@ -1,3 +1,2 @@
- M javase/JavaSenior2/day1/src/com/atguigu/exer/NumberTest.java
- M juc/juc_atguigu/src/com/atguigu/sync/ThreadDemo1.java
+ M juc/juc_atguigu/src/com/atguigu/lock/ThreadDemo3.java
  M temp_status.txt

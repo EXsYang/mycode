@@ -16,6 +16,7 @@ class ShareResource {
     private Lock lock = new ReentrantLock();
 
     //创建三个condition
+
     private Condition c1 = lock.newCondition();
     private Condition c2 = lock.newCondition();
     private Condition c3 = lock.newCondition();
@@ -24,6 +25,7 @@ class ShareResource {
     public void print5(int loop) throws InterruptedException {
         //上锁
         lock.lock();
+
         try {
             //判断
             while(flag != 1) {
@@ -36,7 +38,7 @@ class ShareResource {
             }
             //通知
             flag = 2; //修改标志位 2
-            c2.signal(); //通知BB线程
+            c2.signal(); //通知BB线程  signal()唤醒一个等待线程。
         }finally {
             //释放锁
             lock.unlock();
