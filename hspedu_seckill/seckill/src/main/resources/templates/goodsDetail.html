@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <!--jquery-->
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.js}"></script>
+    <!-- layer -->
+    <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+
+    <!-- common.js -->
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+        }
+
+        body {
+            /*background: #cbc0d3;*/
+            background: #c9302c;
+        }
+
+        .main-header {
+            width: 100%;
+            height: 100px;
+            /*background: #eac7cc;*/
+
+            background: whitesmoke;
+            display: block;
+        }
+
+        .navbar {
+            display: inline-block;
+            float: right;
+            margin-right: 50px;
+            margin-top: 30px;
+        }
+
+        .logo {
+            display: inline-block;
+            margin-top: 30px;
+            margin-left: 30px;
+            text-decoration: none;
+        }
+
+        .logo-lg {
+            font-size: 20px;
+            font-weight: lighter;
+            color: #232324;
+
+        }
+
+        .logo-lg > b {
+            font-size: 20px;
+            font-weight: lighter;
+            color: #232324;
+        }
+
+        .container {
+            background: #FFFFFF;
+            margin-right: auto;
+            margin-left: auto;
+            width: 900px;
+        }
+
+        .captcha {
+            display: none;
+        }
+
+        .captchaImg {
+            /*
+            指定了验证码图片（<img> 标签）默认是不显示的（display: none;）。
+            这意味着在页面初始加载时，验证码图像是隐藏的，不会显示给用户看。
+            */
+            display: none;
+
+            width: 130px;
+
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+<!--抽取头部公共页面-->
+<header id="site-header" class="main-header">
+    <!-- Logo -->
+    <a class="logo" onclick="toList()">
+        <span class="logo-lg"><b>商品抢购</b></span>
+    </a>
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img class="user-image" src="/imgs/user.png" height="32" alt="UserImage">
+                        <span class="hidden-xs"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img class="img-circle" alt="User Image">
+                            <p>
+                                Hello ABC - Hello ABC
+                                <small>Hello ABC</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                        </li>
+
+                        <li class="user-footer">
+                            <div class="pull-middle">
+                                <a onclick="toOut()" class="btn btn-lg btn-default btn-block">退出系统</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="panel panel-default">
+    <div class="panel-heading" style="background: #c9302c;color: white">秒杀商品详情</div>
+    <div class="panel-body">
+        <span th:if="${user eq null}"> 您还没有登录，请登陆后再操作<br/></span>
+        <span>production 参数</span>
+    </div>
+    <div class="container">
+        <table class="table" id="good">
+            <tr>
+                <td>名称</td>
+                <td colspan="3" id="goodName" th:text="${goods.goodsName}"></td>
+            </tr>
+            <tr>
+                <td>图片</td>
+                <td colspan="3"><img id="goodImg" th:src="@{${goods.goodsImg}}" width="200" heights="200"/></td>
+            </tr>
+            <tr>
+                <td>秒杀开始时间</td>
+                <td id="startTime" th:text="${#dates.format(goods.startDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td id="seckillTip">
+                    <input type="hidden" id="remainSeconds"
+                           th:value="${remainSeconds}"/>
+                    <span th:if="${secKillStatus eq 0}">秒杀倒计时：<span id="countDown"
+                                                                    th:text="${remainSeconds}"> </span>秒</span>
+                    <span th:if="${secKillStatus eq 1}">秒杀进行中</span>
+                    <span th:if="${secKillStatus eq 2}">秒杀已结束</span>
+                </td>
+                <td>
+                    <!--<form id="secKillForm" method="post" action="/seckill/doSeckill">-->
+                    <!--    <input type="hidden" id="goodsId" name="goodsId" th:value="${goods.id}">-->
+                    <!--    <button class="btn btn-primary btn-block" type="submit" id="buyButton"> 抢 购-->
+                    <!--    </button>-->
+                    <!--</form>-->
+
+                    <!-- 对应秒杀 v6.0 后台 隐藏秒杀接口-->
+                    <input type="hidden" id="goodsId" name="goodsId" th:value="${goods.id}">
+                    <button class="btn btn-primary btn-block" type="submit" onclick="getSecKillPath()"
+                            id="buyButton">
+                        立即秒杀
+                    </button>
+                </td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>秒杀价</td>
+                <td id="secKillPrice" th:text="${goods.seckillPrice}"></td>
+                <td>
+                    <!--显示验证码-->
+                    <img id="captchaImg" class="captchaImg"/></td>
+                <td>
+                    <!--输入框,可以输入验证码-->
+                    <input id="captcha" class="captchaImg"/>
+                    <input type="button" id="captchabtn" onclick="verifyCaptcha()" value="验证输入的验证码是否正确">
+                </td>
+            </tr>
+            <tr>
+
+                <td>原价</td>
+                <td colspan="3" id="goodPrice" th:text="${goods.goodsPrice}"></td>
+            </tr>
+            <tr>
+                <td>库存</td>
+                <td colspan="3" id="stockCount" th:text="${goods.stockCount}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<script>
+
+    $(function () {
+        countDown(); //当页面执行到这里会调用countDown()函数
+    });
+
+    function countDown() {
+        //获取剩余时间
+        var remainSeconds = $("#remainSeconds").val();
+        var timeout; //定时器/计时器
+        //秒杀还未开始
+        if (remainSeconds > 0) {
+            $("#buyButton").attr("disabled", true); //抢购的按钮设置为不可用
+
+            //setTimeout() 是 JavaScript 的一个方法, 第二个参数 `1000`的单位是毫秒 ms
+            //即每隔一秒，就执行第一个参数处的函数
+            /*
+               function () {
+                    $("#countDown").text(remainSeconds - 1);
+                    $("#remainSeconds").val(remainSeconds - 1);
+                    countDown();
+              }
+            */
+
+            timeout = setTimeout(function () {
+                //将剩余时间减1
+                $("#countDown").text(remainSeconds - 1); //这里是用于页面展示的剩余时间
+                $("#remainSeconds").val(remainSeconds - 1); //这里是用于当作判断条件的剩余时间的值, 即 if (remainSeconds > 0) {
+                //调用下面的方法
+                countDown();
+            }, 1000);
+        } else if (remainSeconds == 0) {//秒杀进行中
+            $("#buyButton").attr("disabled", false); //抢购的按钮设置为可用
+            if (timeout) {//清空计时器
+                //执行下面这个方法,相当于将计时器销毁了
+                clearTimeout(timeout);
+            }
+            $("#seckillTip").html("秒杀进行中");
+
+            //在秒杀进行中的状态下, 请求验证码,并显示(默认情况下该验证码图片是不显示的,
+            // 因为使用类选择器.captchaImg设置了css样式 display: none;)
+            // '/seckill/captcha' 是生成验证码的接口
+            //在HTML中，当你为<img>标签设置src属性后，
+            // 浏览器会 自动 向该src属性所指向的URL发送HTTP请求以获取图像数据。
+
+            // 这个机制是浏览器内建的，用于加载并显示图像资源。
+            // 这种自动请求的特性使得在需要时动态改变<img>的src属性成为了
+            // 一种常见且有效的方式来更新页面上的图像。例如，在验证码的场景中，
+            // 每次用户需要新的验证码时，后端可以生成新图像，
+            // 而前端仅需更新<img>标签的src属性来重新触发请求，
+            // 从而获取并显示新的验证码图像。
+            $("#captchaImg").attr("src", "/seckill/captcha?goodsId=" + $("#goodsId").val());
+
+            // 是的，$("#captchaImg").show(); 这行代码的作用是将前面设置为不显示（display: none;）
+            // 的验证码图片显示出来。这行代码是通过 jQuery 框架执行的
+            // .show() 方法是 jQuery 提供的一个函数，
+            // 用来将选定元素的 CSS display 属性从 none 改为 block（或其他适当的显示属性），
+            // 使元素可见。
+            $("#captchaImg").show();
+            //显示输入框
+            $("#captcha").show();
+
+        } else {
+            $("#buyButton").attr("disabled", true); //抢购的按钮设置为不可用
+            $("#seckillTip").html("秒杀已结束");
+        }
+    }
+
+
+    //通过隐藏秒杀接口的方式,秒杀商品
+    function getSecKillPath() {
+        var goodsId = $("#goodsId").val();
+        //获取用户输入的验证码
+        var captcha = $("#captcha").val();
+
+        $.ajax({
+            url: "/seckill/path",
+            // type: "GET",
+            type: "POST",
+            // captcha: captcha 中的第一个 captcha 需要和后端方法形参位置要封装的参数名对应才可以封装成功
+            data: {
+                goodsId: goodsId,
+                captcha: captcha,
+            }, success: function (data) {
+                if (data.code == 200) {
+                    //取出服务器返回的随机生成的路径
+                    var path = data.obj;
+                    //真正的秒杀方法
+                    doSecKill(path);
+                } else {
+                    layer.msg(data.message);
+                }
+            }, error: function (jqXHR, textStatus, errorThrown) {
+                console.error("AJAX 请求失败！");
+                console.error("状态文本: " + textStatus);
+                console.error("错误抛出: " + errorThrown);
+                console.error("响应文本: " + jqXHR.responseText);
+                layer.msg("/seckill/path 客户端请求错误");
+            }
+        })
+    }
+
+    //携带秒杀生成的路径, 秒杀商品
+    function doSecKill(path) {
+        $.ajax({
+            //一定要注意路径的大小写问题,否则报 404
+            //这里是保证每个用户的秒杀路径都不同，使用下面这个url时
+            // ，后端相应的在SeckillController 中的doSeckill 路径变量的接口/方法要打开
+            url: '/seckill/' + path + '/doSeckill',
+
+            //注意这里使用的测试路径不同，测试的是后端SeckillController
+            // 中的普通的doSeckill接口/方法
+            // url: '/seckill/doSeckill',
+            type: 'POST',
+            data: {
+                goodsId: $("#goodsId").val()
+            }, success: function (data) {
+
+                //测试轮询，到时候打开下面的代码，用户进行秒杀后，客户端就进行轮询查询结果
+                getSeckillResult();
+
+                if (data.code == 200) {
+                    layer.msg("秒杀结果" + data.message);
+                } else {
+                    layer.msg(data.message);
+                }
+            }, error: function () {
+                layer.msg("'/seckill/' + path + '/doSeckill' 客户端请求错误！", {time: 2000});
+            }
+        });
+    }
+
+
+    //轮询调用，获取秒杀结果
+    function getSeckillResult() {
+
+        // 定时器/计时器
+        var timeout;
+        var maxPollingAttempts = 30; // 最大轮询次数，根据需要调整
+        var pollingInterval = 500; // 轮询间隔，根据需要调整
+        var currentAttempt = 0; //跟踪当前的轮询次数。
+        //通过这种方法，你可以有效地防止因为后端状态不变或网络问题导致的前端轮询死循环。
+        // 同时，这个方案也会在超出最大轮询次数时停止，避免浪费服务器资源和网络带宽。
+
+        // 定义轮询函数
+        function polling() {
+
+            //当轮询次数大于设置的最大轮询次数后停止轮询
+            if (currentAttempt >= maxPollingAttempts) {
+                layer.msg("轮询超时，请稍后尝试刷新页面或联系客服。");
+                console.log("轮询超时，请稍后尝试刷新页面或联系客服。");
+                return; // 停止轮询
+            }
+
+
+            $.ajax({
+                url: '/seckill/seckillResult',
+                type: 'POST',
+                data: {
+                    goodsId: $("#goodsId").val()
+                },
+                success: function (data) {
+                    // 处理后端返回的秒杀结果
+                    if (data.obj > 0) {
+                        layer.msg("秒杀成功，订单号为【" + data.obj + "】");
+                        console.log("秒杀成功，订单号为【" + data.obj + "】")
+                    } else if (data.obj == 0) {
+                        layer.msg("秒杀排队中...");
+                        // 继续轮询调用
+                        //只有在后端返回的秒杀状态为排队中时，才会继续进行轮询调用。
+                        // 如果秒杀状态表示成功、失败或其他异常情况，就不会再次发起轮询请求，
+                        // 而是根据具体情况在前端做出相应的处理。
+                        console.log("秒杀排队中...")
+
+                        currentAttempt++;//增加当前轮询尝试次数
+                        timeout = setTimeout(polling, 100);
+                    } else if (data.obj == -1) {
+                        layer.msg("秒杀失败...");
+                        console.log("秒杀失败...")
+                    } else {
+                        layer.msg("系统异常");
+                        console.log("系统异常")
+                    }
+                },
+                error: function () {
+                    layer.msg("客户端请求错误！", {time: 2000});
+                    currentAttempt++;
+                    if (currentAttempt < maxPollingAttempts) {
+                        timeout = setTimeout(polling, pollingInterval);
+                    }
+                }
+            });
+        }
+
+        // 第一次调用轮询函数，开始轮询
+        polling();
+    }
+
+
+</script>
+</html>
